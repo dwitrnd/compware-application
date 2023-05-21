@@ -1,26 +1,24 @@
-import { Grid, TextField, Button, Box, Alert } from '@mui/material';
-import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useResetPasswordMutation } from '../../redux/api/auth/userAuthApi';
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useResetPasswordMutation } from "../../redux/api/auth/userAuthApi";
 
 const ResetPassword = () => {
   const { id, token } = useParams();
   console.log(id, token);
-  const [resetPassword, { isError, isSuccess, isLoading }] =
-    useResetPasswordMutation();
+  const [resetPassword, { isError, isSuccess, isLoading }] = useResetPasswordMutation();
 
   const navigate = useNavigate();
   const [error, setError] = useState({
     status: false,
-    msg: '',
-    type: '',
+    msg: "",
+    type: "",
   });
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const actualData = {
-      password: data.get('password'),
-      password_confirmation: data.get('password_confirmation'),
+      password: data.get("password"),
+      password_confirmation: data.get("password_confirmation"),
     };
     if (actualData.password && actualData.password_confirmation) {
       if (actualData.password === actualData.password_confirmation) {
@@ -30,12 +28,12 @@ const ResetPassword = () => {
         const res = await resetPassword({ actualData, id, token });
         console.log(res);
         if (res.data) {
-          if (res.data.status === 'success') {
-            document.getElementById('password-reset-form').reset();
+          if (res.data.status === "success") {
+            document.getElementById("password-reset-form").reset();
             setError({
               status: true,
-              msg: 'Password Reset Successfully. Redirecting to Login Page...',
-              type: 'success',
+              msg: "Password Reset Successfully. Redirecting to Login Page...",
+              type: "success",
             });
           }
         }
@@ -43,73 +41,34 @@ const ResetPassword = () => {
           setError({
             status: true,
             msg: res.error.data.message,
-            type: 'error',
+            type: "error",
           });
         }
         setTimeout(() => {
-          navigate('/login');
+          navigate("/login");
         }, 3000);
       } else {
         setError({
           status: true,
           msg: "Password and Confirm Password Doesn't Match",
-          type: 'error',
+          type: "error",
         });
       }
     } else {
-      setError({ status: true, msg: 'All Fields are Required', type: 'error' });
+      setError({ status: true, msg: "All Fields are Required", type: "error" });
     }
   };
   return (
     <>
-      <Grid container justifyContent="center">
-        <Grid item sm={6} xs={12}>
-          <h1>Reset Password</h1>
-          <Box
-            component="form"
-            noValidate
-            sx={{ mt: 1 }}
-            id="password-reset-form"
-            onSubmit={handleSubmit}
-          >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="password"
-              name="password"
-              label="New Password"
-              type="password"
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="password_confirmation"
-              name="password_confirmation"
-              label="Confirm New Password"
-              type="password"
-            />
-            <Box textAlign="center">
-              <Button
-                type="submit"
-                variant="contained"
-                sx={{ mt: 3, mb: 2, px: 5 }}
-              >
-                Save
-              </Button>
-            </Box>
-            {error.status ? (
-              <Alert severity={error.type}>{error.msg}</Alert>
-            ) : (
-              ''
-            )}
-          </Box>
-        </Grid>
-      </Grid>
+      <h1>Reset Password</h1>
+      <form id='password-reset-form' onSubmit={handleSubmit}>
+        <input required id='password' name='password' placeholder='new password' label='New Password' type='password' />
+        <input required id='password_confirmation' placeholder='confirm new password' name='password_confirmation' label='Confirm New Password' type='password' />
+        <button type='submit'>Save</button>
+        {error.status ? <div severity={error.type}>{error.msg}</div> : ""}
+      </form>
     </>
   );
 };
 
 export default ResetPassword;
-
