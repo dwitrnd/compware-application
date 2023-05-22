@@ -1,4 +1,3 @@
-import { Box, TextField, Button, Alert } from "@mui/material";
 import { useState } from "react";
 import { useChangeUserPasswordMutation } from "../../redux/api/auth/userAuthApi";
 import { getTokenByValue } from "../../services/LocalStorageService";
@@ -8,7 +7,8 @@ const ChangePassword = () => {
 
   console.log("global state");
   console.log(userInfo);
-  const [changeUserPassword, { isSuccess, isError, isLoading }] = useChangeUserPasswordMutation();
+  const [changeUserPassword, { isSuccess, isError, isLoading }] =
+    useChangeUserPasswordMutation();
 
   const [error, setError] = useState({
     status: false,
@@ -60,13 +60,25 @@ const ChangePassword = () => {
   return (
     <>
       <h1>Change Password</h1>
-      <form onSubmit={handleSubmit} id='password-change-form'>
-        <input required name='password' label='New Password' type='password' id='password' />
+      <form onSubmit={handleSubmit} id="password-change-form">
+        <input
+          required
+          name="password"
+          label="New Password"
+          type="password"
+          id="password"
+        />
         <br />
-        <input required name='password_confirmation' label='Confirm New Password' type='password' id='password_confirmation' />
+        <input
+          required
+          name="password_confirmation"
+          label="Confirm New Password"
+          type="password"
+          id="password_confirmation"
+        />
         <br />
-        <button type='submit'>Update</button>
-        {error.status ? <Alert severity={error.type}>{error.msg}</Alert> : ""}
+        <button type="submit">Update</button>
+        {error.status ? <div>{error.msg}</div> : ""}
       </form>
     </>
   );

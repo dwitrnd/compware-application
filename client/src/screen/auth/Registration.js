@@ -1,4 +1,3 @@
-import { TextField, FormControlLabel, Checkbox, Button, Box, Alert } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { storeTokenByValue } from "../../services/LocalStorageService";
@@ -29,7 +28,13 @@ const Registration = () => {
       password_confirmation: data.get("password_confirmation"),
       tc: data.get("tc"),
     };
-    if (actualData.name && actualData.email && actualData.password && actualData.password_confirmation && actualData.tc !== null) {
+    if (
+      actualData.name &&
+      actualData.email &&
+      actualData.password &&
+      actualData.password_confirmation &&
+      actualData.tc !== null
+    ) {
       if (actualData.password === actualData.password_confirmation) {
         console.log(actualData);
         // =================================================================================
@@ -69,17 +74,41 @@ const Registration = () => {
 
   return (
     <>
-      <form id='registration-form' onSubmit={handleSubmit}>
-        <input required placeholder='name' id='name' name='name' label='Name' />
-        <br /> <input placeholder='email' required id='email' name='email' label='Email Address' />
-        <br /> <input placeholder='password' required id='password' name='password' label='Password' type='password' />
-        <br /> <input placeholder='password_confirmation' required id='password_confirmation' name='password_confirmation' label='Confirm Password' type='password' />
+      <form id="registration-form" onSubmit={handleSubmit}>
+        <input required placeholder="name" id="name" name="name" label="Name" />
+        <br />{" "}
+        <input
+          placeholder="email"
+          required
+          id="email"
+          name="email"
+          label="Email Address"
+        />
+        <br />{" "}
+        <input
+          placeholder="password"
+          required
+          id="password"
+          name="password"
+          label="Password"
+          type="password"
+        />
+        <br />{" "}
+        <input
+          placeholder="password_confirmation"
+          required
+          id="password_confirmation"
+          name="password_confirmation"
+          label="Confirm Password"
+          type="password"
+        />
         <br />
-        <label htmlFor='tc'>
-          <input value={true} required id='tc' name='tc' type='checkbox' />I agree to the terms and conditions
+        <label htmlFor="tc">
+          <input value={true} required id="tc" name="tc" type="checkbox" />I
+          agree to the terms and conditions
         </label>
         <br />
-        <button type='submit'>Join</button>
+        <button type="submit">Join</button>
         {error.status ? <div>{error.msg}</div> : ""}
       </form>
     </>
