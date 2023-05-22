@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { Button } from "react-bootstrap";
+import "../../styles/navbar.css";
 
 const Toolbar = () => {
   const token = getTokenByValue();
@@ -26,7 +26,7 @@ const Toolbar = () => {
               <NavDropdown
                 title="Courses"
                 id="courses-dropdown"
-                className="nav-item"
+                className="ms-2"
               >
                 <NavDropdown.Item>
                   <Link to="/courses/plus2" className="dropdown-item">
@@ -45,16 +45,20 @@ const Toolbar = () => {
                   </Link>
                 </NavDropdown.Item>
               </NavDropdown>
-              <Link to="/ourteam" className="nav-link">
+              <Link to="/ourteam" className="nav-link ms-2">
                 Our Team
               </Link>
-              <Link to="/contact" className="nav-link">
+              <Link to="/contact" className="nav-link ms-2">
                 Contact
               </Link>
-              <Link to="/career" className="nav-link">
+              <Link to="/career" className="nav-link ms-2">
                 Careers
               </Link>
-              <NavDropdown title="Community" id="community-dropdown">
+              <NavDropdown
+                title="Community"
+                id="community-dropdown"
+                className="ms-2"
+              >
                 <NavDropdown.Item>
                   {" "}
                   <Link to="/community/communitya" className="dropdown-item">
@@ -68,13 +72,32 @@ const Toolbar = () => {
                   </Link>
                 </NavDropdown.Item>
               </NavDropdown>
-              <Link to="/verifycertificate" className="nav-link">
+              <Link to="/verifycertificate" className="nav-link ms-2">
                 Verify Certificate
               </Link>
-              <Button variant="outline-dark">Login</Button>
-              <Button variant="primary" className="ms-2">
-                Register
-              </Button>
+              {(() => {
+                if (!token) {
+                  return (
+                    <>
+                      <Link to="/login" className="btn btn-dark ms-2">
+                        Login
+                      </Link>
+                      <Link to="/registration" className="btn btn-primary ms-2">
+                        Register
+                      </Link>
+                    </>
+                  );
+                }
+              })()}
+              {(() => {
+                if (token) {
+                  return (
+                    <Link to="/dashboard" className="nav-link">
+                      Dashboard
+                    </Link>
+                  );
+                }
+              })()}
             </Nav>
           </Navbar.Collapse>
         </Container>
