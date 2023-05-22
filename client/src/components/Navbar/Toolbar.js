@@ -4,10 +4,87 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 import "../../styles/navbar.css";
+import Dropdown from "react-bootstrap/Dropdown";
+import LetteredAvatar from "react-lettered-avatar";
+import { useNavigate } from "react-router-dom";
+import { removeToken } from "../../services/LocalStorageService";
+import { useGetLoggedUserQuery } from "../../redux/api/auth/userAuthApi";
+import { useDispatch } from "react-redux";
+import { setUserInfo, unsetUserInfo } from "../../redux/features/userSlice";
+import { unsetUserToken } from "../../redux/features/authSlice";
 
 const Toolbar = () => {
+  const arrayWithColors = [
+    "#2ecc71",
+    "#3498db",
+    "#8e44ad",
+    "#e67e22",
+    "#e74c3c",
+    "#1abc9c",
+    "#2c3e50",
+    "#f23e90",
+    "#8AA8A1",
+    "#EE7B30",
+  ];
+  const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.userInfo);
+
   const token = getTokenByValue();
+  const { isLoading, isError, isSuccess, data } = useGetLoggedUserQuery({
+    token,
+  });
+
+  const [userData, setUserData] = useState(null);
+
+  //?use effect for when data,isSuccess of RTK is true
+  useEffect(() => {
+    if (data && isSuccess) {
+      //? set user data to local state
+      // setUserData({
+      //   email: data.data.user.email,
+      //   name: data.data.user.name,
+      // });
+      //? set user data to global react-toolkit state
+      dispatch(
+        setUserInfo({
+          email: data.data.user.email,
+          name: data.data.user.name,
+        })
+      );
+    }
+  }, [data, isSuccess]);
+
+  //? use effect for when global data is loaded
+  useEffect(() => {
+    if (userInfo.email !== null && userInfo.name !== null) {
+      setUserData({
+        email: userInfo.email,
+        name: userInfo.name,
+      });
+    }
+  }, [userInfo]);
+  console.log(data);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    console.log("Logout Clicked");
+    dispatch(
+      unsetUserToken({
+        token: null,
+      })
+    );
+    dispatch(
+      unsetUserInfo({
+        email: null,
+        name: null,
+      })
+    );
+    removeToken();
+    navigate("/login");
+  };
+
   return (
     <>
       <Navbar className="navbar" expand="lg">
@@ -92,9 +169,29 @@ const Toolbar = () => {
               {(() => {
                 if (token) {
                   return (
-                    <Link to="/dashboard" className="nav-link">
-                      Dashboard
-                    </Link>
+                    <>
+                      <Link to="/dashboard" className="nav-link">
+                        Dashboard
+                      </Link>
+                      <Dropdown>
+                        <Dropdown.Toggle
+                          variant="outlined"
+                          id="avatar-dropdown"
+                          style={{ background: "none", border: "none" }}
+                        >
+                          <LetteredAvatar
+                            name={userData ? userData.name : ""}
+                            backgroundColors={arrayWithColors}
+                            className="avatar"
+                          />
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu style={{ minWidth: "auto" }}>
+                          <Dropdown.Item onClick={handleLogout}>
+                            Logout
+                          </Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </>
                   );
                 }
               })()}

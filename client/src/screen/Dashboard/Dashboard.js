@@ -7,10 +7,10 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUserInfo, unsetUserInfo } from "../../redux/features/userSlice";
 import { unsetUserToken } from "../../redux/features/authSlice";
-
 import { useSelector } from "react-redux";
 
 const Dashboard = () => {
+  // const avatarColor
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.userInfo);
 
@@ -68,6 +68,18 @@ const Dashboard = () => {
   };
   return (
     <>
+      {/* <Dropdown>
+        <Dropdown.Toggle id="avatar-dropdown">
+          <LetteredAvatar
+            name={userData ? userData.name : ""}
+            backgroundColors={arrayWithColors}
+          />
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown> */}
+
       <h6>Email: {userData ? userData.email : ""}</h6>
       <h6>Name: {userData ? userData.name : ""}</h6>
       <button onClick={handleLogout}> Logout</button>
