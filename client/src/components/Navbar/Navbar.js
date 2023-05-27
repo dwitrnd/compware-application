@@ -16,7 +16,7 @@ const Navbar = () => {
             {!token && (
               <>
                 <Link to='/login'>
-                  <li>Login or Register</li>
+                  <li>Login </li>
                 </Link>
                 <Link to='/registration'>
                   <li> Register</li>

@@ -26,10 +26,15 @@
 @import "3-basics/typography";
 
 //?4-LAYOUT   SHARED BIG COMPONENTS
-// @import '4-layout/body-template';
+@import "4-layout/footer";
 
 //? 5-MODULES
 @import "5-modules/teamCarousel";
+@import "5-modules/pagenotfound";
+@import "5-modules/footer-map";
+@import "5-modules/hamburger";
 
 //? 5-PAGES
-// @import '6-pages/attendanceRegistration';
+@import "6-pages/hero-page";
+
+// ===login page

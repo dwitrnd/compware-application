@@ -1,21 +1,24 @@
-// SOFIA BASE
+// ROBOTO BASE
 
-// .Sofia_Bold {
-//   font-family: "Sofia_Bold";
-// }
-// .Sofia_Light {
-//   font-family: "Sofia_Light";
-// }
-// .Sofia_Regular {
-//   font-family: "Sofia_Regular";
-// }
-// .Sofia_SemiBold {
-//   font-family: "Sofia_SemiBold";
-// }
+.Roboto_Base {
+  font-family: "Roboto", sans-serif !important;
+}
+.roboto_300 {
+  @extend .Roboto_Base;
+  font-weight: 300 !important;
+}
 
-// .Sofia_Bold,
-// .Sofia_Light,
-// .Sofia_Regular,
-// .Sofia_SemiBold {
-//   font-weight: inherit;
-// }
+.roboto_400 {
+  @extend .Roboto_Base;
+  font-weight: 400 !important;
+}
+
+.roboto_500 {
+  @extend .Roboto_Base;
+  font-weight: 500 !important;
+}
+
+.roboto_700 {
+  @extend .Roboto_Base;
+  font-weight: 700 !important;
+}
