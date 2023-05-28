@@ -20,15 +20,15 @@ import Gallery from "./screen/Gallery";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#000000",
-      light: "#000000",
-      dark: "#000000",
+      main: "#0f5288",
+      light: "#0f5288",
+      dark: "#0f5288",
       contrastText: "#ffffff",
     },
     info: {
-      main: "#000000",
-      light: "#000000",
-      dark: "#000000",
+      main: "#0f5288",
+      light: "#0f5288",
+      dark: "#0f5288",
       contrastText: "#ffffff",
     },
   },

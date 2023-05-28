@@ -65,7 +65,7 @@ function DrawerAppBar(props) {
         <CssBaseline />
         <AppBar component='nav' sx={{ background: "white", boxShadow: " rgba(0, 0, 0, 0.05) 0px 0px 0px 1px" }}>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Container>
+            <Container maxWidth='lg'>
               <Toolbar
                 sx={{
                   display: "flex",

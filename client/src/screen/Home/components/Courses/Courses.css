@@ -1,0 +1,165 @@
+.courses {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  /* background-color: rgb(242, 242, 242); */
+}
+
+.course-main {
+  display: flex;
+  width: 80vw;
+  height: 80vh;
+  /* background-color: aliceblue; */
+  border-radius: 20px;
+}
+
+.left-course {
+  display: flex;
+  justify-content: space-evenly;
+  /* gap: 2vw; */
+  width: 50%;
+  height: 100%;
+  /* background-color: blueviolet; */
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vw;
+  width: calc(100% / 3);
+  height: 300%;
+}
+
+#row {
+  /* margin-top: -190%; */
+  animation: allcardsmove 30s linear infinite;
+}
+
+.row-two {
+  animation: allcardsmove2 30s linear infinite;
+  margin-top: -185%;
+}
+
+.row-three {
+  animation: allcardsmove 30s linear infinite;
+}
+
+.all-cards {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vh;
+  justify-content: center;
+  width: 10vw;
+  height: 25vh;
+  border-radius: 10px;
+  /* background-color: rgb(245, 178, 178); */
+  box-shadow: 0px 16px 30px 0px rgba(0, 0, 0, 0.099);
+}
+
+.all-cards h4 {
+  color: #a9a9a9;
+}
+
+.what-say {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2vw;
+  margin-top: 5vh;
+  gap: 2vh;
+  width: 25vw;
+  height: 20vh;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 16px 30px 0px rgba(0, 0, 0, 0.099);
+}
+
+.hr-div {
+  width: 80%;
+  height: 1px;
+  background-color: rgb(226, 226, 226);
+}
+.what-say p {
+  font-size: 0.7vw;
+  color: #7f7e7e;
+}
+
+.member-div {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.member-img {
+  width: 2vw;
+  height: 2vw;
+  background-image: url(https://images.unsplash.com/photo-1591084728795-1149f32d9866?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2564&q=80);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.member-details h2 {
+  font-weight: 600;
+  font-size: 0.9vw;
+  color: #717171;
+}
+.member-details h5 {
+  font-size: 0.6vw;
+  font-weight: 200;
+  color: #b0b0b0;
+}
+
+@keyframes allcardsmove {
+  0% {
+    margin-top: 0%;
+  }
+  100% {
+    margin-top: -185%;
+  }
+}
+
+@keyframes allcardsmove2 {
+  0% {
+    margin-top: -185%;
+  }
+  100% {
+    margin-top: 0%;
+  }
+}
+
+@media (max-width: 800px) {
+  .courses {
+    height: 130vh;
+  }
+  .course-main {
+    flex-wrap: wrap;
+    height: 120vh;
+    width: 90vw;
+  }
+
+  .left-course {
+    height: 35%;
+    width: 100%;
+    padding: 2vw;
+  }
+
+  .left-course .all-cards {
+    width: 21vw;
+    height: 16vh;
+  }
+  .left-course .all-cards img {
+    width: 10vw;
+  }
+  .left-course .all-cards h4 {
+    font-size: 3vw;
+  }
+  .left-course .all-cards .figma_modify {
+    width: 16vw;
+  }
+}

@@ -54,3 +54,8 @@ a {
 .ReactGridGallery_tile-bottom-bar span {
   color: white !important;
 }
+
+// make certificate fit in home page
+section.how-it-work .MuiCardMedia-root {
+  background-size: contain !important;
+}
