@@ -139,55 +139,56 @@ function DrawerAppBar(props) {
           loading='lazy'
           referrerpolicy='no-referrer-when-downgrade'
         ></iframe>
-
-        <div class='container'>
-          <div class='container-block'>
-            <section class='footer__upper'>
-              <div class='footer__upper--left'>
-                <img src={whiteCompwareLogo} alt='it company' />
-              </div>
-              <div class='footer__upper--center'>
-                <p class=''>
-                  At The Deerwalk Training Center, we are experts in guiding next generation youths with next level of IT Trainings and Education Quality and other top positions. Our coaches and consultants are experienced, our teams are gathered via tailor searches. Small Change Towards the greater
-                  good is our motto .
-                </p>
-              </div>
-              <div class='footer__upper--right'>
-                <ul>
-                  <li>
-                    <a href='#'>
-                      <u> Blog </u>
-                    </a>
-                  </li>
-                  <li>
-                    <a href='#'> Policy </a>
-                  </li>
-                  <li>
-                    <a
-                      href='
+        <Container maxWidth='lg'>
+          <div class='container'>
+            <div class='container-block'>
+              <section class='footer__upper'>
+                <div class='footer__upper--left'>
+                  <img src={whiteCompwareLogo} alt='it company' />
+                </div>
+                <div class='footer__upper--center'>
+                  <p class=''>
+                    At The Deerwalk Training Center, we are experts in guiding next generation youths with next level of IT Trainings and Education Quality and other top positions. Our coaches and consultants are experienced, our teams are gathered via tailor searches. Small Change Towards the
+                    greater good is our motto .
+                  </p>
+                </div>
+                <div class='footer__upper--right'>
+                  <ul>
+                    <li>
+                      <a href='#'>
+                        <u> Blog </u>
+                      </a>
+                    </li>
+                    <li>
+                      <a href='#'> Policy </a>
+                    </li>
+                    <li>
+                      <a
+                        href='
 '
-                    >
-                      Services
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href='
+                      >
+                        Services
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href='
 
 '
-                    >
-                      Contact
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </section>
-            <hr />
-            <section class='footer__lower'>
-              <p>&#169; {getYear()} Deerwalk Group. All Rights Reserved.</p>
-            </section>
+                      >
+                        Contact
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+              <hr />
+              <section class='footer__lower'>
+                <p>&#169; {getYear()} Deerwalk Group. All Rights Reserved.</p>
+              </section>
+            </div>
           </div>
-        </div>
+        </Container>
       </footer>
     </>
   );

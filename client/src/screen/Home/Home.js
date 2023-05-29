@@ -71,7 +71,7 @@ const Home = () => {
         <HowItWorksSection />
 
         {/* //todo: testimonial section */}
-        <TestimonialSection>
+        <TestimonialSection style={{ margin: "5rem 0rem" }}>
           <h6 className='roboto_300'>IN THE NEWS</h6>
           <h2 className='roboto_400'>
             Hot off the

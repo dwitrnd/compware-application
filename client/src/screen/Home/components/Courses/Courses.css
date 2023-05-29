@@ -135,11 +135,11 @@
 
 @media (max-width: 800px) {
   .courses {
-    height: 130vh;
+    height: 50vh;
   }
   .course-main {
     flex-wrap: wrap;
-    height: 120vh;
+    height: 40vh;
     width: 90vw;
   }
 
