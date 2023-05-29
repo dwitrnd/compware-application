@@ -16,6 +16,7 @@ import SendPasswordResetEmail from "./screen/auth/SendPasswordResetEmail";
 import Dashboard from "./screen/Dashboard";
 import OurTeam from "./screen/OurTeam";
 import Gallery from "./screen/Gallery";
+import AdminLogin from "./screen/AdminAuth/AdminLogin";
 
 const theme = createTheme({
   palette: {
@@ -53,7 +54,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='home'
+                  path="home"
                   element={
                     <Layout>
                       <Home />
@@ -61,7 +62,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='team'
+                  path="team"
                   element={
                     <Layout>
                       <OurTeam />
@@ -69,7 +70,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='gallery'
+                  path="gallery"
                   element={
                     <Layout>
                       <Gallery />
@@ -77,7 +78,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='contact'
+                  path="contact"
                   element={
                     <Layout>
                       <Contact />
@@ -85,31 +86,31 @@ function App() {
                   }
                 />
                 <Route
-                  path='login'
+                  path="login"
                   element={
                     !token ? (
                       <Layout>
                         <Login />
                       </Layout>
                     ) : (
-                      <Navigate to='/' />
+                      <Navigate to="/" />
                     )
                   }
                 />
                 <Route
-                  path='register'
+                  path="register"
                   element={
                     !token ? (
                       <Layout>
                         <Registration />
                       </Layout>
                     ) : (
-                      <Navigate to='/' />
+                      <Navigate to="/" />
                     )
                   }
                 />
                 <Route
-                  path='sendpasswordresetemail'
+                  path="sendpasswordresetemail"
                   element={
                     <Layout>
                       <SendPasswordResetEmail />
@@ -117,7 +118,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='/api/users/reset/:id/:token'
+                  path="/api/users/reset/:id/:token"
                   element={
                     <Layout>
                       <ResetPassword />
@@ -125,8 +126,9 @@ function App() {
                   }
                 />
               </Route>
-              <Route path='/dashboard' element={<Dashboard />} />
-              <Route path='*' element={<PageNotFound />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="*" element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>
         </ThemeProvider>
