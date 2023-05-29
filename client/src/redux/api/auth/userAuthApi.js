@@ -1,10 +1,10 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const userAuthApi = createApi({
   //unique string
-  reducerPath: 'userAuthApi',
+  reducerPath: "userAuthApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:5000/api/users/',
+    baseUrl: "http://localhost:5001/api/users/",
   }),
 
   // function that has different fetch method
@@ -12,11 +12,11 @@ export const userAuthApi = createApi({
     registerUser: builder.mutation({
       query: (user) => {
         return {
-          url: 'register',
-          method: 'POST',
+          url: "register",
+          method: "POST",
           body: user,
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         };
       },
@@ -24,11 +24,11 @@ export const userAuthApi = createApi({
     loginUser: builder.mutation({
       query: (user) => {
         return {
-          url: 'login',
-          method: 'POST',
+          url: "login",
+          method: "POST",
           body: user,
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         };
       },
@@ -36,11 +36,11 @@ export const userAuthApi = createApi({
     sendPasswordResetEmail: builder.mutation({
       query: (user) => {
         return {
-          url: 'send-user-password-reset-email',
-          method: 'POST',
+          url: "send-user-password-reset-email",
+          method: "POST",
           body: user,
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         };
       },
@@ -50,10 +50,10 @@ export const userAuthApi = createApi({
         return {
           // url: '/reset-password/:id/:token',
           url: `/reset-password/${id}/${token}`,
-          method: 'POST',
+          method: "POST",
           body: actualData,
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         };
       },
@@ -63,7 +63,7 @@ export const userAuthApi = createApi({
         return {
           // url: '/reset-password/:id/:token',
           url: `/getloggeduserdata`,
-          method: 'GET',
+          method: "GET",
           headers: {
             authorization: `Bearer ${token}`,
           },
@@ -74,7 +74,7 @@ export const userAuthApi = createApi({
       query: ({ token, actualData }) => {
         return {
           url: `/changepassword`,
-          method: 'POST',
+          method: "POST",
           body: actualData,
           headers: {
             authorization: `Bearer ${token}`,
