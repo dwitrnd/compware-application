@@ -1,0 +1,192 @@
+import React from "react";
+import { Box, TextField, Typography, IconButton, Button } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import AvatarImage from "../../assets/images/avatar.png";
+import EmailIcon from "@mui/icons-material/Email";
+import PasswordIcon from "@mui/icons-material/Password";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { storeTokenByValue } from "../../services/LocalStorageService";
+import { useRegisterUserMutation } from "../../redux/api/auth/userAuthApi";
+const AdminRegister = () => {
+  const [error, setError] = useState({
+    status: false,
+    msg: "",
+    type: "",
+  });
+
+  const navigate = useNavigate();
+
+  //! RTK Generated Register Hook , "registerUser" is name of endpoint in userAuthApi.js
+  const [registerUser, { isLoading, isError }] = useRegisterUserMutation();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const actualData = {
+      name: data.get("name"),
+      email: data.get("email"),
+      password: data.get("password"),
+      password_confirmation: data.get("password_confirmation"),
+      tc: data.get("tc"),
+    };
+    if (
+      actualData.name &&
+      actualData.email &&
+      actualData.password &&
+      actualData.password_confirmation &&
+      actualData.tc !== null
+    ) {
+      if (actualData.password === actualData.password_confirmation) {
+        console.log(actualData);
+        // =================================================================================
+        //! User Register Using RTK Query Method
+        const res = await registerUser(actualData);
+        console.log(res);
+        if (res.data) {
+          if (res.data.status === "success") {
+            //! TODO: TOKEN STORE garnu xa
+            storeTokenByValue(res.data.token);
+
+            navigate("/login");
+          }
+        }
+        if (res.error) {
+          setError({
+            status: true,
+            msg: res.error.data.message,
+            type: "error",
+          });
+          // =================================================================================
+        }
+      } else {
+        setError({
+          status: true,
+          msg: "Password and Confirm Password Doesn't Match",
+          type: "error",
+        });
+      }
+    } else {
+      setError({ status: true, msg: "All Fields are Required", type: "error" });
+    }
+  };
+  if (isLoading) {
+    return <div>Loading....</div>;
+  }
+  return (
+    <>
+      <Box
+        component="form"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: "1rem",
+          marginTop: "4rem",
+          alignItems: "center",
+          "& .MuiTextField-root": { width: "20rem" },
+        }}
+        onSubmit={handleSubmit}
+      >
+        <div>
+          <Avatar
+            alt="Deerwalk Logo"
+            src={AvatarImage}
+            sx={{ width: 76, height: 76 }}
+          />
+        </div>
+        <div>
+          <Typography variant="h4" gutterBottom color="primary">
+            Register
+          </Typography>
+        </div>
+        <div>
+          <TextField
+            required
+            id="name"
+            name="name"
+            label="Name"
+            variant="standard"
+            type="text"
+            InputProps={{
+              endAdornment: (
+                <IconButton>
+                  <PersonOutlineIcon />
+                </IconButton>
+              ),
+            }}
+          />
+        </div>
+        <div>
+          <TextField
+            required
+            id="email"
+            name="email"
+            label="Email"
+            variant="standard"
+            type="email"
+            InputProps={{
+              endAdornment: (
+                <IconButton>
+                  <EmailIcon />
+                </IconButton>
+              ),
+            }}
+          />
+        </div>
+        <div>
+          <TextField
+            required
+            id="password"
+            name="password"
+            label="Password"
+            variant="standard"
+            type="password"
+            InputProps={{
+              endAdornment: (
+                <IconButton>
+                  <PasswordIcon />
+                </IconButton>
+              ),
+            }}
+          />
+        </div>
+        <div>
+          <TextField
+            required
+            id="confirm-password"
+            name="confirm-password"
+            label="Confirm Password"
+            variant="standard"
+            type="password"
+            InputProps={{
+              endAdornment: (
+                <IconButton>
+                  <PasswordIcon />
+                </IconButton>
+              ),
+            }}
+          />
+        </div>
+        <Button
+          variant="contained"
+          type="submit"
+          sx={{ width: "20rem", marginTop: "1rem" }}
+        >
+          Register
+        </Button>
+        <div>
+          <Typography variant="body">Already Have an account?</Typography>
+          <Link to="/admin/login" color="primary">
+            Login
+          </Link>
+        </div>
+        {error.status ? <div>{error.msg}</div> : ""}
+      </Box>
+    </>
+  );
+};
+
+export default AdminRegister;
