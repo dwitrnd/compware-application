@@ -17,6 +17,8 @@ import Dashboard from "./screen/Dashboard";
 import OurTeam from "./screen/OurTeam";
 import Gallery from "./screen/Gallery";
 import AdminLogin from "./screen/AdminAuth/AdminLogin";
+import AdminRegister from "./screen/AdminAuth/AdminRegister";
+import AdminForgotPassword from "./screen/AdminAuth/AdminForgotPassword";
 
 const theme = createTheme({
   palette: {
@@ -128,6 +130,11 @@ function App() {
               </Route>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/admin/login" element={<AdminLogin />} />
+              <Route path="/admin/register" element={<AdminRegister />} />
+              <Route
+                path="/admin/resetpassword"
+                element={<AdminForgotPassword />}
+              />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>
