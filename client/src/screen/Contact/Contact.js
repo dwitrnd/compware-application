@@ -1,13 +1,69 @@
+import { Box, Typography, TextField, Button } from "@mui/material";
+
 const Contact = () => {
+  const handleSubmit = (event) => {};
+  const textFieldOutline = "#5A94BD";
   return (
     <>
-      <h1>Contact Page</h1>
-      <hr />
-      <p>
-        Contact Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio earum officiis debitis vel tenetur quos animi vero voluptates reiciendis, omnis sed in libero temporibus deleniti pariatur expedita corporis officia. Odit enim, quasi facere magnam earum officiis ipsa aliquid impedit
-        velit quibusdam dolor ex esse ratione explicabo quod, culpa temporibus? Dolorem deleniti doloremque maxime quas deserunt. Ex aspernatur saepe illo eaque corrupti placeat, aperiam nulla adipisci itaque quos necessitatibus iure at minus non delectus ratione quod ad. Alias dolore perferendis
-        est expedita iure! Nostrum laborum tempore amet commodi voluptas accusamus enim repudiandae, quia odio cumque, laboriosam architecto illo! Aliquid, fuga quis.
-      </p>
+      <Box
+        component="form"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+          maxWidth: "85%",
+          margin: "0 auto",
+          marginTop: 4,
+          marginBottom: 4,
+          padding: "2rem",
+          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+          borderRadius: "0.25rem",
+          backgroundColor: "#0F5288",
+          color: "white",
+        }}
+        onSubmit={handleSubmit}
+      >
+        <Typography variant="h4" align="center" gutterBottom>
+          Get In Touch
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          gutterBottom
+          sx={{ display: "flex", justifyContent: "center" }}
+        >
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+          blanditiis tenetur
+        </Typography>
+        <TextField
+          required
+          label="Name"
+          type="name"
+          variant="outlined"
+          color="warning"
+        />
+        <TextField
+          required
+          label="Email"
+          type="email"
+          variant="outlined"
+          color="warning"
+        />
+        <TextField
+          required
+          label="Message"
+          multiline
+          rows={4}
+          variant="outlined"
+          color="warning"
+        />
+        <Button
+          variant="contained"
+          type="submit"
+          sx={{ backgroundColor: "white", color: "#0F5288" }}
+        >
+          Submit
+        </Button>
+      </Box>
     </>
   );
 };
