@@ -19,6 +19,7 @@ import Gallery from "./screen/Gallery";
 import AdminLogin from "./screen/AdminAuth/AdminLogin";
 import AdminRegister from "./screen/AdminAuth/AdminRegister";
 import AdminForgotPassword from "./screen/AdminAuth/AdminForgotPassword";
+import AboutUs from "./screen/AboutUs/AboutUs";
 
 const theme = createTheme({
   palette: {
@@ -80,6 +81,14 @@ function App() {
                   }
                 />
                 <Route
+                  path="about"
+                  element={
+                    <Layout>
+                      <AboutUs />
+                    </Layout>
+                  }
+                />
+                <Route
                   path="contact"
                   element={
                     <Layout>
@@ -92,7 +101,7 @@ function App() {
                   element={
                     !token ? (
                       <Layout>
-                        <Login />
+                        <AdminLogin />
                       </Layout>
                     ) : (
                       <Navigate to="/" />
@@ -104,7 +113,7 @@ function App() {
                   element={
                     !token ? (
                       <Layout>
-                        <Registration />
+                        <AdminRegister />
                       </Layout>
                     ) : (
                       <Navigate to="/" />

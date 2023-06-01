@@ -7,25 +7,25 @@ const Navbar = () => {
       <header>
         <nav>
           <ul>
-            <Link to='/'>
+            <Link to="/">
               <li>Home</li>
             </Link>
-            <Link to='/contact'>
+            <Link to="/contact">
               <li>Contact</li>
             </Link>
             {!token && (
               <>
-                <Link to='/login'>
+                <Link to="/admin/login">
                   <li>Login </li>
                 </Link>
-                <Link to='/registration'>
+                <Link to="/admin/registration">
                   <li> Register</li>
                 </Link>
               </>
             )}
 
             {token && (
-              <Link to='/dashboard'>
+              <Link to="/dashboard">
                 <li>Dashboard</li>
               </Link>
             )}
