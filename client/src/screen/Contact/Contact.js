@@ -2,7 +2,6 @@ import { Box, Typography, TextField, Button } from "@mui/material";
 
 const Contact = () => {
   const handleSubmit = (event) => {};
-  const textFieldOutline = "#5A94BD";
   return (
     <>
       <Box
@@ -18,8 +17,6 @@ const Contact = () => {
           padding: "2rem",
           boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
           borderRadius: "0.25rem",
-          backgroundColor: "#0F5288",
-          color: "white",
         }}
         onSubmit={handleSubmit}
       >
@@ -38,14 +35,14 @@ const Contact = () => {
           required
           label="Name"
           type="name"
-          variant="outlined"
+          variant="standard"
           color="warning"
         />
         <TextField
           required
           label="Email"
           type="email"
-          variant="outlined"
+          variant="standard"
           color="warning"
         />
         <TextField
@@ -53,13 +50,13 @@ const Contact = () => {
           label="Message"
           multiline
           rows={4}
-          variant="outlined"
+          variant="standard"
           color="warning"
         />
         <Button
           variant="contained"
           type="submit"
-          sx={{ backgroundColor: "white", color: "#0F5288" }}
+          sx={{ backgroundColor: "#0F5288", color: "white" }}
         >
           Submit
         </Button>
