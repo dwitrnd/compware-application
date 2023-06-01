@@ -85,6 +85,7 @@ const AdminRegister = () => {
           justifyContent: "center",
           gap: "1rem",
           marginTop: "4rem",
+          marginBottom: "4rem",
           alignItems: "center",
           "& .MuiTextField-root": { width: "20rem" },
         }}
