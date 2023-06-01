@@ -44,8 +44,8 @@ const Home = () => {
         <section id='hero-banner'>
           <div id='video-box'>
             <video autoPlay muted loop>
-              {/* <source src={"https://static.frontendmasters.com/assets/fm/med/home/hero.mp4"} type='video/mp4' /> */}
-              <source src={"https://cdn.dribbble.com/uploads/39421/original/963b4f8739cbdf86ca3f3a23245efd18.mp4?1657824985"} type='video/mp4' />
+              <source src={"https://static.frontendmasters.com/assets/fm/med/home/hero.mp4"} type='video/mp4' />
+              {/* <source src={"https://cdn.dribbble.com/uploads/39421/original/963b4f8739cbdf86ca3f3a23245efd18.mp4?1657824985"} type='video/mp4' /> */}
             </video>
           </div>
 
