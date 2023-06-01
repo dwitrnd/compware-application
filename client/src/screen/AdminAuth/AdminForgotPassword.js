@@ -86,7 +86,7 @@ const AdminForgotPassword = () => {
           Reset Password
         </Button>
         <IconButton>
-          <Link to="/admin/login">
+          <Link to="/login">
             <ArrowBackIcon />
             <Typography
               variant="body"
