@@ -5,6 +5,7 @@ import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
 import Menu from "@mui/material/Menu";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
   //   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -42,7 +43,9 @@ const DropDown = () => {
             paddingBottom: "1rem", // Add some padding at the bottom
           }}
         >
-          <Button>See All Courses</Button>
+          <Link to="/courses">
+            <Button>See All Courses</Button>
+          </Link>
         </Box>
       </Box>
     </>

@@ -34,13 +34,13 @@ const navItems = [
   "Login",
   "Register",
 ];
+
 const courseItem = ["+2", "Diploma", "All"];
 
 function DrawerAppBar(props) {
   const { window, children } = props;
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
   const [courseToggle, setCourseToggle] = React.useState(false);
 
   const handleCourseToggle = () => {
@@ -124,21 +124,30 @@ function DrawerAppBar(props) {
 
                 <Box sx={{ display: { xs: "none", sm: "block" } }}>
                   {navItems.map((item) => {
-                    console.log(item);
-                    // if (item === "Courses") {
-                    //   return handleCourseToggle;
-                    // }
-                    return (
-                      <Link to={`/${item.toLowerCase()}`} key={item}>
+                    if (item === "Courses") {
+                      return (
                         <Button
                           className="blue-color roboto_500"
                           key={item.toLowerCase()}
                           sx={{ color: "#fff" }}
+                          onClick={handleCourseToggle}
                         >
                           {item}
                         </Button>
-                      </Link>
-                    );
+                      );
+                    } else {
+                      return (
+                        <Link to={`/${item.toLowerCase()}`} key={item}>
+                          <Button
+                            className="blue-color roboto_500"
+                            key={item.toLowerCase()}
+                            sx={{ color: "#fff" }}
+                          >
+                            {item}
+                          </Button>
+                        </Link>
+                      );
+                    }
                   })}
                 </Box>
               </Toolbar>
@@ -170,7 +179,9 @@ function DrawerAppBar(props) {
         </Box>
       </Box>
 
-      <main style={{ minHeight: "55vh" }}>{children}</main>
+      <main style={{ minHeight: "55vh" }}>
+        {courseToggle ? <DropDown /> : children}
+      </main>
 
       <footer>
         <iframe
@@ -210,21 +221,10 @@ function DrawerAppBar(props) {
                       <a href="#"> Policy </a>
                     </li>
                     <li>
-                      <a
-                        href="
-"
-                      >
-                        Services
-                      </a>
+                      <a href="">Services</a>
                     </li>
                     <li>
-                      <a
-                        href="
-
-"
-                      >
-                        Contact
-                      </a>
+                      <a href="">Contact</a>
                     </li>
                   </ul>
                 </div>
