@@ -150,23 +150,7 @@ const AdminRegister = () => {
             }}
           />
         </div>
-        <div>
-          <TextField
-            required
-            id="confirm-password"
-            name="confirm-password"
-            label="Confirm Password"
-            variant="standard"
-            type="password"
-            InputProps={{
-              endAdornment: (
-                <IconButton>
-                  <PasswordIcon />
-                </IconButton>
-              ),
-            }}
-          />
-        </div>
+
         <Button
           variant="contained"
           type="submit"
@@ -174,12 +158,22 @@ const AdminRegister = () => {
         >
           Register
         </Button>
-        <div>
-          <Typography variant="body">Already Have an account?</Typography>
-          <Link to="/login" color="primary">
-            Login
-          </Link>
-        </div>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
+        >
+          <div>
+            <Typography variant="body">Already Have an account?</Typography>
+          </div>
+          <div>
+            <Link to="/login" color="primary">
+              Login
+            </Link>
+          </div>
+        </Box>
         {error.status ? <div>{error.msg}</div> : ""}
       </Box>
     </>

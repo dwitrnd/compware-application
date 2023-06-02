@@ -15,7 +15,7 @@ const Contact = () => {
           marginTop: 4,
           marginBottom: 4,
           padding: "2rem",
-          boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+          boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
           borderRadius: "0.25rem",
         }}
         onSubmit={handleSubmit}

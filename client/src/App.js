@@ -20,6 +20,7 @@ import AdminLogin from "./screen/AdminAuth/AdminLogin";
 import AdminRegister from "./screen/AdminAuth/AdminRegister";
 import AdminForgotPassword from "./screen/AdminAuth/AdminForgotPassword";
 import AboutUs from "./screen/AboutUs/AboutUs";
+import Courses from "./screen/Courses/Courses";
 
 const theme = createTheme({
   palette: {
@@ -89,6 +90,14 @@ function App() {
                   }
                 />
                 <Route
+                  path="courses"
+                  element={
+                    <Layout>
+                      <Courses />
+                    </Layout>
+                  }
+                />
+                <Route
                   path="contact"
                   element={
                     <Layout>
@@ -138,7 +147,14 @@ function App() {
                 />
               </Route>
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="resetpassword" element={<AdminForgotPassword />} />
+              <Route
+                path="resetpassword"
+                element={
+                  <Layout>
+                    <AdminForgotPassword />
+                  </Layout>
+                }
+              />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>

@@ -21,9 +21,20 @@ import compwareLogo from "../../assets/images/compware-logo.png";
 import whiteCompwareLogo from "../../assets/images/compware-logo-white.png";
 
 import { Link } from "react-router-dom";
+import DropDown from "../../components/DropDown/DropDown";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact", "Gallery", "Team", "Login", "Register"];
+const navItems = [
+  "Home",
+  "About",
+  "Courses",
+  "Contact",
+  "Gallery",
+  "Team",
+  "Login",
+  "Register",
+];
+const courseItem = ["+2", "Diploma", "All"];
 
 function DrawerAppBar(props) {
   const { window, children } = props;
@@ -41,7 +52,7 @@ function DrawerAppBar(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant='h6' sx={{ my: 2 }}>
+      <Typography variant="h6" sx={{ my: 2 }}>
         MUI
       </Typography>
       <Divider />
@@ -57,22 +68,35 @@ function DrawerAppBar(props) {
     </Box>
   );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <AppBar component='nav' sx={{ background: "white", boxShadow: " rgba(0, 0, 0, 0.05) 0px 0px 0px 1px" }}>
+        <AppBar
+          component="nav"
+          sx={{
+            background: "white",
+            boxShadow: " rgba(0, 0, 0, 0.05) 0px 0px 0px 1px",
+          }}
+        >
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <Container maxWidth='lg'>
+            <Container maxWidth="lg">
               <Toolbar
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
                 }}
               >
-                <IconButton color='inherit' aria-label='open drawer' edge='start' onClick={handleDrawerToggle} sx={{ mr: 2, display: { sm: "none" } }}>
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  edge="start"
+                  onClick={handleDrawerToggle}
+                  sx={{ mr: 2, display: { sm: "none" } }}
+                >
                   <MenuIcon />
                 </IconButton>
 
@@ -83,32 +107,42 @@ function DrawerAppBar(props) {
                   }}
                 >
                   <Box
-                    component='img'
+                    component="img"
                     sx={{
                       height: 52,
                     }}
-                    alt='Compware logo'
+                    alt="Compware logo"
                     src={compwareLogo}
                   />
                 </div>
 
                 <Box sx={{ display: { xs: "none", sm: "block" } }}>
-                  {navItems.map((item) => (
-                    <Link to={`/${item.toLowerCase()}`} key={item}>
-                      <Button className='blue-color roboto_500' key={item.toLowerCase()} sx={{ color: "#fff" }}>
-                        {item}
-                      </Button>
-                    </Link>
-                  ))}
+                  {navItems.map((item) => {
+                    console.log(item);
+                    // if (item === "Courses") {
+                    //   return <DropDown />;
+                    // }
+                    return (
+                      <Link to={`/${item.toLowerCase()}`} key={item}>
+                        <Button
+                          className="blue-color roboto_500"
+                          key={item.toLowerCase()}
+                          sx={{ color: "#fff" }}
+                        >
+                          {item}
+                        </Button>
+                      </Link>
+                    );
+                  })}
                 </Box>
               </Toolbar>
             </Container>
           </div>
         </AppBar>
-        <Box component='nav'>
+        <Box component="nav">
           <Drawer
             container={container}
-            variant='temporary'
+            variant="temporary"
             open={mobileOpen}
             onClose={handleDrawerToggle}
             ModalProps={{
@@ -116,13 +150,16 @@ function DrawerAppBar(props) {
             }}
             sx={{
               display: { xs: "block", sm: "none" },
-              "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+              "& .MuiDrawer-paper": {
+                boxSizing: "border-box",
+                width: drawerWidth,
+              },
             }}
           >
             {drawer}
           </Drawer>
         </Box>
-        <Box component='main' sx={{ p: 3 }}>
+        <Box component="main" sx={{ p: 3 }}>
           <Toolbar />
         </Box>
       </Box>
@@ -131,50 +168,54 @@ function DrawerAppBar(props) {
 
       <footer>
         <iframe
-          className='map'
-          src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1512236921644!2d85.342503!3d27.7126168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1970d2e43e4b%3A0x946fac63019d2903!2sDeerwalk%20Institute%20of%20Technology!5e0!3m2!1sen!2snp!4v1685200434953!5m2!1sen!2snp'
-          width='100%'
+          className="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1512236921644!2d85.342503!3d27.7126168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1970d2e43e4b%3A0x946fac63019d2903!2sDeerwalk%20Institute%20of%20Technology!5e0!3m2!1sen!2snp!4v1685200434953!5m2!1sen!2snp"
+          width="100%"
           style={{ border: 0, height: "300px" }}
-          allowfullscreen=''
-          loading='lazy'
-          referrerpolicy='no-referrer-when-downgrade'
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
-        <Container maxWidth='lg'>
-          <div class='container'>
-            <div class='container-block'>
-              <section class='footer__upper'>
-                <div class='footer__upper--left'>
-                  <img src={whiteCompwareLogo} alt='it company' />
+        <Container maxWidth="lg">
+          <div class="container">
+            <div class="container-block">
+              <section class="footer__upper">
+                <div class="footer__upper--left">
+                  <img src={whiteCompwareLogo} alt="it company" />
                 </div>
-                <div class='footer__upper--center'>
-                  <p class=''>
-                    At The Deerwalk Training Center, we are experts in guiding next generation youths with next level of IT Trainings and Education Quality and other top positions. Our coaches and consultants are experienced, our teams are gathered via tailor searches. Small Change Towards the
-                    greater good is our motto .
+                <div class="footer__upper--center">
+                  <p class="">
+                    At The Deerwalk Training Center, we are experts in guiding
+                    next generation youths with next level of IT Trainings and
+                    Education Quality and other top positions. Our coaches and
+                    consultants are experienced, our teams are gathered via
+                    tailor searches. Small Change Towards the greater good is
+                    our motto .
                   </p>
                 </div>
-                <div class='footer__upper--right'>
+                <div class="footer__upper--right">
                   <ul>
                     <li>
-                      <a href='#'>
+                      <a href="#">
                         <u> Blog </u>
                       </a>
                     </li>
                     <li>
-                      <a href='#'> Policy </a>
+                      <a href="#"> Policy </a>
                     </li>
                     <li>
                       <a
-                        href='
-'
+                        href="
+"
                       >
                         Services
                       </a>
                     </li>
                     <li>
                       <a
-                        href='
+                        href="
 
-'
+"
                       >
                         Contact
                       </a>
@@ -183,7 +224,7 @@ function DrawerAppBar(props) {
                 </div>
               </section>
               <hr />
-              <section class='footer__lower'>
+              <section class="footer__lower">
                 <p>&#169; {getYear()} Deerwalk Group. All Rights Reserved.</p>
               </section>
             </div>

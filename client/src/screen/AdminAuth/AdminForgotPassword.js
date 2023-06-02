@@ -55,10 +55,15 @@ const AdminForgotPassword = () => {
           flexDirection: "column",
           justifyContent: "center",
           gap: "1rem",
+          margin: "0 auto 0",
+          // height: "100vh",
+          marginTop: "6rem",
+          marginBottom: "6rem",
+          padding: "25px 25px 25px 25px",
+          borderRadius: ".25rem",
+          alignItems: "center",
           width: "fit-content",
           boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
-          height: "100vh",
-          alignItems: "center",
           "& .MuiTextField-root": { width: "20rem" },
         }}
         onSubmit={handleSubmit}
