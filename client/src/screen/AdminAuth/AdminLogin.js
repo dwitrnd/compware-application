@@ -1,9 +1,7 @@
 import { Button, IconButton, InputAdornment } from "@mui/material";
 import { Box, TextField } from "@material-ui/core";
-import AvatarImage from "../../assets/images/avatar.png";
 import EmailIcon from "@mui/icons-material/Email";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import Avatar from "@mui/material/Avatar";
 import { useState } from "react";
 import Typography from "@mui/material/Typography";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,6 +9,7 @@ import { useLoginUserMutation } from "../../redux/api/auth/userAuthApi";
 import { storeTokenByValue } from "../../services/LocalStorageService";
 import { useDispatch } from "react-redux";
 import { setUserToken } from "../../redux/features/authSlice";
+import Grid from "@mui/material/Grid";
 
 const AdminLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -74,28 +73,29 @@ const AdminLogin = () => {
           flexDirection: "column",
           justifyContent: "center",
           gap: "1rem",
-          height: "100vh",
+          margin: "0 auto 0",
+          // height: "100vh",
+          marginTop: "6rem",
+          marginBottom: "6rem",
+          padding: "25px 25px 25px 25px",
+          borderRadius: ".25rem",
           alignItems: "center",
+          width: "fit-content",
+          boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
           "& .MuiTextField-root": { width: "20rem" },
         }}
       >
-        <div>
-          <Avatar
-            alt="Deerwalk Logo"
-            src={AvatarImage}
-            sx={{ width: 76, height: 76 }}
-          />
-        </div>
         <Typography variant="h4" gutterBottom color="primary">
           Login
         </Typography>
+
         <div>
           <TextField
             required
             id="standard-basic"
             name="email"
             label="Email"
-            variant="filled"
+            variant="standard"
             type="email"
             InputProps={{
               endAdornment: (
@@ -112,7 +112,7 @@ const AdminLogin = () => {
             id="standard-basic margin-dense"
             name="password"
             label="Password"
-            variant="filled"
+            variant="standard"
             type={showPassword ? "text" : "password"}
             InputProps={{
               endAdornment: (
@@ -133,17 +133,22 @@ const AdminLogin = () => {
         >
           Login
         </Button>
-        <div
+        <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
+            width: "100%",
           }}
         >
-          <Link to="/admin/resetpassword" color="primary">
-            Forgot Password?
-          </Link>
-          <Link to="/admin/register">Register</Link>
-        </div>
+          <div>
+            <Link to="/resetpassword" color="primary">
+              Forgot Password?
+            </Link>
+          </div>
+          <div>
+            <Link to="/register">Register</Link>
+          </div>
+        </Box>
         {error.status ? <div>{error.msg}</div> : ""}
       </Box>
     </>

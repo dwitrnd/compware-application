@@ -138,8 +138,6 @@ function App() {
                 />
               </Route>
               <Route path="/dashboard" element={<Dashboard />} />
-              {/* <Route path="/admin/login" element={<AdminLogin />} />
-              <Route path="/admin/register" element={<AdminRegister />} /> */}
               <Route path="resetpassword" element={<AdminForgotPassword />} />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
