@@ -41,6 +41,12 @@ function DrawerAppBar(props) {
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+  const [courseToggle, setCourseToggle] = React.useState(false);
+
+  const handleCourseToggle = () => {
+    setCourseToggle((prevState) => !prevState);
+  };
+
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
@@ -120,7 +126,7 @@ function DrawerAppBar(props) {
                   {navItems.map((item) => {
                     console.log(item);
                     // if (item === "Courses") {
-                    //   return <DropDown />;
+                    //   return handleCourseToggle;
                     // }
                     return (
                       <Link to={`/${item.toLowerCase()}`} key={item}>

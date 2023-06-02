@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Grid";
+import Menu from "@mui/material/Menu";
 import { Button } from "@mui/material";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -14,34 +15,37 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const DropDown = () => {
+  const dropDownToggle = <DropDown />;
   const courses = ["Programming", "UI", "Marketing", "GIS", "Cyber Security"];
   return (
-    <Box>
-      <Grid
-        container
-        justifyContent="space-between"
-        alignItems="center"
-        sx={{ padding: "2rem" }}
-      >
-        {courses.map((course) => {
-          return (
-            <Grid item xs={2} key={course}>
-              <Item>{course}</Item>
-            </Grid>
-          );
-        })}
-      </Grid>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "flex-end",
-          paddingBottom: "1rem", // Add some padding at the bottom
-        }}
-      >
-        <Button>See All Courses</Button>
+    <>
+      <Box>
+        <Grid
+          container
+          justifyContent="space-between"
+          alignItems="center"
+          sx={{ padding: "2rem" }}
+        >
+          {courses.map((course) => {
+            return (
+              <Grid item xs={2} key={course}>
+                <Item>{course}</Item>
+              </Grid>
+            );
+          })}
+        </Grid>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-end",
+            paddingBottom: "1rem", // Add some padding at the bottom
+          }}
+        >
+          <Button>See All Courses</Button>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 
