@@ -55,6 +55,8 @@ const AdminForgotPassword = () => {
           flexDirection: "column",
           justifyContent: "center",
           gap: "1rem",
+          width: "fit-content",
+          boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
           height: "100vh",
           alignItems: "center",
           "& .MuiTextField-root": { width: "20rem" },
