@@ -1,6 +1,23 @@
-import { Box, Typography, TextField, Button } from "@mui/material";
+import { Box, Typography, TextField, Button, MenuItem } from "@mui/material";
 
 const Contact = () => {
+  const courses = [
+    "Python",
+    "JavaScript",
+    "Java",
+    "C++",
+    "C#",
+    "Ruby",
+    "Swift",
+    "Go",
+    "PHP",
+    "Rust",
+    "Kotlin",
+    "TypeScript",
+    "MATLAB",
+    "Perl",
+    "Haskell",
+  ];
   const handleSubmit = (event) => {};
   return (
     <>
@@ -31,20 +48,17 @@ const Contact = () => {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
           blanditiis tenetur
         </Typography>
+        <TextField required label="Name" type="name" variant="standard" />
+        <TextField required label="Email" type="email" variant="standard" />
         <TextField
-          required
-          label="Name"
-          type="name"
-          variant="standard"
-          color="warning"
-        />
-        <TextField
-          required
-          label="Email"
-          type="email"
-          variant="standard"
-          color="warning"
-        />
+          select
+          label="Select"
+          helperText="Select the course you are interested in"
+        >
+          {courses.map((course) => {
+            return <MenuItem value={course}>{course}</MenuItem>;
+          })}
+        </TextField>
         <TextField
           required
           label="Message"

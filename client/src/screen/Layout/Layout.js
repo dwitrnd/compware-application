@@ -24,15 +24,58 @@ import { Link } from "react-router-dom";
 import DropDown from "../../components/DropDown/DropDown";
 
 const drawerWidth = 240;
+// const navItems = [
+//   "Home",
+//   "About",
+//   "Courses",
+//   "Contact",
+//   "Gallery",
+//   "Team",
+//   "Request Certificate",
+//   "Verify Certificate",
+//   "Login",
+//   "Register",
+// ];
+
 const navItems = [
-  "Home",
-  "About",
-  "Courses",
-  "Contact",
-  "Gallery",
-  "Team",
-  "Login",
-  "Register",
+  {
+    name: "Home",
+    path: "home",
+  },
+  {
+    name: "Courses",
+    path: "courses",
+  },
+
+  {
+    name: "About",
+    path: "about-us",
+  },
+  {
+    name: "Contact",
+    path: "contact",
+  },
+  {
+    name: "Our Team",
+    path: "our-team",
+  },
+
+  {
+    name: "Request Certificate",
+    path: "request-certificate",
+  },
+  {
+    name: "Verify Certificate",
+    path: "verify-certificate",
+  },
+  {
+    name: "Login",
+    path: "login",
+  },
+  {
+    name: "Register",
+    path: "register",
+  },
 ];
 
 const courseItem = ["+2", "Diploma", "All"];
@@ -64,9 +107,9 @@ function DrawerAppBar(props) {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item.path} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -124,26 +167,31 @@ function DrawerAppBar(props) {
 
                 <Box sx={{ display: { xs: "none", sm: "block" } }}>
                   {navItems.map((item) => {
-                    if (item === "Courses") {
+                    console.log(item);
+
+                    if (item.name === "Courses") {
                       return (
                         <Button
                           className="blue-color roboto_500"
-                          key={item.toLowerCase()}
+                          key={item.name.toLowerCase()}
                           sx={{ color: "#fff" }}
                           onClick={handleCourseToggle}
                         >
-                          {item}
+                          {item.name}
                         </Button>
                       );
                     } else {
                       return (
-                        <Link to={`/${item.toLowerCase()}`} key={item}>
+                        <Link
+                          to={`/${item.path.toLowerCase()}`}
+                          key={item.path}
+                        >
                           <Button
                             className="blue-color roboto_500"
-                            key={item.toLowerCase()}
+                            key={item.path.toLowerCase()}
                             sx={{ color: "#fff" }}
                           >
-                            {item}
+                            {item.name}
                           </Button>
                         </Link>
                       );

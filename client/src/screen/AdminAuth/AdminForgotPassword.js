@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { Box, TextField, Typography, Button, IconButton } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Link } from "react-router-dom";
 import { useSendPasswordResetEmailMutation } from "../../redux/api/auth/userAuthApi";
 
@@ -92,7 +92,23 @@ const AdminForgotPassword = () => {
         >
           Reset Password
         </Button>
-        <IconButton>
+
+        <Box display="flex" justifyContent="center" alignItems="center">
+          <Link to="/login">
+            <Button
+              sx={{
+                fontSize: "1.1rem",
+                mt: 3,
+              }}
+              variant="outlined"
+              startIcon={<ArrowBack />}
+            >
+              Back to Login
+            </Button>
+          </Link>
+        </Box>
+
+        {/* <IconButton>
           <Link to="/login">
             <ArrowBackIcon />
             <Typography
@@ -103,7 +119,7 @@ const AdminForgotPassword = () => {
               Back To Login
             </Typography>
           </Link>
-        </IconButton>
+        </IconButton> */}
         {error.status ? <div>{error.msg}</div> : ""}
       </Box>
     </>

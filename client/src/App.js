@@ -21,6 +21,8 @@ import AdminRegister from "./screen/AdminAuth/AdminRegister";
 import AdminForgotPassword from "./screen/AdminAuth/AdminForgotPassword";
 import AboutUs from "./screen/AboutUs/AboutUs";
 import Courses from "./screen/Courses/Courses";
+import RequestCertificate from "./screen/RequestCertificate/RequestCertificate";
+import VerifyCertificate from "./screen/VerifyCertificate/VerifyCertificate";
 
 const theme = createTheme({
   palette: {
@@ -66,7 +68,7 @@ function App() {
                   }
                 />
                 <Route
-                  path="team"
+                  path="our-team"
                   element={
                     <Layout>
                       <OurTeam />
@@ -82,7 +84,7 @@ function App() {
                   }
                 />
                 <Route
-                  path="about"
+                  path="about-us"
                   element={
                     <Layout>
                       <AboutUs />
@@ -105,6 +107,23 @@ function App() {
                     </Layout>
                   }
                 />
+                <Route
+                  path="request-certificate"
+                  element={
+                    <Layout>
+                      <RequestCertificate />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="verify-certificate"
+                  element={
+                    <Layout>
+                      <VerifyCertificate />
+                    </Layout>
+                  }
+                />
+
                 <Route
                   path="login"
                   element={
