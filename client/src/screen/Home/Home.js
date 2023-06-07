@@ -10,6 +10,7 @@ import HowItWorksSection from "./components/HowItWorksSection";
 import FeaturesSection from "./components/Features";
 import ClientsSection from "./components/Clients";
 import CourseSection from "./components/Courses/Courses";
+import DropDown from "../../components/DropDown/DropDown";
 
 const Home = () => {
   const TestimonialSection = styled.section`

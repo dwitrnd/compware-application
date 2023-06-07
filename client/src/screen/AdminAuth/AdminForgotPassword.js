@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { Box, TextField, Typography, Button, IconButton } from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowBack from "@mui/icons-material/ArrowBack";
 import { Link } from "react-router-dom";
 import { useSendPasswordResetEmailMutation } from "../../redux/api/auth/userAuthApi";
 
@@ -55,8 +55,15 @@ const AdminForgotPassword = () => {
           flexDirection: "column",
           justifyContent: "center",
           gap: "1rem",
-          height: "100vh",
+          margin: "0 auto 0",
+          // height: "100vh",
+          marginTop: "6rem",
+          marginBottom: "6rem",
+          padding: "25px 25px 25px 25px",
+          borderRadius: ".25rem",
           alignItems: "center",
+          width: "fit-content",
+          boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
           "& .MuiTextField-root": { width: "20rem" },
         }}
         onSubmit={handleSubmit}
@@ -85,8 +92,24 @@ const AdminForgotPassword = () => {
         >
           Reset Password
         </Button>
-        <IconButton>
-          <Link to="/admin/login">
+
+        <Box display="flex" justifyContent="center" alignItems="center">
+          <Link to="/login">
+            <Button
+              sx={{
+                fontSize: "1.1rem",
+                mt: 3,
+              }}
+              variant="outlined"
+              startIcon={<ArrowBack />}
+            >
+              Back to Login
+            </Button>
+          </Link>
+        </Box>
+
+        {/* <IconButton>
+          <Link to="/login">
             <ArrowBackIcon />
             <Typography
               variant="body"
@@ -96,7 +119,7 @@ const AdminForgotPassword = () => {
               Back To Login
             </Typography>
           </Link>
-        </IconButton>
+        </IconButton> */}
         {error.status ? <div>{error.msg}</div> : ""}
       </Box>
     </>

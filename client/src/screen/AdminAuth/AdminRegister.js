@@ -1,7 +1,5 @@
 import React from "react";
 import { Box, TextField, Typography, IconButton, Button } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
-import AvatarImage from "../../assets/images/avatar.png";
 import EmailIcon from "@mui/icons-material/Email";
 import PasswordIcon from "@mui/icons-material/Password";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
@@ -83,21 +81,19 @@ const AdminRegister = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
+          width: "fit-content",
           gap: "1rem",
-          marginTop: "4rem",
-          marginBottom: "4rem",
+          margin: "0 auto",
+          marginTop: "6rem",
+          marginBottom: "6rem",
+          padding: "25px 25px 25px 25px",
+          borderRadius: ".25rem",
           alignItems: "center",
+          boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
           "& .MuiTextField-root": { width: "20rem" },
         }}
         onSubmit={handleSubmit}
       >
-        <div>
-          <Avatar
-            alt="Deerwalk Logo"
-            src={AvatarImage}
-            sx={{ width: 76, height: 76 }}
-          />
-        </div>
         <div>
           <Typography variant="h4" gutterBottom color="primary">
             Register
@@ -154,23 +150,7 @@ const AdminRegister = () => {
             }}
           />
         </div>
-        <div>
-          <TextField
-            required
-            id="confirm-password"
-            name="confirm-password"
-            label="Confirm Password"
-            variant="standard"
-            type="password"
-            InputProps={{
-              endAdornment: (
-                <IconButton>
-                  <PasswordIcon />
-                </IconButton>
-              ),
-            }}
-          />
-        </div>
+
         <Button
           variant="contained"
           type="submit"
@@ -178,12 +158,22 @@ const AdminRegister = () => {
         >
           Register
         </Button>
-        <div>
-          <Typography variant="body">Already Have an account?</Typography>
-          <Link to="/admin/login" color="primary">
-            Login
-          </Link>
-        </div>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "100%",
+          }}
+        >
+          <div>
+            <Typography variant="body">Already Have an account?</Typography>
+          </div>
+          <div>
+            <Link to="/login" color="primary">
+              Login
+            </Link>
+          </div>
+        </Box>
         {error.status ? <div>{error.msg}</div> : ""}
       </Box>
     </>
