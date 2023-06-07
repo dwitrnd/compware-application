@@ -20,6 +20,11 @@ import AdminLogin from "./screen/AdminAuth/AdminLogin";
 import AdminRegister from "./screen/AdminAuth/AdminRegister";
 import AdminForgotPassword from "./screen/AdminAuth/AdminForgotPassword";
 import AboutUs from "./screen/AboutUs/AboutUs";
+import Courses from "./screen/Courses/Courses";
+import RequestCertificate from "./screen/RequestCertificate/RequestCertificate";
+import VerifyCertificate from "./screen/VerifyCertificate/VerifyCertificate";
+import Blog from "./screen/Blog/Blog";
+import TermsAndConditions from "./screen/TermsAndConditions/TermsAndConditions";
 
 const theme = createTheme({
   palette: {
@@ -65,7 +70,7 @@ function App() {
                   }
                 />
                 <Route
-                  path="team"
+                  path="our-team"
                   element={
                     <Layout>
                       <OurTeam />
@@ -81,10 +86,18 @@ function App() {
                   }
                 />
                 <Route
-                  path="about"
+                  path="about-us"
                   element={
                     <Layout>
                       <AboutUs />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="courses"
+                  element={
+                    <Layout>
+                      <Courses />
                     </Layout>
                   }
                 />
@@ -96,6 +109,39 @@ function App() {
                     </Layout>
                   }
                 />
+                <Route
+                  path="request-certificate"
+                  element={
+                    <Layout>
+                      <RequestCertificate />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="blog"
+                  element={
+                    <Layout>
+                      <Blog />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="verify-certificate"
+                  element={
+                    <Layout>
+                      <VerifyCertificate />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="terms-and-condition"
+                  element={
+                    <Layout>
+                      <TermsAndConditions />
+                    </Layout>
+                  }
+                />
+
                 <Route
                   path="login"
                   element={
@@ -138,7 +184,14 @@ function App() {
                 />
               </Route>
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="resetpassword" element={<AdminForgotPassword />} />
+              <Route
+                path="resetpassword"
+                element={
+                  <Layout>
+                    <AdminForgotPassword />
+                  </Layout>
+                }
+              />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>
