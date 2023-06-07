@@ -10613,6 +10613,84 @@ footer button {
   overflow: hidden;
 }
 
+.about {
+  height: 100vh;
+  width: 100%;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about .main img {
+  width: 580px;
+  height: auto;
+  padding: 0 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  .about .main img {
+    max-width: 60%;
+  }
+}
+
+.all-text {
+  max-width: 100%;
+  padding: 0 10px;
+}
+
+.main {
+  width: 100%;
+  max-width: 95%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media only screen and (max-width: 800px) {
+  .main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.all-text h4 {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #777777;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.all-text h1 {
+  font-size: 45px;
+  color: #111111;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.all-text p {
+  font-size: 18px;
+  color: #777777;
+  line-height: 30px;
+  margin-bottom: 35px;
+}
+
 .css-19kzrtu {
   padding: 0 !important;
 }

@@ -109,6 +109,96 @@ export default function App() {
         { value: "session", title: "session" },
       ],
     },
+    {
+      src: CompwareImage1,
+      original: CompwareImage1,
+      width: 320,
+      height: 174,
+      tags: [
+        { value: "trainee", title: "trainee" },
+        { value: "programming", title: "programming" },
+      ],
+      caption: "girl in a jacket learning programming",
+    },
+    {
+      src: CompwareImage2,
+      original: CompwareImage2,
+      width: 320,
+      height: 212,
+      caption: "office to learn",
+      tags: [{ value: "office", title: "office" }],
+    },
+    {
+      src: CompwareImage3,
+      original: CompwareImage3,
+      width: 320,
+      height: 212,
+      caption: "student learning",
+      tags: [
+        { value: "trainee", title: "trainee" },
+        { value: "programming", title: "programming" },
+      ],
+    },
+    {
+      src: CompwareImage4,
+      original: CompwareImage4,
+      width: 320,
+      height: 213,
+      caption: "Red Apples with other Red Fruit (foodiesfeed.com)",
+      tags: [{ value: "pair programming", title: "pair programming" }],
+    },
+    {
+      src: CompwareImage5,
+      original: CompwareImage5,
+      width: 320,
+      height: 183,
+      caption: "37H (gratispgraphy.com)",
+      tags: [
+        { value: "Intern", title: "Intern" },
+        { value: "programming", title: "programming" },
+      ],
+    },
+    {
+      src: CompwareImage6,
+      original: CompwareImage6,
+      width: 540,
+      height: 320,
+      tags: [{ value: "Support", title: "Support" }],
+      caption: "8H (gratisography.com)",
+    },
+    {
+      src: CompwareImage7,
+      original: CompwareImage7,
+      width: 320,
+      height: 190,
+      caption: "286H (gratisography.com)",
+      tags: [
+        { value: "mentor", title: "mentor" },
+        { value: "session", title: "session" },
+      ],
+    },
+    {
+      src: CompwareImage8,
+      original: CompwareImage8,
+      width: 320,
+      height: 148,
+      tags: [
+        { value: "mentor", title: "mentor" },
+        { value: "session", title: "session" },
+      ],
+      caption: "315H (gratisography.com)",
+    },
+    {
+      src: CompwareImage9,
+      original: CompwareImage9,
+      width: 320,
+      height: 213,
+      caption: "201H (gratisography.com)",
+      tags: [
+        { value: "mentor", title: "mentor" },
+        { value: "session", title: "session" },
+      ],
+    },
   ]);
 
   const [filteredImages, setFilteredImages] = useState(images);

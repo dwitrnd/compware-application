@@ -9,23 +9,29 @@
 
 .about .main img {
   width: 580px;
-  max-width: 100%;
+  @media only screen and (max-width: 800px) {
+    max-width: 60%;
+  }
+
   height: auto;
   padding: 0 10px;
 }
 
 .all-text {
-  width: 600px;
   max-width: 100%;
   padding: 0 10px;
 }
 
 .main {
-  width: 1290px;
+  width: 100%;
   max-width: 95%;
   margin: 0 auto;
   display: flex;
-  flex-wrap: wrap;
+
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+  }
+
   align-items: center;
   justify-content: space-around;
 }
@@ -40,14 +46,13 @@
 }
 
 .all-text h1 {
-  font-size: 65px;
+  font-size: 45px;
   color: #111111;
   font-weight: 700;
   margin-bottom: 20px;
 }
 
 .all-text p {
-  font-family: "Roboto", sans-serif;
   font-size: 18px;
   color: #777777;
   line-height: 30px;

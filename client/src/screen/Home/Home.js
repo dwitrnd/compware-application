@@ -3,11 +3,12 @@ import ScrollToTop from "react-scroll-to-top";
 import SplideCarousel from "../../components/SplideCarousel/SplideCarousel";
 import Container from "@material-ui/core/Container";
 
+// import sections
+
+import AboutUsSection from "./components/AboutUs";
 import HowItWorksSection from "./components/HowItWorksSection";
 import FeaturesSection from "./components/Features";
-
 import ClientsSection from "./components/Clients";
-
 import CourseSection from "./components/Courses/Courses";
 
 const Home = () => {
@@ -44,8 +45,8 @@ const Home = () => {
         <section id='hero-banner'>
           <div id='video-box'>
             <video autoPlay muted loop>
-              <source src={"https://static.frontendmasters.com/assets/fm/med/home/hero.mp4"} type='video/mp4' />
-              {/* <source src={"https://cdn.dribbble.com/uploads/39421/original/963b4f8739cbdf86ca3f3a23245efd18.mp4?1657824985"} type='video/mp4' /> */}
+              {/* <source src={"https://static.frontendmasters.com/assets/fm/med/home/hero.mp4"} type='video/mp4' /> */}
+              <source src={"https://cdn.dribbble.com/uploads/39421/original/963b4f8739cbdf86ca3f3a23245efd18.mp4?1657824985"} type='video/mp4' />
             </video>
           </div>
 
@@ -69,6 +70,8 @@ const Home = () => {
 
         {/* //todo: how it works section */}
         <HowItWorksSection />
+        {/* //todo: aboutus section */}
+        <AboutUsSection />
 
         {/* //todo: testimonial section */}
         <TestimonialSection style={{ margin: "5rem 0rem" }}>

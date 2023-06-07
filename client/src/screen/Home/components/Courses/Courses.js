@@ -146,7 +146,7 @@ function Courses() {
             })}
           </div>
         </div>
-        <div style={{ background: "red", width: "50%" }}>Hello</div>
+        <div style={{ background: "#d1d1d1", width: "50%" }}>Hello</div>
       </div>
     </div>
   );
