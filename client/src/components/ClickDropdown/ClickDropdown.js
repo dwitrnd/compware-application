@@ -5,6 +5,7 @@ import Menu from "@mui/material/Menu";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import styledcomponent from "styled-components";
 import androidIcon from "assets/icons/android.png";
+import { Link } from "react-router-dom";
 
 const MenuList = styledcomponent.ul`
   display:flex;
@@ -68,13 +69,22 @@ export default function CustomizedMenus() {
   };
 
   return (
-    <div>
-      <Button id='demo-customized-button' aria-controls={open ? "demo-customized-menu" : undefined} aria-haspopup='true' aria-expanded={open ? "true" : undefined} variant='text' disableElevation onClick={handleClick} endIcon={<KeyboardArrowDownIcon />}>
-        Options
+    <>
+      <Button
+        id="demo-customized-button"
+        aria-controls={open ? "demo-customized-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        variant="text"
+        disableElevation
+        onClick={handleClick}
+        endIcon={<KeyboardArrowDownIcon />}
+      >
+        Courses
       </Button>
       <ClickDropdown
         style={{ marginLeft: "-0.35rem" }}
-        id='demo-customized-menu'
+        id="demo-customized-menu"
         MenuListProps={{
           "aria-labelledby": "demo-customized-button",
         }}
@@ -100,12 +110,12 @@ export default function CustomizedMenus() {
           More
         </MenuItem> */}
         <MenuList>
-          <li className='menu_block'>
+          <li className="menu_block">
             <header style={{ display: "flex", alignItems: "center" }}>
-              <img src={androidIcon} height='25' alt='menu icon' />
-              <b class='roboto_400'>Webdevelopment</b>
+              <img src={androidIcon} height="25" alt="menu icon" />
+              <b class="roboto_400">Webdevelopment</b>
             </header>
-            <ul className='submenu_container roboto_400'>
+            <ul className="submenu_container roboto_400">
               <li>submenu</li>
               <li>submenu</li>
               <li>submenu</li>
@@ -113,12 +123,12 @@ export default function CustomizedMenus() {
               <li>submenu</li>
             </ul>
           </li>
-          <li className='menu_block'>
+          <li className="menu_block">
             <header style={{ display: "flex", alignItems: "center" }}>
-              <img src={androidIcon} height='25' alt='menu icon' />
-              <b class='roboto_400'>Webdevelopment</b>
+              <img src={androidIcon} height="25" alt="menu icon" />
+              <b class="roboto_400">Webdevelopment</b>
             </header>
-            <ul className='submenu_container roboto_400'>
+            <ul className="submenu_container roboto_400">
               <li>submenu</li>
               <li>submenu</li>
               <li>submenu</li>
@@ -126,12 +136,12 @@ export default function CustomizedMenus() {
               <li>submenu</li>
             </ul>
           </li>
-          <li className='menu_block'>
+          <li className="menu_block">
             <header style={{ display: "flex", alignItems: "center" }}>
-              <img src={androidIcon} height='25' alt='menu icon' />
-              <b class='roboto_400'>Webdevelopment</b>
+              <img src={androidIcon} height="25" alt="menu icon" />
+              <b class="roboto_400">Webdevelopment</b>
             </header>
-            <ul className='submenu_container roboto_400'>
+            <ul className="submenu_container roboto_400">
               <li>submenu</li>
               <li>submenu</li>
               <li>submenu</li>
@@ -139,25 +149,12 @@ export default function CustomizedMenus() {
               <li>submenu</li>
             </ul>
           </li>
-          <li className='menu_block'>
+          <li className="menu_block">
             <header style={{ display: "flex", alignItems: "center" }}>
-              <img src={androidIcon} height='25' alt='menu icon' />
-              <b class='roboto_400'>Webdevelopment</b>
+              <img src={androidIcon} height="25" alt="menu icon" />
+              <b class="roboto_400">Webdevelopment</b>
             </header>
-            <ul className='submenu_container roboto_400'>
-              <li>submenu</li>
-              <li>submenu</li>
-              <li>submenu</li>
-              <li>submenu</li>
-              <li>submenu</li>
-            </ul>
-          </li>
-          <li className='menu_block'>
-            <header style={{ display: "flex", alignItems: "center" }}>
-              <img src={androidIcon} height='25' alt='menu icon' />
-              <b class='roboto_400'>Webdevelopment</b>
-            </header>
-            <ul className='submenu_container roboto_400'>
+            <ul className="submenu_container roboto_400">
               <li>submenu</li>
               <li>submenu</li>
               <li>submenu</li>
@@ -166,7 +163,14 @@ export default function CustomizedMenus() {
             </ul>
           </li>
         </MenuList>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Link to="/courses">
+            <Button variant="outlined" onClick={handleClose}>
+              See All Courses
+            </Button>
+          </Link>
+        </div>
       </ClickDropdown>
-    </div>
+    </>
   );
 }
