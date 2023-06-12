@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ScrollToTop from "react-scroll-to-top";
-import SplideCarousel from "../../components/SplideCarousel/SplideCarousel";
+import SplideCarousel from "components/SplideCarousel/SplideCarousel";
 import Container from "@material-ui/core/Container";
 
 // import sections
@@ -10,8 +10,8 @@ import HowItWorksSection from "./components/HowItWorksSection";
 import FeaturesSection from "./components/Features";
 import ClientsSection from "./components/Clients";
 import CourseSection from "./components/Courses/Courses";
-import DropDown from "../../components/DropDown/DropDown";
-
+import Header from "components/Header";
+import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqueCarousel";
 const Home = () => {
   const TestimonialSection = styled.section`
     h6,
@@ -46,8 +46,8 @@ const Home = () => {
         <section id='hero-banner'>
           <div id='video-box'>
             <video autoPlay muted loop>
-              {/* <source src={"https://static.frontendmasters.com/assets/fm/med/home/hero.mp4"} type='video/mp4' /> */}
-              <source src={"https://cdn.dribbble.com/uploads/39421/original/963b4f8739cbdf86ca3f3a23245efd18.mp4?1657824985"} type='video/mp4' />
+              <source src={"https://static.frontendmasters.com/assets/fm/med/home/hero.mp4"} type='video/mp4' />
+              {/* <source src={"https://cdn.dribbble.com/uploads/39421/original/963b4f8739cbdf86ca3f3a23245efd18.mp4?1657824985"} type='video/mp4' /> */}
             </video>
           </div>
 
@@ -59,6 +59,8 @@ const Home = () => {
       {/* //* =========hero section ends here========= */}
 
       {/* // !  ========= body section starts from here ========= */}
+
+      <ReviewsMarqueCarousel />
 
       <Container maxWidth='lg'>
         {/* //todo: partners section */}
@@ -76,15 +78,7 @@ const Home = () => {
 
         {/* //todo: testimonial section */}
         <TestimonialSection style={{ margin: "5rem 0rem" }}>
-          <h6 className='roboto_300'>IN THE NEWS</h6>
-          <h2 className='roboto_400'>
-            Hot off the
-            <div className='gradient-text' style={{ display: "inline", marginLeft: ".5rem" }}>
-              press
-            </div>
-          </h2>
-          <p className='grey-color'>Read the latest news and announcements:</p>
-
+          <Header subTitle='IN THE NEWS' preTitle='Hot off the ' postTitle='press' paragraph='Read the latest news and announcements:' />
           <SplideCarousel />
         </TestimonialSection>
       </Container>

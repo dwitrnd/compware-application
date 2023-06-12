@@ -4,21 +4,22 @@ import "./Courses.css";
 // import ContactFrom from "../UI/ContactForm";
 import CourseCard from "./CourseCard";
 
-import Adobe from "../../../../assets/images/courses/adobe.png";
-import Css from "../../../../assets/images/courses/css.png";
-import Figma from "../../../../assets/images/courses/figma.png";
-import Html from "../../../../assets/images/courses/html.png";
-import Ui from "../../../../assets/images/courses/ui.png";
-import Js from "../../../../assets/images/courses/js.png";
-import Bootstrap from "../../../../assets/images/courses/bootstrap.png";
-import Es6 from "../../../../assets/images/courses/es6.png";
-import Gsap from "../../../../assets/images/courses/gsap.png";
-import jsx from "../../../../assets/images/courses/jsx.png";
-import Express from "../../../../assets/images/courses/expressjs.png";
-import Mongo from "../../../../assets/images/courses/mongodb.png";
-import Node from "../../../../assets/images/courses/node.png";
-import Npm from "../../../../assets/images/courses/npm.png";
-import ReactLogo from "../../../../assets/images/courses/react.png";
+import Adobe from "assets/images/courses/adobe.png";
+import Css from "assets/images/courses/css.png";
+import Figma from "assets/images/courses/figma.png";
+import Html from "assets/images/courses/html.png";
+import Ui from "assets/images/courses/ui.png";
+import Js from "assets/images/courses/js.png";
+import Bootstrap from "assets/images/courses/bootstrap.png";
+import Es6 from "assets/images/courses/es6.png";
+import Gsap from "assets/images/courses/gsap.png";
+import jsx from "assets/images/courses/jsx.png";
+import Express from "assets/images/courses/expressjs.png";
+import Mongo from "assets/images/courses/mongodb.png";
+import Node from "assets/images/courses/node.png";
+import Npm from "assets/images/courses/npm.png";
+import ReactLogo from "assets/images/courses/react.png";
+import Header from "components/Header";
 
 const Card_1_db = [
   {
@@ -146,7 +147,15 @@ function Courses() {
             })}
           </div>
         </div>
-        <div style={{ background: "#d1d1d1", width: "50%" }}>Hello</div>
+        <div style={{ width: "50%" }}>
+          <div className='all-text'>
+            <h4>Our Courses</h4>
+            <h1>
+              Checkout! <br /> Our all available courses
+            </h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores rem necessitatibus provident quisquam consequatur animi cupiditate architecto atque, eum dolorem!</p>
+          </div>
+        </div>
       </div>
     </div>
   );

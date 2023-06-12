@@ -13,6 +13,8 @@ import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
 
+import Header from "components/Header";
+
 const useStyles = makeStyles((theme) => ({
   stepper: {
     [theme.breakpoints.down("sm")]: {
@@ -61,122 +63,120 @@ export default function HowItWorks(props) {
   };
 
   return (
-    <section className='how-it-work'>
-      <Box pt={8} pb={10}>
-        <Box textAlign='center' mb={5}>
-          <Typography variant='h4' component='h2' gutterBottom={true}>
-            {content["header"]}
-          </Typography>
-        </Box>
-        <Box bgcolor='background.paper' className={classes.container}>
-          <Stepper activeStep={activeStep} className={classes.stepper}>
-            <Step key={content["step1"]} className={classes.step}>
-              <StepLabel>{content["step1"]}</StepLabel>
-            </Step>
-            <Step key={content["step2"]} className={classes.step}>
-              <StepLabel>{content["step2"]}</StepLabel>
-            </Step>
-            <Step key={content["step3"]}>
-              <StepLabel>{content["step3"]}</StepLabel>
-            </Step>
-          </Stepper>
-          <Box p={4}>
-            {(() => {
-              if (activeStep === 0) {
-                return (
-                  <>
-                    <Grid container spacing={4}>
-                      <Grid item xs={12} md={6}>
-                        <Box display='flex' height='100%'>
-                          <Box my='auto'>
-                            <Typography variant='h4' component='h2' gutterBottom={true}>
-                              {content["subheader"]}
-                            </Typography>
-                            <Typography variant='body1' color='textSecondary' paragraph={true}>
-                              {content["description"]}
-                            </Typography>
-                            <Button onClick={incrementStep} variant='contained' color='primary' className={classes.primaryAction}>
-                              Next
-                            </Button>
+    <>
+      <section className='how-it-work'>
+        <Box pt={8} pb={10}>
+          <Box textAlign='center' mb={5}></Box>
+          <Box bgcolor='background.paper' className={classes.container}>
+            <Stepper activeStep={activeStep} className={classes.stepper}>
+              <Step key={content["step1"]} className={classes.step}>
+                <StepLabel>{content["step1"]}</StepLabel>
+              </Step>
+              <Step key={content["step2"]} className={classes.step}>
+                <StepLabel>{content["step2"]}</StepLabel>
+              </Step>
+              <Step key={content["step3"]}>
+                <StepLabel>{content["step3"]}</StepLabel>
+              </Step>
+            </Stepper>
+            <Box p={4}>
+              {(() => {
+                if (activeStep === 0) {
+                  return (
+                    <>
+                      <Grid container spacing={4}>
+                        <Grid item xs={12} md={6}>
+                          <Box display='flex' height='100%'>
+                            <Box my='auto'>
+                              <Typography variant='h4' component='h2' gutterBottom={true}>
+                                {content["subheader"]}
+                              </Typography>
+                              <Typography variant='body1' color='textSecondary' paragraph={true}>
+                                {content["description"]}
+                              </Typography>
+                              <Button onClick={incrementStep} variant='contained' color='primary' className={classes.primaryAction}>
+                                Next
+                              </Button>
+                            </Box>
                           </Box>
-                        </Box>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                          <Card>
+                            <CardActionArea href='#'>
+                              <CardMedia className={classes.media} image={content["image"]} />
+                            </CardActionArea>
+                          </Card>
+                        </Grid>
                       </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Card>
-                          <CardActionArea href='#'>
-                            <CardMedia className={classes.media} image={content["image"]} />
-                          </CardActionArea>
-                        </Card>
-                      </Grid>
-                    </Grid>
-                  </>
-                );
-              }
-            })()}
-            {(() => {
-              if (activeStep === 1) {
-                return (
-                  <>
-                    <Grid container spacing={4}>
-                      <Grid item xs={12} md={6}>
-                        <Box display='flex' height='100%'>
-                          <Box my='auto'>
-                            <Typography variant='h4' component='h2' gutterBottom={true}>
-                              Get Trained
-                            </Typography>
-                            <Typography variant='body1' color='textSecondary' paragraph={true}>
-                              During training, you will be trained by the best trainers in the town. You will be able to learn the skills required for the job. Training includes both theory and practical classes. You will be able to learn the skills required for the job.
-                            </Typography>
-                            <Button onClick={incrementStep} variant='contained' color='primary' className={classes.primaryAction}>
-                              Next
-                            </Button>
+                    </>
+                  );
+                }
+              })()}
+              {(() => {
+                if (activeStep === 1) {
+                  return (
+                    <>
+                      <Grid container spacing={4}>
+                        <Grid item xs={12} md={6}>
+                          <Box display='flex' height='100%'>
+                            <Box my='auto'>
+                              <Typography variant='h4' component='h2' gutterBottom={true}>
+                                Get Trained
+                              </Typography>
+                              <Typography variant='body1' color='textSecondary' paragraph={true}>
+                                During training, you will be trained by the best trainers in the town. You will be able to learn the skills required for the job. Training includes both theory and practical classes. You will be able to learn the skills required for the job.
+                              </Typography>
+                              <Button onClick={incrementStep} variant='contained' color='primary' className={classes.primaryAction}>
+                                Next
+                              </Button>
+                            </Box>
                           </Box>
-                        </Box>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                          <Card>
+                            <CardActionArea href='#'>
+                              <CardMedia className={classes.media} image={content["image"]} />
+                            </CardActionArea>
+                          </Card>
+                        </Grid>
                       </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Card>
-                          <CardActionArea href='#'>
-                            <CardMedia className={classes.media} image={content["image"]} />
-                          </CardActionArea>
-                        </Card>
-                      </Grid>
-                    </Grid>
-                  </>
-                );
-              }
-            })()}
-            {(() => {
-              if (activeStep === 2) {
-                return (
-                  <>
-                    <Grid container spacing={4}>
-                      <Grid item xs={12} md={6}>
-                        <Box display='flex' height='100%'>
-                          <Box my='auto'>
-                            <Typography variant='h4' component='h2' gutterBottom={true}>
-                              Get Certified
-                            </Typography>
-                            <Typography variant='body1' color='textSecondary' paragraph={true}>
-                              Finally, you will get certified. You will be able to get a job in the field of your interest.
-                            </Typography>
+                    </>
+                  );
+                }
+              })()}
+              {(() => {
+                if (activeStep === 2) {
+                  return (
+                    <>
+                      <Grid container spacing={4}>
+                        <Grid item xs={12} md={6}>
+                          <Box display='flex' height='100%'>
+                            <Box my='auto'>
+                              <Typography variant='h4' component='h2' gutterBottom={true}>
+                                Get Certified
+                              </Typography>
+                              <Typography variant='body1' color='textSecondary' paragraph={true}>
+                                Finally, you will get certified. You will be able to get a job in the field of your interest.
+                              </Typography>
+                            </Box>
                           </Box>
-                        </Box>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                          <Card>
+                            <CardActionArea href='#'>
+                              <CardMedia className={classes.media} image={content["image"]} />
+                            </CardActionArea>
+                          </Card>
+                        </Grid>
                       </Grid>
-                      <Grid item xs={12} md={6}>
-                        <Card>
-                          <CardActionArea href='#'>
-                            <CardMedia className={classes.media} image={content["image"]} />
-                          </CardActionArea>
-                        </Card>
-                      </Grid>
-                    </Grid>
-                  </>
-                );
-              }
-            })()}
+                    </>
+                  );
+                }
+              })()}
+            </Box>
           </Box>
         </Box>
-      </Box>
-    </section>
+      </section>
+    </>
   );
 }
