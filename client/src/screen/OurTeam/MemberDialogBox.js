@@ -53,7 +53,7 @@ const MemberDialogBox = () => {
         </DialogTitle>
         <DialogContent>
           <Grid container>
-            <Grid item xs={12} sm={2}>
+            <Grid item xs={12} sm={3} md={2}>
               <Container style={{ marginLeft: "auto", marginRight: "auto" }}>
                 <Avatar src={TrainerPhoto} className={classes.avatar} />
                 <Typography variant="body1" color="primary">
@@ -62,7 +62,7 @@ const MemberDialogBox = () => {
                 <Typography variant="caption">Python Instructor</Typography>
               </Container>
             </Grid>
-            <Grid item xs={12} sm={10}>
+            <Grid item xs={12} sm={9} md={10}>
               <Typography variant="body1">
                 Bachelor's Degree from Ratna Rajyalaxmi Campus (Tribhuvan
                 University) in the faculty of humanities and social science, IT
