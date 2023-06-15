@@ -1,7 +1,13 @@
 import React from "react";
+import CoursesData from "./CoursesData";
 
 const Courses = () => {
-  return <div>Courses</div>;
+  return (
+    <>
+      Courses
+      <CoursesData />
+    </>
+  );
 };
 
 export default Courses;
