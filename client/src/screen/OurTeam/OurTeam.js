@@ -273,15 +273,14 @@ export default function OurTeam(props) {
               >
                 {content["08_name"]}
               </Typography>
-              <MemberDialogBox>
-                <Typography
-                  variant="body1"
-                  color="textSecondary"
-                  component="span"
-                >
-                  {content["08_job"]}
-                </Typography>
-              </MemberDialogBox>
+              <Typography
+                variant="body1"
+                color="textSecondary"
+                component="span"
+              >
+                {content["08_job"]}
+              </Typography>
+              <MemberDialogBox />
             </Grid>
           </Grid>
         </Box>
