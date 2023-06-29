@@ -19,7 +19,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import compwareLogo from "../../assets/images/compware-logo.png";
 import whiteCompwareLogo from "../../assets/images/compware-logo-white.png";
-
+import RequestCertificateDialog from "../../components/RequestCerificateDialog/RequestCertificateDialog";
 import { Link } from "react-router-dom";
 import ClickDropdown from "components/ClickDropdown";
 
@@ -179,6 +179,8 @@ function DrawerAppBar(props) {
 
                     if (item.name === "Courses") {
                       return <ClickDropdown />;
+                    } else if (item.name === "Request Certificate") {
+                      return <RequestCertificateDialog />;
                     } else {
                       return (
                         <Link
