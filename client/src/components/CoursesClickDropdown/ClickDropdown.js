@@ -2,7 +2,6 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import styledcomponent from "styled-components";
 import androidIcon from "assets/icons/android.png";
 import { Link } from "react-router-dom";
@@ -78,7 +77,7 @@ export default function CustomizedMenus() {
         variant="text"
         disableElevation
         onClick={handleClick}
-        endIcon={<KeyboardArrowDownIcon />}
+        // endIcon={<KeyboardArrowDownIcon />}
       >
         Courses
       </Button>

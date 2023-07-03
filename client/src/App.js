@@ -7,10 +7,8 @@ import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
 
 import Layout from "./screen/Layout";
 import Home from "./screen/Home";
-import Contact from "./screen/Contact";
 import PageNotFound from "./screen/PageNotFound";
-import Registration from "./screen/auth/Registration";
-import Login from "./screen/auth/Login";
+import ContactUs from "./screen/Contact/Contact";
 import ResetPassword from "./screen/auth/ResetPassword";
 import SendPasswordResetEmail from "./screen/auth/SendPasswordResetEmail";
 import Dashboard from "./screen/Dashboard";
@@ -19,7 +17,6 @@ import Gallery from "./screen/Gallery";
 import AdminLogin from "./screen/AdminAuth/AdminLogin";
 import AdminRegister from "./screen/AdminAuth/AdminRegister";
 import AdminForgotPassword from "./screen/AdminAuth/AdminForgotPassword";
-import AboutUs from "./screen/AboutUs/AboutUs";
 import Courses from "./screen/Courses/Courses";
 import RequestCertificate from "./screen/RequestCertificate/RequestCertificate";
 import VerifyCertificate from "./screen/VerifyCertificate/VerifyCertificate";
@@ -86,10 +83,10 @@ function App() {
                   }
                 />
                 <Route
-                  path="about-us"
+                  path="contact-us"
                   element={
                     <Layout>
-                      <AboutUs />
+                      <ContactUs />
                     </Layout>
                   }
                 />
@@ -98,14 +95,6 @@ function App() {
                   element={
                     <Layout>
                       <Courses />
-                    </Layout>
-                  }
-                />
-                <Route
-                  path="contact"
-                  element={
-                    <Layout>
-                      <Contact />
                     </Layout>
                   }
                 />

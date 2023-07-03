@@ -1,7 +1,6 @@
 // import Navbar from "../../components/Navbar/Navbar";
 import * as React from "react";
 import Container from "@material-ui/core/Container";
-
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -21,21 +20,11 @@ import compwareLogo from "../../assets/images/compware-logo.png";
 import whiteCompwareLogo from "../../assets/images/compware-logo-white.png";
 import RequestCertificateDialog from "../../components/RequestCerificateDialog/RequestCertificateDialog";
 import { Link } from "react-router-dom";
-import ClickDropdown from "components/ClickDropdown";
+import ClickDropdown from "components/CoursesClickDropdown";
+import AboutUsDropDown from "components/AboutUsDropDown/AboutUsDropDown";
+import CertificateDropDown from "components/CertificateDropDown/CertificateDropDown";
 
 const drawerWidth = 240;
-// const navItems = [
-//   "Home",
-//   "About",
-//   "Courses",
-//   "Contact",
-//   "Gallery",
-//   "Team",
-//   "Request Certificate",
-//   "Verify Certificate",
-//   "Login",
-//   "Register",
-// ];
 
 const navItems = [
   {
@@ -43,13 +32,11 @@ const navItems = [
     path: "home",
   },
   {
+    name: "About",
+  },
+  {
     name: "Courses",
     path: "courses",
-  },
-
-  {
-    name: "About",
-    path: "about-us",
   },
   {
     name: "Contact",
@@ -61,12 +48,7 @@ const navItems = [
   },
 
   {
-    name: "Request Certificate",
-    path: "request-certificate",
-  },
-  {
-    name: "Verify Certificate",
-    path: "verify-certificate",
+    name: "Certificate",
   },
   {
     name: "Blog",
@@ -181,6 +163,10 @@ function DrawerAppBar(props) {
                       return <ClickDropdown />;
                     } else if (item.name === "Request Certificate") {
                       return <RequestCertificateDialog />;
+                    } else if (item.name === "About") {
+                      return <AboutUsDropDown />;
+                    } else if (item.name === "Certificate") {
+                      return <CertificateDropDown />;
                     } else {
                       return (
                         <Link
