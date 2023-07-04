@@ -92,6 +92,22 @@ export default function AboutUsDropDown() {
         onClose={handleClose}
       >
         <MenuList onClick={handleClose}>
+          <ul className="submenu_container roboto_400">
+            <li>
+              <Link to="/our-team">Our Team</Link>
+            </li>
+            <li>
+              <Link to="/blog">Blogs</Link>
+            </li>
+            <li>
+              <Link to="/event">Event</Link>
+            </li>
+            <li>
+              <Link to="/gallery">Gallery</Link>
+            </li>
+          </ul>
+        </MenuList>
+        {/* <MenuList onClick={handleClose}>
           <Link to="/our-team">Our Team</Link>
         </MenuList>
         <MenuList>
@@ -102,7 +118,7 @@ export default function AboutUsDropDown() {
         </MenuList>
         <MenuList>
           <Link to="/gallery">Gallery</Link>
-        </MenuList>
+        </MenuList> */}
       </ClickDropdown>
     </>
   );

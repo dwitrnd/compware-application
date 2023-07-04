@@ -97,7 +97,21 @@ const Contact = () => {
                   </Typography>
                 </Stack>
                 <Typography variant="body1">Find Us At</Typography>
-                <Stack direction="row">{/* <LinkedInLogo /> */}</Stack>
+                <Stack direction="row" spacing={0.94} marginBottom="4.87rem">
+                  <a href="https://www.linkedin.com/company/deerwalktrainingcenter/">
+                    {" "}
+                    <img src={LinkedInLogo} />{" "}
+                  </a>
+                  <a href="https://www.facebook.com/deerwalktrainingcenter">
+                    <img src={FacebookLogo} />{" "}
+                  </a>
+                  <a href="https://www.instagram.com/deerwalk.training.center/">
+                    <img src={InstagramLogo} />
+                  </a>
+                  <a href="https://www.youtube.com/@deerwalktrainingcenter">
+                    <img src={YoutubeLogo} />
+                  </a>
+                </Stack>
               </Stack>
             </Box>
           </Grid>

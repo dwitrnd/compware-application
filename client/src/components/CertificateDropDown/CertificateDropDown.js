@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import styledcomponent from "styled-components";
 import { Link } from "react-router-dom";
+import RequestCertificateDialog from "../RequestCerificateDialog/RequestCertificateDialog";
 
 const MenuList = styledcomponent.ul`
   display:flex;
@@ -57,6 +58,14 @@ const ClickDropdown = styled((props) => (
 }));
 
 export default function CertificateDropDown() {
+  const dropDownItems = [
+    {
+      name: "Request",
+    },
+    {
+      name: "Verify",
+    },
+  ];
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -90,11 +99,28 @@ export default function CertificateDropDown() {
         open={open}
         onClose={handleClose}
       >
-        <MenuList onClick={handleClose}>
-          <Link to="/request-certificate">Request</Link>
-        </MenuList>
         <MenuList>
-          <Link to="/verify-certificate">Verify</Link>
+          <ul className="submenu_container roboto_400">
+            {dropDownItems.map((item) => {
+              if (item.name === "Request") {
+                return (
+                  <>
+                    <li>
+                      <RequestCertificateDialog />
+                    </li>
+                  </>
+                );
+              } else {
+                return (
+                  <>
+                    <li>
+                      <RequestCertificateDialog />
+                    </li>
+                  </>
+                );
+              }
+            })}
+          </ul>
         </MenuList>
       </ClickDropdown>
     </>

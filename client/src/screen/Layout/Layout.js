@@ -23,6 +23,7 @@ import { Link } from "react-router-dom";
 import ClickDropdown from "components/CoursesClickDropdown";
 import AboutUsDropDown from "components/AboutUsDropDown/AboutUsDropDown";
 import CertificateDropDown from "components/CertificateDropDown/CertificateDropDown";
+import EnrollDialog from "components/EnrollDialog/EnrollDialog";
 
 const drawerWidth = 240;
 
@@ -40,31 +41,14 @@ const navItems = [
   },
   {
     name: "Contact",
-    path: "contact",
-  },
-  {
-    name: "Our Team",
-    path: "our-team",
+    path: "contact-us",
   },
 
   {
     name: "Certificate",
   },
   {
-    name: "Blog",
-    path: "blog",
-  },
-  {
-    name: "Login",
-    path: "login",
-  },
-  {
-    name: "Register",
-    path: "register",
-  },
-  {
-    name: "Terms and Conditions",
-    path: "terms-and-condition",
+    name: "Enroll",
   },
 ];
 
@@ -167,6 +151,8 @@ function DrawerAppBar(props) {
                       return <AboutUsDropDown />;
                     } else if (item.name === "Certificate") {
                       return <CertificateDropDown />;
+                    } else if (item.name === "Enroll") {
+                      return <EnrollDialog />;
                     } else {
                       return (
                         <Link

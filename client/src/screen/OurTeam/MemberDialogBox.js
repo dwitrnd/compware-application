@@ -59,11 +59,11 @@ const MemberDialogBox = () => {
             <Grid
               item
               xs={12}
-              sm={3}
+              sm={4}
               md={2}
               sx={{ display: "flex", direction: "column" }}
             >
-              <Container style={{ marginLeft: "auto", marginRight: "auto" }}>
+              <Container>
                 <Avatar src={TrainerPhoto} className={classes.avatar} />
                 <Typography variant="body1" color="primary">
                   Teacher's Name
@@ -82,7 +82,7 @@ const MemberDialogBox = () => {
                 </div>
               </Container>
             </Grid>
-            <Grid item xs={12} sm={9} md={10}>
+            <Grid item xs={12} sm={8} md={10}>
               <Typography variant="body1">
                 Bachelor's Degree from Ratna Rajyalaxmi Campus (Tribhuvan
                 University) in the faculty of humanities and social science, IT
