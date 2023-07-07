@@ -10,7 +10,7 @@ import Checkbox from "@mui/material/Checkbox";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 
-const EnrollDialog = ({}) => {
+const CourseEnrollDialog = ({ courseName, schedule }) => {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -22,7 +22,7 @@ const EnrollDialog = ({}) => {
   return (
     <>
       <Button
-        variant="outlined"
+        variant="contained"
         onClick={handleClickOpen}
         sx={{ marginRight: "1rem" }}
       >
@@ -61,10 +61,14 @@ const EnrollDialog = ({}) => {
               Course
             </Typography>
             <TextField
+              disabled
+              value={courseName}
               variant="outlined"
+              defaultValue="Hello World"
               id="course"
               sx={{ width: "100%" }}
-            ></TextField>
+            />
+
             <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
               Schedule
             </Typography>
@@ -117,4 +121,4 @@ const EnrollDialog = ({}) => {
   );
 };
 
-export default EnrollDialog;
+export default CourseEnrollDialog;

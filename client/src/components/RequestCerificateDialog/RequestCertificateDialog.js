@@ -53,7 +53,7 @@ const MemberDialogBox = () => {
   return (
     <div style={{ display: "initial" }}>
       <Button variant="text" disableElevation onClick={handleClickOpen}>
-        Request Certificate
+        Request
       </Button>
       <Dialog
         onClose={handleClose}

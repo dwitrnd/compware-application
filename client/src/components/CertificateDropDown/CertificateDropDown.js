@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import styledcomponent from "styled-components";
 import { Link } from "react-router-dom";
+import VerifyCertificateDialog from "../VerifyCertificateDialog/VerifyCertificateDialog";
 import RequestCertificateDialog from "../RequestCerificateDialog/RequestCertificateDialog";
 
 const MenuList = styledcomponent.ul`
@@ -114,7 +115,7 @@ export default function CertificateDropDown() {
                 return (
                   <>
                     <li>
-                      <RequestCertificateDialog />
+                      <VerifyCertificateDialog />
                     </li>
                   </>
                 );

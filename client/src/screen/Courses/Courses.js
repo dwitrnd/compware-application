@@ -49,6 +49,7 @@ const Courses = () => {
           </Stack>
         </header>
         <CoursesItem />
+        <CoursesItem />
       </Container>
     </>
   );

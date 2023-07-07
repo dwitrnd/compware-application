@@ -3,31 +3,41 @@ import { Box } from "@material-ui/core";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 import { Button, Stack, Typography } from "@mui/material";
 import ExpressJs from "../../assets/images/courses/expressjs.png";
+import { useState } from "react";
+import CourseEnrollDialog from "components/CourseEnrollDialog/CourseEnrollDialog";
 
 const CoursesItem = () => {
+  const [open, setOpen] = useState(false);
+  const course = "Javascript";
+  let courseSchedule = "11AM - 2PM";
   return (
     <>
       <Box
         sx={{
           display: "inline-block",
-          height: "22rem",
+          height: "100%",
           borderRadius: "0.75rem",
+          margin: "1.25rem",
+          padding: "1.75rem",
           boxShadow: "6px 6px 12px 3px rgba(99, 99, 99, 0.20)",
         }}
       >
         <Grid container spacing={2}>
-          <Grid xs={12} md={2}>
+          <div xs={12} md={2}>
             <Stack direction="column">
-              <img src={ExpressJs} />
+              <img
+                src={ExpressJs}
+                style={{ height: "10rem", width: "10rem" }}
+              />
               <Typography variant="h6" color="primary">
-                Course
+                {course}
               </Typography>
               <Typography variant="subtitle1">Duration:</Typography>
               <Typography variant="subtitle1">Schedule:</Typography>
             </Stack>
-          </Grid>
+          </div>
           <Grid xs={12} md={10}>
-            <Typography variant="body1">
+            <Typography variant="body1" margin="0.75rem">
               Bachelor's Degree from Ratna Rajyalaxmi Campus (Tribhuvan
               University) in the faculty of humanities and social science, IT
               Apprenticeship program from CTEVT (Deerwalk Institute of
@@ -40,7 +50,7 @@ const CoursesItem = () => {
             </Typography>
           </Grid>
         </Grid>
-        <Button variant="contained">Enroll</Button>
+        <CourseEnrollDialog courseName={course} />
       </Box>
     </>
   );

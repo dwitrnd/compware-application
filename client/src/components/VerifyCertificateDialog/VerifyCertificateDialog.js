@@ -53,7 +53,7 @@ const MemberDialogBox = () => {
   return (
     <div style={{ display: "initial" }}>
       <Button variant="text" disableElevation onClick={handleClickOpen}>
-        Request Certificate
+        Verify
       </Button>
       <Dialog
         onClose={handleClose}
@@ -72,7 +72,7 @@ const MemberDialogBox = () => {
           }}
         >
           <Typography variant="h4" color="primary">
-            Get Your Certificate
+            Certificate Verification
           </Typography>
         </DialogTitle>
         <DialogContent sx={{ display: "flex", flexDirection: "column" }}>
@@ -83,35 +83,8 @@ const MemberDialogBox = () => {
               justifyContent="center"
               spacing={{ xs: 2, sm: 8 }}
             >
-              <Typography>Full name</Typography>
+              <Typography>Compware ID</Typography>
               <TextField required type="name" variant="outlined" />
-            </Stack>
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              alignItems="center"
-              justifyContent="center"
-              spacing={{ xs: 2, sm: 8 }}
-            >
-              <Typography>Email</Typography>
-              <TextField required type="email" variant="outlined" />
-            </Stack>
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              alignItems="center"
-              justifyContent="center"
-              spacing={{ xs: 2, sm: 8 }}
-            >
-              <Typography>Course</Typography>
-              <TextField required type="course" variant="outlined" />
-            </Stack>
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              alignItems="center"
-              justifyContent="center"
-              spacing={{ xs: 2, sm: 8 }}
-            >
-              <Typography>Citizenship Card</Typography>
-              <TextField required type="citizenshipCard" variant="outlined" />
             </Stack>
           </Stack>
         </DialogContent>
@@ -119,7 +92,7 @@ const MemberDialogBox = () => {
           <Button autoFocus onClick={handleClose}>
             Close
           </Button>
-          <Button onClick={handleSnackBarOpen}>Request</Button>
+          <Button onClick={handleSnackBarOpen}>Verify</Button>
           <Snackbar
             open={snackbarOpen}
             autoHideDuration={5000}

@@ -134,6 +134,10 @@ const TermsAndConditions = () => {
             </ul>
           </li>
         </ol>
+        <Typography>
+          By enrolling in our training program, you acknowledge that you have
+          read, understood, and agreed to the above terms and conditions.
+        </Typography>
       </Container>
     </div>
   );
