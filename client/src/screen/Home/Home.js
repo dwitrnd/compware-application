@@ -60,7 +60,9 @@ const Home = () => {
 
       {/* // !  ========= body section starts from here ========= */}
 
-      <ReviewsMarqueCarousel />
+      <section style={{ marginTop: "5rem", marginBottom: "5rem" }}>
+        <ReviewsMarqueCarousel />
+      </section>
 
       <Container maxWidth='lg'>
         {/* //todo: partners section */}
