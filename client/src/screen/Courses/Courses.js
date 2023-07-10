@@ -13,12 +13,13 @@ import CoursesItem from "components/CoursesItems/CoursesItem";
 
 const Courses = () => {
   return (
-    <>
+    <main id="courses-page">
       <Container
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          maxWidth: "md",
         }}
       >
         <header
@@ -31,12 +32,14 @@ const Courses = () => {
           <Typography variant="h3">Our Courses</Typography>
           <Typography variant="subtitle1">Lorem ipsum dolor</Typography>
           <Stack direction="row">
-            <TextField
-              label="Search Course"
-              id="searchCourse"
-              variant="outlined"
-              sx={{ borderRadius: "1.875rem 0rem 0rem 1.875rem" }}
-            ></TextField>
+            <div>
+              <TextField
+                label="Search Course"
+                id="searchCourse"
+                variant="outlined"
+                sx={{ borderRadius: "1.875rem 0rem 0rem 1.875rem" }}
+              ></TextField>
+            </div>
             <Button
               variant="contained"
               sx={{ borderRadius: "0rem 1.875rem 1.875rem 0rem" }}
@@ -51,7 +54,7 @@ const Courses = () => {
         <CoursesItem />
         <CoursesItem />
       </Container>
-    </>
+    </main>
   );
 };
 
