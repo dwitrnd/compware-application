@@ -72,10 +72,10 @@ const Contact = () => {
                     sx={{ color: "white", marginRight: "2rem" }}
                   />
                   <Stack direction="column">
-                    <Typography variant="body1">
+                    <Typography variant="body1" style={{ color: "#FFF" }}>
                       Sifal, Kathmandu, Nepal
                     </Typography>
-                    <Typography variant="body1">
+                    <Typography variant="body1" style={{ color: "#FFF" }}>
                       Near Aaradhana Petrol Pump
                     </Typography>
                   </Stack>
@@ -84,7 +84,11 @@ const Contact = () => {
                   <LocalPhoneOutlinedIcon
                     sx={{ color: "white", marginRight: "2rem" }}
                   />
-                  <Typography variant="body1" color="white">
+                  <Typography
+                    variant="body1"
+                    color="white"
+                    style={{ color: "#FFF" }}
+                  >
                     01-5913021, 01-4567153
                   </Typography>
                 </Stack>
@@ -92,11 +96,13 @@ const Contact = () => {
                   <EmailOutlinedIcon
                     sx={{ color: "white", marginRight: "2rem" }}
                   />
-                  <Typography variant="body1">
+                  <Typography variant="body1" style={{ color: "#FFF" }}>
                     training@deerwalkcompware.com
                   </Typography>
                 </Stack>
-                <Typography variant="body1">Find Us At</Typography>
+                <Typography variant="body1" style={{ color: "#FFF" }}>
+                  Find Us At
+                </Typography>
                 <Stack direction="row" spacing={0.94} marginBottom="4.87rem">
                   <a href="https://www.linkedin.com/company/deerwalktrainingcenter/">
                     {" "}

@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const MemberDialogBox = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [userDescription, setUserDescription] = React.useState({});
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -35,6 +36,7 @@ const MemberDialogBox = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>

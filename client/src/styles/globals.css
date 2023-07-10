@@ -6523,4 +6523,34 @@ footer button {
 
 #courses-page .css-9425fu-MuiOutlinedInput-notchedOutline {
   border-radius: 1.875rem 0 0 1.875rem;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-name {
+  color: #0F5288;
+  text-align: justify;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.125rem;
+}
+
+.member-role {
+  color: rgba(0, 0, 0, 0.8);
+  text-align: justify;
+  font-family: Arial Rounded MT;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.01688rem;
+}
+
+.css-hvuoue-MuiInputBase-root-MuiInput-root {
+  border-bottom: #c1c1c1 !important;
 }/*# sourceMappingURL=globals.css.map */

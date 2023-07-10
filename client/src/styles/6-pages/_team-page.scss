@@ -1,0 +1,26 @@
+
+.member{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.member-name{
+	color: #0F5288;
+	text-align: justify;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.125rem;
+}
+
+.member-role{
+	color: rgba(0, 0, 0, 0.80);
+	text-align: justify;
+	font-family: Arial Rounded MT;
+	font-size: 1.125rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: -0.01688rem;
+}

@@ -31,13 +31,18 @@ const Courses = () => {
         >
           <Typography variant="h3">Our Courses</Typography>
           <Typography variant="subtitle1">Lorem ipsum dolor</Typography>
-          <Stack direction="row">
+          <Stack
+            direction="row"
+            justifyContent="center"
+            width="100rem"
+            maxWidth="100%"
+          >
             <div>
               <TextField
                 label="Search Course"
                 id="searchCourse"
                 variant="outlined"
-                sx={{ borderRadius: "1.875rem 0rem 0rem 1.875rem" }}
+                fullWidth
               ></TextField>
             </div>
             <Button
