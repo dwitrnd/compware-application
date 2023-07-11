@@ -9,6 +9,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
+import Backdrop from "@mui/material/Backdrop";
 
 const EnrollDialog = ({}) => {
   const [open, setOpen] = useState(false);
@@ -113,6 +114,14 @@ const EnrollDialog = ({}) => {
           </DialogContent>
         </form>
       </Dialog>
+      <Backdrop
+        open={open}
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          backdropFilter: "blur(8px)",
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
+        }}
+      />
     </>
   );
 };

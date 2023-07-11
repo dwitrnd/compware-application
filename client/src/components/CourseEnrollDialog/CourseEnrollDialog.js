@@ -9,6 +9,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
+import Backdrop from "@mui/material/Backdrop";
 
 const CourseEnrollDialog = ({ courseName, schedule }) => {
   const [open, setOpen] = useState(false);
@@ -46,7 +47,20 @@ const CourseEnrollDialog = ({ courseName, schedule }) => {
               <CloseIcon />
             </IconButton>
           </DialogTitle>
-          <DialogContent>
+          <DialogContent
+          // sx={{
+          //   "&::after": {
+          //     content: '""',
+          //     position: "fixed",
+          //     top: 0,
+          //     left: 0,
+          //     right: 0,
+          //     bottom: 0,
+          //     backdropFilter: "blur(8px)",
+          //     zIndex: 999,
+          //   },
+          // }}
+          >
             <Typography variant="body1">Name</Typography>
             <TextField variant="outlined" id="name" sx={{ width: "100%" }} />
             <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
@@ -117,6 +131,14 @@ const CourseEnrollDialog = ({ courseName, schedule }) => {
           </DialogContent>
         </form>
       </Dialog>
+      <Backdrop
+        open={open}
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          backdropFilter: "blur(8px)",
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
+        }}
+      />
     </>
   );
 };
