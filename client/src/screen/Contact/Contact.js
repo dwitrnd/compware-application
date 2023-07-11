@@ -17,8 +17,6 @@ import PersonIcon from "@mui/icons-material/Person";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import CommentIcon from "@mui/icons-material/Comment";
 import Snackbar from "@mui/material/Snackbar";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
 
 const Contact = () => {
   const [open, setOpen] = React.useState(false);
@@ -49,10 +47,10 @@ const Contact = () => {
         </Typography>
         <Typography variant="subtitle1">Lorem ipsum dolor sit amet</Typography>
         <Grid container spacing={0}>
-          <Grid xs={12} md={6}>
+          <Grid item xs={12} md={6}>
             <Box
               sx={{
-                width: "30.625rem",
+                width: { xs: "100%", md: "30.625rem" },
                 height: "40.75rem",
                 padding: "2rem",
                 paddingLeft: "4rem",
@@ -121,10 +119,10 @@ const Contact = () => {
               </Stack>
             </Box>
           </Grid>
-          <Grid xs={12} md={6}>
+          <Grid item xs={12} md={6}>
             <Box
               sx={{
-                width: "30.625",
+                width: { xs: "100%", md: "30.625rem" },
                 height: "40.75rem",
                 padding: "2rem",
                 paddingLeft: "4rem",
@@ -142,7 +140,11 @@ const Contact = () => {
               </Typography>
               <form
                 noValidate
-                style={{ display: "grid", gap: "3rem", marginTop: "2rem" }}
+                style={{
+                  display: "grid",
+                  gap: "3rem",
+                  marginTop: "2rem",
+                }}
               >
                 <Stack direction="row">
                   <PersonIcon

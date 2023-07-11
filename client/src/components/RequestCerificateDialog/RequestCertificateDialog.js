@@ -76,12 +76,11 @@ const MemberDialogBox = () => {
           </Typography>
         </DialogTitle>
         <DialogContent sx={{ display: "flex", flexDirection: "column" }}>
-          <Stack spacing={2} marginTop="20px">
+          <Stack spacing={2} marginTop="20px" alignItems="center" ju>
             <Stack
               direction={{ xs: "column", sm: "row" }}
-              alignItems="center"
-              justifyContent="center"
               spacing={{ xs: 2, sm: 8 }}
+              alignItems="center"
             >
               <Typography>Full name</Typography>
               <TextField required type="name" variant="outlined" />
@@ -89,7 +88,6 @@ const MemberDialogBox = () => {
             <Stack
               direction={{ xs: "column", sm: "row" }}
               alignItems="center"
-              justifyContent="center"
               spacing={{ xs: 2, sm: 8 }}
             >
               <Typography>Email</Typography>
@@ -98,7 +96,6 @@ const MemberDialogBox = () => {
             <Stack
               direction={{ xs: "column", sm: "row" }}
               alignItems="center"
-              justifyContent="center"
               spacing={{ xs: 2, sm: 8 }}
             >
               <Typography>Course</Typography>
@@ -107,7 +104,6 @@ const MemberDialogBox = () => {
             <Stack
               direction={{ xs: "column", sm: "row" }}
               alignItems="center"
-              justifyContent="center"
               spacing={{ xs: 2, sm: 8 }}
             >
               <Typography>Citizenship Card</Typography>
