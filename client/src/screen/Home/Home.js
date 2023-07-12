@@ -12,7 +12,66 @@ import ClientsSection from "./components/Clients";
 import CourseSection from "./components/Courses/Courses";
 import Header from "components/Header";
 import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqueCarousel";
+
 const Home = () => {
+  // hero section component
+
+  const FilterCardContainer = styled.div`
+    display: flex;
+    margin-top: 3.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @media (max-width: 550px) {
+      display: none;
+    }
+  `;
+
+  const CourseSearchField = styled.input`
+    width: 50%;
+    @media (max-width: 550px) {
+      width: 90%;
+    }
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1.2rem;
+    outline: none;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 50px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  `;
+
+  const FilterCards = styled.div`
+    display: inline;
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.5) !important;
+    margin: 0 5px;
+    padding: 15px 18px;
+    font-size: 16px;
+    border-radius: 50px;
+
+    &:hover {
+      background: white !important;
+      color: black;
+    }
+  `;
+
+  const HeroTitle = styled.h2`
+    font-size: 2rem;
+    text-align: center;
+    @media (max-width: 550px) {
+      font-size: 1.5rem;
+    }
+  `;
+
+  const HeroSubTitle = styled.p`
+    font-size: 1rem;
+    max-width: 600px;
+    text-align: center;
+    margin: 2rem auto;
+  `;
+
   const TestimonialSection = styled.section`
     h6,
     h2,
@@ -52,7 +111,20 @@ const Home = () => {
           </div>
 
           <div id='hero-content'>
-            <p>hello</p>
+            <FilterCardContainer>
+              <FilterCards>Discover</FilterCards>
+              <FilterCards>Discover</FilterCards>
+              <FilterCards>Discover</FilterCards>
+              <FilterCards>Discover</FilterCards>
+              <FilterCards>Discover</FilterCards>
+            </FilterCardContainer>
+
+            <HeroTitle style={{ marginTop: "3rem" }}>Explore the world's leading</HeroTitle>
+            <HeroTitle>training center</HeroTitle>
+
+            <HeroSubTitle>Millions of students and people around the world showcase their skills and work on compware - the home to the world’s best trainers and professionals.</HeroSubTitle>
+
+            <CourseSearchField placeholder='Search...' type='text' />
           </div>
         </section>
       </section>
