@@ -6,6 +6,8 @@ import { withSize } from "react-sizeme";
 import { nanoid } from "nanoid";
 import certificateImage from "assets/images/certificateimage.jpeg";
 
+import TrianingCourse1 from "../../assets/images/training-courses/dot-net-programming.jpg";
+
 const Photo = styled.img`
   width: ${(props) => props.scale * 368}px;
   height: ${(props) => props.scale * 200}px;
@@ -18,9 +20,11 @@ const Photo = styled.img`
   margin-right: ${(props) => (props.offset === "true" ? props.scale * 80 : 0)}px;
 `;
 
-const photos = [certificateImage, certificateImage, certificateImage, certificateImage, certificateImage, certificateImage, certificateImage, certificateImage, certificateImage, certificateImage, certificateImage, certificateImage, certificateImage, certificateImage];
+const photos = [TrianingCourse1, TrianingCourse1, TrianingCourse1, TrianingCourse1, TrianingCourse1, TrianingCourse1, TrianingCourse1, TrianingCourse1, TrianingCourse1, TrianingCourse1, TrianingCourse1, TrianingCourse1, TrianingCourse1, TrianingCourse1];
 
 const People = ({ size }) => {
+  const [marqueeRunningState, setMarqueeRunningState] = useState(25);
+
   const [key, setKey] = useState(nanoid());
 
   useEffect(() => {
@@ -41,22 +45,47 @@ const People = ({ size }) => {
     scale = 1;
   }
 
+  function handleMouseOver() {
+    setMarqueeRunningState(0);
+  }
+  function handleMouseLeave() {
+    setMarqueeRunningState(25);
+  }
+
   return (
     <div>
-      <div style={{ height: scale * 200 }}>
-        <Marquee key={key} velocity={25}>
+      <div>
+        <Marquee key={key} velocity={marqueeRunningState}>
           {times(7, Number).map((id) => (
-            <Photo src={photos[id]} alt='' key={`marquee-example-people-${id}`} scale={scale} />
+            <div onMouseLeave={handleMouseLeave} onMouseOver={handleMouseOver} style={{ cursor: "pointer ", margin: "0rem !important", width: "19rem" }} className='home_course_card'>
+              <Photo src={photos[id]} alt='' key={`marquee-example-people-${id}`} scale={scale * 1.3} />
+              <div className='course_card_content'>
+                <span className='trainer-info' style={{ color: "#636363", fontSize: "0.75rem" }}>
+                  Trainer: Dr. Shreevastav KC
+                </span>
+                <h6 style={{ color: "#0f5288", fontSize: "1.45rem" }}>Machine Learning</h6>
+                <p style={{ color: "#000000", fontSize: "0.85rem" }}>Skills you'll gain: Machine Learning,Probability & Statistics, Machine Learning Algorithms, General Statistics, Theoritical Knowledge.</p>
+              </div>
+            </div>
           ))}
         </Marquee>
       </div>
 
       <div style={{ height: scale * 60 }} />
 
-      <div style={{ height: scale * 200 }}>
-        <Marquee key={key} velocity={25}>
+      <div>
+        <Marquee key={key} velocity={marqueeRunningState}>
           {times(7, Number).map((id) => (
-            <Photo src={photos[id + 7]} alt='' key={`marquee-example-people-${id + 7}`} offset='true' scale={scale} />
+            <div onMouseLeave={handleMouseLeave} onMouseOver={handleMouseOver} style={{ cursor: "pointer ", margin: "0rem !important", width: "19rem" }} className='home_course_card'>
+              <Photo src={photos[id]} alt='' key={`marquee-example-people-${id}`} scale={scale * 1.3} />
+              <div className='course_card_content'>
+                <span className='trainer-info' style={{ color: "#636363", fontSize: "0.75rem" }}>
+                  Trainer: Dr. Shreevastav KC
+                </span>
+                <h6 style={{ color: "#0f5288", fontSize: "1.45rem" }}>Machine Learning</h6>
+                <p style={{ color: "#000000", fontSize: "0.85rem" }}>Skills you'll gain: Machine Learning,Probability & Statistics, Machine Learning Algorithms, General Statistics, Theoritical Knowledge.</p>
+              </div>
+            </div>
           ))}
         </Marquee>
       </div>
