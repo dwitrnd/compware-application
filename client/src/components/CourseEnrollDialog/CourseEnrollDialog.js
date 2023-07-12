@@ -25,7 +25,10 @@ const CourseEnrollDialog = ({ courseName, schedule }) => {
       <Button
         variant="contained"
         onClick={handleClickOpen}
-        sx={{ marginRight: "1rem" }}
+        sx={{
+          marginRight: "1rem",
+          display: "flex",
+        }}
       >
         Enroll
       </Button>

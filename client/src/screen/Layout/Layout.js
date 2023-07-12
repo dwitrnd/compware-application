@@ -123,22 +123,23 @@ function DrawerAppBar(props) {
                   <MenuIcon />
                 </IconButton>
 
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <Box
-                    component="img"
-                    sx={{
-                      height: 52,
+                <Link to="/home">
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
                     }}
-                    alt="Compware logo"
-                    src={compwareLogo}
-                  />
-                </div>
-
+                  >
+                    <Box
+                      component="img"
+                      sx={{
+                        height: 52,
+                      }}
+                      alt="Compware logo"
+                      src={compwareLogo}
+                    />
+                  </div>
+                </Link>
                 <Box sx={{ display: { xs: "none", sm: "block" } }}>
                   {navItems.map((item) => {
                     console.log(item);

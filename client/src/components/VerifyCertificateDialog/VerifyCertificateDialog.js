@@ -7,48 +7,61 @@ import DialogActions from "@mui/material/DialogActions";
 import Typography from "@mui/material/Typography";
 import { Snackbar, Stack } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import CloseIcon from "@mui/icons-material/Close";
-import IconButton from "@mui/material/IconButton";
-import MuiAlert from "@mui/material/Alert";
-
-const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
+import Backdrop from "@mui/material/Backdrop";
+import { useState } from "react";
+import Alert from "@mui/material/Alert";
 
 const MemberDialogBox = () => {
-  const [open, setOpen] = React.useState(false);
-  const [snackbarOpen, setsnackbarOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [isFetching, setIsFetching] = useState(false);
+  const [data, setData] = useState(null);
+  const [error, setError] = useState({
+    errorStatus: false,
+    errorMessage: "",
+  });
+
+  const compwareId = "deerwalkcompware";
+
+  const fetchData = async () => {
+    setIsFetching(true);
+    try {
+      const response = await fetch("https://example.com/data");
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsFetching(false);
+    }
+  };
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
+    setError({
+      errorStatus: false,
+    });
     setOpen(false);
   };
-  const handleSnackBarOpen = () => {
-    setsnackbarOpen(true);
-  };
-  const handleSnackBarClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
+
+  const handleVerify = () => {
+    console.log(inputValue);
+    if (inputValue === "") {
+      setError({
+        errorStatus: true,
+        errorMessage: "Enter you compware ID",
+      });
+    } else {
+      // Fetch data
+      fetchData();
     }
-    setsnackbarOpen(false);
   };
-  const action = (
-    <React.Fragment>
-      <Button color="secondary" size="small" onClick={handleSnackBarClose}>
-        UNDO
-      </Button>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleSnackBarClose}
-      >
-        <CloseIcon fontSize="small" />
-      </IconButton>
-    </React.Fragment>
-  );
 
   return (
     <div style={{ display: "initial" }}>
@@ -60,8 +73,6 @@ const MemberDialogBox = () => {
         aria-labelledby="customized-dialog-title"
         open={open}
         id="request-certificate-dialog"
-        fullWidth
-        maxWidth="sm"
       >
         <DialogTitle
           id="customized-dialog-title"
@@ -75,6 +86,15 @@ const MemberDialogBox = () => {
             Certificate Verification
           </Typography>
         </DialogTitle>
+        {(() => {
+          if (error.errorStatus === true) {
+            return (
+              <Snackbar open autoHideDuration={4000} style={{ zIndex: 99 }}>
+                <Alert severity="error">{error.errorMessage}</Alert>
+              </Snackbar>
+            );
+          }
+        })()}
         <DialogContent sx={{ display: "flex", flexDirection: "column" }}>
           <Stack spacing={2} marginTop="20px">
             <Stack
@@ -84,7 +104,13 @@ const MemberDialogBox = () => {
               spacing={{ xs: 2, sm: 8 }}
             >
               <Typography>Compware ID</Typography>
-              <TextField required type="name" variant="outlined" />
+              <TextField
+                required
+                type="name"
+                variant="outlined"
+                onChange={handleChange}
+                value={inputValue}
+              />
             </Stack>
           </Stack>
         </DialogContent>
@@ -92,24 +118,19 @@ const MemberDialogBox = () => {
           <Button autoFocus onClick={handleClose}>
             Close
           </Button>
-          <Button onClick={handleSnackBarOpen}>Verify</Button>
-          <Snackbar
-            open={snackbarOpen}
-            autoHideDuration={5000}
-            onClose={handleSnackBarClose}
-            message="Request Sent Sucessfully"
-            action={action}
-          >
-            <Alert
-              onClose={handleSnackBarClose}
-              severity="success"
-              sx={{ width: "100%" }}
-            >
-              Register Request Sent Successfully
-            </Alert>
-          </Snackbar>
+          <Button onClick={handleVerify} disabled={isFetching}>
+            Verify
+          </Button>
         </DialogActions>
       </Dialog>
+      <Backdrop
+        open={open}
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          backdropFilter: "blur(8px)",
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
+        }}
+      />
     </div>
   );
 };

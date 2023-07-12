@@ -45,25 +45,24 @@ const Contact = () => {
         <Typography variant="h3" color="primary">
           Contact Us
         </Typography>
-        <Typography variant="subtitle1">Lorem ipsum dolor sit amet</Typography>
         <Grid container spacing={0}>
           <Grid item xs={12} md={6}>
             <Box
               sx={{
                 width: { xs: "100%", md: "30.625rem" },
-                height: "40.75rem",
+                height: "37rem",
                 padding: "2rem",
                 paddingLeft: "4rem",
                 background: "#0F5288",
                 borderRadius: "1.25rem 0rem 0rem 1.25rem",
               }}
             >
-              <Stack direction="column" justifyContent="center" spacing={8}>
+              <Stack direction="column" justifyContent="center" spacing={6}>
                 <Typography variant="h4" style={{ color: "#FFF" }}>
                   Contact Info
                 </Typography>
                 <Typography variant="subtitle1" style={{ color: "#FFF" }}>
-                  Lorem ipsum dolor sit amet
+                  Contact or visit us
                 </Typography>
                 <Stack direction="row">
                   <LocationOnOutlinedIcon
@@ -101,7 +100,7 @@ const Contact = () => {
                 <Typography variant="body1" style={{ color: "#FFF" }}>
                   Find Us At
                 </Typography>
-                <Stack direction="row" spacing={0.94} marginBottom="4.87rem">
+                <Stack direction="row" spacing={2} marginBottom="4.87rem">
                   <a href="https://www.linkedin.com/company/deerwalktrainingcenter/">
                     {" "}
                     <img src={LinkedInLogo} />{" "}
@@ -123,7 +122,7 @@ const Contact = () => {
             <Box
               sx={{
                 width: { xs: "100%", md: "30.625rem" },
-                height: "40.75rem",
+                height: "37rem",
                 padding: "2rem",
                 paddingLeft: "4rem",
                 borderRadius: "0rem 1.25rem 1.25rem 0rem",
@@ -153,7 +152,8 @@ const Contact = () => {
                   <TextField
                     id="user-name"
                     label="Full Name"
-                    variant="standard"
+                    variant="outlined"
+                    size="small"
                     required
                   />
                 </Stack>
@@ -164,14 +164,20 @@ const Contact = () => {
                   <TextField
                     id="mobile-number"
                     label="Mobile Number"
-                    variant="standard"
+                    variant="outlined"
+                    size="small"
                   ></TextField>
                 </Stack>
                 <Stack direction="row">
                   <EmailIcon
                     sx={{ marginTop: "1rem", marginRight: "1.94rem" }}
                   />
-                  <TextField id="email" label="Email" variant="standard" />
+                  <TextField
+                    id="email"
+                    label="Email"
+                    variant="outlined"
+                    size="small"
+                  />
                 </Stack>
                 <Stack direction="row">
                   <CommentIcon
@@ -182,7 +188,8 @@ const Contact = () => {
                     label="Message"
                     multiline
                     rows={4}
-                    variant="standard"
+                    variant="outlined"
+                    size="small"
                   />
                 </Stack>
               </form>
@@ -192,6 +199,8 @@ const Contact = () => {
                 sx={{
                   marginLeft: "auto",
                   marginTop: "1rem",
+                  display: "flex",
+                  alignItems: "flex-end",
                 }}
               >
                 Send

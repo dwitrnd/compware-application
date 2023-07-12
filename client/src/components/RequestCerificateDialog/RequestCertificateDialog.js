@@ -10,6 +10,8 @@ import TextField from "@mui/material/TextField";
 import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import MuiAlert from "@mui/material/Alert";
+import Backdrop from "@mui/material/Backdrop";
+import { useState } from "react";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -60,8 +62,6 @@ const MemberDialogBox = () => {
         aria-labelledby="customized-dialog-title"
         open={open}
         id="request-certificate-dialog"
-        fullWidth
-        maxWidth="sm"
       >
         <DialogTitle
           id="customized-dialog-title"
@@ -82,32 +82,47 @@ const MemberDialogBox = () => {
               spacing={{ xs: 2, sm: 8 }}
               alignItems="center"
             >
-              <Typography>Full name</Typography>
-              <TextField required type="name" variant="outlined" />
+              <Typography minWidth="8rem">Full name</Typography>
+              <TextField required type="name" variant="outlined" size="small" />
             </Stack>
             <Stack
               direction={{ xs: "column", sm: "row" }}
               alignItems="center"
               spacing={{ xs: 2, sm: 8 }}
             >
-              <Typography>Email</Typography>
-              <TextField required type="email" variant="outlined" />
+              <Typography minWidth="8rem">Email</Typography>
+              <TextField
+                required
+                type="email"
+                variant="outlined"
+                size="small"
+              />
             </Stack>
             <Stack
               direction={{ xs: "column", sm: "row" }}
               alignItems="center"
               spacing={{ xs: 2, sm: 8 }}
             >
-              <Typography>Course</Typography>
-              <TextField required type="course" variant="outlined" />
+              <Typography minWidth="8rem">Course</Typography>
+              <TextField
+                required
+                type="course"
+                variant="outlined"
+                size="small"
+              />
             </Stack>
             <Stack
               direction={{ xs: "column", sm: "row" }}
               alignItems="center"
               spacing={{ xs: 2, sm: 8 }}
             >
-              <Typography>Citizenship Card</Typography>
-              <TextField required type="citizenshipCard" variant="outlined" />
+              <Typography minWidth="8rem">Citizenship Card</Typography>
+              <TextField
+                required
+                type="citizenshipCard"
+                variant="outlined"
+                size="small"
+              />
             </Stack>
           </Stack>
         </DialogContent>
@@ -133,6 +148,14 @@ const MemberDialogBox = () => {
           </Snackbar>
         </DialogActions>
       </Dialog>
+      <Backdrop
+        open={open}
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          backdropFilter: "blur(8px)",
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
+        }}
+      />
     </div>
   );
 };

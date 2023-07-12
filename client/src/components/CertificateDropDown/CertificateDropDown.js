@@ -19,11 +19,12 @@ const MenuList = styledcomponent.ul`
     margin:0.2rem;
   }
   ul.submenu_container{
-    padding-left: 1.5rem;
+    padding: 0.75rem;
     list-style: none;
     color: #737373;
     font-size: 0.95rem;
     li{
+      width: 100% ;
       border-radius: 5px;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
@@ -101,12 +102,15 @@ export default function CertificateDropDown() {
         onClose={handleClose}
       >
         <MenuList>
-          <ul className="submenu_container roboto_400">
+          <ul
+            className="submenu_container roboto_400"
+            style={{ width: "100%" }}
+          >
             {dropDownItems.map((item) => {
               if (item.name === "Request") {
                 return (
                   <>
-                    <li>
+                    <li style={{ width: "100%" }}>
                       <RequestCertificateDialog />
                     </li>
                   </>
@@ -114,7 +118,7 @@ export default function CertificateDropDown() {
               } else {
                 return (
                   <>
-                    <li>
+                    <li style={{ width: "100%" }}>
                       <VerifyCertificateDialog />
                     </li>
                   </>

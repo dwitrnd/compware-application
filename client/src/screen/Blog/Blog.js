@@ -1,6 +1,5 @@
 import { Container, Typography } from "@material-ui/core";
 import { Pagination, Stack } from "@mui/material";
-import BlogImage from "../../assets/images/about-us-image.png";
 import React from "react";
 import { BlogData } from "./BlogData";
 
@@ -17,7 +16,7 @@ const Blog = () => {
             alignItems: "center",
           }}
         >
-          <Typography variant="h4" color="primary" className="gradient-text">
+          <Typography variant="h3" color="primary">
             Blog Posts
           </Typography>
           <Typography variant="subtitle1">
