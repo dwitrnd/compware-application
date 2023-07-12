@@ -10730,4 +10730,21 @@ footer button {
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+.home_course_card img {
+  margin-left: 0rem !important;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  width: 100%;
+}
+
+.home_course_card {
+  margin: 1rem;
+  background: white;
+}
+
+.course_card_content {
+  padding: 0rem 1.75rem;
+  background: white;
+}
 /*# sourceMappingURL=globals.css.map */

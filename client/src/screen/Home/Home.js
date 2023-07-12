@@ -124,7 +124,7 @@ const Home = () => {
 
             <HeroSubTitle>Millions of students and people around the world showcase their skills and work on compware - the home to the world’s best trainers and professionals.</HeroSubTitle>
 
-            <CourseSearchField placeholder='Search...' type='text' />
+            <CourseSearchField placeholder='Search courses...' type='text' />
           </div>
         </section>
       </section>
@@ -152,7 +152,7 @@ const Home = () => {
 
         {/* //todo: testimonial section */}
         <TestimonialSection style={{ margin: "5rem 0rem" }}>
-          <Header subTitle='IN THE NEWS' preTitle='Hot off the ' postTitle='press' paragraph='Read the latest news and announcements:' />
+          <Header subTitle='IN THE NEWS' preTitle='Our' postTitle='Testimonials' paragraph='Testimonials of our trainees.' />
           <SplideCarousel />
         </TestimonialSection>
       </Container>

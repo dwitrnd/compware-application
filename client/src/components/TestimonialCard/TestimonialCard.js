@@ -43,7 +43,7 @@ const Card = styled.div`
     border-radius: 50%;
   }
   h4 {
-    color: #dadadc;
+    color: #a1a1a1a1;
   }
 `;
 
@@ -54,12 +54,12 @@ const TestimonialCard = () => {
         <span>“</span>
       </div>
 
-      <p className='roboto_400'>Once a pipe burst in my kitchen and an hour later it was already repaired, thanks to deerwalk compware.</p>
+      <p className='roboto_400'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus, aut!</p>
 
       <hr />
 
       <img src={CompwareImage1} alt='' />
-      <h4 className='roboto_400'> John Doe</h4>
+      <h4 className='roboto_400'>name</h4>
     </Card>
   );
 };

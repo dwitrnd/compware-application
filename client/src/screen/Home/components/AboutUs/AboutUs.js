@@ -11,8 +11,8 @@ const AboutUs = () => {
             <img src={AboutUsImg} alt='' />
           </div>
           <div className='all-text'>
-            <h4>About Us</h4>
-            <h1>AOf Creative & Intelligent</h1>
+            <h4>Join Us</h4>
+            <h1>Join us!</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores rem necessitatibus provident quisquam consequatur animi cupiditate architecto atque, eum dolorem!</p>
           </div>
         </div>
