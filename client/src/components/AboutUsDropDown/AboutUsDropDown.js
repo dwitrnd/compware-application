@@ -18,11 +18,12 @@ const MenuList = styledcomponent.ul`
     margin:0.2rem;
   }
   ul.submenu_container{
-    padding-left: 1.5rem;
+    padding: 0.75rem;
     list-style: none;
     color: #737373;
     font-size: 0.95rem;
     li{
+      width: 100% ;
       border-radius: 5px;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
@@ -92,19 +93,19 @@ export default function AboutUsDropDown() {
         onClose={handleClose}
       >
         <MenuList onClick={handleClose}>
-          <ul className="submenu_container roboto_400">
-            <li>
-              <Link to="/our-team">Our Team</Link>
-            </li>
-            <li>
-              <Link to="/blog">Blogs</Link>
-            </li>
-            <li>
-              <Link to="/event">Event</Link>
-            </li>
-            <li>
-              <Link to="/gallery">Gallery</Link>
-            </li>
+          <ul
+            className="submenu_container roboto_400"
+            style={{ width: "100%" }}
+          >
+            <Link to="/our-team">
+              <li style={{ width: "100%" }}>Our Team</li>
+            </Link>
+            <Link to="/blog">
+              <li>Blogs</li>
+            </Link>
+            <Link to="/gallery">
+              <li>Gallery</li>
+            </Link>
           </ul>
         </MenuList>
         {/* <MenuList onClick={handleClose}>

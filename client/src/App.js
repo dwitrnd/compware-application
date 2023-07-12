@@ -22,6 +22,7 @@ import RequestCertificate from "./screen/RequestCertificate/RequestCertificate";
 import VerifyCertificate from "./screen/VerifyCertificate/VerifyCertificate";
 import Blog from "./screen/Blog/Blog";
 import TermsAndConditions from "./screen/TermsAndConditions/TermsAndConditions";
+import BlogPage from "screen/Blog/BlogPage";
 
 const theme = createTheme({
   palette: {
@@ -111,6 +112,14 @@ function App() {
                   element={
                     <Layout>
                       <Blog />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="blog-page"
+                  element={
+                    <Layout>
+                      <BlogPage />
                     </Layout>
                   }
                 />

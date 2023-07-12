@@ -2,6 +2,7 @@ import { Box, Button, Container, Typography } from "@material-ui/core";
 import { Pagination, Stack } from "@mui/material";
 import BlogImage from "../../assets/images/about-us-image.png";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const BlogData = () => {
   return (
@@ -26,33 +27,23 @@ export const BlogData = () => {
                 alignItems: "center",
                 boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
                 padding: "25px 25px 25px 25px",
-                borderRadius: "20px",
-                // height: "530px",
-                // minHeight: "300px", // Set a minimum height for smaller screens
-                // maxHeight: "90vh",
+                height: "530px",
+                minHeight: "300px", // Set a minimum height for smaller screens
+                maxHeight: "90vh",
               }}
             >
-              <Container
-                style={{
-                  backgroundColor: "red",
-                  height: "15rem",
-                  borderRadius: "20px",
-                  backgroundImage:
-                    "https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  backgroundRepeat: "no-repeat",
-                }}
-              ></Container>
-              <Typography variant="h6">Topic1</Typography>
+              <img src={BlogImage} width="100%" height="150px" />
+              <Typography variant="h6">Blog Title</Typography>
               <Typography
                 variant="body1"
                 style={{ maxHeight: "5rem", overflow: "hidden" }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                non magna diam.
+                Deerwalk Training Center: Nepal's Premier IT training Center.
+                Start Learning Now
               </Typography>
-              <Button variant="contained">Read More</Button>
+              <Link to="/blog-page">
+                <Button variant="contained">Read More</Button>
+              </Link>
             </Box>
           </div>
           <div>
@@ -70,15 +61,17 @@ export const BlogData = () => {
               }}
             >
               <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Topic1</Typography>
+              <Typography variant="h6">Blog Title</Typography>
               <Typography
                 variant="body1"
                 style={{ maxHeight: "5rem", overflow: "hidden" }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                non magna diam.
+                Deerwalk Training Center: Nepal's Premier IT training Center.
+                Start Learning Now
               </Typography>
-              <Button variant="contained">Read More</Button>
+              <Link to="/blog-page">
+                <Button variant="contained">Read More</Button>
+              </Link>
             </Box>
           </div>
           <div>
@@ -96,15 +89,17 @@ export const BlogData = () => {
               }}
             >
               <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Topic1</Typography>
+              <Typography variant="h6">Blog Title</Typography>
               <Typography
                 variant="body1"
                 style={{ maxHeight: "5rem", overflow: "hidden" }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                non magna diam.
+                Deerwalk Training Center: Nepal's Premier IT training Center.
+                Start Learning Now
               </Typography>
-              <Button variant="contained">Read More</Button>
+              <Link to="/blog-page">
+                <Button variant="contained">Read More</Button>
+              </Link>
             </Box>
           </div>
         </Stack>
@@ -126,15 +121,17 @@ export const BlogData = () => {
               }}
             >
               <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Topic1</Typography>
+              <Typography variant="h6">Blog Title</Typography>
               <Typography
                 variant="body1"
                 style={{ maxHeight: "5rem", overflow: "hidden" }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                non magna diam.
+                Deerwalk Training Center: Nepal's Premier IT training Center.
+                Start Learning Now
               </Typography>
-              <Button variant="contained">Read More</Button>
+              <Link to="/blog-page">
+                <Button variant="contained">Read More</Button>
+              </Link>
             </Box>
           </div>
           <div>
@@ -152,15 +149,17 @@ export const BlogData = () => {
               }}
             >
               <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Topic1</Typography>
+              <Typography variant="h6">Blog Title</Typography>
               <Typography
                 variant="body1"
                 style={{ maxHeight: "5rem", overflow: "hidden" }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                non magna diam.
+                Deerwalk Training Center: Nepal's Premier IT training Center.
+                Start Learning Now
               </Typography>
-              <Button variant="contained">Read More</Button>
+              <Link to="/blog-page">
+                <Button variant="contained">Read More</Button>
+              </Link>
             </Box>
           </div>
           <div>
@@ -178,15 +177,17 @@ export const BlogData = () => {
               }}
             >
               <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Topic1</Typography>
+              <Typography variant="h6">Blog Title</Typography>
               <Typography
                 variant="body1"
                 style={{ maxHeight: "5rem", overflow: "hidden" }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                non magna diam.
+                Deerwalk Training Center: Nepal's Premier IT training Center.
+                Start Learning Now
               </Typography>
-              <Button variant="contained">Read More</Button>
+              <Link to="/blog-page">
+                <Button variant="contained">Read More</Button>
+              </Link>
             </Box>
           </div>
         </Stack>
@@ -207,15 +208,17 @@ export const BlogData = () => {
               }}
             >
               <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Topic1</Typography>
+              <Typography variant="h6">Blog Title</Typography>
               <Typography
                 variant="body1"
                 style={{ maxHeight: "5rem", overflow: "hidden" }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                non magna diam.
+                Deerwalk Training Center: Nepal's Premier IT training Center.
+                Start Learning Now
               </Typography>
-              <Button variant="contained">Read More</Button>
+              <Link to="/blog-page">
+                <Button variant="contained">Read More</Button>
+              </Link>
             </Box>
           </div>
           <div>
@@ -233,15 +236,17 @@ export const BlogData = () => {
               }}
             >
               <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Topic1</Typography>
+              <Typography variant="h6">Blog Title</Typography>
               <Typography
                 variant="body1"
                 style={{ maxHeight: "5rem", overflow: "hidden" }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                non magna diam.
+                Deerwalk Training Center: Nepal's Premier IT training Center.
+                Start Learning Now
               </Typography>
-              <Button variant="contained">Read More</Button>
+              <Link to="/blog-page">
+                <Button variant="contained">Read More</Button>
+              </Link>
             </Box>
           </div>
           <div>
@@ -259,15 +264,17 @@ export const BlogData = () => {
               }}
             >
               <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Topic1</Typography>
+              <Typography variant="h6">Blog Title</Typography>
               <Typography
                 variant="body1"
                 style={{ maxHeight: "5rem", overflow: "hidden" }}
               >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                non magna diam.
+                Deerwalk Training Center: Nepal's Premier IT training Center.
+                Start Learning Now
               </Typography>
-              <Button variant="contained">Read More</Button>
+              <Link to="/blog-page">
+                <Button variant="contained">Read More</Button>
+              </Link>
             </Box>
           </div>
         </Stack>

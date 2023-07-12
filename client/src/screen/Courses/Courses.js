@@ -20,6 +20,8 @@ const Courses = () => {
           flexDirection: "column",
           alignItems: "center",
           maxWidth: "md",
+          marginTop: "3rem",
+          marginBottom: "3rem",
         }}
       >
         <header
@@ -29,7 +31,9 @@ const Courses = () => {
             alignItems: "center",
           }}
         >
-          <Typography variant="h3">Our Courses</Typography>
+          <Typography variant="h3" color="primary">
+            Our Courses
+          </Typography>
           <Typography variant="subtitle1">Lorem ipsum dolor</Typography>
           <Stack
             direction="row"

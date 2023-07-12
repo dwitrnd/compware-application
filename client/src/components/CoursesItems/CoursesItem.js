@@ -1,10 +1,11 @@
 import React from "react";
 import { Box } from "@material-ui/core";
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import ExpressJs from "../../assets/images/courses/expressjs.png";
 import { useState } from "react";
 import CourseEnrollDialog from "components/CourseEnrollDialog/CourseEnrollDialog";
+import Stack from "@mui/material/Stack";
 
 const CoursesItem = () => {
   const [open, setOpen] = useState(false);
@@ -54,20 +55,31 @@ const CoursesItem = () => {
           </div>
           <div>
             <Typography textAlign="justify">
-              Bachelor's Degree from Ratna Rajyalaxmi Campus (Tribhuvan
-              University) in the faculty of humanities and social science, IT
-              Apprenticeship program from CTEVT (Deerwalk Institute of
-              Technology) and Level-3 Award in Education and Training (RQF) from
-              Highfield, Eager for MENA (Middle East and North Africa); Supreme
-              Committee for Delivery and Legacy, (FIFA World Cup Qatar 2022™) as
-              HSSE Trainer and Facilitator, and Sifal Secondary School as an
-              Admin Analyst. He is also working as a Sales and Marketing Manager
-              at Logispark
+              A full-stack Javascript developer is a web programmer who uses
+              Javascript, a popular computer programming language. These
+              professionals write code in all three layers of a web-based
+              application: the front-end, the back-end, and the database layer.
+              The MERN stack refers to a collection of JavaScript-based web
+              application development technologies. Mongo DB, Express JS, React
+              JS/ Redux, and Node JS are all referred to as MERN (Mongo DB,
+              Express JS, React JS/ Redux, and Node JS). MongoDB is a database
+              system, NodeJS is a back-end runtime environment, ExpressJS is a
+              back-end web framework, and React is a front-end framework, among
+              these technologies. This course covers all of these topics in
+              detail.
             </Typography>
-            <a href="#">Read More</a>
+            <Stack
+              direction="row"
+              alignItems="flex-end"
+              justifyContent="flex-end"
+              spacing={4}
+              marginTop="3rem"
+            >
+              <Button variant="outlined">Read More</Button>
+              <CourseEnrollDialog courseName={course} />
+            </Stack>
           </div>
         </Stack>
-        <CourseEnrollDialog courseName={course} />
       </Box>
     </>
   );
