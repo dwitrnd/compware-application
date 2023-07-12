@@ -137,8 +137,6 @@ const Home = () => {
       </section>
 
       <Container maxWidth='lg'>
-        {/* //todo: partners section */}
-        <ClientsSection />
         {/* //todo: features section */}
         <FeaturesSection />
 
@@ -155,6 +153,9 @@ const Home = () => {
           <Header subTitle='IN THE NEWS' preTitle='Our' postTitle='Testimonials' paragraph='Testimonials of our trainees.' />
           <SplideCarousel />
         </TestimonialSection>
+
+        {/* //todo: partners section */}
+        <ClientsSection />
       </Container>
       {/* // !  ========= body section ends from here ========= */}
 

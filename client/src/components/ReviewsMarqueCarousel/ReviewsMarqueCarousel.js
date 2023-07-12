@@ -77,10 +77,10 @@ const People = ({ size }) => {
         <Marquee key={key} velocity={marqueeRunningState}>
           {times(7, Number).map((id) => (
             <div onMouseLeave={handleMouseLeave} onMouseOver={handleMouseOver} style={{ cursor: "pointer ", margin: "0rem !important", width: "19rem" }} className='home_course_card'>
-              <Photo src={photos[id]} alt='' key={`marquee-example-people-${id}`} scale={scale} />
+              <Photo src={photos[id]} alt='' key={`marquee-example-people-${id}`} scale={scale * 1.3} />
               <div className='course_card_content'>
                 <span className='trainer-info' style={{ color: "#636363", fontSize: "0.75rem" }}>
-                  Dr. Shreevastav KC
+                  Trainer: Dr. Shreevastav KC
                 </span>
                 <h6 style={{ color: "#0f5288", fontSize: "1.45rem" }}>Machine Learning</h6>
                 <p style={{ color: "#000000", fontSize: "0.85rem" }}>Skills you'll gain: Machine Learning,Probability & Statistics, Machine Learning Algorithms, General Statistics, Theoritical Knowledge.</p>
