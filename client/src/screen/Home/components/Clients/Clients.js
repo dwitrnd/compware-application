@@ -13,7 +13,7 @@ import Client6 from "../../../../assets/images/compware-clients/python-tutorial.
 import styled from "styled-components";
 
 const ClientImage = styled.img`
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
   transition: all 0.3s ease-in-out;
   &:hover {
     filter: grayscale(0%);

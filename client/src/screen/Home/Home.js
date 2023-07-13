@@ -72,32 +72,6 @@ const Home = () => {
     margin: 2rem auto;
   `;
 
-  const TestimonialSection = styled.section`
-    h6,
-    h2,
-    p {
-      text-align: center;
-    }
-
-    h6 {
-      font-size: 1rem;
-      /*provide gradient color */
-
-      background: linear-gradient(90deg, #02a28b, #067f87 52.4%, #0a5f82);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    h2 {
-      margin: 0.2rem 0rem;
-      font-size: 2.5rem;
-    }
-    p {
-      margin-bottom: 3rem;
-      font-size: 1.1rem;
-    }
-  `;
-
   return (
     <>
       {/* //* =========hero section starts here========= */}
@@ -149,13 +123,23 @@ const Home = () => {
         <AboutUsSection />
 
         {/* //todo: testimonial section */}
-        <TestimonialSection style={{ margin: "5rem 0rem" }}>
+        <div style={{ margin: "5rem 0rem" }}>
           <Header subTitle='IN THE NEWS' preTitle='Our' postTitle='Testimonials' paragraph='Testimonials of our trainees.' />
           <SplideCarousel />
-        </TestimonialSection>
+        </div>
 
         {/* //todo: partners section */}
-        <ClientsSection />
+        <div style={{ margin: "5rem 0rem" }}>
+          <Header
+            subTitle=''
+            preTitle='Our'
+            postTitle='Clients'
+            paragraph='
+              Clients who have trusted us and have been with us for a long time.
+          '
+          />
+          <ClientsSection />
+        </div>
       </Container>
       {/* // !  ========= body section ends from here ========= */}
 
