@@ -5,24 +5,44 @@ const TermsAndConditions = () => {
   return (
     <div style={{ marginTop: "3rem", marginBottom: "3rem" }}>
       <Container maxWidth="lg">
-        <section style={{ display: "flex", justifyContent: "center" }}>
+        <section
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
           <Typography
             variant="h3"
             color="primary"
-            className="gradient-text"
             style={{ fontWeight: "bold" }}
           >
             Terms and Conditions
           </Typography>
+          <Typography
+            variant="body1"
+            style={{ marginTop: "1rem", marginBottom: "2rem" }}
+            gutterBottom
+          >
+            By enrolling in our training program, you (referred to as "Student")
+            agree to the following terms and conditions:
+          </Typography>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              width: "100%",
+            }}
+          >
+            <Typography variant="body1">Last Updated: 13/07/2023</Typography>
+          </div>
         </section>
-        <Typography variant="body1" gutterBottom>
-          By enrolling in our training program, you (referred to as "Student")
-          agree to the following terms and conditions:
-        </Typography>
-        <ol>
+
+        <ol className="conditions">
           <li>
             Payment:{" "}
-            <ul>
+            <ul className="condition-list">
               <li>
                 The Student must pay a minimum of 50% of the total fees at the
                 time of admission.
@@ -35,7 +55,7 @@ const TermsAndConditions = () => {
           </li>
           <li>
             Laptop Requirement:
-            <ul>
+            <ul className="condition-list">
               <li>
                 The Student must bring their own laptop and ensure its
                 availability throughout the duration of the class.
@@ -44,7 +64,7 @@ const TermsAndConditions = () => {
           </li>
           <li>
             Attendance and Project Submission:
-            <ul>
+            <ul className="condition-list">
               <li>
                 The Student must maintain a minimum attendance of 90% throughout
                 the course.
@@ -57,7 +77,7 @@ const TermsAndConditions = () => {
           </li>
           <li>
             Punctuality and Classroom Maintenance:
-            <ul>
+            <ul className="condition-list">
               <li>
                 The Student must be punctual for all classes and actively
                 participate.
@@ -71,7 +91,7 @@ const TermsAndConditions = () => {
           </li>
           <li>
             ID-Card Requirement:
-            <ul>
+            <ul className="condition-list">
               <li>
                 The Student must always wear the provided training ID-Card while
                 entering Deerwalk Compware premises.
@@ -80,7 +100,7 @@ const TermsAndConditions = () => {
           </li>
           <li>
             Canteen Facilities:
-            <ul>
+            <ul className="condition-list">
               <li>
                 If the Student wishes to use the canteen facilities, an advance
                 payment of Rs. 1000 must be made. This amount is non-refundable.
@@ -90,7 +110,7 @@ const TermsAndConditions = () => {
           </li>
           <li>
             Internet Access:
-            <ul>
+            <ul className="condition-list">
               <li>
                 The Student must have internet access during the training
                 period.
@@ -103,7 +123,7 @@ const TermsAndConditions = () => {
           </li>
           <li>
             ID Card Loss or Misuse:
-            <ul>
+            <ul className="condition-list">
               <li>An ID card will be provided to all students.</li>
               <li>
                 If the ID card is lost, a fine of Rs. 1000 will be imposed.
@@ -116,7 +136,7 @@ const TermsAndConditions = () => {
           </li>
           <li>
             Refund Policy:
-            <ul>
+            <ul className="condition-list">
               <li>
                 The paid amount for the course will not be refundable under any
                 circumstances.
@@ -125,7 +145,7 @@ const TermsAndConditions = () => {
           </li>
           <li>
             Termination of Enrollment:
-            <ul>
+            <ul className="condition-list">
               <li>
                 Deerwalk Compware reserves the right to terminate a Student from
                 the class if they fail to comply with the guidelines mentioned
@@ -134,10 +154,6 @@ const TermsAndConditions = () => {
             </ul>
           </li>
         </ol>
-        <Typography>
-          By enrolling in our training program, you acknowledge that you have
-          read, understood, and agreed to the above terms and conditions.
-        </Typography>
       </Container>
     </div>
   );
