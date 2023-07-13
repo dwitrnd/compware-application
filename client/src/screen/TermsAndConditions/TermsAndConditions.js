@@ -33,6 +33,7 @@ const TermsAndConditions = () => {
               display: "flex",
               justifyContent: "flex-end",
               width: "100%",
+              color: "gray",
             }}
           >
             <Typography variant="body1">Last Updated: 13/07/2023</Typography>
