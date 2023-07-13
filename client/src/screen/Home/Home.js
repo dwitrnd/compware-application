@@ -86,11 +86,11 @@ const Home = () => {
 
           <div id='hero-content'>
             <FilterCardContainer>
-              <FilterCards>Discover</FilterCards>
-              <FilterCards>Discover</FilterCards>
-              <FilterCards>Discover</FilterCards>
-              <FilterCards>Discover</FilterCards>
-              <FilterCards>Discover</FilterCards>
+              <FilterCards>Web Development</FilterCards>
+              <FilterCards>Android</FilterCards>
+              <FilterCards>Graphic Design</FilterCards>
+              <FilterCards>Diploma</FilterCards>
+              <FilterCards>Short Term</FilterCards>
             </FilterCardContainer>
 
             <HeroTitle style={{ marginTop: "3rem" }}>Explore the world's leading</HeroTitle>
