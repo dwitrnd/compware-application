@@ -19,77 +19,78 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Features(props) {
   const content = {
-    "col1-header": "Accessibility",
-    "col1-desc": "Ever worried that you won't be able to access your data in some places? Nevermore. With PiperNet your connection has no borders.",
-    "col2-header": "Secure",
-    "col2-desc": 'Have you ever heard about "not putting all of your eggs in one basket"? Well, with PiperNet you can actually put all your eggs in millions of baskets.',
-    ...props.content,
+    "col1-header": "Quality Training",
+    "col1-desc": " We provide quality training to our students. We have a team of highly qualified and experienced trainers.",
+    "col2-header": "Mentors",
+    "col2-desc": "We have a team of mentors who are always ready to help our students. They are available 24/7 to help our students.",
+    "col3-header": "Placement Assistance",
+    "col3-desc": "We provide placement assistance to our students. We have a team of placement officers who help our students to get placed in top companies.",
+    "col4-header": "Live Projects",
+    "col4-desc": "We provide live projects to our students. We have a team of highly qualified and experienced trainers.",
   };
 
   return (
-    <section style={{ margin: "5rem 0rem" }}>
-      <Box py={6}>
-        <Grid container spacing={4}>
-          <Grid item xs={12} sm={6}>
-            <Box alignItems='center'>
-              {/* <StorageIcon color='primary' className={classes.icon} /> */}
-              <div style={{ width: "100%" }}>
-                <img src={codeIcon} style={{ height: "1.5rem" }} alt='' />
-              </div>
-              <Typography variant='h6' component='h3'>
-                {content["col1-header"]}
-              </Typography>
-            </Box>
-            <Typography variant='body1' component='p'>
-              {content["col1-desc"]}
+    <Box>
+      <Grid container spacing={4}>
+        <Grid item xs={12} sm={6}>
+          <Box alignItems='center'>
+            {/* <StorageIcon color='primary' className={classes.icon} /> */}
+            <div style={{ width: "100%" }}>
+              <img src={codeIcon} style={{ height: "1.5rem" }} alt='' />
+            </div>
+            <Typography variant='h6' component='h3'>
+              {content["col1-header"]}
             </Typography>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Box alignItems='center'>
-              {/* <VerifiedUserIcon color='primary' className={classes.icon} /> */}
-              <div style={{ width: "100%" }}>
-                <img src={pointerIcon} style={{ height: "1.5rem" }} alt='' />
-              </div>
-              <Typography variant='h6' component='h3'>
-                {content["col2-header"]}
-              </Typography>
-            </Box>
-            <Typography variant='body1' component='p'>
-              {content["col2-desc"]}
-            </Typography>
-          </Grid>
+          </Box>
+          <Typography variant='body1' component='p'>
+            {content["col1-desc"]}
+          </Typography>
         </Grid>
-        <Grid container spacing={4}>
-          <Grid item xs={12} sm={6}>
-            <Box alignItems='center'>
-              {/* <StorageIcon color='primary' className={classes.icon} /> */}
-              <div style={{ width: "100%" }}>
-                <img src={arrowIcon} style={{ height: "1.5rem" }} alt='' />
-              </div>
-              <Typography variant='h6' component='h3'>
-                Reliable
-              </Typography>
-            </Box>
-            <Typography variant='body1' component='p'>
-              {content["col1-desc"]}
+        <Grid item xs={12} sm={6}>
+          <Box alignItems='center'>
+            {/* <VerifiedUserIcon color='primary' className={classes.icon} /> */}
+            <div style={{ width: "100%" }}>
+              <img src={pointerIcon} style={{ height: "1.5rem" }} alt='' />
+            </div>
+            <Typography variant='h6' component='h3'>
+              {content["col2-header"]}
             </Typography>
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <Box alignItems='center'>
-              {/* <VerifiedUserIcon color='primary' className={classes.icon} /> */}
-              <div style={{ width: "100%" }}>
-                <img src={stackIcon} style={{ height: "1.5rem" }} alt='' />
-              </div>
-              <Typography variant='h6' component='h3'>
-                Fast
-              </Typography>
-            </Box>
-            <Typography variant='body1' component='p'>
-              {content["col2-desc"]}
-            </Typography>
-          </Grid>
+          </Box>
+          <Typography variant='body1' component='p'>
+            {content["col2-desc"]}
+          </Typography>
         </Grid>
-      </Box>
-    </section>
+      </Grid>
+      <Grid container spacing={4}>
+        <Grid item xs={12} sm={6}>
+          <Box alignItems='center'>
+            {/* <StorageIcon color='primary' className={classes.icon} /> */}
+            <div style={{ width: "100%" }}>
+              <img src={arrowIcon} style={{ height: "1.5rem" }} alt='' />
+            </div>
+            <Typography variant='h6' component='h3'>
+              {content["col3-header"]}
+            </Typography>
+          </Box>
+          <Typography variant='body1' component='p'>
+            {content["col3-desc"]}
+          </Typography>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Box alignItems='center'>
+            {/* <VerifiedUserIcon color='primary' className={classes.icon} /> */}
+            <div style={{ width: "100%" }}>
+              <img src={stackIcon} style={{ height: "1.5rem" }} alt='' />
+            </div>
+            <Typography variant='h6' component='h3'>
+              {content["col4-header"]}
+            </Typography>
+          </Box>
+          <Typography variant='body1' component='p'>
+            {content["col4-desc"]}
+          </Typography>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }

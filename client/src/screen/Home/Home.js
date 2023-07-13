@@ -107,12 +107,34 @@ const Home = () => {
       {/* // !  ========= body section starts from here ========= */}
 
       <section style={{ marginTop: "5rem", marginBottom: "5rem" }}>
+        <Header
+          subTitle='
+          Our Courses
+          '
+          preTitle='Quality Courses For Our'
+          postTitle='Students'
+          paragraph='
+We have courses for all types of students. We have courses for beginners, intermediate and advanced students. 
+          '
+        />
         <ReviewsMarqueCarousel />
       </section>
 
       <Container maxWidth='lg'>
         {/* //todo: features section */}
-        <FeaturesSection />
+
+        <div style={{ margin: "5rem 0rem" }}>
+          <Header
+            subTitle=''
+            preTitle='Why Choose '
+            postTitle='Us?'
+            paragraph='
+              We have the best trainers and professionals and we have the best courses for you.
+              
+          '
+          />
+          <FeaturesSection />
+        </div>
 
         {/* //todo: course section */}
         <CourseSection />
