@@ -154,6 +154,7 @@ const Contact = () => {
                     label="Full Name"
                     variant="outlined"
                     size="small"
+                    fullWidth
                     required
                   />
                 </Stack>
@@ -166,6 +167,7 @@ const Contact = () => {
                     label="Mobile Number"
                     variant="outlined"
                     size="small"
+                    fullWidth
                   ></TextField>
                 </Stack>
                 <Stack direction="row">
@@ -177,6 +179,7 @@ const Contact = () => {
                     label="Email"
                     variant="outlined"
                     size="small"
+                    fullWidth
                   />
                 </Stack>
                 <Stack direction="row">
@@ -190,6 +193,7 @@ const Contact = () => {
                     rows={4}
                     variant="outlined"
                     size="small"
+                    fullWidth
                   />
                 </Stack>
               </form>
