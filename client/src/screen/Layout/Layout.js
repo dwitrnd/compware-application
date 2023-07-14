@@ -173,7 +173,7 @@ function DrawerAppBar(props) {
                   })}
                   <IconButton aria-label="login">
                     <Link to={"/login"}>
-                      <LoginIcon />
+                      <LoginIcon color="primary" />
                     </Link>
                   </IconButton>
 
