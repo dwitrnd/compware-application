@@ -12,15 +12,27 @@ import IconButton from "@mui/material/IconButton";
 import MuiAlert from "@mui/material/Alert";
 import Backdrop from "@mui/material/Backdrop";
 import { useState } from "react";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
 const MemberDialogBox = () => {
-  const [open, setOpen] = React.useState(false);
-  const [snackbarOpen, setsnackbarOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [snackbarOpen, setsnackbarOpen] = useState(false);
 
+  const currentDate = new Date();
+  const nextThreeMonths = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 3,
+    currentDate.getDate()
+  );
+  const formattedStartDate = currentDate.toLocaleDateString("en-GB");
+  const formattedEndDate = nextThreeMonths.toLocaleDateString("en-GB");
+  const placeholderText = `${formattedStartDate} - ${formattedEndDate}`;
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -90,6 +102,19 @@ const MemberDialogBox = () => {
               alignItems="center"
               spacing={{ xs: 2, sm: 8 }}
             >
+              <Typography minWidth="8rem">Contact Number</Typography>
+              <TextField
+                required
+                type="contact"
+                variant="outlined"
+                size="small"
+              />
+            </Stack>
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              alignItems="center"
+              spacing={{ xs: 2, sm: 8 }}
+            >
               <Typography minWidth="8rem">Email</Typography>
               <TextField
                 required
@@ -116,12 +141,26 @@ const MemberDialogBox = () => {
               alignItems="center"
               spacing={{ xs: 2, sm: 8 }}
             >
-              <Typography minWidth="8rem">Citizenship Card</Typography>
+              <Typography minWidth="8rem">Course Trainer</Typography>
               <TextField
                 required
-                type="citizenshipCard"
+                type="courseTrainer"
                 variant="outlined"
                 size="small"
+              />
+            </Stack>
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              alignItems="center"
+              spacing={{ xs: 2, sm: 8 }}
+            >
+              <Typography minWidth="8rem">Training Duration</Typography>
+              <TextField
+                required
+                type="trainingDuration"
+                variant="outlined"
+                size="small"
+                placeholder={placeholderText}
               />
             </Stack>
           </Stack>
