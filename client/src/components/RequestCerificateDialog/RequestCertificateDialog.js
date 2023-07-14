@@ -12,6 +12,7 @@ import IconButton from "@mui/material/IconButton";
 import MuiAlert from "@mui/material/Alert";
 import Backdrop from "@mui/material/Backdrop";
 import { useState } from "react";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -154,14 +155,32 @@ const MemberDialogBox = () => {
               alignItems="center"
               spacing={{ xs: 2, sm: 8 }}
             >
-              <Typography minWidth="8rem">Training Duration</Typography>
-              <TextField
-                required
-                type="trainingDuration"
-                variant="outlined"
-                size="small"
-                placeholder={placeholderText}
-              />
+              <Typography minWidth="8rem">Training Duration Start </Typography>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DemoContainer components={["DatePicker"]}>
+                  <DatePicker
+                    inputProps={{
+                      style: { fontSize: "0.8rem", padding: "0.5rem" },
+                    }}
+                  />
+                </DemoContainer>
+              </LocalizationProvider>
+            </Stack>
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              alignItems="center"
+              spacing={{ xs: 2, sm: 8 }}
+            >
+              <Typography minWidth="8rem">Training Duration End</Typography>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DemoContainer components={["DatePicker"]}>
+                  <DatePicker
+                    inputProps={{
+                      style: { fontSize: "0.8rem", padding: "0.5rem" },
+                    }}
+                  />
+                </DemoContainer>
+              </LocalizationProvider>
             </Stack>
           </Stack>
         </DialogContent>

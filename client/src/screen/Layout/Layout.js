@@ -24,7 +24,7 @@ import ClickDropdown from "components/CoursesClickDropdown";
 import AboutUsDropDown from "components/AboutUsDropDown/AboutUsDropDown";
 import CertificateDropDown from "components/CertificateDropDown/CertificateDropDown";
 import EnrollDialog from "components/EnrollDialog/EnrollDialog";
-
+import LoginIcon from "@mui/icons-material/Login";
 const drawerWidth = 240;
 
 const navItems = [
@@ -171,6 +171,12 @@ function DrawerAppBar(props) {
                       );
                     }
                   })}
+                  <IconButton aria-label="login">
+                    <Link to={"/login"}>
+                      <LoginIcon />
+                    </Link>
+                  </IconButton>
+
                   {/* dropdown menu added explicitly  here starts*/}
 
                   {/* <Button className='blue-color roboto_500' sx={{ color: "#fff" }}>
