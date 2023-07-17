@@ -23,6 +23,7 @@ import VerifyCertificate from "./screen/VerifyCertificate/VerifyCertificate";
 import Blog from "./screen/Blog/Blog";
 import TermsAndConditions from "./screen/TermsAndConditions/TermsAndConditions";
 import BlogPage from "screen/Blog/BlogPage";
+import CourseDetailPage from "screen/CourseDetailPage/CourseDetailPage";
 
 const theme = createTheme({
   palette: {
@@ -136,6 +137,14 @@ function App() {
                   element={
                     <Layout>
                       <TermsAndConditions />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="course-detail"
+                  element={
+                    <Layout>
+                      <CourseDetailPage />
                     </Layout>
                   }
                 />

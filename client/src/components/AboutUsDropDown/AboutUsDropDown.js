@@ -4,7 +4,6 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import styledcomponent from "styled-components";
 import { Link } from "react-router-dom";
-import { MenuItem } from "@mui/material";
 
 const MenuList = styledcomponent.ul`
   display:flex;
@@ -59,6 +58,15 @@ const ClickDropdown = styled((props) => (
 }));
 
 export default function AboutUsDropDown() {
+  const itemVarients = {
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", stiffness: 300, damping: 24 },
+    },
+    closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
+  };
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {

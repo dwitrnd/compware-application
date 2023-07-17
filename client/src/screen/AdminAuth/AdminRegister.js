@@ -1,14 +1,26 @@
 import React from "react";
-import { Box, TextField, Typography, IconButton, Button } from "@mui/material";
+import {
+  Box,
+  TextField,
+  Typography,
+  IconButton,
+  Button,
+  InputAdornment,
+} from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
-import PasswordIcon from "@mui/icons-material/Password";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { storeTokenByValue } from "../../services/LocalStorageService";
 import { useRegisterUserMutation } from "../../redux/api/auth/userAuthApi";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 const AdminRegister = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
   const [error, setError] = useState({
     status: false,
     msg: "",
@@ -105,7 +117,7 @@ const AdminRegister = () => {
             id="name"
             name="name"
             label="Name"
-            variant="standard"
+            variant="outlined"
             type="text"
             InputProps={{
               endAdornment: (
@@ -122,7 +134,7 @@ const AdminRegister = () => {
             id="email"
             name="email"
             label="Email"
-            variant="standard"
+            variant="outlined"
             type="email"
             InputProps={{
               endAdornment: (
@@ -139,13 +151,15 @@ const AdminRegister = () => {
             id="password"
             name="password"
             label="Password"
-            variant="standard"
-            type="password"
+            variant="outlined"
+            type={showPassword ? "text" : "password"}
             InputProps={{
               endAdornment: (
-                <IconButton>
-                  <PasswordIcon />
-                </IconButton>
+                <InputAdornment position="start">
+                  <IconButton onClick={handleTogglePassword} edge="end">
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
               ),
             }}
           />
