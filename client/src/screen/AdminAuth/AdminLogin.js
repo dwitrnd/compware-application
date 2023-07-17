@@ -9,7 +9,6 @@ import { useLoginUserMutation } from "../../redux/api/auth/userAuthApi";
 import { storeTokenByValue } from "../../services/LocalStorageService";
 import { useDispatch } from "react-redux";
 import { setUserToken } from "../../redux/features/authSlice";
-import Grid from "@mui/material/Grid";
 
 const AdminLogin = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -94,7 +93,7 @@ const AdminLogin = () => {
             id="standard-basic"
             name="email"
             label="Email"
-            variant="standard"
+            variant="outlined"
             type="email"
             InputProps={{
               endAdornment: (
@@ -111,7 +110,7 @@ const AdminLogin = () => {
             id="standard-basic margin-dense"
             name="password"
             label="Password"
-            variant="standard"
+            variant="outlined"
             type={showPassword ? "text" : "password"}
             InputProps={{
               endAdornment: (

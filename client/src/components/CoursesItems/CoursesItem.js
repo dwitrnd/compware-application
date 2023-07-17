@@ -6,6 +6,7 @@ import ExpressJs from "../../assets/images/courses/expressjs.png";
 import { useState } from "react";
 import CourseEnrollDialog from "components/CourseEnrollDialog/CourseEnrollDialog";
 import Stack from "@mui/material/Stack";
+import { Link } from "react-router-dom";
 
 const CoursesItem = () => {
   const [open, setOpen] = useState(false);
@@ -75,7 +76,9 @@ const CoursesItem = () => {
               spacing={4}
               marginTop="3rem"
             >
-              <Button variant="outlined">Read More</Button>
+              <Link to="/course-detail">
+                <Button variant="outlined">Read More</Button>
+              </Link>
               <CourseEnrollDialog courseName={course} />
             </Stack>
           </div>
