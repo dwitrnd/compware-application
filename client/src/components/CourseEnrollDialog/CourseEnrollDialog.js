@@ -28,6 +28,7 @@ const CourseEnrollDialog = ({ courseName, schedule }) => {
         sx={{
           marginRight: "1rem",
           display: "flex",
+          width: "fit-content",
         }}
       >
         Enroll
@@ -91,6 +92,8 @@ const CourseEnrollDialog = ({ courseName, schedule }) => {
             </Typography>
             <TextField
               variant="outlined"
+              disabled
+              value={schedule}
               id="schedule"
               sx={{ width: "100%" }}
             />
