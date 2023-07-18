@@ -6583,7 +6583,11 @@ fieldset {
   padding-left: 2rem;
 }
 
-@media (max-width: 992px) {
+.course-info-header {
+  margin-top: 20rem;
+}
+
+@media (max-width: 900px) {
   .grid-recommendation-item {
     display: none;
   }

@@ -27,7 +27,7 @@ const CourseDetailPage = () => {
           </Typography>
         </section>
         <Grid container spacing={2}>
-          <Grid sm={12} md={8}>
+          <Grid md={8}>
             <Box
               sx={{
                 display: "inline-block",
@@ -61,7 +61,9 @@ const CourseDetailPage = () => {
                 </Stack>
               </Stack>
             </Box>
-            <Typography variant="h6">Course Synopsis</Typography>
+            <Typography variant="h6" className="course-info-header">
+              Course Synopsis
+            </Typography>
             <Typography variant="body1">
               The Java course for beginners is designed for people who wish to
               learn how to produce meaning ful Java code, how to interpret JAVA
@@ -71,7 +73,9 @@ const CourseDetailPage = () => {
               with no prior programming experience who intend to work as a
               professional Java engineer in the future.
             </Typography>
-            <Typography variant="h6">Required Textbooks</Typography>
+            <Typography variant="h6" className="course-info-header">
+              Required Textbooks
+            </Typography>
             <ol>
               <li>
                 David J. Eck, “Introduction to Programming using Java”, Hobart
@@ -82,7 +86,9 @@ const CourseDetailPage = () => {
                 Reference”, Osborne Publishing.
               </li>
             </ol>
-            <Typography variant="h6">Completion Criteria</Typography>
+            <Typography variant="h6" className="course-info-header">
+              Completion Criteria
+            </Typography>
             <Typography variant="body1">
               After fulfilling all of the following criteria, the student will
               be deemed to have finished the Module:
