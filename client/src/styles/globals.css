@@ -6581,4 +6581,10 @@ fieldset {
   font-weight: lighter;
   font-size: 18px;
   padding-left: 2rem;
+}
+
+@media (max-width: 992px) {
+  .grid-recommendation-item {
+    display: none;
+  }
 }/*# sourceMappingURL=globals.css.map */

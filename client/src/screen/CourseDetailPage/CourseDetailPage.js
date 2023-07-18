@@ -98,11 +98,11 @@ const CourseDetailPage = () => {
             <Typography variant="h6">Prerequisites</Typography>
             <ul>
               <li>
-                undamental understanding of programming, bits/bytes, procedures,
-                classes, and computer architecture. It's absolutely acceptable
-                if you only have a theoretical understanding of programming, but
-                you should be certain about what programming is and what you
-                intend to gain from this session.
+                Fundamental understanding of programming, bits/bytes,
+                procedures, classes, and computer architecture. It's absolutely
+                acceptable if you only have a theoretical understanding of
+                programming, but you should be certain about what programming is
+                and what you intend to gain from this session.
               </li>
               <li>
                 If you are only interested in theory and have no
@@ -117,7 +117,7 @@ const CourseDetailPage = () => {
               </li>
             </ul>
           </Grid>
-          <Grid sm={0} md={4}>
+          <Grid md={4} className="grid-recommendation-item">
             <Box
               sx={{
                 display: "inline-block",
