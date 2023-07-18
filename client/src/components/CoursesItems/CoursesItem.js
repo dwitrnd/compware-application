@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const CoursesItem = () => {
   const [open, setOpen] = useState(false);
-  const course = "Javascript";
+  const courseName = "Javascript";
   const courseSchedule = "11AM - 2PM";
   const teachingHour = "120 Hours";
   return (
@@ -45,7 +45,7 @@ const CoursesItem = () => {
                 }}
               >
                 <Typography variant="h6" color="primary">
-                  {course}
+                  {courseName}
                 </Typography>
                 <Typography variant="subtitle1">Duration</Typography>
                 <Typography variant="subtitle1">{teachingHour}</Typography>
@@ -79,7 +79,10 @@ const CoursesItem = () => {
               <Link to="/course-detail">
                 <Button variant="outlined">Read More</Button>
               </Link>
-              <CourseEnrollDialog courseName={course} />
+              <CourseEnrollDialog
+                courseName={courseName}
+                schedule={courseSchedule}
+              />
             </Stack>
           </div>
         </Stack>
