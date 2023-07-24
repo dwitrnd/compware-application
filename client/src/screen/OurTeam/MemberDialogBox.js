@@ -38,7 +38,7 @@ const MemberDialogBox = () => {
   };
 
   return (
-    <div>
+    <div style={{ marginTop: "0.75rem" }}>
       <Button variant="outlined" onClick={handleClickOpen}>
         Learn More
       </Button>

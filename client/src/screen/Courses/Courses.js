@@ -2,6 +2,7 @@ import React from "react";
 import CoursesData from "./CoursesData";
 import {
   Button,
+  FormControl,
   IconButton,
   Stack,
   TextField,
@@ -42,12 +43,14 @@ const Courses = () => {
             maxWidth="100%"
           >
             <div>
-              <TextField
-                label="Search Course"
-                id="searchCourse"
-                variant="outlined"
-                fullWidth
-              ></TextField>
+              <FormControl fullWidth>
+                <TextField
+                  label="Search Course"
+                  id="searchCourse"
+                  variant="outlined"
+                  fullWidth
+                ></TextField>
+              </FormControl>
             </div>
             <Button
               variant="contained"
