@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "@material-ui/core";
 import { Grid, Typography } from "@mui/material";
 import BlogImage from "../../assets/images/compware-gallery/compware-gallery-img1.jpg";
+import Stack from "@mui/material/Stack";
 
 const BlogPage = () => {
   return (
@@ -28,11 +29,11 @@ const BlogPage = () => {
             </header>
             <Container
               style={{
-                height: "30rem",
                 width: "100%",
-                backgroundImage: { BlogImage },
               }}
             />
+            <img src={BlogImage} width="75%" />
+
             <Typography variant="subtitle2" gutterBottom>
               -Author Name
             </Typography>
@@ -77,8 +78,11 @@ const BlogPage = () => {
                 Recent Post
               </Typography>
             </header>
-            <Container style={{ height: "50%" }}>
-              <img src={BlogImage} style={{ width: "20%" }} />
+            <Container style={{ height: "100%" }}>
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+                <img src={BlogImage} style={{ width: "70%" }} />
+                <Typography variant="h6">Blog Title</Typography>
+              </Stack>
             </Container>
           </Grid>
         </Grid>
