@@ -72,32 +72,6 @@ const Home = () => {
     margin: 2rem auto;
   `;
 
-  const TestimonialSection = styled.section`
-    h6,
-    h2,
-    p {
-      text-align: center;
-    }
-
-    h6 {
-      font-size: 1rem;
-      /*provide gradient color */
-
-      background: linear-gradient(90deg, #02a28b, #067f87 52.4%, #0a5f82);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    h2 {
-      margin: 0.2rem 0rem;
-      font-size: 2.5rem;
-    }
-    p {
-      margin-bottom: 3rem;
-      font-size: 1.1rem;
-    }
-  `;
-
   return (
     <>
       {/* //* =========hero section starts here========= */}
@@ -112,11 +86,11 @@ const Home = () => {
 
           <div id='hero-content'>
             <FilterCardContainer>
-              <FilterCards>Discover</FilterCards>
-              <FilterCards>Discover</FilterCards>
-              <FilterCards>Discover</FilterCards>
-              <FilterCards>Discover</FilterCards>
-              <FilterCards>Discover</FilterCards>
+              <FilterCards>Web Development</FilterCards>
+              <FilterCards>Android</FilterCards>
+              <FilterCards>Graphic Design</FilterCards>
+              <FilterCards>Diploma</FilterCards>
+              <FilterCards>Short Term</FilterCards>
             </FilterCardContainer>
 
             <HeroTitle style={{ marginTop: "3rem" }}>Explore the world's leading</HeroTitle>
@@ -133,12 +107,34 @@ const Home = () => {
       {/* // !  ========= body section starts from here ========= */}
 
       <section style={{ marginTop: "5rem", marginBottom: "5rem" }}>
+        <Header
+          subTitle='
+          Our Courses
+          '
+          preTitle='Quality Courses For Our'
+          postTitle='Students'
+          paragraph='
+We have courses for all types of students. We have courses for beginners, intermediate and advanced students. 
+          '
+        />
         <ReviewsMarqueCarousel />
       </section>
 
       <Container maxWidth='lg'>
         {/* //todo: features section */}
-        <FeaturesSection />
+
+        <div style={{ margin: "5rem 0rem" }}>
+          <Header
+            subTitle=''
+            preTitle='Why Choose '
+            postTitle='Us?'
+            paragraph='
+              We have the best trainers and professionals and we have the best courses for you.
+              
+          '
+          />
+          <FeaturesSection />
+        </div>
 
         {/* //todo: course section */}
         <CourseSection />
@@ -149,13 +145,23 @@ const Home = () => {
         <AboutUsSection />
 
         {/* //todo: testimonial section */}
-        <TestimonialSection style={{ margin: "5rem 0rem" }}>
+        <div style={{ margin: "5rem 0rem" }}>
           <Header subTitle='IN THE NEWS' preTitle='Our' postTitle='Testimonials' paragraph='Testimonials of our trainees.' />
           <SplideCarousel />
-        </TestimonialSection>
+        </div>
 
         {/* //todo: partners section */}
-        <ClientsSection />
+        <div style={{ margin: "5rem 0rem" }}>
+          <Header
+            subTitle=''
+            preTitle='Our'
+            postTitle='Clients'
+            paragraph='
+              Clients who have trusted us and have been with us for a long time.
+          '
+          />
+          <ClientsSection />
+        </div>
       </Container>
       {/* // !  ========= body section ends from here ========= */}
 
