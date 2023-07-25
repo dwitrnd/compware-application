@@ -34,7 +34,7 @@ export const BlogData = () => {
           </Typography>
           <Link to="/blog-page">
             <Button
-              variant="contained"
+              variant="outlined"
               style={{ display: "flex", justifyContent: "flex-end" }}
             >
               Read More

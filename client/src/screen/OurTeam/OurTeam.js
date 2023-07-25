@@ -299,13 +299,10 @@ import CompwareTeacher from "./CompwareTeacher";
 const OurTeam = () => {
   return (
     <>
-      <Container>
-        <div>
+      <Container style={{ marginTop: "3rem" }}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <Typography variant="h3" color="primary">
             Meet the Team
-          </Typography>
-          <Typography variant="subtitle1">
-            Lorem ipsum dolor sit amet
           </Typography>
         </div>
         <div>

@@ -3,15 +3,17 @@ import { Container } from "@material-ui/core";
 import { Grid, Typography } from "@mui/material";
 import BlogImage from "../../assets/images/compware-gallery/compware-gallery-img1.jpg";
 import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
+import { Divider } from "rsuite";
 
 const BlogPage = () => {
   return (
     <>
       <Container style={{ marginTop: "3rem", marginBottom: "5rem" }}>
-        <Grid container md={10} columnSpacing={2}>
+        <Grid container columnSpacing={2}>
           <Grid
             xs={12}
-            md={10}
+            md={8}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -20,11 +22,8 @@ const BlogPage = () => {
             }}
           >
             <header>
-              <Typography variant="h3" color="primary">
+              <Typography variant="h3" color="primary" marginBottom="1rem">
                 Blog Page
-              </Typography>
-              <Typography variant="subtitle1">
-                Lorem ipsum dolor sit amet
               </Typography>
             </header>
             <Container>
@@ -74,18 +73,25 @@ const BlogPage = () => {
               </p>
             </Container>
           </Grid>
-          <Grid xs={12} md={2}>
-            <header>
+          <Grid xs={12} md={4}>
+            <Stack direction="column" alignItems="center" spacing={2}>
               <Typography variant="h5" color="primary">
                 Recent Post
               </Typography>
-            </header>
-            <Container style={{ height: "100%" }}>
-              <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                <img src={BlogImage} style={{ width: "70%" }} />
-                <Typography variant="h6">Blog Title</Typography>
-              </Stack>
-            </Container>
+
+              <Container>
+                <Stack
+                  direction={{ sm: "row", md: "column" }}
+                  spacing={2}
+                  justifyContent="center"
+                >
+                  <img src={BlogImage} style={{ width: "70%" }} />
+                  <Typography variant="h6" color="primary">
+                    Blog Title of recommended post
+                  </Typography>
+                </Stack>
+              </Container>
+            </Stack>
           </Grid>
         </Grid>
       </Container>
