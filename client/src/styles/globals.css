@@ -87,23 +87,12 @@
     transition-duration: 1ms !important;
     animation-iteration-count: 1 !important;
   }
-<<<<<<< HEAD
-  .animate__animated[class*=Out] {
-=======
   .animate__animated[class*="Out"] {
->>>>>>> main
     opacity: 0;
   }
 }
 /* Attention seekers  */
 @keyframes bounce {
-<<<<<<< HEAD
-  from, 20%, 53%, to {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    transform: translate3d(0, 0, 0);
-  }
-  40%, 43% {
-=======
   from,
   20%,
   53%,
@@ -113,7 +102,6 @@
   }
   40%,
   43% {
->>>>>>> main
     animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
     transform: translate3d(0, -30px, 0) scaleY(1.1);
   }
@@ -134,10 +122,13 @@
   transform-origin: center bottom;
 }
 @keyframes flash {
-  from, 50%, to {
+  from,
+  50%,
+  to {
     opacity: 1;
   }
-  25%, 75% {
+  25%,
+  75% {
     opacity: 0;
   }
 }
@@ -188,15 +179,6 @@
   animation-name: rubberBand;
 }
 @keyframes shakeX {
-<<<<<<< HEAD
-  from, to {
-    transform: translate3d(0, 0, 0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    transform: translate3d(-10px, 0, 0);
-  }
-  20%, 40%, 60%, 80% {
-=======
   from,
   to {
     transform: translate3d(0, 0, 0);
@@ -212,7 +194,6 @@
   40%,
   60%,
   80% {
->>>>>>> main
     transform: translate3d(10px, 0, 0);
   }
 }
@@ -220,15 +201,6 @@
   animation-name: shakeX;
 }
 @keyframes shakeY {
-<<<<<<< HEAD
-  from, to {
-    transform: translate3d(0, 0, 0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    transform: translate3d(0, -10px, 0);
-  }
-  20%, 40%, 60%, 80% {
-=======
   from,
   to {
     transform: translate3d(0, 0, 0);
@@ -244,7 +216,6 @@
   40%,
   60%,
   80% {
->>>>>>> main
     transform: translate3d(0, 10px, 0);
   }
 }
@@ -300,15 +271,6 @@
   from {
     transform: scale3d(1, 1, 1);
   }
-<<<<<<< HEAD
-  10%, 20% {
-    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-  }
-  30%, 50%, 70%, 90% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-  }
-  40%, 60%, 80% {
-=======
   10%,
   20% {
     transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
@@ -322,7 +284,6 @@
   40%,
   60%,
   80% {
->>>>>>> main
     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
   }
   to {
@@ -361,13 +322,9 @@
   animation-name: wobble;
 }
 @keyframes jello {
-<<<<<<< HEAD
-  from, 11.1%, to {
-=======
   from,
   11.1%,
   to {
->>>>>>> main
     transform: translate3d(0, 0, 0);
   }
   22.2% {
@@ -562,16 +519,12 @@
 
 /* Bouncing entrances  */
 @keyframes bounceIn {
-<<<<<<< HEAD
-  from, 20%, 40%, 60%, 80%, to {
-=======
   from,
   20%,
   40%,
   60%,
   80%,
   to {
->>>>>>> main
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   0% {
@@ -602,15 +555,11 @@
   animation-name: bounceIn;
 }
 @keyframes bounceInDown {
-<<<<<<< HEAD
-  from, 60%, 75%, 90%, to {
-=======
   from,
   60%,
   75%,
   90%,
   to {
->>>>>>> main
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   0% {
@@ -635,15 +584,11 @@
   animation-name: bounceInDown;
 }
 @keyframes bounceInLeft {
-<<<<<<< HEAD
-  from, 60%, 75%, 90%, to {
-=======
   from,
   60%,
   75%,
   90%,
   to {
->>>>>>> main
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   0% {
@@ -668,15 +613,11 @@
   animation-name: bounceInLeft;
 }
 @keyframes bounceInRight {
-<<<<<<< HEAD
-  from, 60%, 75%, 90%, to {
-=======
   from,
   60%,
   75%,
   90%,
   to {
->>>>>>> main
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   from {
@@ -701,15 +642,11 @@
   animation-name: bounceInRight;
 }
 @keyframes bounceInUp {
-<<<<<<< HEAD
-  from, 60%, 75%, 90%, to {
-=======
   from,
   60%,
   75%,
   90%,
   to {
->>>>>>> main
     animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
   from {
@@ -739,7 +676,8 @@
   20% {
     transform: scale3d(0.9, 0.9, 0.9);
   }
-  50%, 55% {
+  50%,
+  55% {
     opacity: 1;
     transform: scale3d(1.1, 1.1, 1.1);
   }
@@ -757,7 +695,8 @@
   20% {
     transform: translate3d(0, 10px, 0) scaleY(0.985);
   }
-  40%, 45% {
+  40%,
+  45% {
     opacity: 1;
     transform: translate3d(0, -20px, 0) scaleY(0.9);
   }
@@ -799,7 +738,8 @@
   20% {
     transform: translate3d(0, -10px, 0) scaleY(0.985);
   }
-  40%, 45% {
+  40%,
+  45% {
     opacity: 1;
     transform: translate3d(0, 20px, 0) scaleY(0.9);
   }
@@ -1145,25 +1085,6 @@
 /* Flippers */
 @keyframes flip {
   from {
-<<<<<<< HEAD
-    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, -360deg);
-    animation-timing-function: ease-out;
-  }
-  40% {
-    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -190deg);
-    animation-timing-function: ease-out;
-  }
-  50% {
-    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 150px) rotate3d(0, 1, 0, -170deg);
-    animation-timing-function: ease-in;
-  }
-  80% {
-    transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
-    animation-timing-function: ease-in;
-  }
-  to {
-    transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0) rotate3d(0, 1, 0, 0deg);
-=======
     transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
       rotate3d(0, 1, 0, -360deg);
     animation-timing-function: ease-out;
@@ -1186,7 +1107,6 @@
   to {
     transform: perspective(400px) scale3d(1, 1, 1) translate3d(0, 0, 0)
       rotate3d(0, 1, 0, 0deg);
->>>>>>> main
     animation-timing-function: ease-in;
   }
 }
@@ -1495,13 +1415,6 @@
   0% {
     animation-timing-function: ease-in-out;
   }
-<<<<<<< HEAD
-  20%, 60% {
-    transform: rotate3d(0, 0, 1, 80deg);
-    animation-timing-function: ease-in-out;
-  }
-  40%, 80% {
-=======
   20%,
   60% {
     transform: rotate3d(0, 0, 1, 80deg);
@@ -1509,7 +1422,6 @@
   }
   40%,
   80% {
->>>>>>> main
     transform: rotate3d(0, 0, 1, 60deg);
     animation-timing-function: ease-in-out;
     opacity: 1;
@@ -1992,11 +1904,7 @@ https://flickity.metafizzy.co
  * Classes added:
  * 	1) hint
  */
-<<<<<<< HEAD
-[class*=hint--] {
-=======
 [class*="hint--"] {
->>>>>>> main
   position: relative;
   display: inline-block;
   /**
@@ -2007,13 +1915,8 @@ https://flickity.metafizzy.co
        */
 }
 
-<<<<<<< HEAD
-[class*=hint--]:before,
-[class*=hint--]:after {
-=======
 [class*="hint--"]:before,
 [class*="hint--"]:after {
->>>>>>> main
   position: absolute;
   transform: translate3d(0, 0, 0);
   visibility: hidden;
@@ -2024,32 +1927,18 @@ https://flickity.metafizzy.co
   transition-delay: 0ms;
 }
 
-<<<<<<< HEAD
-[class*=hint--]:hover:before,
-[class*=hint--]:hover:after {
-=======
 [class*="hint--"]:hover:before,
 [class*="hint--"]:hover:after {
->>>>>>> main
   visibility: visible;
   opacity: 1;
 }
 
-<<<<<<< HEAD
-[class*=hint--]:hover:before,
-[class*=hint--]:hover:after {
-  transition-delay: 100ms;
-}
-
-[class*=hint--]:before {
-=======
 [class*="hint--"]:hover:before,
 [class*="hint--"]:hover:after {
   transition-delay: 100ms;
 }
 
 [class*="hint--"]:before {
->>>>>>> main
   content: "";
   position: absolute;
   background: transparent;
@@ -2057,11 +1946,7 @@ https://flickity.metafizzy.co
   z-index: 1000001;
 }
 
-<<<<<<< HEAD
-[class*=hint--]:after {
-=======
 [class*="hint--"]:after {
->>>>>>> main
   background: #c1c1c1;
   color: white;
   padding: 8px 10px;
@@ -2071,19 +1956,11 @@ https://flickity.metafizzy.co
   white-space: nowrap;
 }
 
-<<<<<<< HEAD
-[class*=hint--][aria-label]:after {
-  content: attr(aria-label);
-}
-
-[class*=hint--][data-hint]:after {
-=======
 [class*="hint--"][aria-label]:after {
   content: attr(aria-label);
 }
 
 [class*="hint--"][data-hint]:after {
->>>>>>> main
   content: attr(data-hint);
 }
 
@@ -2420,21 +2297,13 @@ https://flickity.metafizzy.co
    * Defines basic theme for tooltips.
    *
    */
-<<<<<<< HEAD
-[class*=hint--] {
-=======
 [class*="hint--"] {
->>>>>>> main
   /**
        * tooltip body
        */
 }
 
-<<<<<<< HEAD
-[class*=hint--]:after {
-=======
 [class*="hint--"]:after {
->>>>>>> main
   text-shadow: 0 -1px 0px black;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -2720,12 +2589,8 @@ https://flickity.metafizzy.co
 
 .hint--bounce:before,
 .hint--bounce:after {
-<<<<<<< HEAD
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24);
-=======
   transition: opacity 0.3s ease, visibility 0.3s ease,
     transform 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24);
->>>>>>> main
 }
 
 .hint--no-shadow:before,
@@ -5147,12 +5012,6 @@ https://flickity.metafizzy.co
 
 /* Icon Down */
 @keyframes hvr-icon-down {
-<<<<<<< HEAD
-  0%, 50%, 100% {
-    transform: translateY(0);
-  }
-  25%, 75% {
-=======
   0%,
   50%,
   100% {
@@ -5160,7 +5019,6 @@ https://flickity.metafizzy.co
   }
   25%,
   75% {
->>>>>>> main
     transform: translateY(6px);
   }
 }
@@ -5186,12 +5044,6 @@ https://flickity.metafizzy.co
 
 /* Icon Up */
 @keyframes hvr-icon-up {
-<<<<<<< HEAD
-  0%, 50%, 100% {
-    transform: translateY(0);
-  }
-  25%, 75% {
-=======
   0%,
   50%,
   100% {
@@ -5199,7 +5051,6 @@ https://flickity.metafizzy.co
   }
   25%,
   75% {
->>>>>>> main
     transform: translateY(-6px);
   }
 }
@@ -5252,7 +5103,8 @@ https://flickity.metafizzy.co
     opacity: 0;
     transform: translateY(-100%);
   }
-  51%, 100% {
+  51%,
+  100% {
     opacity: 1;
   }
 }
@@ -6121,7 +5973,7 @@ abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -6219,9 +6071,9 @@ select {
    * Correct the inability to style clickable types in iOS and Safari.
    */
 button,
-[type=button],
-[type=reset],
-[type=submit] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
 }
 
@@ -6229,9 +6081,9 @@ button,
    * Remove the inner border and padding in Firefox.
    */
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -6240,9 +6092,9 @@ button::-moz-focus-inner,
    * Restore the focus styles unset by the previous rule.
    */
 button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -6286,8 +6138,8 @@ textarea {
    * 1. Add the correct box sizing in IE 10.
    * 2. Remove the padding in IE 10.
    */
-[type=checkbox],
-[type=radio] {
+[type="checkbox"],
+[type="radio"] {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
@@ -6295,8 +6147,8 @@ textarea {
 /**
    * Correct the cursor style of increment and decrement buttons in Chrome.
    */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -6304,7 +6156,7 @@ textarea {
    * 1. Correct the odd appearance in Chrome and Safari.
    * 2. Correct the outline style in Safari.
    */
-[type=search] {
+[type="search"] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
@@ -6312,7 +6164,7 @@ textarea {
 /**
    * Remove the inner padding in Chrome and Safari on macOS.
    */
-[type=search]::-webkit-search-decoration {
+[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -6369,8 +6221,8 @@ template {
 
 * {
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 html {
@@ -6492,7 +6344,11 @@ section.how-it-work .MuiCardMedia-root {
   background-size: contain !important;
 }
 
-.Roboto_Base, .roboto_700, .roboto_500, .roboto_400, .roboto_300 {
+.Roboto_Base,
+.roboto_700,
+.roboto_500,
+.roboto_400,
+.roboto_300 {
   font-family: "Roboto", sans-serif !important;
 }
 
@@ -6822,4 +6678,4 @@ fieldset {
   .grid-recommendation-item {
     display: none;
   }
-}/*# sourceMappingURL=globals.css.map */
+} /*# sourceMappingURL=globals.css.map */
