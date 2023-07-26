@@ -25,6 +25,11 @@ import AboutUsDropDown from "components/AboutUsDropDown/AboutUsDropDown";
 import CertificateDropDown from "components/CertificateDropDown/CertificateDropDown";
 import EnrollDialog from "components/EnrollDialog/EnrollDialog";
 import LoginIcon from "@mui/icons-material/Login";
+import Stack from "@mui/material/Stack";
+import FacebookLogo from "../../assets/svg/facebook.svg";
+import InstagramLogo from "../../assets/svg/instagram.svg";
+import LinkedInLogo from "../../assets/svg/linkedin.svg";
+import YoutubeLogo from "../../assets/svg/youtube.svg";
 const drawerWidth = 240;
 
 const navItems = [
@@ -241,22 +246,52 @@ function DrawerAppBar(props) {
                     tailor searches. Small Change Towards the greater good is
                     our motto .
                   </p>
+                  <Stack
+                    marginTop="4rem"
+                    direction="row"
+                    spacing={4}
+                    justifyContent="center"
+                  >
+                    <a
+                      href="https://www.linkedin.com/company/deerwalktrainingcenter/"
+                      target="_blank"
+                    >
+                      {" "}
+                      <img src={LinkedInLogo} />{" "}
+                    </a>
+                    <a
+                      href="https://www.facebook.com/deerwalktrainingcenter"
+                      target="_blank"
+                    >
+                      <img src={FacebookLogo} />{" "}
+                    </a>
+                    <a
+                      href="https://www.instagram.com/deerwalk.training.center/"
+                      target="_blank"
+                    >
+                      <img src={InstagramLogo} />
+                    </a>
+                    <a
+                      href="https://www.youtube.com/@deerwalktrainingcenter"
+                      target="_blank"
+                    >
+                      <img src={YoutubeLogo} />
+                    </a>
+                  </Stack>
                 </div>
                 <div class="footer__upper--right">
                   <ul>
                     <li>
-                      <a href="#">
-                        <u> Blog </u>
-                      </a>
+                      <a href="/blog">Blog</a>
                     </li>
                     <li>
-                      <a href="#"> Policy </a>
+                      <a href="/terms-and-condition"> Policy </a>
                     </li>
                     <li>
-                      <a href="">Services</a>
+                      <a href="/our-team">Team</a>
                     </li>
                     <li>
-                      <a href="">Contact</a>
+                      <a href="/contact-us">Contact</a>
                     </li>
                   </ul>
                 </div>

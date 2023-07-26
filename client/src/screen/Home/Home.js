@@ -78,13 +78,21 @@ const Home = () => {
       <section id="hero-section">
         <section id="hero-banner">
           <div id="video-box">
-            <video autoPlay muted loop>
-              <source
+            <video
+              autoPlay
+              muted
+              loop
+              controlsList="nodownload"
+              src={
+                "cdn-cf-east.streamable.com/video/mp4/843ruw.mp4?Expires=1690545780&Signature=ak3ZhDSxx70dHrchwfgzemXQaLxDsW1tWUsXfQzEDr1E5FWILJYS-q7rbn7ozlxOyhehbRdvhgkQdeUBbYbqDHvsCiXmXAqxEPdtu~e670PyMZ19b~~wD8Ee5U~pFxlu45251a76okOHyn4028RjvH2Ynz4tQxiVx8Oigob0ZsQAvcOyr2vsGLbAilqt2E4BhXmDLw~JVFuQlDrqo1iiU5X0hXkF9vbAhBhpV3G0KqSjw8YK9f4urvWOc3FOt3C195hUJ~IUHkFj-AW4c~gdxnSZAKaOuyoodOS4jhrFl~8juVFv53BMLbxQa63gc~RLA3i5-2y6G4yiUPnKLTLQjQ__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
+              }
+            >
+              {/* <source
                 src={
-                  "https://static.frontendmasters.com/assets/fm/med/home/hero.mp4"
+                  "cdn-cf-east.streamable.com/video/mp4/843ruw.mp4?Expires=1690545780&Signature=ak3ZhDSxx70dHrchwfgzemXQaLxDsW1tWUsXfQzEDr1E5FWILJYS-q7rbn7ozlxOyhehbRdvhgkQdeUBbYbqDHvsCiXmXAqxEPdtu~e670PyMZ19b~~wD8Ee5U~pFxlu45251a76okOHyn4028RjvH2Ynz4tQxiVx8Oigob0ZsQAvcOyr2vsGLbAilqt2E4BhXmDLw~JVFuQlDrqo1iiU5X0hXkF9vbAhBhpV3G0KqSjw8YK9f4urvWOc3FOt3C195hUJ~IUHkFj-AW4c~gdxnSZAKaOuyoodOS4jhrFl~8juVFv53BMLbxQa63gc~RLA3i5-2y6G4yiUPnKLTLQjQ__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
                 }
                 type="video/mp4"
-              />
+              /> */}
               {/* <source src={"https://cdn.dribbble.com/uploads/39421/original/963b4f8739cbdf86ca3f3a23245efd18.mp4?1657824985"} type='video/mp4' /> */}
             </video>
           </div>
@@ -119,9 +127,6 @@ const Home = () => {
 
       <section style={{ marginTop: "5rem", marginBottom: "5rem" }}>
         <Header
-          subTitle="
-          Our Courses
-          "
           preTitle="Quality Courses For Our"
           postTitle="Students"
           paragraph="
