@@ -98,19 +98,18 @@ const Home = () => {
 
           <div id="hero-content">
             <FilterCardContainer>
-              <FilterCards>Web Development</FilterCards>
-              <FilterCards>Android</FilterCards>
+              <FilterCards>Programming</FilterCards>
               <FilterCards>Graphic Design</FilterCards>
               <FilterCards>Diploma</FilterCards>
               <FilterCards>Short Term</FilterCards>
             </FilterCardContainer>
 
-            <HeroTitle style={{ marginTop: "3rem" }}>
+            <HeroTitle style={{ marginTop: "3rem" }} className="fade-in-text">
               Explore the world's leading
             </HeroTitle>
-            <HeroTitle>training center</HeroTitle>
+            <HeroTitle className="fade-in-text">training center</HeroTitle>
 
-            <HeroSubTitle>
+            <HeroSubTitle className="fade-in-text">
               Millions of students and people around the world showcase their
               skills and work on compware - the home to the world’s best
               trainers and professionals.
@@ -125,13 +124,7 @@ const Home = () => {
       {/* // !  ========= body section starts from here ========= */}
 
       <section style={{ marginTop: "5rem", marginBottom: "5rem" }}>
-        <Header
-          preTitle="Quality Courses For Our"
-          postTitle="Students"
-          paragraph="
-We have courses for all types of students. We have courses for beginners, intermediate and advanced students. 
-          "
-        />
+        <Header preTitle="Quality Courses For Our" postTitle="Students" />
         <ReviewsMarqueCarousel />
       </section>
 

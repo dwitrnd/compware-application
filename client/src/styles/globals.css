@@ -6204,7 +6204,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -6247,10 +6246,8 @@ a {
   color: #0f5288;
 }
 
-.gradient-text {
-  background: linear-gradient(90deg, #02a28b, #067f87 52.4%, #0a5f82);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.font-color-primary {
+  color: #0f5288;
 }
 
 .ReactGridGallery_tile-bottom-bar span {
@@ -6531,11 +6528,37 @@ fieldset {
 .home_course_card {
   margin: 1rem;
   background: white;
+  transition: all ease-in-out 400ms;
+}
+
+.home_course_card:hover {
+  transform: scale(1.1);
+  transition: transform ease-in-out 200ms;
+  box-shadow: #0f528b 0px 1px 4px, #0f528b 0px 0px 0px 3px;
+  border-radius: 2px;
+}
+
+.home_course_card:active {
+  transform: scale(0.9);
+  transition: transform ease-in-out 100ms;
 }
 
 .course_card_content {
   padding: 0rem 1.75rem;
   background: white;
+}
+
+@keyframes heroText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fade-in-text {
+  transition: 0s;
+  animation: heroText 10s;
 }
 
 #courses-page .css-9425fu-MuiOutlinedInput-notchedOutline {

@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
 }
 
 ::-webkit-scrollbar {
@@ -44,10 +44,10 @@ a {
   color: $primary_blue;
 }
 
-.gradient-text {
-  background: linear-gradient(90deg, #02a28b, #067f87 52.4%, #0a5f82);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+
+.font-color-primary{
+  color: #0f5288;
 }
 
 // make yellow label to white in gallery image hover text
@@ -59,3 +59,4 @@ a {
 section.how-it-work .MuiCardMedia-root {
   background-size: contain !important;
 }
+

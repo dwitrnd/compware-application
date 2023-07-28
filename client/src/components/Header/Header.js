@@ -31,10 +31,12 @@ const Header = ({ subTitle, preTitle, postTitle, paragraph }) => {
   return (
     <HeaderContainer>
       <header>
-        <h6 className="roboto_300">{subTitle}</h6>
-        <h2 className="roboto_400">
+        <h2 className="font-color-primary">
           {preTitle}
-          <div style={{ display: "inline", marginLeft: ".5rem" }}>
+          <div
+            style={{ display: "inline", marginLeft: ".5rem" }}
+            className="font-color-primary"
+          >
             {postTitle}
           </div>
         </h2>

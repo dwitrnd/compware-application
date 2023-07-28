@@ -46,6 +46,14 @@ import JavaProgram from "assets/images/training-courses/diploma-in-java-program.
 import ReactNative from "assets/images/training-courses/react-native.jpg";
 import DevOps from "assets/images/training-courses/DevOps.jpg";
 import REDHat from "assets/images/training-courses/Red Hat-Certified Engineer.jpg";
+import Devops from "assets/images/courses/DevOps.jpg";
+import DotNet from "assets/images/courses/Dot-Net.jpg";
+import DataMining from "assets/images/courses/Data-Mining-and-Machine-Learning-Using-R-Programming.jpg";
+import Flutter from "assets/images/courses/Flutter-App-Development.jpg";
+import MERN from "assets/images/courses/Full-Stack-Web-Development---MERN-Stack.jpg";
+import Laravel from "assets/images/courses/laravel.jpg";
+import Excel from "assets/images/courses/Microsoft-Excel.jpg";
+
 import { Link } from "react-router-dom";
 
 const Photo = styled.img`
@@ -62,47 +70,7 @@ const Photo = styled.img`
     props.offset === "true" ? props.scale * 80 : 0}px;
 `;
 
-const photos = [
-  Oracle,
-  QualityAssurance,
-  GIS,
-  Maya,
-  FinancialAccounting,
-  TheCompleteWebDevelopment,
-  IntroductionToShareMarket,
-  CCNA,
-  DiplomaInPython,
-  CProgramming,
-  MicrosoftSqlServer,
-  StatisticalAnalysis,
-  AutoCAD,
-  DotProgramming,
-  GraphicDesigning,
-  FullStackDevelopment,
-  Photography,
-  RegisteredProductOwner,
-  DigitalMarketing,
-  Management,
-  PHP,
-  WebDevelopmentAndMultimedia,
-  AppliedDataAnalysis,
-  CSITEntrance,
-  DOTNET,
-  ProgrammingInJava,
-  android,
-  angular,
-  datascience,
-  AdvanceOfficePackage,
-  RegisteredScrumMaster,
-  FullStackWebDevelopment,
-  TechnicalWriting,
-  CyberSecurity,
-  AWSCloudPractitioner,
-  JavaProgram,
-  ReactNative,
-  DevOps,
-  REDHat,
-];
+const photos = [Devops, DotNet, DataMining, Flutter, MERN, Laravel, Excel];
 
 const People = ({ size }) => {
   const [marqueeRunningState, setMarqueeRunningState] = useState(25);
@@ -158,22 +126,26 @@ const People = ({ size }) => {
                       src={photos[id]}
                       alt=""
                       key={`marquee-example-people-${id}`}
-                      scale={scale * 1.3}
                     />
                     <div className="course_card_content">
-                      <span
-                        className="trainer-info"
-                        style={{ color: "#636363", fontSize: "0.75rem" }}
+                      <h6
+                        style={{
+                          color: "#0f5288",
+                          fontSize: "1.45rem",
+                          textAlign: "center",
+                        }}
                       >
-                        Trainer: Dr. Shreevastav KC
-                      </span>
-                      <h6 style={{ color: "#0f5288", fontSize: "1.45rem" }}>
                         Machine Learning
                       </h6>
-                      <p style={{ color: "#000000", fontSize: "0.85rem" }}>
+                      <p
+                        style={{
+                          color: "#000000",
+                          fontSize: "0.85rem",
+                          padding: "0.75rem",
+                        }}
+                      >
                         Skills you'll gain: Machine Learning,Probability &
-                        Statistics, Machine Learning Algorithms, General
-                        Statistics, Theoritical Knowledge.
+                        Statistics.
                       </p>
                     </div>
                   </Link>
@@ -183,7 +155,8 @@ const People = ({ size }) => {
                   onMouseOver={handleMouseOver}
                   style={{
                     cursor: "pointer ",
-                    margin: "0rem !important",
+                    // margin: "0rem",
+                    marginTop: "1.5rem",
                     width: "19rem",
                   }}
                   className="home_course_card"
@@ -193,22 +166,26 @@ const People = ({ size }) => {
                       src={photos[id]}
                       alt=""
                       key={`marquee-example-people-${id}`}
-                      scale={scale * 1.3}
                     />
                     <div className="course_card_content">
-                      <span
-                        className="trainer-info"
-                        style={{ color: "#636363", fontSize: "0.75rem" }}
+                      <h6
+                        style={{
+                          color: "#0f5288",
+                          fontSize: "1.45rem",
+                          textAlign: "center",
+                        }}
                       >
-                        Trainer: Dr. Shreevastav KC
-                      </span>
-                      <h6 style={{ color: "#0f5288", fontSize: "1.45rem" }}>
                         Machine Learning
                       </h6>
-                      <p style={{ color: "#000000", fontSize: "0.85rem" }}>
+                      <p
+                        style={{
+                          color: "#393939",
+                          fontSize: "0.85rem",
+                          padding: "0.75rem",
+                        }}
+                      >
                         Skills you'll gain: Machine Learning,Probability &
-                        Statistics, Machine Learning Algorithms, General
-                        Statistics, Theoritical Knowledge.
+                        Statistics
                       </p>
                     </div>
                   </Link>
