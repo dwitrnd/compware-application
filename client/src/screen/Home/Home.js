@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import ScrollToTop from "react-scroll-to-top";
 import SplideCarousel from "components/SplideCarousel/SplideCarousel";
 import Container from "@material-ui/core/Container";
 
@@ -177,8 +176,6 @@ const Home = () => {
         </div>
       </Container>
       {/* // !  ========= body section ends from here ========= */}
-
-      <ScrollToTop smooth />
     </>
   );
 };
