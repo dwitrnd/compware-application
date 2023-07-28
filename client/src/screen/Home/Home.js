@@ -12,7 +12,6 @@ import ClientsSection from "./components/Clients";
 import CourseSection from "./components/Courses/Courses";
 import Header from "components/Header";
 import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqueCarousel";
-import HeroVideo from "assets/video/video.mov";
 
 const Home = () => {
   // hero section component
