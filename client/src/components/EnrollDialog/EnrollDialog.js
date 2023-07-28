@@ -32,7 +32,7 @@ const EnrollDialog = ({}) => {
       </Button>
       <Dialog open={open} onClose={handleClose} maxWidth="md">
         <Stack direction="row">
-          <img src={Image} />
+          <img src={Image} className="enroll-image" />
           <form>
             <DialogTitle
               display="flex"
@@ -95,7 +95,7 @@ const EnrollDialog = ({}) => {
                     style={{
                       display: "flex",
                       flexDirection: "row",
-                      marginTop: "1rem",
+                      marginTop: "0.65rem",
                       marginBottom: "1rem",
                     }}
                   >

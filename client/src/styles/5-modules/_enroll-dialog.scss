@@ -1,0 +1,9 @@
+.enroll-image{
+	height: 620px;
+}
+
+@media screen and (max-width: 900px) {
+	.enroll-image{
+		display: none;
+	}
+}
