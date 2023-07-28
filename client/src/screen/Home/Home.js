@@ -12,7 +12,6 @@ import ClientsSection from "./components/Clients";
 import CourseSection from "./components/Courses/Courses";
 import Header from "components/Header";
 import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqueCarousel";
-import HeroVideo from "assets/video/video.mov";
 
 const Home = () => {
   // hero section component
@@ -76,16 +75,28 @@ const Home = () => {
   return (
     <>
       {/* //* =========hero section starts here========= */}
-      <section id='hero-section'>
-        <section id='hero-banner'>
-          <div id='video-box'>
-            <video autoPlay muted loop>
-              <source src={"https://static.frontendmasters.com/assets/fm/med/home/hero.mp4"} type='video/mp4' />
+      <section id="hero-section">
+        <section id="hero-banner">
+          <div id="video-box">
+            <video autoPlay muted loop controlsList="nodownload">
+              <source
+                src={
+                  "https://cdn-cf-east.streamable.com/video/mp4/843ruw.mp4?Expires=1690545780&Signature=ak3ZhDSxx70dHrchwfgzemXQaLxDsW1tWUsXfQzEDr1E5FWILJYS-q7rbn7ozlxOyhehbRdvhgkQdeUBbYbqDHvsCiXmXAqxEPdtu~e670PyMZ19b~~wD8Ee5U~pFxlu45251a76okOHyn4028RjvH2Ynz4tQxiVx8Oigob0ZsQAvcOyr2vsGLbAilqt2E4BhXmDLw~JVFuQlDrqo1iiU5X0hXkF9vbAhBhpV3G0KqSjw8YK9f4urvWOc3FOt3C195hUJ~IUHkFj-AW4c~gdxnSZAKaOuyoodOS4jhrFl~8juVFv53BMLbxQa63gc~RLA3i5-2y6G4yiUPnKLTLQjQ__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
+                }
+                type="video/mp4"
+              />
+
+              {/* <source
+                src={
+                  "cdn-cf-east.streamable.com/video/mp4/843ruw.mp4?Expires=1690545780&Signature=ak3ZhDSxx70dHrchwfgzemXQaLxDsW1tWUsXfQzEDr1E5FWILJYS-q7rbn7ozlxOyhehbRdvhgkQdeUBbYbqDHvsCiXmXAqxEPdtu~e670PyMZ19b~~wD8Ee5U~pFxlu45251a76okOHyn4028RjvH2Ynz4tQxiVx8Oigob0ZsQAvcOyr2vsGLbAilqt2E4BhXmDLw~JVFuQlDrqo1iiU5X0hXkF9vbAhBhpV3G0KqSjw8YK9f4urvWOc3FOt3C195hUJ~IUHkFj-AW4c~gdxnSZAKaOuyoodOS4jhrFl~8juVFv53BMLbxQa63gc~RLA3i5-2y6G4yiUPnKLTLQjQ__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
+                }
+                type="video/mp4"
+              /> */}
               {/* <source src={"https://cdn.dribbble.com/uploads/39421/original/963b4f8739cbdf86ca3f3a23245efd18.mp4?1657824985"} type='video/mp4' /> */}
             </video>
           </div>
 
-          <div id='hero-content'>
+          <div id="hero-content">
             <FilterCardContainer>
               <FilterCards>Web Development</FilterCards>
               <FilterCards>Android</FilterCards>
@@ -94,12 +105,18 @@ const Home = () => {
               <FilterCards>Short Term</FilterCards>
             </FilterCardContainer>
 
-            <HeroTitle style={{ marginTop: "3rem" }}>Explore the world's leading</HeroTitle>
+            <HeroTitle style={{ marginTop: "3rem" }}>
+              Explore the world's leading
+            </HeroTitle>
             <HeroTitle>training center</HeroTitle>
 
-            <HeroSubTitle>Millions of students and people around the world showcase their skills and work on compware - the home to the world’s best trainers and professionals.</HeroSubTitle>
+            <HeroSubTitle>
+              Millions of students and people around the world showcase their
+              skills and work on compware - the home to the world’s best
+              trainers and professionals.
+            </HeroSubTitle>
 
-            <CourseSearchField placeholder='Search courses...' type='text' />
+            <CourseSearchField placeholder="Search courses..." type="text" />
           </div>
         </section>
       </section>
@@ -109,30 +126,27 @@ const Home = () => {
 
       <section style={{ marginTop: "5rem", marginBottom: "5rem" }}>
         <Header
-          subTitle='
-          Our Courses
-          '
-          preTitle='Quality Courses For Our'
-          postTitle='Students'
-          paragraph='
+          preTitle="Quality Courses For Our"
+          postTitle="Students"
+          paragraph="
 We have courses for all types of students. We have courses for beginners, intermediate and advanced students. 
-          '
+          "
         />
         <ReviewsMarqueCarousel />
       </section>
 
-      <Container maxWidth='lg'>
+      <Container maxWidth="lg">
         {/* //todo: features section */}
 
         <div style={{ margin: "5rem 0rem" }}>
           <Header
-            subTitle=''
-            preTitle='Why Choose '
-            postTitle='Us?'
-            paragraph='
+            subTitle=""
+            preTitle="Why Choose "
+            postTitle="Us?"
+            paragraph="
               We have the best trainers and professionals and we have the best courses for you.
               
-          '
+          "
           />
           <FeaturesSection />
         </div>
@@ -147,19 +161,24 @@ We have courses for all types of students. We have courses for beginners, interm
 
         {/* //todo: testimonial section */}
         <div style={{ margin: "5rem 0rem" }}>
-          <Header subTitle='IN THE NEWS' preTitle='Our' postTitle='Testimonials' paragraph='Testimonials of our trainees.' />
+          <Header
+            subTitle="IN THE NEWS"
+            preTitle="Our"
+            postTitle="Testimonials"
+            paragraph="Testimonials of our trainees."
+          />
           <SplideCarousel />
         </div>
 
         {/* //todo: partners section */}
         <div style={{ margin: "5rem 0rem" }}>
           <Header
-            subTitle=''
-            preTitle='Our'
-            postTitle='Clients'
-            paragraph='
+            subTitle=""
+            preTitle="Our"
+            postTitle="Clients"
+            paragraph="
               Clients who have trusted us and have been with us for a long time.
-          '
+          "
           />
           <ClientsSection />
         </div>

@@ -46,6 +46,7 @@ import JavaProgram from "assets/images/training-courses/diploma-in-java-program.
 import ReactNative from "assets/images/training-courses/react-native.jpg";
 import DevOps from "assets/images/training-courses/DevOps.jpg";
 import REDHat from "assets/images/training-courses/Red Hat-Certified Engineer.jpg";
+import { Link } from "react-router-dom";
 
 const Photo = styled.img`
   width: ${(props) => props.scale * 368}px;
@@ -55,8 +56,10 @@ const Photo = styled.img`
   object-fit: cover;
   object-position: top;
 
-  margin-left: ${(props) => (props.offset === "true" ? props.scale * 7 : props.scale * 87)}px;
-  margin-right: ${(props) => (props.offset === "true" ? props.scale * 80 : 0)}px;
+  margin-left: ${(props) =>
+    props.offset === "true" ? props.scale * 7 : props.scale * 87}px;
+  margin-right: ${(props) =>
+    props.offset === "true" ? props.scale * 80 : 0}px;
 `;
 
 const photos = [
@@ -139,25 +142,76 @@ const People = ({ size }) => {
             console.log(index);
             return (
               <>
-                <div onMouseLeave={handleMouseLeave} onMouseOver={handleMouseOver} style={{ cursor: "pointer ", margin: "0rem !important", width: "19rem" }} className='home_course_card'>
-                  <Photo src={photos[id]} alt='' key={`marquee-example-people-${id}`} scale={scale * 1.3} />
-                  <div className='course_card_content'>
-                    <span className='trainer-info' style={{ color: "#636363", fontSize: "0.75rem" }}>
-                      Trainer: Dr. Shreevastav KC
-                    </span>
-                    <h6 style={{ color: "#0f5288", fontSize: "1.45rem" }}>Machine Learning</h6>
-                    <p style={{ color: "#000000", fontSize: "0.85rem" }}>Skills you'll gain: Machine Learning,Probability & Statistics, Machine Learning Algorithms, General Statistics, Theoritical Knowledge.</p>
-                  </div>
+                <div
+                  onMouseLeave={handleMouseLeave}
+                  onMouseOver={handleMouseOver}
+                  style={{
+                    cursor: "pointer ",
+                    margin: "0rem !important",
+                    width: "19rem",
+                  }}
+                  className="home_course_card"
+                >
+                  {/* Link to specific pages */}
+                  <Link to="/course-detail" target="_parent">
+                    <Photo
+                      src={photos[id]}
+                      alt=""
+                      key={`marquee-example-people-${id}`}
+                      scale={scale * 1.3}
+                    />
+                    <div className="course_card_content">
+                      <span
+                        className="trainer-info"
+                        style={{ color: "#636363", fontSize: "0.75rem" }}
+                      >
+                        Trainer: Dr. Shreevastav KC
+                      </span>
+                      <h6 style={{ color: "#0f5288", fontSize: "1.45rem" }}>
+                        Machine Learning
+                      </h6>
+                      <p style={{ color: "#000000", fontSize: "0.85rem" }}>
+                        Skills you'll gain: Machine Learning,Probability &
+                        Statistics, Machine Learning Algorithms, General
+                        Statistics, Theoritical Knowledge.
+                      </p>
+                    </div>
+                  </Link>
                 </div>
-                <div onMouseLeave={handleMouseLeave} onMouseOver={handleMouseOver} style={{ cursor: "pointer ", margin: "0rem !important", width: "19rem" }} className='home_course_card'>
-                  <Photo src={photos[id]} alt='' key={`marquee-example-people-${id}`} scale={scale * 1.3} />
-                  <div className='course_card_content'>
-                    <span className='trainer-info' style={{ color: "#636363", fontSize: "0.75rem" }}>
-                      Trainer: Dr. Shreevastav KC
-                    </span>
-                    <h6 style={{ color: "#0f5288", fontSize: "1.45rem" }}>Machine Learning</h6>
-                    <p style={{ color: "#000000", fontSize: "0.85rem" }}>Skills you'll gain: Machine Learning,Probability & Statistics, Machine Learning Algorithms, General Statistics, Theoritical Knowledge.</p>
-                  </div>
+                <div
+                  onMouseLeave={handleMouseLeave}
+                  onMouseOver={handleMouseOver}
+                  style={{
+                    cursor: "pointer ",
+                    margin: "0rem !important",
+                    width: "19rem",
+                  }}
+                  className="home_course_card"
+                >
+                  <Link to="/course-detail" target="_parent">
+                    <Photo
+                      src={photos[id]}
+                      alt=""
+                      key={`marquee-example-people-${id}`}
+                      scale={scale * 1.3}
+                    />
+                    <div className="course_card_content">
+                      <span
+                        className="trainer-info"
+                        style={{ color: "#636363", fontSize: "0.75rem" }}
+                      >
+                        Trainer: Dr. Shreevastav KC
+                      </span>
+                      <h6 style={{ color: "#0f5288", fontSize: "1.45rem" }}>
+                        Machine Learning
+                      </h6>
+                      <p style={{ color: "#000000", fontSize: "0.85rem" }}>
+                        Skills you'll gain: Machine Learning,Probability &
+                        Statistics, Machine Learning Algorithms, General
+                        Statistics, Theoritical Knowledge.
+                      </p>
+                    </div>
+                  </Link>
                 </div>
               </>
             );

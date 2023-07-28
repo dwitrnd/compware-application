@@ -25,6 +25,11 @@ import AboutUsDropDown from "components/AboutUsDropDown/AboutUsDropDown";
 import CertificateDropDown from "components/CertificateDropDown/CertificateDropDown";
 import EnrollDialog from "components/EnrollDialog/EnrollDialog";
 import LoginIcon from "@mui/icons-material/Login";
+import Stack from "@mui/material/Stack";
+import FacebookLogo from "../../assets/svg/facebook.svg";
+import InstagramLogo from "../../assets/svg/instagram.svg";
+import LinkedInLogo from "../../assets/svg/linkedin.svg";
+import YoutubeLogo from "../../assets/svg/youtube.svg";
 const drawerWidth = 240;
 
 const navItems = [
@@ -218,7 +223,7 @@ function DrawerAppBar(props) {
       <footer>
         <iframe
           className="map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1512236921644!2d85.342503!3d27.7126168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1970d2e43e4b%3A0x946fac63019d2903!2sDeerwalk%20Institute%20of%20Technology!5e0!3m2!1sen!2snp!4v1685200434953!5m2!1sen!2snp"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.174201572078!2d85.34109798977576!3d27.711907227008187!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1970d2e61067%3A0x1aa4921202ab29f8!2sDeerwalk%20Training%20Center!5e0!3m2!1sen!2snp!4v1690281126574!5m2!1sen!2snp"
           width="100%"
           style={{ border: 0, height: "300px" }}
           allowfullscreen=""
@@ -241,22 +246,52 @@ function DrawerAppBar(props) {
                     tailor searches. Small Change Towards the greater good is
                     our motto .
                   </p>
+                  <Stack
+                    marginTop="4rem"
+                    direction="row"
+                    spacing={4}
+                    justifyContent="center"
+                  >
+                    <a
+                      href="https://www.linkedin.com/company/deerwalktrainingcenter/"
+                      target="_blank"
+                    >
+                      {" "}
+                      <img src={LinkedInLogo} />{" "}
+                    </a>
+                    <a
+                      href="https://www.facebook.com/deerwalktrainingcenter"
+                      target="_blank"
+                    >
+                      <img src={FacebookLogo} />{" "}
+                    </a>
+                    <a
+                      href="https://www.instagram.com/deerwalk.training.center/"
+                      target="_blank"
+                    >
+                      <img src={InstagramLogo} />
+                    </a>
+                    <a
+                      href="https://www.youtube.com/@deerwalktrainingcenter"
+                      target="_blank"
+                    >
+                      <img src={YoutubeLogo} />
+                    </a>
+                  </Stack>
                 </div>
                 <div class="footer__upper--right">
                   <ul>
                     <li>
-                      <a href="#">
-                        <u> Blog </u>
-                      </a>
+                      <a href="/blog">Blog</a>
                     </li>
                     <li>
-                      <a href="#"> Policy </a>
+                      <a href="/terms-and-condition"> Policy </a>
                     </li>
                     <li>
-                      <a href="">Services</a>
+                      <a href="/our-team">Team</a>
                     </li>
                     <li>
-                      <a href="">Contact</a>
+                      <a href="/contact-us">Contact</a>
                     </li>
                   </ul>
                 </div>

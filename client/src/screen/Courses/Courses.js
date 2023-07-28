@@ -1,13 +1,20 @@
 import React from "react";
 import CoursesData from "./CoursesData";
-import { Button, IconButton, Stack, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  IconButton,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Container } from "@material-ui/core";
 import CoursesItem from "components/CoursesItems/CoursesItem";
 
 const Courses = () => {
   return (
-    <main id='courses-page'>
+    <main id="courses-page">
       <Container
         style={{
           display: "flex",
@@ -25,16 +32,25 @@ const Courses = () => {
             alignItems: "center",
           }}
         >
-          <Typography variant='h3' color='primary'>
+          <Typography variant="h3" color="primary">
             Our Courses
           </Typography>
-          <Typography variant='subtitle1'>Lorem ipsum dolor</Typography>
+          <Typography variant="subtitle1">Lorem ipsum dolor</Typography>
           <Container style={{ width: "60vw", margin: "0 5rem" }}>
-            <Stack direction='row' justifyContent='center'>
+            <Stack direction="row" justifyContent="center">
               <div style={{ width: "100%" }}>
-                <TextField label='Search Course' id='searchCourse' variant='outlined' fullWidth style={{ width: "100%" }}></TextField>
+                <TextField
+                  label="Search Course"
+                  id="searchCourse"
+                  variant="outlined"
+                  fullWidth
+                  style={{ width: "100%" }}
+                ></TextField>
               </div>
-              <Button variant='contained' sx={{ borderRadius: "0rem 1.875rem 1.875rem 0rem" }}>
+              <Button
+                variant="contained"
+                sx={{ borderRadius: "0rem 1.875rem 1.875rem 0rem" }}
+              >
                 <IconButton>
                   <SearchIcon sx={{ color: "white" }} />
                 </IconButton>

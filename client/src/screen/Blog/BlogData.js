@@ -5,278 +5,41 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const BlogData = () => {
+  const authorName = "Author Name";
+
   return (
     <>
       <Stack
+        direction={{ xs: "column", sm: "row" }}
+        sx={{ marginTop: "2rem" }}
         spacing={2}
-        sx={{
-          display: "flex",
-          justifyContent: "space-around",
-          alignItems: "center",
-          padding: "25px 25px 25px 25px",
-        }}
       >
-        {/* First Row */}
-        <Stack direction={{ sm: "column", md: "row" }} spacing={2}>
-          <div>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
-                padding: "25px 25px 25px 25px",
-                height: "530px",
-                minHeight: "300px", // Set a minimum height for smaller screens
-                maxHeight: "90vh",
-              }}
+        <img src={BlogImage} width="50%" />
+        <Stack direction="column" spacing={4}>
+          <Typography variant="h6" color="primary">
+            DeerHack: Fawning Upon Innovation
+          </Typography>
+          <Typography variant="subtitle2">by:{authorName} </Typography>
+          {/* Upload date remaining  */}
+          <Typography variant="body1">
+            DWIT Software Club, a prominent student-run club of Deerwalk
+            Institute of Technology, is thrilled to announce to host a Hackathon
+            "DeerHack 2023". This 36-hour-long event is going to take place from
+            5th May 2023 - 7th May 2023 at Deerwalk Complex with the primary
+            objective of developing a culture of innovation and idea-sharing
+            within the IT industry. This hackathon aims to provide a unique
+            opportunity for the participants to collaborate, learn and develop
+            innovative solutions to real-world problems and promises to be a
+            one-of-a-kind experience.
+          </Typography>
+          <Link to="/blog-page">
+            <Button
+              variant="outlined"
+              style={{ display: "flex", justifyContent: "flex-end" }}
             >
-              <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Blog Title</Typography>
-              <Typography
-                variant="body1"
-                style={{ maxHeight: "5rem", overflow: "hidden" }}
-              >
-                Deerwalk Training Center: Nepal's Premier IT training Center.
-                Start Learning Now
-              </Typography>
-              <Link to="/blog-page">
-                <Button variant="contained">Read More</Button>
-              </Link>
-            </Box>
-          </div>
-          <div>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
-                padding: "25px 25px 25px 25px",
-                height: "530px",
-                minHeight: "300px", // Set a minimum height for smaller screens
-                maxHeight: "90vh",
-              }}
-            >
-              <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Blog Title</Typography>
-              <Typography
-                variant="body1"
-                style={{ maxHeight: "5rem", overflow: "hidden" }}
-              >
-                Deerwalk Training Center: Nepal's Premier IT training Center.
-                Start Learning Now
-              </Typography>
-              <Link to="/blog-page">
-                <Button variant="contained">Read More</Button>
-              </Link>
-            </Box>
-          </div>
-          <div>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
-                padding: "25px 25px 25px 25px",
-                height: "530px",
-                minHeight: "300px", // Set a minimum height for smaller screens
-                maxHeight: "90vh",
-              }}
-            >
-              <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Blog Title</Typography>
-              <Typography
-                variant="body1"
-                style={{ maxHeight: "5rem", overflow: "hidden" }}
-              >
-                Deerwalk Training Center: Nepal's Premier IT training Center.
-                Start Learning Now
-              </Typography>
-              <Link to="/blog-page">
-                <Button variant="contained">Read More</Button>
-              </Link>
-            </Box>
-          </div>
-        </Stack>
-
-        {/* Second Row */}
-        <Stack direction={{ sm: "column", md: "row" }} spacing={2}>
-          <div>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
-                padding: "25px 25px 25px 25px",
-                height: "530px",
-                minHeight: "300px", // Set a minimum height for smaller screens
-                maxHeight: "90vh",
-              }}
-            >
-              <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Blog Title</Typography>
-              <Typography
-                variant="body1"
-                style={{ maxHeight: "5rem", overflow: "hidden" }}
-              >
-                Deerwalk Training Center: Nepal's Premier IT training Center.
-                Start Learning Now
-              </Typography>
-              <Link to="/blog-page">
-                <Button variant="contained">Read More</Button>
-              </Link>
-            </Box>
-          </div>
-          <div>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
-                padding: "25px 25px 25px 25px",
-                height: "530px",
-                minHeight: "300px", // Set a minimum height for smaller screens
-                maxHeight: "90vh",
-              }}
-            >
-              <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Blog Title</Typography>
-              <Typography
-                variant="body1"
-                style={{ maxHeight: "5rem", overflow: "hidden" }}
-              >
-                Deerwalk Training Center: Nepal's Premier IT training Center.
-                Start Learning Now
-              </Typography>
-              <Link to="/blog-page">
-                <Button variant="contained">Read More</Button>
-              </Link>
-            </Box>
-          </div>
-          <div>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
-                padding: "25px 25px 25px 25px",
-                height: "530px",
-                minHeight: "300px", // Set a minimum height for smaller screens
-                maxHeight: "90vh",
-              }}
-            >
-              <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Blog Title</Typography>
-              <Typography
-                variant="body1"
-                style={{ maxHeight: "5rem", overflow: "hidden" }}
-              >
-                Deerwalk Training Center: Nepal's Premier IT training Center.
-                Start Learning Now
-              </Typography>
-              <Link to="/blog-page">
-                <Button variant="contained">Read More</Button>
-              </Link>
-            </Box>
-          </div>
-        </Stack>
-        {/* Third Row */}
-        <Stack direction={{ sm: "column", md: "row" }} spacing={2}>
-          <div>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
-                padding: "25px 25px 25px 25px",
-                height: "530px",
-                minHeight: "300px", // Set a minimum height for smaller screens
-                maxHeight: "90vh",
-              }}
-            >
-              <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Blog Title</Typography>
-              <Typography
-                variant="body1"
-                style={{ maxHeight: "5rem", overflow: "hidden" }}
-              >
-                Deerwalk Training Center: Nepal's Premier IT training Center.
-                Start Learning Now
-              </Typography>
-              <Link to="/blog-page">
-                <Button variant="contained">Read More</Button>
-              </Link>
-            </Box>
-          </div>
-          <div>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
-                padding: "25px 25px 25px 25px",
-                height: "530px",
-                minHeight: "300px", // Set a minimum height for smaller screens
-                maxHeight: "90vh",
-              }}
-            >
-              <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Blog Title</Typography>
-              <Typography
-                variant="body1"
-                style={{ maxHeight: "5rem", overflow: "hidden" }}
-              >
-                Deerwalk Training Center: Nepal's Premier IT training Center.
-                Start Learning Now
-              </Typography>
-              <Link to="/blog-page">
-                <Button variant="contained">Read More</Button>
-              </Link>
-            </Box>
-          </div>
-          <div>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                alignItems: "center",
-                boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
-                padding: "25px 25px 25px 25px",
-                height: "530px",
-                minHeight: "300px", // Set a minimum height for smaller screens
-                maxHeight: "90vh",
-              }}
-            >
-              <img src={BlogImage} width="100%" height="150px" />
-              <Typography variant="h6">Blog Title</Typography>
-              <Typography
-                variant="body1"
-                style={{ maxHeight: "5rem", overflow: "hidden" }}
-              >
-                Deerwalk Training Center: Nepal's Premier IT training Center.
-                Start Learning Now
-              </Typography>
-              <Link to="/blog-page">
-                <Button variant="contained">Read More</Button>
-              </Link>
-            </Box>
-          </div>
+              Read More
+            </Button>
+          </Link>
         </Stack>
       </Stack>
     </>
