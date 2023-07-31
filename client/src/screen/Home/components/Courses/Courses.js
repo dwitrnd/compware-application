@@ -150,7 +150,7 @@ function Courses() {
         <div style={{ width: "50%" }}>
           <div className='all-text'>
             <h4>Our Courses</h4>
-            <h2 style={{ fontSize: "2.5rem" }}>
+            <h2 style={{ fontSize: "2.5rem", color: "#0f5288" }}>
               Find! <br /> Our all our courses
             </h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores rem necessitatibus provident quisquam consequatur animi cupiditate architecto atque, eum dolorem!</p>

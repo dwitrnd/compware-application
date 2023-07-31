@@ -80,11 +80,11 @@ export default function CertificateDropDown() {
   return (
     <>
       <Button
-        id="demo-customized-button"
+        id='demo-customized-button'
         aria-controls={open ? "demo-customized-menu" : undefined}
-        aria-haspopup="true"
+        aria-haspopup='true'
         aria-expanded={open ? "true" : undefined}
-        variant="text"
+        variant='text'
         disableElevation
         onClick={handleClick}
         // endIcon={<KeyboardArrowDownIcon />}
@@ -93,7 +93,7 @@ export default function CertificateDropDown() {
       </Button>
       <ClickDropdown
         style={{ marginLeft: "-0.35rem" }}
-        id="demo-customized-menu"
+        id='demo-customized-menu'
         MenuListProps={{
           "aria-labelledby": "demo-customized-button",
         }}
@@ -102,15 +102,12 @@ export default function CertificateDropDown() {
         onClose={handleClose}
       >
         <MenuList>
-          <ul
-            className="submenu_container roboto_400"
-            style={{ width: "100%" }}
-          >
+          <ul className='submenu_container roboto_400' style={{ width: "100%" }}>
             {dropDownItems.map((item) => {
               if (item.name === "Request") {
                 return (
                   <>
-                    <li style={{ width: "100%" }}>
+                    <li style={{ width: "100%", padding: "0" }}>
                       <RequestCertificateDialog />
                     </li>
                   </>
@@ -118,7 +115,7 @@ export default function CertificateDropDown() {
               } else {
                 return (
                   <>
-                    <li style={{ width: "100%" }}>
+                    <li style={{ width: "100%", padding: "0" }}>
                       <VerifyCertificateDialog />
                     </li>
                   </>

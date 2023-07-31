@@ -134,12 +134,8 @@
 }
 
 @media (max-width: 800px) {
-  .courses {
-    height: 50vh;
-  }
   .course-main {
     flex-wrap: wrap;
-    height: 40vh;
     width: 90vw;
   }
 
@@ -161,5 +157,15 @@
   }
   .left-course .all-cards .figma_modify {
     width: 16vw;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .courses {
+    height: 50vh;
+  }
+
+  .course-main {
+    height: 40vh;
   }
 }

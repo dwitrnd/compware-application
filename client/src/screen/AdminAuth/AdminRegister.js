@@ -1,26 +1,13 @@
-import React from "react";
-import {
-  Box,
-  TextField,
-  Typography,
-  IconButton,
-  Button,
-  InputAdornment,
-} from "@mui/material";
-import EmailIcon from "@mui/icons-material/Email";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import { Link } from "react-router-dom";
+import { TextField, FormControlLabel, Checkbox, Button, Box, Alert } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { storeTokenByValue } from "../../services/LocalStorageService";
-import { useRegisterUserMutation } from "../../redux/api/auth/userAuthApi";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-const AdminRegister = () => {
-  const [showPassword, setShowPassword] = useState(false);
 
-  const handleTogglePassword = () => {
-    setShowPassword(!showPassword);
-  };
+//! Import RTK Generated Register Hook
+import { useRegisterUserMutation } from "../../redux/api/auth/userAuthApi";
+
+const Registration = () => {
+  //? alert component state
   const [error, setError] = useState({
     status: false,
     msg: "",
@@ -42,13 +29,7 @@ const AdminRegister = () => {
       password_confirmation: data.get("password_confirmation"),
       tc: data.get("tc"),
     };
-    if (
-      actualData.name &&
-      actualData.email &&
-      actualData.password &&
-      actualData.password_confirmation &&
-      actualData.tc !== null
-    ) {
+    if (actualData.name && actualData.email && actualData.password && actualData.password_confirmation && actualData.tc !== null) {
       if (actualData.password === actualData.password_confirmation) {
         console.log(actualData);
         // =================================================================================
@@ -59,8 +40,7 @@ const AdminRegister = () => {
           if (res.data.status === "success") {
             //! TODO: TOKEN STORE garnu xa
             storeTokenByValue(res.data.token);
-
-            navigate("/login");
+            navigate("/dashboard");
           }
         }
         if (res.error) {
@@ -85,113 +65,24 @@ const AdminRegister = () => {
   if (isLoading) {
     return <div>Loading....</div>;
   }
+
   return (
     <>
-      <Box
-        component="form"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          width: "fit-content",
-          gap: "1rem",
-          margin: "0 auto",
-          marginTop: "6rem",
-          marginBottom: "6rem",
-          padding: "25px 25px 25px 25px",
-          borderRadius: ".25rem",
-          alignItems: "center",
-          boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
-          "& .MuiTextField-root": { width: "20rem" },
-        }}
-        onSubmit={handleSubmit}
-      >
-        <div>
-          <Typography variant="h4" gutterBottom color="primary">
-            Register
-          </Typography>
-        </div>
-        <div>
-          <TextField
-            required
-            id="name"
-            name="name"
-            label="Name"
-            variant="outlined"
-            type="text"
-            InputProps={{
-              endAdornment: (
-                <IconButton>
-                  <PersonOutlineIcon />
-                </IconButton>
-              ),
-            }}
-          />
-        </div>
-        <div>
-          <TextField
-            required
-            id="email"
-            name="email"
-            label="Email"
-            variant="outlined"
-            type="email"
-            InputProps={{
-              endAdornment: (
-                <IconButton>
-                  <EmailIcon />
-                </IconButton>
-              ),
-            }}
-          />
-        </div>
-        <div>
-          <TextField
-            required
-            id="password"
-            name="password"
-            label="Password"
-            variant="outlined"
-            type={showPassword ? "text" : "password"}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="start">
-                  <IconButton onClick={handleTogglePassword} edge="end">
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
-        </div>
-
-        <Button
-          variant="contained"
-          type="submit"
-          sx={{ width: "20rem", marginTop: "1rem" }}
-        >
-          Register
-        </Button>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "100%",
-          }}
-        >
-          <div>
-            <Typography variant="body">Already Have an account?</Typography>
-          </div>
-          <div>
-            <Link to="/login" color="primary">
-              Login
-            </Link>
-          </div>
+      <Box component='form' noValidate sx={{ mt: 1 }} id='registration-form' onSubmit={handleSubmit}>
+        <TextField margin='normal' required fullWidth id='name' name='name' label='Name' />
+        <TextField margin='normal' required fullWidth id='email' name='email' label='Email Address' />
+        <TextField margin='normal' required fullWidth id='password' name='password' label='Password' type='password' />
+        <TextField margin='normal' required fullWidth id='password_confirmation' name='password_confirmation' label='Confirm Password' type='password' />
+        <FormControlLabel control={<Checkbox value={true} color='primary' name='tc' id='tc' />} label='I agree to term and condition.' />
+        <Box textAlign='center'>
+          <Button type='submit' variant='contained' sx={{ mt: 3, mb: 2, px: 5 }}>
+            Join
+          </Button>
         </Box>
-        {error.status ? <div>{error.msg}</div> : ""}
+        {error.status ? <Alert severity={error.type}>{error.msg}</Alert> : ""}
       </Box>
     </>
   );
 };
 
-export default AdminRegister;
+export default Registration;

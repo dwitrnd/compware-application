@@ -9,14 +9,14 @@ const SplideCarousel = () => {
   useEffect(() => {
     // initialize  splide with loop
     new Splide(".splide", {
-      type: "loop",
-      autoplay: true,
+      // type: "loop",
+      // autoplay: true,
       arrows: false,
-      pagination: false,
+      pagination: true,
       perPage: 4,
       gap: "1rem",
-      speed: 10000,
-      rewindSpeed: 10000,
+      // speed: 10000,
+      // rewindSpeed: 10000,
       breakpoints: {
         600: {
           perPage: 1,
