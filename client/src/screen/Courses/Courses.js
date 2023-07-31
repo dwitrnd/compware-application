@@ -11,6 +11,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import { Container } from "@material-ui/core";
 import CoursesItem from "components/CoursesItems/CoursesItem";
+import Pagination from "@mui/material/Pagination";
 
 const Courses = () => {
   return (
@@ -35,7 +36,6 @@ const Courses = () => {
           <Typography variant="h3" color="primary">
             Our Courses
           </Typography>
-          <Typography variant="subtitle1">Lorem ipsum dolor</Typography>
           <Container style={{ width: "60vw", margin: "0 5rem" }}>
             <Stack direction="row" justifyContent="center">
               <div style={{ width: "100%" }}>
@@ -61,6 +61,7 @@ const Courses = () => {
         </header>
         <CoursesItem />
         <CoursesItem />
+        <Pagination count={5} color="primary" shape="rounded" />
       </Container>
     </main>
   );

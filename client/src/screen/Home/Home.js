@@ -58,6 +58,8 @@ const Home = () => {
 
   const HeroTitle = styled.h2`
     font-size: 2rem;
+    max-width: 600px;
+    margin: auto;
     text-align: center;
     @media (max-width: 550px) {
       font-size: 1.5rem;
@@ -74,59 +76,72 @@ const Home = () => {
   return (
     <>
       {/* //* =========hero section starts here========= */}
-      <section id='hero-section'>
-        <section id='hero-banner'>
-          <div id='video-box'>
-            <video autoPlay muted loop controlsList='nodownload'>
+
+      <section id="hero-section">
+        <section id="hero-banner">
+          <div id="video-box">
+            <video autoPlay muted loop controlsList="nodownload">
               <source
                 src={
-                  "https://cdn-cf-east.streamable.com/video/mp4-mobile/xzmccy.mp4?Expires=1690793880&Signature=IVdl6LbqrH2~uvkX-PocjD9Z2I8teZ2ehcmCrMZWamHX492jL-Oj35YF0UtiYv2MoiPpoC7z2n6cGfp93kV89Ol~vBdCvNySSNtoje-t-UyTl5iDK20QEckLUCoAbtdcgsYzwKp~YEMF4WgYtel9V2JmYPsPElxova4mYKW8IdFIy9FuJW3cE9XFNRigBQOpEOorwvf~cTZW8l7Uve-Te-G3IFlmQl6px823KUA1Xt4mpQelubenRvF4QCqpeMNsVTnHEgDsnp8ld6dvvRydXfBA-MRaFO5b-QB-5UdVh9toBXJggjIxJb-sirS6vR9C5XerxUSuxV-2faLMNTlwiA__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
+                  "https://cdn-cf-east.streamable.com/video/mp4/xzmccy.mp4?Expires=1691054520&Signature=Jy1o0mK55npvDKaDrj1DmpbnozzIdG2HPtEaDI5oQ0ixCaOv73BH-pkE7nY7N0NfMDSHB3bl1OSp1yC8V75inEqNbAe1lgCA96OYSkSfaMj-1J116UTrzVKYb-R0dy2Q63ic8bUHTiLUg3EPw68CR-eY9P8UHAAYyNfLjbhBqTm0DzuIfBR2ja6VzUyLqMt3Vi~0QVtrasehybvYcMhSLp9324-PaWXDZ04aPg93lpATcuuFZ0Lhu6rWf5GNfe1fcfH3SZ0WkSL0BTwD-gUSbxeswzFZCSCFDd4KA8XzPgVjbpKaMNl0CLNEU93mauvn6~9xMNqcVT4zgtmGRsmKxg__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
                 }
-                type='video/mp4'
+                type="video/mp4"
               />
             </video>
           </div>
 
-          <div id='hero-content'>
+          <div id="hero-content">
+            <HeroTitle style={{ marginTop: "3rem" }} className="hero-text">
+              Explore the world's leading
+            </HeroTitle>
+            <HeroTitle className="hero-text">training center</HeroTitle>
+
+            <HeroSubTitle
+              className="fade-in-text hero-text"
+              id="hero-subtitle"
+              style={{ marginTop: "8rem" }}
+            >
+              Millions of students and people around the world showcase their
+              skills and work on compware - the home to the world’s best
+              trainers and professionals.
+            </HeroSubTitle>
+
+            <CourseSearchField
+              placeholder="Search courses..."
+              type="text"
+              style={{ marginTop: "0.5rem" }}
+            />
             <FilterCardContainer>
               <FilterCards>Programming</FilterCards>
               <FilterCards>Graphic Design</FilterCards>
               <FilterCards>Diploma</FilterCards>
               <FilterCards>Short Term</FilterCards>
             </FilterCardContainer>
-
-            <HeroTitle style={{ marginTop: "3rem" }} className='fade-in-text'>
-              Explore the world's leading
-            </HeroTitle>
-            <HeroTitle className='fade-in-text'>training center</HeroTitle>
-
-            <HeroSubTitle className='fade-in-text'>Millions of students and people around the world showcase their skills and work on compware - the home to the world’s best trainers and professionals.</HeroSubTitle>
-
-            <CourseSearchField placeholder='Search courses...' type='text' />
           </div>
         </section>
       </section>
+
       {/* //* =========hero section ends here========= */}
 
       {/* // !  ========= body section starts from here ========= */}
 
       <section style={{ marginTop: "5rem", marginBottom: "5rem" }}>
-        <Header preTitle='Quality Courses For Our' postTitle='Students' />
+        <Header preTitle="Quality Courses For Our" postTitle="Students" />
         <ReviewsMarqueCarousel />
       </section>
 
-      <Container maxWidth='lg'>
+      <Container maxWidth="lg">
         {/* //todo: features section */}
 
         <div style={{ margin: "5rem 0rem" }}>
           <Header
-            subTitle=''
-            preTitle='Why Choose '
-            postTitle='Us?'
-            paragraph='
+            subTitle=""
+            preTitle="Why Choose "
+            postTitle="Us?"
+            paragraph="
               We have the best trainers and professionals and we have the best courses for you.
               
-          '
+          "
           />
           <FeaturesSection />
         </div>
@@ -141,20 +156,17 @@ const Home = () => {
 
         {/* //todo: testimonial section */}
         <div style={{ margin: "5rem 0rem" }}>
-          <Header subTitle='IN THE NEWS' preTitle='Our' postTitle='Testimonials' paragraph='Testimonials of our trainees.' />
+          <Header
+            subTitle="IN THE NEWS"
+            preTitle="Our"
+            postTitle="Testimonials"
+          />
           <SplideCarousel />
         </div>
 
         {/* //todo: partners section */}
         <div style={{ margin: "5rem 0rem" }}>
-          <Header
-            subTitle=''
-            preTitle='Our'
-            postTitle='Clients'
-            paragraph='
-              Clients who have trusted us and have been with us for a long time.
-          '
-          />
+          <Header subTitle="" preTitle="Our" postTitle="Clients" />
           <ClientsSection />
         </div>
       </Container>

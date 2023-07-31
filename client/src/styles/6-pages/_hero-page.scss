@@ -111,7 +111,7 @@
   //   100% 94.67%
   // );
 
-  $hero-section-height: 65vh;
+  $hero-section-height: 100vh;
   overflow: hidden;
   #hero-content {
     position: absolute;
@@ -186,4 +186,11 @@
 .fade-in-text{
   transition: 0s;
   animation: heroText 10s;
+}
+
+.hero-text{
+  background: rgba(0, 0, 0, 0.5) !important;
+
+    padding: 15px 18px;
+    font-size: 16px;
 }

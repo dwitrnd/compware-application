@@ -50,16 +50,19 @@ const Card = styled.div`
 const TestimonialCard = () => {
   return (
     <Card>
-      <div className='quote-container'>
+      <div className="quote-container">
         <span>“</span>
       </div>
 
-      <p className='roboto_400'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Necessitatibus, aut!</p>
+      <p className="roboto_400">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Necessitatibus, aut!
+      </p>
 
       <hr />
 
-      <img src={CompwareImage1} alt='' />
-      <h4 className='roboto_400'>name</h4>
+      <img src={CompwareImage1} alt="" />
+      <h4 className="roboto_400">name</h4>
     </Card>
   );
 };

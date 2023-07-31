@@ -4,6 +4,7 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import Container from "@material-ui/core/Container";
 import { TextField } from "@mui/material";
+import { Typography } from "@material-ui/core";
 
 import CompwareImage1 from "../../assets/images/compware-gallery/compware-gallery-img1.jpg";
 import CompwareImage2 from "../../assets/images/compware-gallery/compware-gallery-img2.jpg";
@@ -230,31 +231,51 @@ export default function App() {
 
   return (
     <>
-      <div style={{ margin: "5rem 0rem" }}>
+      <Container>
+        <Typography
+          variant="h3"
+          color="primary"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "3rem",
+          }}
+        >
+          Gallery
+        </Typography>
         {/* filter input  */}
 
-        <Container>
-          <TextField id='standard-search' label='Search field' type='search' variant='standard' onChange={(e) => filterImages(e.target.value)} sx={{ width: "10.5rem", marginBottom: "2rem" }} />
+        <TextField
+          id="standard-search"
+          label="Search field"
+          type="search"
+          variant="standard"
+          onChange={(e) => filterImages(e.target.value)}
+          sx={{ width: "10.5rem", marginBottom: "2rem" }}
+        />
 
-          <Gallery images={filteredImages} onClick={handleClick} enableImageSelection={false} />
+        <Gallery
+          images={filteredImages}
+          onClick={handleClick}
+          enableImageSelection={false}
+        />
 
-          {!!currentImage && (
-            /* @ts-ignore */
-            <Lightbox
-              mainSrc={currentImage.original}
-              imageTitle={currentImage.caption}
-              mainSrcThumbnail={currentImage.src}
-              nextSrc={nextImage.original}
-              nextSrcThumbnail={nextImage.src}
-              prevSrc={prevImage.original}
-              prevSrcThumbnail={prevImage.src}
-              onCloseRequest={handleClose}
-              onMovePrevRequest={handleMovePrev}
-              onMoveNextRequest={handleMoveNext}
-            />
-          )}
-        </Container>
-      </div>
+        {!!currentImage && (
+          /* @ts-ignore */
+          <Lightbox
+            mainSrc={currentImage.original}
+            imageTitle={currentImage.caption}
+            mainSrcThumbnail={currentImage.src}
+            nextSrc={nextImage.original}
+            nextSrcThumbnail={nextImage.src}
+            prevSrc={prevImage.original}
+            prevSrcThumbnail={prevImage.src}
+            onCloseRequest={handleClose}
+            onMovePrevRequest={handleMovePrev}
+            onMoveNextRequest={handleMoveNext}
+          />
+        )}
+      </Container>
     </>
   );
 }
