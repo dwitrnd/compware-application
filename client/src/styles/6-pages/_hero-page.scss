@@ -151,10 +151,39 @@
 .home_course_card {
   margin: 1rem;
   background: white;
+  transition: all ease-in-out 400ms
   // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
+.home_course_card:hover{
+  transform: scale(1.1);
+  transition: transform ease-in-out 200ms;
+  box-shadow: #0f528b 0px 1px 4px, #0f528b 0px 0px 0px 3px;
+  border-radius: 2px;
+}
+
+.home_course_card:active{
+  transform: scale(0.9);
+  transition: transform ease-in-out 100ms;
+  
+}
+
 
 .course_card_content {
   padding: 0rem 1.75rem;
   background: white;
+}
+
+@keyframes heroText{
+ 0%{
+  opacity: 0;
+ }
+ 100%{
+  opacity: 1;
+ } 
+}
+
+.fade-in-text{
+  transition: 0s;
+  animation: heroText 10s;
 }
