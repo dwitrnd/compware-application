@@ -8,7 +8,7 @@ import AboutUsSection from "./components/AboutUs";
 import HowItWorksSection from "./components/HowItWorksSection";
 import FeaturesSection from "./components/Features";
 import ClientsSection from "./components/Clients";
-import CourseSection from "./components/Courses/Courses";
+import PlacementSection from "./components/PlacementPartner/PlacementPartner";
 import Header from "components/Header";
 import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqueCarousel";
 
@@ -147,7 +147,7 @@ const Home = () => {
         </div>
 
         {/* //todo: course section */}
-        <CourseSection />
+        <PlacementSection />
 
         {/* //todo: how it works section */}
         <HowItWorksSection />
