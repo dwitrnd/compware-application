@@ -60,12 +60,12 @@ function App() {
                         <Home />
                       </Layout>
                     ) : (
-                      <Navigate to='/dashboard' />
+                      <Navigate to="/dashboard" />
                     )
                   }
                 />
                 <Route
-                  path='home'
+                  path="home"
                   element={
                     <Layout>
                       <Home />
@@ -73,7 +73,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='our-team'
+                  path="our-team"
                   element={
                     <Layout>
                       <OurTeam />
@@ -81,7 +81,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='gallery'
+                  path="gallery"
                   element={
                     <Layout>
                       <Gallery />
@@ -89,7 +89,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='contact-us'
+                  path="contact-us"
                   element={
                     <Layout>
                       <ContactUs />
@@ -97,7 +97,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='courses'
+                  path="courses"
                   element={
                     <Layout>
                       <Courses />
@@ -105,7 +105,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='request-certificate'
+                  path="request-certificate"
                   element={
                     <Layout>
                       <RequestCertificate />
@@ -113,7 +113,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='blog'
+                  path="blog"
                   element={
                     <Layout>
                       <Blog />
@@ -121,7 +121,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='blog-page'
+                  path="blog-page"
                   element={
                     <Layout>
                       <BlogPage />
@@ -129,68 +129,68 @@ function App() {
                   }
                 />
                 <Route
-                  path='verify-certificate'
+                  path="verify-certificate"
                   element={
                     !token ? (
                       <Layout>
                         <VerifyCertificate />
                       </Layout>
                     ) : (
-                      <Navigate to='/dashboard' />
+                      <Navigate to="/dashboard" />
                     )
                   }
                 />
                 <Route
-                  path='terms-and-condition'
+                  path="terms-and-condition"
                   element={
                     !token ? (
                       <Layout>
                         <TermsAndConditions />
                       </Layout>
                     ) : (
-                      <Navigate to='/dashboard' />
+                      <Navigate to="/dashboard" />
                     )
                   }
                 />
                 <Route
-                  path='course-detail'
+                  path="course-detail"
                   element={
                     !token ? (
                       <Layout>
                         <CourseDetailPage />
                       </Layout>
                     ) : (
-                      <Navigate to='/dashboard' />
+                      <Navigate to="/dashboard" />
                     )
                   }
                 />
 
                 <Route
-                  path='login'
+                  path="login"
                   element={
                     !token ? (
                       <Layout>
                         <AdminLogin />
                       </Layout>
                     ) : (
-                      <Navigate to='/dashboard' />
+                      <Navigate to="/dashboard" />
                     )
                   }
                 />
                 <Route
-                  path='register'
+                  path="register"
                   element={
                     !token ? (
                       <Layout>
                         <AdminRegister />
                       </Layout>
                     ) : (
-                      <Navigate to='/dashboard' />
+                      <Navigate to="/dashboard" />
                     )
                   }
                 />
                 <Route
-                  path='sendpasswordresetemail'
+                  path="sendpasswordresetemail"
                   element={
                     <Layout>
                       <SendPasswordResetEmail />
@@ -198,7 +198,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='/api/users/reset/:id/:token'
+                  path="/api/users/reset/:id/:token"
                   element={
                     <Layout>
                       <ResetPassword />
@@ -206,16 +206,16 @@ function App() {
                   }
                 />
               </Route>
-              <Route path='/dashboard' element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route
-                path='resetpassword'
+                path="resetpassword"
                 element={
                   <Layout>
                     <AdminForgotPassword />
                   </Layout>
                 }
               />
-              <Route path='*' element={<PageNotFound />} />
+              <Route path="*" element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>
         </ThemeProvider>

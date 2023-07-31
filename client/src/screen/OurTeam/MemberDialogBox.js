@@ -52,6 +52,7 @@ const MemberDialogBox = () => {
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
+        maxWidth
       >
         <DialogTitle
           id="customized-dialog-title"
