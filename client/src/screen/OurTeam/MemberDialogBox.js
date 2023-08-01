@@ -80,17 +80,6 @@ const MemberDialogBox = () => {
                   Teacher's Name
                 </Typography>
                 <Typography variant="caption">Python Instructor</Typography>{" "}
-                <div>
-                  <IconButton>
-                    <FacebookIcon />
-                  </IconButton>
-                  <IconButton>
-                    <LinkedInIcon />
-                  </IconButton>
-                  <IconButton>
-                    <InstagramIcon />
-                  </IconButton>
-                </div>
               </Container>
             </Grid>
             <Grid item xs={12} sm={8} md={10}>
