@@ -151,8 +151,7 @@ const Home = () => {
         <div style={{ margin: "5rem 0rem" }} data-aos="fade-down">
           <Header
             subTitle=""
-            preTitle="Why Choose "
-            postTitle="Us?"
+            preTitle="Why Deerwalk Training Center? "
             paragraph="
               We have the best trainers and professionals and we have the best courses for you.
               

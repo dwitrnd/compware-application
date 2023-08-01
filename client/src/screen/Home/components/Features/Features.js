@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Features(props) {
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 5000,
     });
   }, []);
 

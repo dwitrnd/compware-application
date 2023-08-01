@@ -74,7 +74,7 @@ const BlogPage = () => {
             </Container>
           </Grid>
           <Grid xs={12} md={4}>
-            <Stack direction="column" alignItems="center" spacing={2}>
+            <Stack direction="column" spacing={2}>
               <Typography variant="h5" color="primary">
                 Recent Post
               </Typography>

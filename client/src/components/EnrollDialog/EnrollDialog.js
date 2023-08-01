@@ -52,19 +52,35 @@ const EnrollDialog = ({}) => {
             </DialogTitle>
             <DialogContent>
               <Typography variant="body1">Name</Typography>
-              <TextField variant="outlined" id="name" sx={{ width: "100%" }} />
+              <TextField
+                required
+                variant="outlined"
+                id="name"
+                sx={{ width: "100%" }}
+              />
               <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
                 Email
               </Typography>
-              <TextField variant="outlined" id="email" sx={{ width: "100%" }} />
+              <TextField
+                required
+                variant="outlined"
+                id="email"
+                sx={{ width: "100%" }}
+              />
               <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
                 Phone
               </Typography>
-              <TextField variant="outlined" id="phone" sx={{ width: "100%" }} />
+              <TextField
+                required
+                variant="outlined"
+                id="phone"
+                sx={{ width: "100%" }}
+              />
               <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
                 Course
               </Typography>
               <TextField
+                required
                 variant="outlined"
                 id="course"
                 sx={{ width: "100%" }}
@@ -107,13 +123,14 @@ const EnrollDialog = ({}) => {
                     </Link>
                   </div>
                 </div>
+                <Button
+                  variant="contained"
+                  sx={{ display: "flex", justifyContent: "center" }}
+                  type="submit"
+                >
+                  Register
+                </Button>
               </FormGroup>
-              <Button
-                variant="contained"
-                sx={{ display: "flex", justifyContent: "center" }}
-              >
-                Register
-              </Button>
             </DialogContent>
           </form>
         </Stack>

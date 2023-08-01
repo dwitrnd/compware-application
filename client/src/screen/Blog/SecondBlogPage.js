@@ -61,8 +61,8 @@ const SecondBlogPage = () => {
             </Container>
           </Grid>
           <Grid xs={12} md={4}>
-            <Stack direction="column" spacing={2}>
-              <Typography variant="h5" color="primary">
+            <Stack direction="column" spacing={2} marginTop="2rem">
+              <Typography variant="h5" color="primary" alignItems="center">
                 Recent Post
               </Typography>
 
@@ -76,7 +76,7 @@ const SecondBlogPage = () => {
                     >
                       <img
                         src={BlogRecommendedImage}
-                        style={{ width: "70%" }}
+                        style={{ width: "100%" }}
                       />
                       <Typography variant="h6" color="primary">
                         DeerHack: Fawning Over Innovation
@@ -91,7 +91,7 @@ const SecondBlogPage = () => {
                     >
                       <img
                         src={BlogRecommendedImage}
-                        style={{ width: "70%" }}
+                        style={{ width: "100%" }}
                       />
                       <Typography variant="h6" color="primary">
                         DeerHack: Fawning Over Innovation
@@ -106,7 +106,7 @@ const SecondBlogPage = () => {
                     >
                       <img
                         src={BlogRecommendedImage}
-                        style={{ width: "70%" }}
+                        style={{ width: "100%" }}
                       />
                       <Typography variant="h6" color="primary">
                         DeerHack: Fawning Over Innovation

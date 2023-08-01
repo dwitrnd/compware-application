@@ -26,6 +26,10 @@ import Softebenz from "assets/images/placement partner/softebnz.png";
 import Stn from "assets/images/placement partner/STN.png";
 import Versik from "assets/images/placement partner/verisk.png";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const Card_1_db = [
   {
     imgsrc: Agile,
@@ -112,6 +116,11 @@ const Card_3_db = [
 ];
 
 function Courses() {
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+    });
+  }, []);
   return (
     <div className="courses" id="contact">
       <div className="course-main">
@@ -154,7 +163,7 @@ function Courses() {
           </div>
         </div>
         <div style={{ width: "50%" }}>
-          <div className="all-text">
+          <div className="all-text" data-aos="zoom-in-left">
             <h2 style={{ fontSize: "2.5rem", color: "#0f5288" }}>
               Placement <br /> Partners
             </h2>

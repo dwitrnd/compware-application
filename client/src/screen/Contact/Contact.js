@@ -17,10 +17,17 @@ import PersonIcon from "@mui/icons-material/Person";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import CommentIcon from "@mui/icons-material/Comment";
 import Snackbar from "@mui/material/Snackbar";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const Contact = () => {
   const [open, setOpen] = React.useState(false);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 5000,
+    });
+  }, []);
   const handleClick = () => {
     setOpen(true);
   };
@@ -56,6 +63,7 @@ const Contact = () => {
                 background: "#0F5288",
                 borderRadius: "1.25rem 0rem 0rem 1.25rem",
               }}
+              data-aos="fade-right"
             >
               <Stack direction="column" justifyContent="center" spacing={6}>
                 <Typography variant="h4" style={{ color: "#FFF" }}>
@@ -130,13 +138,12 @@ const Contact = () => {
                 boxShadow:
                   "7px 7px 14px 0px rgba(16, 16, 16, 0.20), -7px -7px 14px 0px rgba(255, 255, 255, 0.20)",
               }}
+              data-aos="fade-left"
             >
               <Typography variant="h4" style={{ color: "#0F5288" }}>
                 Get In Touch
               </Typography>
-              <Typography variant="body1">
-                Lorem ipsum dolor sit amet
-              </Typography>
+
               <form
                 noValidate
                 style={{
@@ -147,7 +154,7 @@ const Contact = () => {
               >
                 <Stack direction="row">
                   <PersonIcon
-                    sx={{ marginTop: "1rem", marginRight: "1.94rem" }}
+                    sx={{ marginTop: "0.5rem", marginRight: "1.94rem" }}
                   />
                   <TextField
                     id="user-name"
@@ -160,7 +167,7 @@ const Contact = () => {
                 </Stack>
                 <Stack direction="row">
                   <PhoneIphoneIcon
-                    sx={{ marginTop: "1rem", marginRight: "1.94rem" }}
+                    sx={{ marginTop: "0.5rem", marginRight: "1.94rem" }}
                   />
                   <TextField
                     id="mobile-number"
@@ -168,11 +175,12 @@ const Contact = () => {
                     variant="outlined"
                     size="small"
                     fullWidth
+                    required
                   ></TextField>
                 </Stack>
                 <Stack direction="row">
                   <EmailIcon
-                    sx={{ marginTop: "1rem", marginRight: "1.94rem" }}
+                    sx={{ marginTop: "0.5rem", marginRight: "1.94rem" }}
                   />
                   <TextField
                     id="email"
@@ -180,11 +188,12 @@ const Contact = () => {
                     variant="outlined"
                     size="small"
                     fullWidth
+                    required
                   />
                 </Stack>
                 <Stack direction="row">
                   <CommentIcon
-                    sx={{ marginTop: "1rem", marginRight: "1.94rem" }}
+                    sx={{ marginTop: "0.5rem", marginRight: "1.94rem" }}
                   />
                   <TextField
                     id="message"
@@ -194,10 +203,12 @@ const Contact = () => {
                     variant="outlined"
                     size="small"
                     fullWidth
+                    required
                   />
                 </Stack>
               </form>
               <Button
+                type="submit"
                 variant="contained"
                 onClick={handleClick}
                 sx={{
@@ -209,15 +220,15 @@ const Contact = () => {
               >
                 Send
               </Button>
-              <Snackbar
-                open={open}
-                autoHideDuration={4000}
-                onClose={handleClose}
-                message="Response Sent Successfully"
-              />
             </Box>
           </Grid>
         </Grid>
+        <Snackbar
+          open={open}
+          autoHideDuration={4000}
+          onClose={handleClose}
+          message="Response Sent Successfully"
+        />
       </Stack>
     </>
   );

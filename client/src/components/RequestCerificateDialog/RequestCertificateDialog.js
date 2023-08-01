@@ -18,7 +18,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
 const MemberDialogBox = () => {
@@ -26,7 +26,11 @@ const MemberDialogBox = () => {
   const [snackbarOpen, setsnackbarOpen] = useState(false);
 
   const currentDate = new Date();
-  const nextThreeMonths = new Date(currentDate.getFullYear(), currentDate.getMonth() + 3, currentDate.getDate());
+  const nextThreeMonths = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth() + 3,
+    currentDate.getDate()
+  );
   const formattedStartDate = currentDate.toLocaleDateString("en-GB");
   const formattedEndDate = nextThreeMonths.toLocaleDateString("en-GB");
   const placeholderText = `${formattedStartDate} - ${formattedEndDate}`;
@@ -47,92 +51,178 @@ const MemberDialogBox = () => {
   };
   const action = (
     <React.Fragment>
-      <Button color='secondary' size='small' onClick={handleSnackBarClose}>
+      <Button color="secondary" size="small" onClick={handleSnackBarClose}>
         UNDO
       </Button>
-      <IconButton size='small' aria-label='close' color='inherit' onClick={handleSnackBarClose}>
-        <CloseIcon fontSize='small' />
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleSnackBarClose}
+      >
+        <CloseIcon fontSize="small" />
       </IconButton>
     </React.Fragment>
   );
 
   return (
     <div style={{ display: "initial" }}>
-      <div style={{ fontSize: "1rem", padding: "0.35rem 0.35rem 0.35rem 0.8rem", width: "100%" }} variant='text' disableElevation onClick={handleClickOpen}>
+      <div
+        style={{
+          fontSize: "1rem",
+          padding: "0.35rem 0.35rem 0.35rem 0.8rem",
+          width: "100%",
+        }}
+        variant="text"
+        disableElevation
+        onClick={handleClickOpen}
+      >
         Request
       </div>
-      <Dialog onClose={handleClose} aria-labelledby='customized-dialog-title' open={open} id='request-certificate-dialog'>
-        <DialogTitle
-          id='customized-dialog-title'
-          onClose={handleClose}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Typography variant='h4' color='primary'>
-            Get Your Certificate
-          </Typography>
-        </DialogTitle>
-        <DialogContent sx={{ display: "flex", flexDirection: "column" }}>
-          <Stack spacing={2} marginTop='20px' alignItems='center' ju>
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 2, sm: 8 }} alignItems='center'>
-              <Typography minWidth='8rem'>Full name</Typography>
-              <TextField required type='name' variant='outlined' size='small' />
+      <Dialog
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+        id="request-certificate-dialog"
+      >
+        <form>
+          <DialogTitle
+            id="customized-dialog-title"
+            onClose={handleClose}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Typography variant="h4" color="primary">
+              Get Your Certificate
+            </Typography>
+          </DialogTitle>
+          <DialogContent sx={{ display: "flex", flexDirection: "column" }}>
+            <Stack spacing={2} marginTop="20px" alignItems="center">
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={{ xs: 2, sm: 8 }}
+                alignItems="center"
+              >
+                <Typography minWidth="8rem">Full name</Typography>
+                <TextField
+                  required
+                  type="name"
+                  variant="outlined"
+                  size="small"
+                />
+              </Stack>
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                alignItems="center"
+                spacing={{ xs: 2, sm: 8 }}
+              >
+                <Typography minWidth="8rem">Contact Number</Typography>
+                <TextField
+                  required
+                  type="contact"
+                  variant="outlined"
+                  size="small"
+                />
+              </Stack>
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                alignItems="center"
+                spacing={{ xs: 2, sm: 8 }}
+              >
+                <Typography minWidth="8rem">Email</Typography>
+                <TextField
+                  required
+                  type="email"
+                  variant="outlined"
+                  size="small"
+                />
+              </Stack>
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                alignItems="center"
+                spacing={{ xs: 2, sm: 8 }}
+              >
+                <Typography minWidth="8rem">Course</Typography>
+                <TextField
+                  required
+                  type="course"
+                  variant="outlined"
+                  size="small"
+                />
+              </Stack>
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                alignItems="center"
+                spacing={{ xs: 2, sm: 8 }}
+              >
+                <Typography minWidth="8rem">Course Trainer</Typography>
+                <TextField
+                  required
+                  type="courseTrainer"
+                  variant="outlined"
+                  size="small"
+                />
+              </Stack>
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                alignItems="center"
+                spacing={{ xs: 2, sm: 8 }}
+              >
+                <Typography minWidth="8rem">
+                  Training Duration Start{" "}
+                </Typography>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={["DatePicker"]}>
+                    <DatePicker
+                      inputProps={{
+                        style: { fontSize: "0.8rem", padding: "0.5rem" },
+                      }}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
+              </Stack>
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                alignItems="center"
+                spacing={{ xs: 2, sm: 8 }}
+              >
+                <Typography minWidth="8rem">Training Duration End</Typography>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={["DatePicker"]}>
+                    <DatePicker
+                      inputProps={{
+                        style: { fontSize: "0.8rem", padding: "0.5rem" },
+                      }}
+                    />
+                  </DemoContainer>
+                </LocalizationProvider>
+              </Stack>
             </Stack>
-            <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' spacing={{ xs: 2, sm: 8 }}>
-              <Typography minWidth='8rem'>Contact Number</Typography>
-              <TextField required type='contact' variant='outlined' size='small' />
-            </Stack>
-            <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' spacing={{ xs: 2, sm: 8 }}>
-              <Typography minWidth='8rem'>Email</Typography>
-              <TextField required type='email' variant='outlined' size='small' />
-            </Stack>
-            <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' spacing={{ xs: 2, sm: 8 }}>
-              <Typography minWidth='8rem'>Course</Typography>
-              <TextField required type='course' variant='outlined' size='small' />
-            </Stack>
-            <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' spacing={{ xs: 2, sm: 8 }}>
-              <Typography minWidth='8rem'>Course Trainer</Typography>
-              <TextField required type='courseTrainer' variant='outlined' size='small' />
-            </Stack>
-            <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' spacing={{ xs: 2, sm: 8 }}>
-              <Typography minWidth='8rem'>Training Duration Start </Typography>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer components={["DatePicker"]}>
-                  <DatePicker
-                    inputProps={{
-                      style: { fontSize: "0.8rem", padding: "0.5rem" },
-                    }}
-                  />
-                </DemoContainer>
-              </LocalizationProvider>
-            </Stack>
-            <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' spacing={{ xs: 2, sm: 8 }}>
-              <Typography minWidth='8rem'>Training Duration End</Typography>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer components={["DatePicker"]}>
-                  <DatePicker
-                    inputProps={{
-                      style: { fontSize: "0.8rem", padding: "0.5rem" },
-                    }}
-                  />
-                </DemoContainer>
-              </LocalizationProvider>
-            </Stack>
-          </Stack>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Close
-          </Button>
-          <Button onClick={handleSnackBarOpen}>Request</Button>
-          <Snackbar open={snackbarOpen} autoHideDuration={5000} onClose={handleSnackBarClose} message='Request Sent Sucessfully' action={action}>
-            <Alert onClose={handleSnackBarClose} severity='success' sx={{ width: "100%" }}>
-              Register Request Sent Successfully
-            </Alert>
-          </Snackbar>
-        </DialogActions>
+          </DialogContent>
+          <DialogActions>
+            <Button autoFocus onClick={handleClose}>
+              Close
+            </Button>
+            <Button type="submit">Request</Button>
+            <Snackbar
+              open={snackbarOpen}
+              autoHideDuration={5000}
+              onClose={handleSnackBarClose}
+              message="Request Sent Sucessfully"
+              action={action}
+            >
+              <Alert
+                onClose={handleSnackBarClose}
+                severity="success"
+                sx={{ width: "100%" }}
+              >
+                Register Request Sent Successfully
+              </Alert>
+            </Snackbar>
+          </DialogActions>
+        </form>
       </Dialog>
       <Backdrop
         open={open}
