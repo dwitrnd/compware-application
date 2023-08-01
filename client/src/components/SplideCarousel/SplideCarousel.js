@@ -2,10 +2,17 @@ import { useEffect } from "react";
 
 import { Splide } from "@splidejs/splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
-
 import TestimonialCard from "../TestimonialCard/TestimonialCard";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const SplideCarousel = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 10000,
+    });
+  }, []);
   useEffect(() => {
     // initialize  splide with loop
     new Splide(".splide", {
@@ -35,23 +42,38 @@ const SplideCarousel = () => {
   }, []);
   return (
     <>
-      <section class='splide' aria-label='Basic Structure Example'>
-        <div class='splide__track'>
-          <ul class='splide__list'>
-            <li class='splide__slide' style={{ background: "#E8E9EB", color: "white" }}>
+      <section class="splide" aria-label="Basic Structure Example">
+        <div class="splide__track" data-aos="flip-up">
+          <ul class="splide__list">
+            <li
+              class="splide__slide"
+              style={{ background: "#E8E9EB", color: "white" }}
+            >
               <TestimonialCard />
             </li>
 
-            <li class='splide__slide' style={{ background: "#E8E9EB", color: "white" }}>
+            <li
+              class="splide__slide"
+              style={{ background: "#E8E9EB", color: "white" }}
+            >
               <TestimonialCard />
             </li>
-            <li class='splide__slide' style={{ background: "#E8E9EB", color: "white" }}>
+            <li
+              class="splide__slide"
+              style={{ background: "#E8E9EB", color: "white" }}
+            >
               <TestimonialCard />
             </li>
-            <li class='splide__slide' style={{ background: "#E8E9EB", color: "white" }}>
+            <li
+              class="splide__slide"
+              style={{ background: "#E8E9EB", color: "white" }}
+            >
               <TestimonialCard />
             </li>
-            <li class='splide__slide' style={{ background: "#E8E9EB", color: "white" }}>
+            <li
+              class="splide__slide"
+              style={{ background: "#E8E9EB", color: "white" }}
+            >
               <TestimonialCard />
             </li>
           </ul>

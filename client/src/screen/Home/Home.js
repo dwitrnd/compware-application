@@ -160,13 +160,11 @@ const Home = () => {
           <FeaturesSection />
         </div>
 
-        {/* //todo: course section */}
+        {/* //todo: Placement section */}
         <PlacementSection />
 
         {/* //todo: how it works section */}
         <HowItWorksSection />
-        {/* //todo: aboutus section */}
-        <AboutUsSection />
 
         {/* //todo: testimonial section */}
         <div style={{ margin: "5rem 0rem" }}>
