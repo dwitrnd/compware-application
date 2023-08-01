@@ -19,9 +19,6 @@ const Blog = () => {
           <Typography variant="h3" color="primary">
             Blog Posts
           </Typography>
-          <Typography variant="subtitle1">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </Typography>
         </section>
         <BlogData />
         <Stack
@@ -29,7 +26,8 @@ const Blog = () => {
           direction="row"
           alignItems="flex-end"
           justifyContent="center"
-          marginBottom={5}
+          marginTop={3}
+          marginBottom={3}
         >
           <Pagination count={10} color="primary" />
         </Stack>

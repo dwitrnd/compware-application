@@ -1,10 +1,10 @@
 import React from "react";
 import { Container } from "@material-ui/core";
 import { Grid, Typography } from "@mui/material";
-import BlogImage from "../../assets/images/compware-gallery/compware-gallery-img1.jpg";
+import BlogRecommendedImage from "../../assets/images/compware-gallery/compware-gallery-img1.jpg";
 import Stack from "@mui/material/Stack";
-import Box from "@mui/material/Box";
-import { Divider } from "rsuite";
+import BlogImage from "../../assets/images/Blog-Image/blog-image.png";
+import { Link } from "react-router-dom";
 
 const BlogPage = () => {
   return (
@@ -34,7 +34,7 @@ const BlogPage = () => {
               />
 
               <Typography variant="subtitle2" gutterBottom>
-                -Author Name
+                -Bidhi Raghubanshi
               </Typography>
               <p style={{ textAlign: "justify" }}>
                 DWIT Software Club, a prominent student-run club of Deerwalk
@@ -80,15 +80,52 @@ const BlogPage = () => {
               </Typography>
 
               <Container>
-                <Stack
-                  direction={{ sm: "row", md: "column" }}
-                  spacing={2}
-                  justifyContent="center"
-                >
-                  <img src={BlogImage} style={{ width: "70%" }} />
-                  <Typography variant="h6" color="primary">
-                    Blog Title of recommended post
-                  </Typography>
+                <Stack direction="column" spacing={4}>
+                  <Link to="/blog-page-2">
+                    <Stack
+                      direction={{ sm: "row", md: "column" }}
+                      spacing={2}
+                      justifyContent="center"
+                    >
+                      <img
+                        src={BlogRecommendedImage}
+                        style={{ width: "70%" }}
+                      />
+                      <Typography variant="h6" color="primary">
+                        About Deerwalk Training Center
+                      </Typography>
+                    </Stack>
+                  </Link>
+                  <Link to="/blog-page-2">
+                    <Stack
+                      direction={{ sm: "row", md: "column" }}
+                      spacing={2}
+                      justifyContent="center"
+                    >
+                      <img
+                        src={BlogRecommendedImage}
+                        style={{ width: "70%" }}
+                      />
+                      <Typography variant="h6" color="primary">
+                        About Deerwalk Training Center
+                      </Typography>
+                    </Stack>
+                  </Link>
+                  <Link to="/blog-page-2">
+                    <Stack
+                      direction={{ sm: "row", md: "column" }}
+                      spacing={2}
+                      justifyContent="center"
+                    >
+                      <img
+                        src={BlogRecommendedImage}
+                        style={{ width: "70%" }}
+                      />
+                      <Typography variant="h6" color="primary">
+                        About Deerwalk Training Center
+                      </Typography>
+                    </Stack>
+                  </Link>
                 </Stack>
               </Container>
             </Stack>

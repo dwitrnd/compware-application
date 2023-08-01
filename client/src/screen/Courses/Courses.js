@@ -61,7 +61,13 @@ const Courses = () => {
         </header>
         <CoursesItem />
         <CoursesItem />
-        <Pagination count={5} color="primary" shape="rounded" />
+
+        <Pagination
+          count={5}
+          color="primary"
+          shape="rounded"
+          style={{ marginTop: "3rem" }}
+        />
       </Container>
     </main>
   );

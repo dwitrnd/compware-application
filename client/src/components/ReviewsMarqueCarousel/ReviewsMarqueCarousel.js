@@ -12,7 +12,7 @@ import Flutter from "assets/images/courses/Flutter-App-Development.jpg";
 import MERN from "assets/images/courses/Full-Stack-Web-Development---MERN-Stack.jpg";
 import Laravel from "assets/images/courses/laravel.jpg";
 import Excel from "assets/images/courses/Microsoft-Excel.jpg";
-import Spss from "assets/images/courses/Statistical-Analysis-using-R.jpg";
+import Spss from "assets/images/courses/Statistical-Package-for-the-Social-Sciences-(SPSS).jpg";
 import RProgramming from "assets/images/courses/Statistical-Analysis-using-R.jpg";
 import QualityAssurance from "assets/images/courses/Software-Quality-Assurance.jpg";
 import Python from "assets/images/courses/Programming-in-Python.jpg";

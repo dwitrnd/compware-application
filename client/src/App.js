@@ -24,6 +24,7 @@ import Blog from "./screen/Blog/Blog";
 import TermsAndConditions from "./screen/TermsAndConditions/TermsAndConditions";
 import BlogPage from "screen/Blog/BlogPage";
 import CourseDetailPage from "screen/CourseDetailPage/CourseDetailPage";
+import SecondBlogPage from "screen/Blog/SecondBlogPage";
 
 const theme = createTheme({
   palette: {
@@ -125,6 +126,14 @@ function App() {
                   element={
                     <Layout>
                       <BlogPage />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="blog-page-2"
+                  element={
+                    <Layout>
+                      <SecondBlogPage />
                     </Layout>
                   }
                 />

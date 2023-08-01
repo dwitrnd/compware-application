@@ -45,7 +45,10 @@ const TermsAndConditions = () => {
             Payment:{" "}
             <ul className="condition-list">
               <li>
-                The Student must pay a minimum of 50% of the total fees at the
+                Any amount above Nrs. 500 accepted as a admission deposit.
+              </li>
+              <li>
+                The Student must pay a minimum of 70% of the total fees at the
                 time of admission.
               </li>
               <li>

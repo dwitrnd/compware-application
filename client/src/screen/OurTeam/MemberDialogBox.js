@@ -16,6 +16,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
+import Backdrop from "@mui/material/Backdrop";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -52,7 +53,8 @@ const MemberDialogBox = () => {
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
-        maxWidth
+        maxWidth="sm"
+        fullWidth
       >
         <DialogTitle
           id="customized-dialog-title"
@@ -72,7 +74,7 @@ const MemberDialogBox = () => {
               md={2}
               sx={{ display: "flex", direction: "column" }}
             >
-              <Container>
+              <Container className="team-profile">
                 <Avatar src={TrainerPhoto} className={classes.avatar} />
                 <Typography variant="body1" color="primary">
                   Teacher's Name
@@ -123,6 +125,14 @@ const MemberDialogBox = () => {
           </Button>
         </DialogActions>
       </Dialog>
+      <Backdrop
+        open={open}
+        sx={{
+          zIndex: (theme) => theme.zIndex.drawer + 1,
+          backdropFilter: "blur(8px)",
+          backgroundColor: "rgba(0, 0, 0, 0.6)",
+        }}
+      />
     </div>
   );
 };

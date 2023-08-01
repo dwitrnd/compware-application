@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import SplideCarousel from "components/SplideCarousel/SplideCarousel";
 import Container from "@material-ui/core/Container";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 // import sections
 
@@ -13,6 +16,12 @@ import Header from "components/Header";
 import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqueCarousel";
 
 const Home = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+    });
+  }, []);
+
   // hero section component
 
   const FilterCardContainer = styled.div`
@@ -80,7 +89,13 @@ const Home = () => {
       <section id="hero-section">
         <section id="hero-banner">
           <div id="video-box">
-            <video autoPlay muted loop controlsList="nodownload">
+            <video
+              autoPlay
+              muted
+              loop
+              controlsList="nodownload"
+              style={{ filter: "brightness(0.5)" }}
+            >
               <source
                 src={
                   "https://cdn-cf-east.streamable.com/video/mp4/xzmccy.mp4?Expires=1691054520&Signature=Jy1o0mK55npvDKaDrj1DmpbnozzIdG2HPtEaDI5oQ0ixCaOv73BH-pkE7nY7N0NfMDSHB3bl1OSp1yC8V75inEqNbAe1lgCA96OYSkSfaMj-1J116UTrzVKYb-R0dy2Q63ic8bUHTiLUg3EPw68CR-eY9P8UHAAYyNfLjbhBqTm0DzuIfBR2ja6VzUyLqMt3Vi~0QVtrasehybvYcMhSLp9324-PaWXDZ04aPg93lpATcuuFZ0Lhu6rWf5GNfe1fcfH3SZ0WkSL0BTwD-gUSbxeswzFZCSCFDd4KA8XzPgVjbpKaMNl0CLNEU93mauvn6~9xMNqcVT4zgtmGRsmKxg__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
@@ -99,7 +114,7 @@ const Home = () => {
             <HeroSubTitle
               className="fade-in-text hero-text"
               id="hero-subtitle"
-              style={{ marginTop: "8rem" }}
+              style={{ marginTop: "4rem" }}
             >
               Millions of students and people around the world showcase their
               skills and work on compware - the home to the world’s best
@@ -109,7 +124,7 @@ const Home = () => {
             <CourseSearchField
               placeholder="Search courses..."
               type="text"
-              style={{ marginTop: "0.5rem" }}
+              style={{ marginTop: "4rem" }}
             />
             <FilterCardContainer>
               <FilterCards>Programming</FilterCards>
@@ -133,7 +148,7 @@ const Home = () => {
       <Container maxWidth="lg">
         {/* //todo: features section */}
 
-        <div style={{ margin: "5rem 0rem" }}>
+        <div style={{ margin: "5rem 0rem" }} data-aos="fade-down">
           <Header
             subTitle=""
             preTitle="Why Choose "
