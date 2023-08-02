@@ -55,7 +55,7 @@ const MemberDialogBox = () => {
     if (inputValue === "") {
       setError({
         errorStatus: true,
-        errorMessage: "Enter you compware ID",
+        errorMessage: "Enter you Validation ID",
       });
     } else {
       // Fetch data
@@ -113,7 +113,7 @@ const MemberDialogBox = () => {
                 justifyContent="center"
                 spacing={{ xs: 2, sm: 8 }}
               >
-                <Typography>Compware ID</Typography>
+                <Typography>Validation ID</Typography>
                 <TextField
                   required
                   type="name"
