@@ -49,7 +49,7 @@ const TermsAndConditions = () => {
               </li>
               <li>
                 The Student must pay a minimum of 70% of the total fees at the
-                time of admission.
+                time of class start.
               </li>
               <li>
                 The remaining dues must be paid within two weeks of the
