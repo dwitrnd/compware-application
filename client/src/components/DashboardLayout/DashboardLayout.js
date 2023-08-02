@@ -98,8 +98,9 @@ const Dashboard = ({ children }) => {
                 <span>Enrolled Students</span>
               </Link>
             </li>
-            <li class='sidebar-list-item active'>
-              <a href='#'>
+
+            <li class='sidebar-list-item'>
+              <Link to='/dashboard/list-team'>
                 {/* <svg
                   fill="#ffffff"
                   xmlns="http://www.w3.org/2000/svg"
@@ -110,15 +111,15 @@ const Dashboard = ({ children }) => {
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="feather feather-shopping-bag"
+                  class="feather feather-home"
                 >
-                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <path d="M16 10a4 4 0 0 1-8 0" />
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
                 </svg> */}
-                {/* <span>Products</span> */}
-              </a>
+                <span>Team</span>
+              </Link>
             </li>
+
             <li class='sidebar-list-item'>
               <a href='#'>
                 {/* <svg

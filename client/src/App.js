@@ -27,6 +27,7 @@ import CourseDetailPage from "screen/CourseDetailPage/CourseDetailPage";
 import SecondBlogPage from "screen/Blog/SecondBlogPage";
 import DashboardLayout from "../src/components/DashboardLayout/DashboardLayout";
 import ListEnrollStudentBody from "screen/Dashboard/ListEnrollStudent";
+import ListTeamBody from "screen/Dashboard/ListTeamBody/ListTeamBody";
 
 const theme = createTheme({
   palette: {
@@ -233,6 +234,14 @@ function App() {
                 element={
                   <DashboardLayout>
                     <ListEnrollStudentBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-team'
+                element={
+                  <DashboardLayout>
+                    <ListTeamBody />
                   </DashboardLayout>
                 }
               />

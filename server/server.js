@@ -1,3 +1,4 @@
+const path = require("path");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const express = require("express");
@@ -14,6 +15,8 @@ app.use(cors());
 //connect to db
 
 const DATABASE_URL = process.env.DATABASE_URL;
+
+const appRoot = __dirname;
 
 connectDB(DATABASE_URL);
 //routes
@@ -51,6 +54,8 @@ app.use("/api/request", requestRoutes);
 app.use("/api/student", studentRoutes);
 app.use("/api/teacher", teacherRoutes);
 app.use("/api/trainer", trainerRoutes);
+
+app.use("/storage", express.static(path.join(appRoot, "storage")));
 
 app.get("/", (req, res) => {
   res.status(200).json({
