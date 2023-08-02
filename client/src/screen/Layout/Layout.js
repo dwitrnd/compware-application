@@ -251,6 +251,7 @@ function DrawerAppBar(props) {
                     direction="row"
                     spacing={4}
                     justifyContent="center"
+                    sx={{ paddingRight: "6rem" }}
                   >
                     <a
                       href="https://www.linkedin.com/company/deerwalktrainingcenter/"

@@ -103,7 +103,7 @@ const EnrollDialog = ({}) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        style={{ position: "relative", paddingLeft: "0.5rem" }}
+                        style={{ position: "relative", marginRight: "0rem" }}
                       />
                     }
                   />
@@ -111,7 +111,7 @@ const EnrollDialog = ({}) => {
                     style={{
                       display: "flex",
                       flexDirection: "row",
-                      marginTop: "0.65rem",
+                      marginTop: "0.75rem",
                       marginBottom: "1rem",
                     }}
                   >
