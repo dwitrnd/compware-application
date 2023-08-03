@@ -59,7 +59,7 @@ const ListTeamBody = () => {
                   return (
                     <tr key={index}>
                       <td>
-                        <img src={`http://localhost:5001/storage/photo_1690963773593.jpeg`}></img>
+                        <img style={{ height: "4rem", width: "4rem" }} src={`http://localhost:5001/storage/photo_1690963773593.jpeg`}></img>
                       </td>
                       <td>{data.Name}</td>
                       <td>{data.Email}</td>
