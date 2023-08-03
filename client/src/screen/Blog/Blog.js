@@ -2,6 +2,9 @@ import { Container, Typography } from "@material-ui/core";
 import { Pagination, Stack } from "@mui/material";
 import React from "react";
 import { BlogData } from "./BlogData";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import PaginationItem from "@mui/material/PaginationItem";
 
 const Blog = () => {
   return (
@@ -29,7 +32,12 @@ const Blog = () => {
           marginTop={3}
           marginBottom={3}
         >
-          <Pagination count={10} color="primary" />
+          <Pagination
+            count={5}
+            color="primary"
+            shape="rounded"
+            style={{ marginTop: "3rem" }}
+          />
         </Stack>
       </Container>
     </>

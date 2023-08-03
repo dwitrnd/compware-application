@@ -11,6 +11,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
 import Image from "../../assets/images/enroll-image.svg";
+import axios from "axios";
 
 const EnrollDialog = ({}) => {
   const [open, setOpen] = useState(false);

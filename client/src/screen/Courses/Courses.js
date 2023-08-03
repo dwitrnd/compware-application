@@ -1,5 +1,4 @@
 import React from "react";
-import CoursesData from "./CoursesData";
 import {
   Button,
   FormControl,
@@ -10,10 +9,41 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Container } from "@material-ui/core";
-import CoursesItem from "components/CoursesItems/CoursesItem";
+import CoursesItem from "screen/Courses/components/CoursesItems/CoursesItem";
 import Pagination from "@mui/material/Pagination";
 
+import styled from "styled-components";
+
 const Courses = () => {
+  const FilterCardContainer = styled.div`
+    display: flex;
+    margin-top: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @media (max-width: 550px) {
+      display: none;
+    }
+  `;
+
+  const FilterCards = styled.div`
+    display: inline;
+    font-size: 1.1rem;
+    background: #0f5288 !important;
+    color: white;
+    margin: 0 5px;
+    padding: 15px 18px;
+    font-size: 16px;
+    font-weight: bold;
+
+    border-radius: 50px;
+
+    &:hover {
+      background: #e2e2e2 !important;
+      color: #0f5288;
+    }
+  `;
+
   return (
     <main id="courses-page">
       <Container
@@ -36,7 +66,7 @@ const Courses = () => {
           <Typography variant="h3" color="primary">
             Our Courses
           </Typography>
-          <Container style={{ width: "60vw", margin: "0 5rem" }}>
+          <Container style={{ width: "60vw", margin: "0.5rem" }}>
             <Stack direction="row" justifyContent="center">
               <div style={{ width: "100%" }}>
                 <TextField
@@ -57,6 +87,14 @@ const Courses = () => {
                 Search
               </Button>
             </Stack>
+            <FilterCardContainer>
+              <FilterCards style={{ margin: "15px" }}>Programming</FilterCards>
+              <FilterCards style={{ margin: "15px" }}>
+                Graphic Design
+              </FilterCards>
+              <FilterCards style={{ margin: "15px" }}>Diploma</FilterCards>
+              <FilterCards style={{ margin: "15px" }}>Short Term</FilterCards>
+            </FilterCardContainer>
           </Container>
         </header>
         <CoursesItem />
