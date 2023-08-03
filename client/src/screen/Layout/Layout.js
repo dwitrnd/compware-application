@@ -239,15 +239,11 @@ function DrawerAppBar(props) {
                 </div>
                 <div class="footer__upper--center">
                   <p class="">
-                    At The Deerwalk Training Center, we are experts in guiding
-                    next generation youths with next level of IT Trainings and
-                    Education Quality and other top positions. Our coaches and
-                    consultants are experienced, our teams are gathered via
-                    tailor searches. Small Change Towards the greater good is
-                    our motto .
+                    Transform your skills, elevate your career, and embrace
+                    success with Deerwalk Training Center.
                   </p>
                   <Stack
-                    marginTop="4rem"
+                    marginTop="7rem"
                     direction="row"
                     spacing={4}
                     justifyContent="center"

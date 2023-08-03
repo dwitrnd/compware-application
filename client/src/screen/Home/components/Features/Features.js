@@ -28,18 +28,18 @@ export default function Features(props) {
   }, []);
 
   const content = {
-    "col1-header": "Quality Training",
+    "col1-header": "Hands-On Learning",
     "col1-desc":
-      " We provide quality training to our students. We have a team of highly qualified and experienced trainers.",
-    "col2-header": "Mentors",
+      " Students are given numerous opportunities to apply their knowledge in real-world scenarios through practical exercises, engaging projects, and valuable internships. ",
+    "col2-header": "Comprehensive Career Guidance and Support",
     "col2-desc":
-      "We have a team of mentors who are always ready to help our students. They are available 24/7 to help our students.",
-    "col3-header": "Placement Assistance",
+      "The center understands the importance of launching a successful career. They provide comprehensive career guidance and support to their students. This includes resume-building workshops, interview preparation, and job placement assistance. ",
+    "col3-header": "Industry Partnerships",
     "col3-desc":
-      "We provide placement assistance to our students. We have a team of placement officers who help our students to get placed in top companies.",
-    "col4-header": "Live Projects",
+      "Deerwalk Training Center has strong industry partnerships, which provide valuable opportunities for their students. Through these partnerships, students gain access to internships and job opportunities with leading organizations in the IT industry.",
+    "col4-header": "Bridging Skills Gaps for IT and Management Success",
     "col4-desc":
-      "We provide live projects to our students. We have a team of highly qualified and experienced trainers.",
+      "In a rapidly evolving professional world, the gap between skills needed and skills possessed can often hinder growth and success. Our mission is to empower individuals with the tools they need to thrive in the realms of IT and Management, two fields that play pivotal roles in shaping today's business landscape.",
   };
 
   return (

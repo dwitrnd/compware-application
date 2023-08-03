@@ -86,7 +86,7 @@ const Home = () => {
     <>
       {/* //* =========hero section starts here========= */}
 
-      <section id="hero-section">
+      <section id="hero-section" style={{ height: "100vh" }}>
         <section id="hero-banner">
           <div id="video-box">
             <video
@@ -156,7 +156,7 @@ const Home = () => {
             subTitle=""
             preTitle="Why Deerwalk Training Center? "
             paragraph="
-              We have the best trainers and professionals and we have the best courses for you.
+            Deerwalk Training Center cultivates expertise in IT and Management through specialized training programs.
               
           "
           />

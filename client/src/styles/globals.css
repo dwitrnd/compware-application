@@ -7336,4 +7336,12 @@ svg {
   .grid-recommendation-item {
     display: none;
   }
+}
+.user-information {
+  margin-bottom: 0.5rem !important;
+}
+
+.topic {
+  font-weight: bold !important;
+  font-size: 20px !important;
 }/*# sourceMappingURL=globals.css.map */

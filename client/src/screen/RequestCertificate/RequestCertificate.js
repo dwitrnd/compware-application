@@ -1,7 +1,7 @@
 import { Box, TextField, Typography, Button, Container } from "@mui/material";
 import React from "react";
 import Grid from "@mui/material/Unstable_Grid2";
-import CertificateImage from "../../assets/images/certificateimage.jpeg";
+import CertificateImage from "../../assets/images/certificateimage.jpg";
 
 const RequestCertificate = () => {
   return (
