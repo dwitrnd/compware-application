@@ -4,6 +4,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import CertificateImage from "../../assets/images/certificateimage.jpg";
 import TestimonialImage from "../../assets/images/TestimonialPhotos/Student12.jpg";
 import Stack from "@mui/material/Stack";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
 
 const VerifyCertificate = () => {
   return (
@@ -28,7 +29,7 @@ const VerifyCertificate = () => {
             {" "}
             <Grid item xs={12} md={4}>
               <Box
-                component="form"
+                className="user-box"
                 sx={{
                   display: "flex",
                   flexDirection: "column",
@@ -124,15 +125,30 @@ const VerifyCertificate = () => {
               </Box>
             </Grid>
             <Grid item xs={12} md={8}>
-              <img
-                src={CertificateImage}
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                  marginTop: "2rem",
-                }}
-                alt="Certificate"
-              />
+              <Stack direction="column" spacing={4}>
+                <img
+                  src={CertificateImage}
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    marginTop: "2rem",
+                    border: "5px solid #0f5288",
+                  }}
+                  alt="Certificate"
+                />
+                <Button variant="contained">
+                  <span>
+                    <FileDownloadIcon
+                      sx={{
+                        color: "white",
+                        paddingTop: "0.5rem",
+                        paddingRight: "0.5rem",
+                      }}
+                    />
+                  </span>{" "}
+                  Download Certificate
+                </Button>
+              </Stack>
             </Grid>
           </Grid>
         </Container>

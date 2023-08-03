@@ -43,7 +43,11 @@ const SplideCarousel = () => {
   return (
     <>
       <section class="splide" aria-label="Basic Structure Example">
-        <div class="splide__track" data-aos="flip-up" data-aos-duration="2000">
+        <div
+          class="splide__track"
+          data-aos="zoom-out-up"
+          data-aos-duration="2000"
+        >
           <ul class="splide__list">
             <li
               class="splide__slide"
