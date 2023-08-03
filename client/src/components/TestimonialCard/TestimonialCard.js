@@ -1,18 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import CompwareImage1 from "../../assets/images/compware-gallery/compware-gallery-img1.jpg";
-import Student1 from "../../assets/images/TestimonialPhotos/Student1.jpg";
-import Student2 from "../../assets/images/TestimonialPhotos/Student2.jpg";
-import Student3 from "../../assets/images/TestimonialPhotos/Student3.jpg";
-import Student4 from "../../assets/images/TestimonialPhotos/Student4.jpg";
-import Student5 from "../../assets/images/TestimonialPhotos/Student5.jpg";
-import Student6 from "../../assets/images/TestimonialPhotos/Student6.jpg";
-import Student7 from "../../assets/images/TestimonialPhotos/Student7.jpg";
-import Student8 from "../../assets/images/TestimonialPhotos/Student8.jpg";
-import Student9 from "../../assets/images/TestimonialPhotos/Student9.jpg";
-import { Stack } from "@mui/material";
-
 const Card = styled.div`
   background: white;
   padding: 3rem 2rem 2rem 2rem;
@@ -28,8 +16,15 @@ const Card = styled.div`
   }
 
   p {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 300px;
     font-size: 1.1rem !important;
     margin-bottom: 0rem !important;
+    /* if text overflow then break word */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
   }
   hr {
     border: none;
@@ -52,27 +47,29 @@ const Card = styled.div`
   }
 `;
 
-const TestimonialCard = () => {
+const TestimonialCard = ({ name, description, photoUrl }) => {
   return (
     <>
       <Card>
-        <div className="quote-container">
+        <div className='quote-container'>
           <span style={{ color: "#0f5288" }}>“</span>
         </div>
 
-        <p className="roboto_400">
-          I recently completed the UI/UX class at Deerwalk Training Center, and
-          it was an exceptional experience. The instructors were highly
-          knowledgeable and provided practical insights into the field. The
-          hands-on projects allowed me to apply my learning effectively. It was
-          a valuable learning experience that will benefit me in my future
-          design work.
+        <p
+          style={{
+            overflowWrap: "break-word",
+            wordWrap: "break-word",
+            hyphens: "auto",
+          }}
+          className='roboto_400'
+        >
+          {description}
         </p>
 
         <hr />
 
-        <img src={Student1} alt="" />
-        <h4 className="roboto_400">Lison Karmacharya</h4>
+        <img src={photoUrl} alt='' />
+        <h4 className='roboto_400'>{name}</h4>
       </Card>
     </>
   );

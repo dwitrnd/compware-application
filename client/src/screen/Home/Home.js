@@ -86,46 +86,25 @@ const Home = () => {
     <>
       {/* //* =========hero section starts here========= */}
 
-      <section id="hero-section">
-        <section id="hero-banner">
-          <div id="video-box">
-            <video
-              autoPlay
-              muted
-              loop
-              controlsList="nodownload"
-              style={{ filter: "brightness(0.5)" }}
-            >
-              <source
-                src={
-                  "https://cdn-cf-east.streamable.com/video/mp4/xzmccy.mp4?Expires=1691054520&Signature=Jy1o0mK55npvDKaDrj1DmpbnozzIdG2HPtEaDI5oQ0ixCaOv73BH-pkE7nY7N0NfMDSHB3bl1OSp1yC8V75inEqNbAe1lgCA96OYSkSfaMj-1J116UTrzVKYb-R0dy2Q63ic8bUHTiLUg3EPw68CR-eY9P8UHAAYyNfLjbhBqTm0DzuIfBR2ja6VzUyLqMt3Vi~0QVtrasehybvYcMhSLp9324-PaWXDZ04aPg93lpATcuuFZ0Lhu6rWf5GNfe1fcfH3SZ0WkSL0BTwD-gUSbxeswzFZCSCFDd4KA8XzPgVjbpKaMNl0CLNEU93mauvn6~9xMNqcVT4zgtmGRsmKxg__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
-                }
-                type="video/mp4"
-              />
+      <section id='hero-section'>
+        <section id='hero-banner'>
+          <div id='video-box'>
+            <video autoPlay muted loop controlsList='nodownload' style={{ filter: "brightness(0.5)" }}>
+              <source src={"http://localhost:5001/storage/video.mp4"} type='video/mp4' />
             </video>
           </div>
 
-          <div id="hero-content">
-            <HeroTitle style={{ marginTop: "3rem" }} className="hero-text">
+          <div id='hero-content'>
+            <HeroTitle style={{ marginTop: "3rem" }} className='hero-text'>
               Explore the world's leading
             </HeroTitle>
-            <HeroTitle className="hero-text">training center</HeroTitle>
+            <HeroTitle className='hero-text'>training center</HeroTitle>
 
-            <HeroSubTitle
-              className="fade-in-text hero-text"
-              id="hero-subtitle"
-              style={{ marginTop: "4rem" }}
-            >
-              Millions of students and people around the world showcase their
-              skills and work on compware - the home to the world’s best
-              trainers and professionals.
+            <HeroSubTitle className='fade-in-text hero-text' id='hero-subtitle' style={{ marginTop: "4rem" }}>
+              Millions of students and people around the world showcase their skills and work on compware - the home to the world’s best trainers and professionals.
             </HeroSubTitle>
 
-            <CourseSearchField
-              placeholder="Search courses..."
-              type="text"
-              style={{ marginTop: "4rem" }}
-            />
+            <CourseSearchField placeholder='Search courses...' type='text' style={{ marginTop: "4rem" }} />
             <FilterCardContainer>
               <FilterCards>Programming</FilterCards>
               <FilterCards>Graphic Design</FilterCards>
@@ -141,85 +120,58 @@ const Home = () => {
       {/* // !  ========= body section starts from here ========= */}
 
       <section style={{ marginTop: "5rem", marginBottom: "5rem" }}>
-        <Header preTitle="Quality Courses For Our" postTitle="Students" />
+        <Header preTitle='Quality Courses For Our' postTitle='Students' />
         <ReviewsMarqueCarousel />
       </section>
 
-      <Container maxWidth="lg">
+      <Container maxWidth='lg'>
         {/* //todo: features section */}
-        <div
-          style={{ margin: "5rem 0rem" }}
-          data-aos="fade-down"
-          data-aos-duration="2000"
-        >
+        <div style={{ margin: "5rem 0rem" }} data-aos='fade-down' data-aos-duration='2000'>
           <Header
-            subTitle=""
-            preTitle="Why Deerwalk Training Center? "
-            paragraph="
+            subTitle=''
+            preTitle='Why Deerwalk Training Center? '
+            paragraph='
               We have the best trainers and professionals and we have the best courses for you.
               
-          "
+          '
           />
           <FeaturesSection />
         </div>
         {/* //todo: Placement section */}
         <PlacementSection />
         {/* //todo: how it works section */}
-        <section className="find-your-path">
+        <section className='find-your-path'>
           <h2
             style={{
               fontSize: "2.5rem",
               color: "#0f5288",
               textAlign: "center",
             }}
-            data-aos="fade-down"
+            data-aos='fade-down'
           >
             Find Your Path
           </h2>
           <Container style={{ display: "flex", justifyContent: "center" }}>
-            <div className="path-section-container">
-              <div className="left-section">
-                <div
-                  className="step"
-                  data-aos="fade-down-right"
-                  data-aos-duration="2000"
-                >
-                  <h4 className="roboto_400">Enroll</h4>
-                  <p className="text-justify">
-                    Kickstart your journey by enrolling in our learning center,
-                    where you'll gain access to cutting-edge courses and expert
-                    instructors, setting the foundation for your future success.
-                  </p>
+            <div className='path-section-container'>
+              <div className='left-section'>
+                <div className='step' data-aos='fade-down-right' data-aos-duration='2000'>
+                  <h4 className='roboto_400'>Enroll</h4>
+                  <p className='text-justify'>Kickstart your journey by enrolling in our learning center, where you'll gain access to cutting-edge courses and expert instructors, setting the foundation for your future success.</p>
                 </div>
-                <div className="step" data-aos="fade-up-right">
-                  <h4 className="roboto_400">Graduate</h4>
-                  <p className="text-justify">
-                    As a graduate, you'll emerge with confidence and a certified
-                    skill set, fully prepared to tackle real-world challenges
-                    and make a meaningful impact in the workforce.
-                  </p>
+                <div className='step' data-aos='fade-up-right'>
+                  <h4 className='roboto_400'>Graduate</h4>
+                  <p className='text-justify'>As a graduate, you'll emerge with confidence and a certified skill set, fully prepared to tackle real-world challenges and make a meaningful impact in the workforce.</p>
                 </div>
               </div>
-              <div
-                id="middle-path-illustrator"
-                className="middle-section"
-              ></div>
-              <div className="right-section">
-                <div className="step" data-aos="fade-up-left">
-                  <h4 className="roboto_400">Learn</h4>
-                  <p className="text-justify">
-                    Immerse yourself in hands-on, industry-relevant learning
-                    experiences, acquiring practical skills and knowledge to
-                    thrive in your chosen field.
-                  </p>
+              <div id='middle-path-illustrator' className='middle-section'></div>
+              <div className='right-section'>
+                <div className='step' data-aos='fade-up-left'>
+                  <h4 className='roboto_400'>Learn</h4>
+                  <p className='text-justify'>Immerse yourself in hands-on, industry-relevant learning experiences, acquiring practical skills and knowledge to thrive in your chosen field.</p>
                 </div>
-                <div className="step" data-aos="fade-down-left">
-                  <h4 className="roboto_400">Placement</h4>
-                  <p className="text-justify">
-                    Our Placement Partner Program ensures you're well-connected
-                    to top employers, providing exciting career opportunities
-                    and paving the way for a rewarding professional journey.
-                  </p>
+                <div className='step' data-aos='fade-down-left'>
+                  <h4 className='roboto_400'>Placement</h4>
+                  <p className='text-justify'>Our Placement Partner Program ensures you're well-connected to top employers, providing exciting career opportunities and paving the way for a rewarding professional journey.</p>
                 </div>
               </div>
             </div>
@@ -227,16 +179,12 @@ const Home = () => {
         </section>
         ;{/* //todo: testimonial section */}
         <div style={{ margin: "5rem 0rem" }}>
-          <Header
-            subTitle="IN THE NEWS"
-            preTitle="Our"
-            postTitle="Testimonials"
-          />
+          <Header subTitle='IN THE NEWS' preTitle='Our' postTitle='Testimonials' />
           <SplideCarousel />
         </div>
         {/* //todo: partners section */}
         <div style={{ margin: "5rem 0rem" }}>
-          <Header subTitle="" preTitle="Our" postTitle="Clients" />
+          <Header subTitle='' preTitle='Our' postTitle='Clients' />
           <ClientsSection />
         </div>
       </Container>

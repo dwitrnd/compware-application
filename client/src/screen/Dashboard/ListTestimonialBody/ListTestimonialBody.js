@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import { constant } from "constants/contants";
 import styled from "styled-components";
 
-const ListTeamBody = () => {
+const ListTestimonialBody = () => {
   // use useeffect
 
   const [tableData, setTableData] = useState(null);
 
-  const url = `${constant.base}/api/team`;
+  const url = `${constant.base}/api/testimonial`;
 
   useEffect(() => {
     axios.get(url).then((res) => {
@@ -61,12 +61,11 @@ const ListTeamBody = () => {
                         <img
                           style={{ height: "4rem", width: "4rem" }}
                           src={`
-                        ${constant.base}/storage/${data.Image}`}
+                        ${constant.base}/storage/${data.image}`}
                         ></img>
                       </td>
-                      <td>{data.Name}</td>
-                      <td>{data.Email}</td>
-                      <td>{data.Post[0]}</td>
+                      <td>{data.name}</td>
+                      <td>{data.description}</td>
                       <td>
                         <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
                         <button
@@ -90,4 +89,4 @@ const ListTeamBody = () => {
   );
 };
 
-export default ListTeamBody;
+export default ListTestimonialBody;

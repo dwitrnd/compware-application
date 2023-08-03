@@ -1,5 +1,9 @@
 // Fixed issue related to textfield
 
-fieldset{
-	border-color: #0f5288 !important;
+fieldset {
+  border-color: #0f5288 !important;
+}
+
+.splide__slide > div {
+  height: 100%;
 }

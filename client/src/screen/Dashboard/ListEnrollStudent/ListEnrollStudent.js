@@ -17,7 +17,6 @@ const ListEnrollStudent = () => {
   }, []);
 
   const deleteRequest = (id) => {
-    alert(id);
     axios.delete(`${url}/${id}`).then((res) => {
       window.location.reload();
     });

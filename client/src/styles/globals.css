@@ -10682,6 +10682,10 @@ fieldset {
   border-color: #0f5288 !important;
 }
 
+.splide__slide > div {
+  height: 100%;
+}
+
 .enroll-image {
   height: 620px;
   width: 700px;

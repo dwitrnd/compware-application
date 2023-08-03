@@ -55,6 +55,8 @@ app.use("/api/student", studentRoutes);
 app.use("/api/teacher", teacherRoutes);
 app.use("/api/trainer", trainerRoutes);
 
+app.use("/storage", express.static(path.join(appRoot, "storage")));
+
 app.get("/", (req, res) => {
   res.status(200).json({
     message: "Welcome to the API",

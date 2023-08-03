@@ -28,6 +28,7 @@ import SecondBlogPage from "screen/Blog/SecondBlogPage";
 import DashboardLayout from "../src/components/DashboardLayout/DashboardLayout";
 import ListEnrollStudentBody from "screen/Dashboard/ListEnrollStudent";
 import ListTeamBody from "screen/Dashboard/ListTeamBody/ListTeamBody";
+import ListTestimonialBody from "screen/Dashboard/ListTestimonialBody/ListTestimonialBody";
 
 const theme = createTheme({
   palette: {
@@ -242,6 +243,14 @@ function App() {
                 element={
                   <DashboardLayout>
                     <ListTeamBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-testimonial'
+                element={
+                  <DashboardLayout>
+                    <ListTestimonialBody />
                   </DashboardLayout>
                 }
               />
