@@ -24,13 +24,13 @@
   letter-spacing: -0.01688rem;
 }
 
-.team-image {
-  filter: grayscale(1);
-  &:hover {
-    cursor: pointer;
-    filter: grayscale(0);
-  }
-}
+// .team-image {
+//   filter: grayscale(1);
+//   &:hover {
+//     cursor: pointer;
+//     filter: grayscale(0);
+//   }
+// }
 
 .team-blob {
   background: #5a94bd;

@@ -11791,17 +11791,6 @@ td {
   letter-spacing: -0.01688rem;
 }
 
-.team-image {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-
-.team-image:hover {
-  cursor: pointer;
-  -webkit-filter: grayscale(0);
-          filter: grayscale(0);
-}
-
 .team-blob {
   background: #5a94bd;
 }
