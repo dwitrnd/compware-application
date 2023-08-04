@@ -30,7 +30,8 @@ import FacebookLogo from "../../assets/svg/facebook.svg";
 import InstagramLogo from "../../assets/svg/instagram.svg";
 import LinkedInLogo from "../../assets/svg/linkedin.svg";
 import YoutubeLogo from "../../assets/svg/youtube.svg";
-import ThreadsLogo from "../../assets/svg/threads.png";
+import ThreadsLogo from "../../assets/svg/Instagram Threads 1.png";
+import TwitterLogo from "../../assets/svg/Twitter X Rounded Icon 1.png";
 const drawerWidth = 240;
 
 const navItems = [
@@ -281,21 +282,13 @@ function DrawerAppBar(props) {
                       href="https://www.threads.net/@deerwalk.training.center"
                       target="_blank"
                     >
-                      <img
-                        src={ThreadsLogo}
-                        width="31.3462px"
-                        height="28.8787px"
-                      />
+                      <img src={ThreadsLogo} width="28px" height="28px" />
                     </a>
                     <a
                       href="https://twitter.com/DeerwalkCenter"
                       target="_blank"
                     >
-                      <img
-                        src={ThreadsLogo}
-                        width="31.3462px"
-                        height="28.8787px"
-                      />
+                      <img src={TwitterLogo} />
                     </a>
                   </Stack>
                 </div>

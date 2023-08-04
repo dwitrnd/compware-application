@@ -107,7 +107,9 @@ const Home = () => {
             <HeroTitle style={{ marginTop: "3rem" }} className="hero-text">
               Explore the world's leading
             </HeroTitle>
-            <HeroTitle className="hero-text">training center</HeroTitle>
+            <HeroTitle className="hero-text" style={{ marginTop: "0px" }}>
+              training center
+            </HeroTitle>
 
             <HeroSubTitle
               className="fade-in-text hero-text"
