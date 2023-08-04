@@ -36,6 +36,7 @@ const requestRoutes = require("./routes/requestRouter");
 const studentRoutes = require("./routes/studentRouter");
 const teacherRoutes = require("./routes/teacherRouter");
 const trainerRoutes = require("./routes/trainerRouter");
+const contactRoutes = require("./routes/contactRouter");
 
 app.use(fileUpload());
 app.use("/api/users", userRoutes);
@@ -54,6 +55,7 @@ app.use("/api/request", requestRoutes);
 app.use("/api/student", studentRoutes);
 app.use("/api/teacher", teacherRoutes);
 app.use("/api/trainer", trainerRoutes);
+app.use("/api/contact", contactRoutes);
 
 app.use("/storage", express.static(path.join(appRoot, "storage")));
 

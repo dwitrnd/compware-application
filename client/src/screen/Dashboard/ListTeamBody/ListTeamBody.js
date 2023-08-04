@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { constant } from "constants/contants";
-import styled from "styled-components";
 
 const ListTeamBody = () => {
   // use useeffect

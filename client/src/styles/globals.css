@@ -11773,7 +11773,7 @@ td {
 }
 
 .member-name {
-  color: #0F5288;
+  color: #0f5288;
   text-align: justify;
   font-style: normal;
   font-weight: 400;
@@ -11789,6 +11789,14 @@ td {
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.01688rem;
+}
+
+.team-blob {
+  background: #5a94bd;
+}
+
+.team-card:hover .team-blob {
+  background: #cecece;
 }
 
 .css-hvuoue-MuiInputBase-root-MuiInput-root {

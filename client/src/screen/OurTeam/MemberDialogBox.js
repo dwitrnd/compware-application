@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MemberDialogBox = () => {
+const MemberDialogBox = ({ name, post, description, image }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [userDescription, setUserDescription] = React.useState({});
@@ -46,66 +46,29 @@ const MemberDialogBox = () => {
         justifyContent: "center",
       }}
     >
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant='outlined' onClick={handleClickOpen}>
         Learn More
       </Button>
-      <Dialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-        maxWidth="sm"
-        fullWidth
-      >
-        <DialogTitle
-          id="customized-dialog-title"
-          onClose={handleClose}
-          sx={{ display: "flex", justifyContent: "flex-end" }}
-        >
+      <Dialog style={{ maxWidth: "50rem", margin: "0 auto" }} onClose={handleClose} aria-labelledby='customized-dialog-title' open={open} maxWidth='sm' fullWidth>
+        <DialogTitle id='customized-dialog-title' onClose={handleClose} sx={{ display: "flex", justifyContent: "flex-end" }}>
           <IconButton onClick={handleClose}>
             <CloseIcon />
           </IconButton>
         </DialogTitle>
         <DialogContent>
           <Grid container>
-            <Grid
-              item
-              xs={12}
-              sm={4}
-              md={2}
-              sx={{ display: "flex", direction: "column" }}
-            >
-              <Container className="team-profile">
-                <Avatar src={TrainerPhoto} className={classes.avatar} />
-                <Typography variant="body1" color="primary">
-                  Teacher's Name
+            <div style={{ margin: "0 auto" }}>
+              <Container className='team-profile'>
+                <Avatar sx={{ width: "10rem", height: "10rem" }} src={image} className={classes.avatar} />
+                <Typography variant='body1' color='primary'>
+                  {name}
                 </Typography>
-                <Typography variant="caption">Python Instructor</Typography>{" "}
+                <Typography variant='caption'>{post}</Typography>{" "}
               </Container>
-            </Grid>
-            <Grid item xs={12} sm={8} md={10}>
-              <Typography variant="body1">
-                Bachelor's Degree from Ratna Rajyalaxmi Campus (Tribhuvan
-                University) in the faculty of humanities and social science, IT
-                Apprenticeship program from CTEVT (Deerwalk Institute of
-                Technology) and Level-3 Award in Education and Training (RQF)
-                from Highfield, UK.
-              </Typography>
-              <Typography variant="body1">
-                He has experience of working at multinational companies like
-                Shell as CLP Hub Manager for MENA (Middle East and North
-                Africa); Supreme Committee for Delivery and Legacy, (FIFA World
-                Cup Qatar 2022™) as HSSE Trainer and Facilitator, and Sifal
-                Secondary School as an Admin Analyst.
-              </Typography>
-              <Typography variant="body1">
-                He is also working as a Sales and Marketing Manager at Logispark
-                Technologies Pvt. Ltd. He is currently our Training Coordinator
-                and Marketing team member at Deerwalk Compware Limited. Yaghya
-                is a focused and dedicated person who approaches every task with
-                enthusiasm and conviction. He is keen to learn, share and
-                motivate those around him.
-              </Typography>
-            </Grid>
+            </div>
+            <div style={{ marginTop: "1rem" }}>
+              <Typography variant='body1'>{description}</Typography>
+            </div>
           </Grid>
         </DialogContent>
         <DialogActions>

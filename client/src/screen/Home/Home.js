@@ -90,7 +90,12 @@ const Home = () => {
         <section id='hero-banner'>
           <div id='video-box'>
             <video autoPlay muted loop controlsList='nodownload' style={{ filter: "brightness(0.5)" }}>
-              <source src={"http://localhost:5001/storage/video.mp4"} type='video/mp4' />
+              <source
+                src={
+                  "https://cdn-cf-east.streamable.com/video/mp4/xzmccy.mp4?Expires=1691054520&Signature=Jy1o0mK55npvDKaDrj1DmpbnozzIdG2HPtEaDI5oQ0ixCaOv73BH-pkE7nY7N0NfMDSHB3bl1OSp1yC8V75inEqNbAe1lgCA96OYSkSfaMj-1J116UTrzVKYb-R0dy2Q63ic8bUHTiLUg3EPw68CR-eY9P8UHAAYyNfLjbhBqTm0DzuIfBR2ja6VzUyLqMt3Vi~0QVtrasehybvYcMhSLp9324-PaWXDZ04aPg93lpATcuuFZ0Lhu6rWf5GNfe1fcfH3SZ0WkSL0BTwD-gUSbxeswzFZCSCFDd4KA8XzPgVjbpKaMNl0CLNEU93mauvn6~9xMNqcVT4zgtmGRsmKxg__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
+                }
+                type='video/mp4'
+              />
             </video>
           </div>
 
