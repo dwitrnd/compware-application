@@ -30,6 +30,7 @@ import FacebookLogo from "../../assets/svg/facebook.svg";
 import InstagramLogo from "../../assets/svg/instagram.svg";
 import LinkedInLogo from "../../assets/svg/linkedin.svg";
 import YoutubeLogo from "../../assets/svg/youtube.svg";
+import ThreadsLogo from "../../assets/svg/threads.png";
 const drawerWidth = 240;
 
 const navItems = [
@@ -238,19 +239,18 @@ function DrawerAppBar(props) {
                   <img src={whiteCompwareLogo} alt="it company" />
                 </div>
                 <div class="footer__upper--center">
-                  <p class="">
-                    At The Deerwalk Training Center, we are experts in guiding
-                    next generation youths with next level of IT Trainings and
-                    Education Quality and other top positions. Our coaches and
-                    consultants are experienced, our teams are gathered via
-                    tailor searches. Small Change Towards the greater good is
-                    our motto .
+                  <p class="" style={{ fontSize: "20px" }}>
+                    Transform your skills, elevate your career, and embrace
+                    success with Deerwalk Training Center, we take pride in
+                    being recognized as a premier institution, excelling in IT
+                    Training and Software Courses.
                   </p>
                   <Stack
-                    marginTop="4rem"
+                    marginTop="7rem"
                     direction="row"
                     spacing={4}
                     justifyContent="center"
+                    sx={{ paddingRight: "6rem" }}
                   >
                     <a
                       href="https://www.linkedin.com/company/deerwalktrainingcenter/"
@@ -277,6 +277,26 @@ function DrawerAppBar(props) {
                     >
                       <img src={YoutubeLogo} />
                     </a>
+                    <a
+                      href="https://www.threads.net/@deerwalk.training.center"
+                      target="_blank"
+                    >
+                      <img
+                        src={ThreadsLogo}
+                        width="31.3462px"
+                        height="28.8787px"
+                      />
+                    </a>
+                    <a
+                      href="https://twitter.com/DeerwalkCenter"
+                      target="_blank"
+                    >
+                      <img
+                        src={ThreadsLogo}
+                        width="31.3462px"
+                        height="28.8787px"
+                      />
+                    </a>
                   </Stack>
                 </div>
                 <div class="footer__upper--right">
@@ -298,7 +318,9 @@ function DrawerAppBar(props) {
               </section>
               <hr />
               <section class="footer__lower">
-                <p>&#169; {getYear()} Deerwalk Group. All Rights Reserved.</p>
+                <p style={{ fontSize: "18px" }}>
+                  &#169; {getYear()} Deerwalk Group. All Rights Reserved.
+                </p>
               </section>
             </div>
           </div>

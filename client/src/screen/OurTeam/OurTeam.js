@@ -292,10 +292,8 @@
 // }
 import { Container } from "@material-ui/core";
 import React from "react";
-import Pravin from "../../assets/images/OurTeam/Praveen-Dai.jpg";
 import { Typography } from "@mui/material";
 import OurTeamLayout from "./OurTeamLayout";
-import CompwareTeacher from "./CompwareTeacher";
 const OurTeam = () => {
   return (
     <>

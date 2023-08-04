@@ -142,7 +142,10 @@ function Courses() {
           </div>
         </div>
         <div style={{ width: "50%" }}>
-          <div className='all-text' data-aos='zoom-in-left' data-aos-duration='2000'>
+
+          <div className="all-text" data-aos="zoom-in-left">
+
+          <div className='all-text' data-aos='zoom-in-left'>
             <h2 style={{ fontSize: "2.5rem", color: "#0f5288" }}>
               Placement <br /> Partners
             </h2>

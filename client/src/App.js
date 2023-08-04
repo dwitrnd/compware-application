@@ -27,6 +27,10 @@ import CourseDetailPage from "screen/CourseDetailPage/CourseDetailPage";
 import SecondBlogPage from "screen/Blog/SecondBlogPage";
 import DashboardLayout from "../src/components/DashboardLayout/DashboardLayout";
 import ListEnrollStudentBody from "screen/Dashboard/ListEnrollStudent";
+import ListTeamBody from "screen/Dashboard/ListTeamBody/ListTeamBody";
+import PageTitle from "components/PageTitle/PageTitle";
+=======
+
 
 const theme = createTheme({
   palette: {
@@ -61,6 +65,7 @@ function App() {
                     !token ? (
                       <Layout>
                         <Home />
+                        <PageTitle title="Deerwalk Training Center" />
                       </Layout>
                     ) : (
                       <Navigate to='/dashboard' />
@@ -72,6 +77,7 @@ function App() {
                   element={
                     <Layout>
                       <Home />
+                      <PageTitle title="Deerwalk Training Center" />
                     </Layout>
                   }
                 />
@@ -80,6 +86,7 @@ function App() {
                   element={
                     <Layout>
                       <OurTeam />
+                      <PageTitle title="Our Team" />
                     </Layout>
                   }
                 />
@@ -88,6 +95,7 @@ function App() {
                   element={
                     <Layout>
                       <Gallery />
+                      <PageTitle title="Gallery" />
                     </Layout>
                   }
                 />
@@ -96,6 +104,7 @@ function App() {
                   element={
                     <Layout>
                       <ContactUs />
+                      <PageTitle title="Contact Us" />
                     </Layout>
                   }
                 />
@@ -104,22 +113,17 @@ function App() {
                   element={
                     <Layout>
                       <Courses />
+                      <PageTitle title="Courses" />
                     </Layout>
                   }
                 />
-                <Route
-                  path='request-certificate'
-                  element={
-                    <Layout>
-                      <RequestCertificate />
-                    </Layout>
-                  }
-                />
+
                 <Route
                   path='blog'
                   element={
                     <Layout>
                       <Blog />
+                      <PageTitle title="Blogs" />
                     </Layout>
                   }
                 />
@@ -145,6 +149,7 @@ function App() {
                     !token ? (
                       <Layout>
                         <VerifyCertificate />
+                        <PageTitle title="Verify Certificate" />
                       </Layout>
                     ) : (
                       <Navigate to='/dashboard' />
@@ -229,7 +234,7 @@ function App() {
                 }
               />
               <Route
-                path='/dashboard/list-enroll-students'
+
                 element={
                   <DashboardLayout>
                     <ListEnrollStudentBody />
@@ -237,10 +242,11 @@ function App() {
                 }
               />
 
+
               {/* //! Dasboard private routes ends here */}
 
               <Route
-                path='resetpassword'
+
                 element={
                   <Layout>
                     <AdminForgotPassword />
