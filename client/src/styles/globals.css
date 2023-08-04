@@ -120,7 +120,7 @@
   }
 
   .animate__animated[class*="Out"] {
-=======
+
   .animate__animated[class*='Out'] {
     opacity: 0;
   }
@@ -4710,12 +4710,6 @@ https://flickity.metafizzy.co
 
 [class*="hint--"] {
 
-[class*='hint--'] {
-
-  /**
-       * tooltip body
-       */
-}
 
 
 [class*="hint--"]:after {
@@ -10364,13 +10358,8 @@ textarea {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 
-  -webkit-appearance: textfield;
-  /* 1 */
-  outline-offset: -2px;
-  /* 2 */
 
 }
-
 /**
    * Remove the inner padding in Chrome and Safari on macOS.
    */
@@ -10575,7 +10564,7 @@ section.how-it-work .MuiCardMedia-root {
 .roboto_500,
 .roboto_400,
 .roboto_300 {
-=======
+
 .Roboto_Base, .roboto_300, .roboto_400, .roboto_500, .roboto_700 {
 
   font-family: "Roboto", sans-serif !important;
@@ -11995,6 +11984,8 @@ td {
     margin: auto;
   }
 } /*# sourceMappingURL=globals.css.map */
-=======
+
 /*# sourceMappingURL=globals.css.map */
 
+}
+}
