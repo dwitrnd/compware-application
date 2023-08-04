@@ -7,8 +7,6 @@ import { useEffect } from "react";
 
 // import sections
 
-import AboutUsSection from "./components/AboutUs";
-import HowItWorksSection from "./components/HowItWorksSection";
 import FeaturesSection from "./components/Features";
 import ClientsSection from "./components/Clients";
 import PlacementSection from "./components/PlacementPartner/PlacementPartner";
@@ -86,7 +84,7 @@ const Home = () => {
     <>
       {/* //* =========hero section starts here========= */}
 
-      <section id="hero-section" style={{ height: "100vh" }}>
+      <section id="hero-section">
         <section id="hero-banner">
           <div id="video-box">
             <video
@@ -98,7 +96,7 @@ const Home = () => {
             >
               <source
                 src={
-                  "https://cdn-cf-east.streamable.com/video/mp4/xzmccy.mp4?Expires=1691325600&Signature=lJyZq86qbA~2umhfbsEnNE6eXbp3HP~Xw9BGnGtg5Ya6Rq91RSYm1ZieE8Wu7PmfBRBCaSSwzFrcb9sP7YmuDyJWYfqF~VWtcIbSctJ3tkM9oCtJ-dnJ4PiaMJ6iMafw1Aa3VBvNIY9Rq3MVyYrDAjtcaJmxDqA0~JbsfSqI-3Tvsz8u-9-VUNvLvlUXS3WUwS6yuldyw61qaKMhzOxVzWL2KkjubL124dJQsBV-uBrMNJ~v5DGUkEY3GtdPqDRP52iETchohQsdVqtkLmyoI6aVqh5rIgZ26TGNr-uQBF9IDVxCEeKfmp-6CJxZGECRkuslDtkICBj2uJXTVDK0nA__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
+                  "https://cdn-cf-east.streamable.com/video/mp4/gi2ckr.mp4?Expires=1691394000&Signature=MKWvp61nJ4mpEBqFKWMrMbTYUs~PxAwr-NkYVfbJfjoWdrJteOHTsdRERH4KG~TJm-FO5vz459quQyEjOI~HeI4NKfY02mkMpCGiGi4h0nqoKauq-NAh1E9HRZ5fQOzpVPsLIBlw0YbqdQ4bIH0pWx0IaBHpqtXb93L2pdjy8bYSZfzqj3J0~jpxyZfqymty9CfckNSpqtoBxxFiRij11oV9FQOHagvxvenD4UumhBBEazm-goSZznlY~gntOAGxsgvDyufIFa0ktRagCtHNysQNz7PGst2u513V5KrLZ0uZmfxrT-iOHgFKZedcMEW~8S1vo59tOPqeO9ob7zqP9w__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
                 }
                 type="video/mp4"
               />

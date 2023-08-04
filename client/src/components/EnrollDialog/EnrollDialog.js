@@ -13,14 +13,20 @@ import Backdrop from "@mui/material/Backdrop";
 import Image from "../../assets/images/enroll-image.svg";
 import axios from "axios";
 
+const initialCheckboxState = false;
+
 const EnrollDialog = ({}) => {
   const [open, setOpen] = useState(false);
-
+  const [isChecked, setIsChecked] = useState(initialCheckboxState);
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
   };
   return (
     <>
@@ -98,13 +104,16 @@ const EnrollDialog = ({}) => {
                 <div
                   style={{
                     display: "flex",
-                    FlexDirection: "row",
+                    flexDirection: "row",
+                    alignItems: "center",
                   }}
                 >
                   <FormControlLabel
                     control={
                       <Checkbox
-                        style={{ position: "relative", marginRight: "0rem" }}
+                        style={{ position: "relative", marginRight: "0.25rem" }}
+                        checked={isChecked}
+                        onChange={handleCheckboxChange}
                       />
                     }
                   />
@@ -124,10 +133,12 @@ const EnrollDialog = ({}) => {
                     </Link>
                   </div>
                 </div>
+
                 <Button
                   variant="contained"
                   sx={{ display: "flex", justifyContent: "center" }}
                   type="submit"
+                  disabled={!isChecked}
                 >
                   Register
                 </Button>

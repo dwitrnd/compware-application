@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
@@ -20,10 +20,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const AnimatedComponent = lazy(() => import("aos"));
+
 export default function Features(props) {
   useEffect(() => {
     AOS.init({
-      duration: 5000,
+      duration: 2000,
     });
   }, []);
 
@@ -45,13 +47,7 @@ export default function Features(props) {
   return (
     <Box>
       <Grid container spacing={4}>
-        <Grid
-          item
-          xs={12}
-          sm={6}
-          data-aos="fade-right"
-          data-aos-duration="2000"
-        >
+        <Grid item xs={12} sm={6} data-aos="fade-right">
           <Box alignItems="center">
             {/* <StorageIcon color='primary' className={classes.icon} /> */}
             <div style={{ width: "100%" }}>

@@ -11,14 +11,19 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
 
+const initialCheckboxState = false;
+
 const CourseEnrollDialog = ({ courseName, schedule }) => {
   const [open, setOpen] = useState(false);
-
+  const [isChecked, setIsChecked] = useState(initialCheckboxState);
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
+  };
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
   };
   return (
     <>
@@ -108,6 +113,8 @@ const CourseEnrollDialog = ({ courseName, schedule }) => {
                   control={
                     <Checkbox
                       style={{ position: "relative", paddingLeft: "0.5rem" }}
+                      checked={isChecked}
+                      onChange={handleCheckboxChange}
                     />
                   }
                 />
@@ -131,6 +138,8 @@ const CourseEnrollDialog = ({ courseName, schedule }) => {
             <Button
               variant="contained"
               sx={{ display: "flex", justifyContent: "center" }}
+              type="submit"
+              disabled={!isChecked}
             >
               Register
             </Button>

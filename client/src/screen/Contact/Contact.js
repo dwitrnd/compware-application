@@ -139,17 +139,29 @@ const Contact = () => {
                   Find Us At
                 </Typography>
                 <Stack direction="row" spacing={2} marginBottom="4.87rem">
-                  <a href="https://www.linkedin.com/company/deerwalktrainingcenter/">
+                  <a
+                    href="https://www.linkedin.com/company/deerwalktrainingcenter/"
+                    target="_blank"
+                  >
                     {" "}
                     <img src={LinkedInLogo} />{" "}
                   </a>
-                  <a href="https://www.facebook.com/deerwalktrainingcenter">
+                  <a
+                    href="https://www.facebook.com/deerwalktrainingcenter"
+                    target="_blank"
+                  >
                     <img src={FacebookLogo} />{" "}
                   </a>
-                  <a href="https://www.instagram.com/deerwalk.training.center/">
+                  <a
+                    href="https://www.instagram.com/deerwalk.training.center/"
+                    target="_blank"
+                  >
                     <img src={InstagramLogo} />
                   </a>
-                  <a href="https://www.youtube.com/@deerwalktrainingcenter">
+                  <a
+                    href="https://www.youtube.com/@deerwalktrainingcenter"
+                    target="_blank"
+                  >
                     <img src={YoutubeLogo} />
                   </a>
                 </Stack>
