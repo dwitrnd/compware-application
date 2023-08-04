@@ -3,7 +3,7 @@ import { Box, Container, Stack } from "@mui/material";
 import React from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import ExpressJs from "../../assets/images/courses/expressjs.png";
-import CourseEnrollDialog from "components/CourseEnrollDialog/CourseEnrollDialog";
+import CourseEnrollDialog from "screen/Courses/components/CourseEnrollDialog/CourseEnrollDialog";
 import CourseRecommendation from "./components/CourseRecommendation/CourseRecommendation";
 
 const CourseDetailPage = () => {

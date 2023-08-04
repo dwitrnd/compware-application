@@ -1,24 +1,10 @@
 import { Box, TextField, Typography, Button, Container } from "@mui/material";
 import React from "react";
 import Grid from "@mui/material/Unstable_Grid2";
-import CertificateImage from "../../assets/images/certificateimage.jpeg";
+import CertificateImage from "../../assets/images/certificateimage.jpg";
 import TestimonialImage from "../../assets/images/TestimonialPhotos/Student12.jpg";
 import Stack from "@mui/material/Stack";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-
-const tableHeading = [
-  { id: 1, label: "Course", information: "DTC-004 - PROGRAMMING IN PYTHON" },
-  { id: 2, label: "Started On", information: "July 1, 2020" },
-  { id: 3, label: "Completed On", information: "August 31, 2020" },
-  { id: 4, label: "Verification Id", information: "DTC-20210421-001" },
-  { id: 5, label: "Trainer", information: "SHREYANSH LODHA" },
-];
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
 
 const VerifyCertificate = () => {
   return (
@@ -39,63 +25,130 @@ const VerifyCertificate = () => {
               Congratulations %USERNAME%
             </Typography>
           </section>
-          <Grid container spacing={2}>
+          <Grid container spacing={4}>
             {" "}
-            <Grid item>
+            <Grid item xs={12} md={4}>
               <Box
-                component="form"
+                className="user-box"
                 sx={{
                   display: "flex",
                   flexDirection: "column",
                   gap: "1rem",
                   borderRadius: ".25rem",
                   width: "fit-content",
-                  maxWidth: "35rem",
-                  marginTop: "3rem",
+                  maxWidth: "23rem",
+                  marginTop: "2rem",
                   marginBottom: "3rem",
                   padding: "25px 25px 25px 25px",
                   boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
                   "& .MuiTextField-root": { width: "30rem" },
                 }}
               >
-                <Stack direction="column">
+                <Stack direction="column" spacing={2}>
                   <img src={TestimonialImage} />
-                  <TableContainer component={Paper}>
-                    <Table aria-label="simple table">
-                      <TableHead>
-                        <TableRow>
-                          <TableCell style={{ textAlign: "center" }}>
-                            Heading
-                          </TableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {tableHeading.map((heading) => (
-                          <TableRow key={heading.id}>
-                            <TableCell component="th" scope="row">
-                              {heading.label}
-                            </TableCell>
-                            <TableCell component="th" scope="row">
-                              {heading.information}
-                            </TableCell>
-                          </TableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
+                  <Typography textAlign="center">%USERNAME%</Typography>
+                  <hr />
+                  <Grid container margin="0.5rem">
+                    <Grid item xs={6}>
+                      <Typography className="user-information topic">
+                        Course
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography
+                        className="user-information"
+                        textAlign="center"
+                      >
+                        DTC-004
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography className="user-information topic">
+                        Started On
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography
+                        className="user-information"
+                        textAlign="center"
+                      >
+                        July 1, 2020
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography className="user-information topic">
+                        Completed On
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography
+                        className="user-information"
+                        textAlign="center"
+                      >
+                        August 31, 2020
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography className="user-information topic">
+                        Verification Id
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography
+                        className="user-information"
+                        textAlign="center"
+                      >
+                        DTC-20210421-001
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography className="user-information topic">
+                        Trainer
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography
+                        className="user-information"
+                        textAlign="center"
+                      >
+                        SHREYANSH LODHA
+                      </Typography>
+                      <Typography
+                        className="user-information"
+                        textAlign="center"
+                      >
+                        PYTHON TRAINER
+                      </Typography>
+                    </Grid>
+                  </Grid>
                 </Stack>
               </Box>
             </Grid>
-            <Grid item>
-              <img
-                src={CertificateImage}
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                  marginLeft: "2rem",
-                }}
-                alt="Certificate"
-              />
+            <Grid item xs={12} md={8}>
+              <Stack direction="column" spacing={4}>
+                <img
+                  src={CertificateImage}
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                    marginTop: "2rem",
+                    border: "5px solid #0f5288",
+                  }}
+                  alt="Certificate"
+                />
+                <Button variant="contained">
+                  <span>
+                    <FileDownloadIcon
+                      sx={{
+                        color: "white",
+                        paddingTop: "0.5rem",
+                        paddingRight: "0.5rem",
+                      }}
+                    />
+                  </span>{" "}
+                  Download Certificate
+                </Button>
+              </Stack>
             </Grid>
           </Grid>
         </Container>

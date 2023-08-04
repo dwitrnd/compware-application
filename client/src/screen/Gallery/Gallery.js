@@ -26,8 +26,8 @@ export default function App() {
       width: 320,
       height: 174,
       tags: [
-        { value: "trainee", title: "trainee" },
-        { value: "programming", title: "programming" },
+        { value: "Trainee", title: "Trainee" },
+        { value: "Programming", title: "Programming" },
       ],
       caption: "girl in a jacket learning programming",
     },

@@ -7,8 +7,6 @@ import { useEffect } from "react";
 
 // import sections
 
-import AboutUsSection from "./components/AboutUs";
-import HowItWorksSection from "./components/HowItWorksSection";
 import FeaturesSection from "./components/Features";
 import ClientsSection from "./components/Clients";
 import PlacementSection from "./components/PlacementPartner/PlacementPartner";
@@ -92,7 +90,7 @@ const Home = () => {
             <video autoPlay muted loop controlsList='nodownload' style={{ filter: "brightness(0.5)" }}>
               <source
                 src={
-                  "https://cdn-cf-east.streamable.com/video/mp4/xzmccy.mp4?Expires=1691054520&Signature=Jy1o0mK55npvDKaDrj1DmpbnozzIdG2HPtEaDI5oQ0ixCaOv73BH-pkE7nY7N0NfMDSHB3bl1OSp1yC8V75inEqNbAe1lgCA96OYSkSfaMj-1J116UTrzVKYb-R0dy2Q63ic8bUHTiLUg3EPw68CR-eY9P8UHAAYyNfLjbhBqTm0DzuIfBR2ja6VzUyLqMt3Vi~0QVtrasehybvYcMhSLp9324-PaWXDZ04aPg93lpATcuuFZ0Lhu6rWf5GNfe1fcfH3SZ0WkSL0BTwD-gUSbxeswzFZCSCFDd4KA8XzPgVjbpKaMNl0CLNEU93mauvn6~9xMNqcVT4zgtmGRsmKxg__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
+                  "https://cdn-cf-east.streamable.com/video/mp4/d6ynb5.mp4?Expires=1691402880&Signature=SWJgTDtNHlY2jDXep5iWb~UBB72NdyeSKxXr1V~02Nh4hOSmMqgrXhF6M56bijQl6UUiwO1jxo-JxcGShQA85l~dx6dxpsRjIm2iMTvlIeik9dUGmQjVTusHfRtZbiNM6L8QIVZaGYKfY7UKfHx8ZPGWMKJcx6HpyHtlyLb4Q9A4Wpf3cX5Q4mA2HN7MOHTQz0eyIe5MSlVPkGOf2~gi0WvyU-BsYCwz8VSCIST9Jpq8CAdq6vQwturkVrwoN6QM7KEOoyHMJ28wXBq62iYGixwf1Z4kBFcJmPaTMg8xmKuiUlQEMDfvyyz5s1YASo1bv313oGNYVmrUeA1s86hV5g__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ"
                 }
                 type='video/mp4'
               />
@@ -136,7 +134,7 @@ const Home = () => {
             subTitle=''
             preTitle='Why Deerwalk Training Center? '
             paragraph='
-              We have the best trainers and professionals and we have the best courses for you.
+            Deerwalk Training Center cultivates expertise in IT and Management through specialized training programs.
               
           '
           />
