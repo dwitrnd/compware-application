@@ -238,9 +238,11 @@ function DrawerAppBar(props) {
                   <img src={whiteCompwareLogo} alt="it company" />
                 </div>
                 <div class="footer__upper--center">
-                  <p class="">
+                  <p class="" style={{ fontSize: "20px" }}>
                     Transform your skills, elevate your career, and embrace
-                    success with Deerwalk Training Center.
+                    success with Deerwalk Training Center, we take pride in
+                    being recognized as a premier institution, excelling in IT
+                    Training and Software Courses.
                   </p>
                   <Stack
                     marginTop="7rem"
@@ -295,7 +297,9 @@ function DrawerAppBar(props) {
               </section>
               <hr />
               <section class="footer__lower">
-                <p>&#169; {getYear()} Deerwalk Group. All Rights Reserved.</p>
+                <p style={{ fontSize: "18px" }}>
+                  &#169; {getYear()} Deerwalk Group. All Rights Reserved.
+                </p>
               </section>
             </div>
           </div>
