@@ -1,11 +1,16 @@
 import { Container } from "@material-ui/core";
+
 import React, { useEffect, useState } from "react";
-import Pravin from "../../assets/images/OurTeam/Praveen-Dai.jpg";
 import { Typography } from "@mui/material";
 import OurTeamLayout from "./OurTeamLayout";
 import CompwareTeacher from "./CompwareTeacher";
 import { constant } from "constants/contants";
 import axios from "axios";
+
+=======
+import React from "react";
+import { Typography } from "@mui/material";
+import OurTeamLayout from "./OurTeamLayout";
 
 const OurTeam = () => {
   const [tableData, setTableData] = useState([]);

@@ -99,7 +99,7 @@ const MemberDialogBox = () => {
             </Typography>
           </DialogTitle>
           <DialogContent sx={{ display: "flex", flexDirection: "column" }}>
-            <Stack spacing={2} marginTop="20px" alignItems="center">
+            <Stack spacing={2} marginTop="20px" margin="auto">
               <Stack
                 direction={{ xs: "column", sm: "row" }}
                 spacing={{ xs: 2, sm: 8 }}
@@ -111,6 +111,7 @@ const MemberDialogBox = () => {
                   type="name"
                   variant="outlined"
                   size="small"
+                  style={{ flex: 1 }}
                 />
               </Stack>
               <Stack
@@ -124,6 +125,7 @@ const MemberDialogBox = () => {
                   type="contact"
                   variant="outlined"
                   size="small"
+                  style={{ flex: 1 }}
                 />
               </Stack>
               <Stack
@@ -137,6 +139,7 @@ const MemberDialogBox = () => {
                   type="email"
                   variant="outlined"
                   size="small"
+                  style={{ flex: 1 }}
                 />
               </Stack>
               <Stack
@@ -150,6 +153,7 @@ const MemberDialogBox = () => {
                   type="course"
                   variant="outlined"
                   size="small"
+                  style={{ flex: 1 }}
                 />
               </Stack>
               <Stack
@@ -163,6 +167,7 @@ const MemberDialogBox = () => {
                   type="courseTrainer"
                   variant="outlined"
                   size="small"
+                  style={{ flex: 1 }}
                 />
               </Stack>
               <Stack
@@ -170,10 +175,11 @@ const MemberDialogBox = () => {
                 alignItems="center"
                 spacing={{ xs: 2, sm: 8 }}
               >
-                <Typography minWidth="8rem">
-                  Training Duration Start{" "}
-                </Typography>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <Typography minWidth="8rem">Start Time </Typography>
+                <LocalizationProvider
+                  dateAdapter={AdapterDayjs}
+                  style={{ flex: 1 }}
+                >
                   <DemoContainer components={["DatePicker"]}>
                     <DatePicker
                       inputProps={{
@@ -188,7 +194,7 @@ const MemberDialogBox = () => {
                 alignItems="center"
                 spacing={{ xs: 2, sm: 8 }}
               >
-                <Typography minWidth="8rem">Training Duration End</Typography>
+                <Typography minWidth="8rem">End Time</Typography>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["DatePicker"]}>
                     <DatePicker

@@ -1,7 +1,7 @@
 import react, { useState } from "react";
 import { Typography } from "@material-ui/core";
 import Stack from "@mui/material/Stack";
-import React from "react";
+import React, { useState } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -18,11 +18,15 @@ import PersonIcon from "@mui/icons-material/Person";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import CommentIcon from "@mui/icons-material/Comment";
 import Snackbar from "@mui/material/Snackbar";
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import axios from "axios";
 import { constant } from "constants/contants";
+
+import axios from "axios";
+
 
 const Contact = () => {
   const [fullName, setFullName] = useState("");
@@ -31,12 +35,45 @@ const Contact = () => {
   const [message, setMessage] = useState("");
 
   const [open, setOpen] = React.useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    mobileNumber: "",
+    email: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    AOS.init({
-      duration: 5000,
-    });
-  }, []);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    try {
+      const response = await axios.post("", formData);
+      console.log(response.data);
+      // Handle the response here if needed
+
+      setLoading(false);
+      setError(null);
+      setFormData({
+        fullName: "",
+        mobileNumber: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      setLoading(false);
+      setError("An error occured while submitting the form. Try again");
+    }
+  };
+
   const handleClick = () => {
     // setOpen(true);
     const dataToSend = {
@@ -63,7 +100,6 @@ const Contact = () => {
     if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
 
@@ -84,7 +120,10 @@ const Contact = () => {
                 background: "#0F5288",
                 borderRadius: "1.25rem",
               }}
-              data-aos='fade-right'
+
+
+
+
             >
               <Stack direction='column' justifyContent='center' spacing={6}>
                 <Typography variant='h4' style={{ color: "#FFF" }}>
@@ -119,6 +158,7 @@ const Contact = () => {
                 <Typography variant='body1' style={{ color: "#FFF" }}>
                   Find Us At
                 </Typography>
+
                 <Stack direction='row' spacing={2} marginBottom='4.87rem'>
                   <a href='https://www.linkedin.com/company/deerwalktrainingcenter/'>
                     {" "}
@@ -131,6 +171,32 @@ const Contact = () => {
                     <img src={InstagramLogo} />
                   </a>
                   <a href='https://www.youtube.com/@deerwalktrainingcenter'>
+
+                <Stack direction="row" spacing={2} marginBottom="4.87rem">
+                  <a
+                    href="https://www.linkedin.com/company/deerwalktrainingcenter/"
+                    target="_blank"
+                  >
+                    {" "}
+                    <img src={LinkedInLogo} />{" "}
+                  </a>
+                  <a
+                    href="https://www.facebook.com/deerwalktrainingcenter"
+                    target="_blank"
+                  >
+                    <img src={FacebookLogo} />{" "}
+                  </a>
+                  <a
+                    href="https://www.instagram.com/deerwalk.training.center/"
+                    target="_blank"
+                  >
+                    <img src={InstagramLogo} />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@deerwalktrainingcenter"
+                    target="_blank"
+                  >
+
                     <img src={YoutubeLogo} />
                   </a>
                 </Stack>
@@ -148,7 +214,7 @@ const Contact = () => {
                 background: "#FAFAFA",
                 boxShadow: "7px 7px 14px 0px rgba(16, 16, 16, 0.20), -7px -7px 14px 0px rgba(255, 255, 255, 0.20)",
               }}
-              data-aos='fade-left'
+
             >
               <Typography variant='h4' style={{ color: "#0F5288" }}>
                 Get In Touch
@@ -161,6 +227,7 @@ const Contact = () => {
                   gap: "3rem",
                   marginTop: "2rem",
                 }}
+                onSubmit={handleSubmit}
               >
                 <Stack direction='row'>
                   <PersonIcon
@@ -171,6 +238,7 @@ const Contact = () => {
                     }}
                   />
                   <TextField
+
                     onChange={(e) => {
                       setFullName(e.target.value);
                     }}
@@ -178,6 +246,15 @@ const Contact = () => {
                     label='Full Name'
                     variant='outlined'
                     size='small'
+
+                    name="fullName"
+                    id="user-name"
+                    label="Full Name"
+                    variant="outlined"
+                    size="small"
+                    value={formData.fullName}
+                    onChange={handleChange}
+
                     fullWidth
                     required
                   />
@@ -191,6 +268,7 @@ const Contact = () => {
                     }}
                   />
                   <TextField
+
                     onChange={(e) => {
                       setNumber(e.target.value);
                     }}
@@ -198,6 +276,15 @@ const Contact = () => {
                     label='Mobile Number'
                     variant='outlined'
                     size='small'
+
+                    name="mobileNumber"
+                    id="mobile-number"
+                    label="Mobile Number"
+                    variant="outlined"
+                    size="small"
+                    value={formData.mobileNumber}
+                    onChange={handleChange}
+
                     fullWidth
                     required
                   ></TextField>
@@ -211,6 +298,7 @@ const Contact = () => {
                     }}
                   />
                   <TextField
+
                     onChange={(e) => {
                       setEmail(e.target.value);
                     }}
@@ -218,6 +306,14 @@ const Contact = () => {
                     label='Email'
                     variant='outlined'
                     size='small'
+
+                    name="email"
+                    id="email"
+                    label="Email"
+                    variant="outlined"
+                    size="small"
+                    value={formData.email}
+                    onChange={handleChange}
                     fullWidth
                     required
                   />
@@ -231,6 +327,7 @@ const Contact = () => {
                     }}
                   />
                   <TextField
+
                     onChange={(e) => {
                       setMessage(e.target.value);
                     }}
@@ -240,11 +337,41 @@ const Contact = () => {
                     rows={4}
                     variant='outlined'
                     size='small'
+
+                    id="message"
+                    name="message"
+                    label="Message"
+                    multiline
+                    rows={4}
+                    variant="outlined"
+                    size="small"
+                    value={formData.message}
+                    onChange={handleChange}
+
                     fullWidth
                     required
                   />
                 </Stack>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  disabled={loading}
+                  sx={{
+                    marginLeft: "auto",
+                    marginTop: "1rem",
+                    display: "flex",
+                    alignItems: "flex-end",
+                  }}
+                >
+                  {loading ? "Sending..." : "Send"}
+                </Button>
+                {error && (
+                  <Typography variant="body1" color="error">
+                    {error}
+                  </Typography>
+                )}
               </form>
+
               <Button
                 type='submit'
                 variant='contained'
@@ -262,6 +389,16 @@ const Contact = () => {
           </Grid>
         </Grid>
         <Snackbar open={open} autoHideDuration={4000} onClose={handleClose} message='Response Sent Successfully' />
+            </Box>
+          </Grid>
+        </Grid>
+        <Snackbar
+          open={open}
+          autoHideDuration={4000}
+          onClose={handleClose}
+          message="Sending Message"
+        />
+
       </Stack>
     </>
   );

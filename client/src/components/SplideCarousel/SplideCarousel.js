@@ -59,6 +59,7 @@ const SplideCarousel = () => {
 
   return (
     <>
+
       <section class='splide' aria-label='Basic Structure Example'>
         <div class='splide__track' data-aos='flip-up' data-aos-duration='2000'>
           <ul class='splide__list'>
@@ -70,6 +71,42 @@ const SplideCarousel = () => {
                   </li>
                 );
               })}
+
+      <section class="splide" aria-label="Basic Structure Example">
+        <div class="splide__track" data-aos="zoom-out-up">
+          <ul class="splide__list">
+            <li
+              class="splide__slide"
+              style={{ background: "#E8E9EB", color: "white" }}
+            >
+              <TestimonialCard />
+            </li>
+
+            <li
+              class="splide__slide"
+              style={{ background: "#E8E9EB", color: "white" }}
+            >
+              <TestimonialCard />
+            </li>
+            <li
+              class="splide__slide"
+              style={{ background: "#E8E9EB", color: "white" }}
+            >
+              <TestimonialCard />
+            </li>
+            <li
+              class="splide__slide"
+              style={{ background: "#E8E9EB", color: "white" }}
+            >
+              <TestimonialCard />
+            </li>
+            <li
+              class="splide__slide"
+              style={{ background: "#E8E9EB", color: "white" }}
+            >
+              <TestimonialCard />
+            </li>
+
           </ul>
         </div>
       </section>
