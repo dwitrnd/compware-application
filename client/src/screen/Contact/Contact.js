@@ -189,7 +189,6 @@ const Contact = () => {
                   gap: "3rem",
                   marginTop: "2rem",
                 }}
-                onSubmit={handleSubmit}
               >
                 <Stack direction='row'>
                   <PersonIcon
@@ -273,10 +272,10 @@ const Contact = () => {
                     required
                   />
                 </Stack>
+
                 <Button
-                  type='submit'
                   variant='contained'
-                  disabled={loading}
+                  onClick={handleClick}
                   sx={{
                     marginLeft: "auto",
                     marginTop: "1rem",
@@ -284,27 +283,9 @@ const Contact = () => {
                     alignItems: "flex-end",
                   }}
                 >
-                  {loading ? "Sending..." : "Send"}
+                  Send
                 </Button>
-                {error && (
-                  <Typography variant='body1' color='error'>
-                    {error}
-                  </Typography>
-                )}
               </form>
-              <Button
-                type='submit'
-                variant='contained'
-                onClick={handleClick}
-                sx={{
-                  marginLeft: "auto",
-                  marginTop: "1rem",
-                  display: "flex",
-                  alignItems: "flex-end",
-                }}
-              >
-                Send
-              </Button>
             </Box>
           </Grid>
         </Grid>
