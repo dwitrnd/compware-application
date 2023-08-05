@@ -13,6 +13,8 @@ class studentController {
         gender,
         courseDuration,
         trainerTitle,
+        startDuration,
+        endDuration,
       } = req.body;
 
       const file = req.files.photo;
@@ -38,6 +40,8 @@ class studentController {
         gender,
         courseDuration,
         trainerTitle,
+        startDuration,
+        endDuration,
         photo: fileName,
       });
 
@@ -79,6 +83,8 @@ class studentController {
       gender,
       courseDuration,
       trainerTitle,
+      startDuration,
+      endDuration,
       photo,
     } = req.body;
     const studentId = req.params.id;
@@ -109,6 +115,8 @@ class studentController {
           courseDuration,
           trainerTitle,
           photo,
+          startDuration,
+          endDuration,
         },
         { new: true }
       );

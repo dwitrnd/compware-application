@@ -147,7 +147,6 @@ const CourseDetailPage = () => {
                 <CourseRecommendation />
                 <CourseRecommendation />
                 <CourseRecommendation />
-                <CourseRecommendation />
               </Stack>
             </Box>
           </Grid>
