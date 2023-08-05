@@ -30,7 +30,8 @@ import FacebookLogo from "../../assets/svg/facebook.svg";
 import InstagramLogo from "../../assets/svg/instagram.svg";
 import LinkedInLogo from "../../assets/svg/linkedin.svg";
 import YoutubeLogo from "../../assets/svg/youtube.svg";
-import ThreadsLogo from "../../assets/svg/threads.png";
+import ThreadsLogo from "../../assets/svg/Threads.png";
+import TwitterLogo from "../../assets/svg/Twitter.png";
 const drawerWidth = 240;
 
 const navItems = [
@@ -292,7 +293,7 @@ function DrawerAppBar(props) {
                       target="_blank"
                     >
                       <img
-                        src={ThreadsLogo}
+                        src={TwitterLogo}
                         width="31.3462px"
                         height="28.8787px"
                       />
