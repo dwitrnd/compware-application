@@ -46,11 +46,22 @@ const MemberDialogBox = ({ name, post, description, image }) => {
         justifyContent: "center",
       }}
     >
-      <Button variant='outlined' onClick={handleClickOpen}>
+      <Button variant="outlined" onClick={handleClickOpen}>
         Learn More
       </Button>
-      <Dialog style={{ maxWidth: "50rem", margin: "0 auto" }} onClose={handleClose} aria-labelledby='customized-dialog-title' open={open} maxWidth='sm' fullWidth>
-        <DialogTitle id='customized-dialog-title' onClose={handleClose} sx={{ display: "flex", justifyContent: "flex-end" }}>
+      <Dialog
+        style={{ maxWidth: "50rem", margin: "0 auto" }}
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle
+          id="customized-dialog-title"
+          onClose={handleClose}
+          sx={{ display: "flex", justifyContent: "flex-end" }}
+        >
           <IconButton onClick={handleClose}>
             <CloseIcon />
           </IconButton>
@@ -58,16 +69,24 @@ const MemberDialogBox = ({ name, post, description, image }) => {
         <DialogContent>
           <Grid container>
             <div style={{ margin: "0 auto" }}>
-              <Container className='team-profile'>
-                <Avatar sx={{ width: "10rem", height: "10rem" }} src={image} className={classes.avatar} />
-                <Typography variant='body1' color='primary'>
+              <Container className="team-profile">
+                <Avatar
+                  sx={{
+                    width: "10rem",
+                    height: "10rem",
+                    border: "4px solid #0f5288",
+                  }}
+                  src={image}
+                  className={classes.avatar}
+                />
+                <Typography variant="body1" color="primary">
                   {name}
                 </Typography>
-                <Typography variant='caption'>{post}</Typography>{" "}
+                <Typography variant="caption">{post}</Typography>{" "}
               </Container>
             </div>
             <div style={{ marginTop: "1rem" }}>
-              <Typography variant='body1'>{description}</Typography>
+              <Typography variant="body1">{description}</Typography>
             </div>
           </Grid>
         </DialogContent>
