@@ -46,6 +46,9 @@ const courseSchema = mongoose.Schema({
   schedule: {
     type: String,
   },
+  startDate: {
+    type: String,
+  },
 });
 
 const Course = mongoose.model("Course", courseSchema);
