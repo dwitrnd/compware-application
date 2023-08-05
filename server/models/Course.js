@@ -39,6 +39,13 @@ const courseSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  duration: {
+    type: String,
+    required: true,
+  },
+  schedule: {
+    type: String,
+  },
 });
 
 const Course = mongoose.model("Course", courseSchema);

@@ -3,15 +3,7 @@ const Course = require("../models/Course");
 class courseController {
   static post = async (req, res) => {
     try {
-      const {
-        courseName,
-        slugTitle,
-        courseCategory,
-        courseIntro,
-        aboutCourse,
-        imageName,
-        imageAltText,
-      } = req.body;
+      const { courseName, duration, schedule, slugTitle, courseCategory, courseIntro, aboutCourse, imageName, imageAltText } = req.body;
 
       const file1 = req.files.courseLogo;
       console.log(file1);
@@ -22,7 +14,7 @@ class courseController {
       const timestamp = Date.now();
 
       const courseLogo = file1.md5 + timestamp;
-      file1.mv(`./storage/${courseLogo}`, (error) => {
+      file1.mv(`./storage/${courseLogo}.png`, (error) => {
         if (error) {
           return res.status(500).send(error);
         }
@@ -43,10 +35,12 @@ class courseController {
         courseCategory,
         courseIntro,
         aboutCourse,
-        courseLogo,
+        courseLogo: `${courseLogo}.png`,
         imageName,
         imageAltText,
         coursePdf,
+        duration,
+        schedule,
       });
       const result = await course.save();
       res.status(200).json({
@@ -75,17 +69,7 @@ class courseController {
     }
   };
   static patch = async (req, res) => {
-    const {
-      courseName,
-      slugTitle,
-      courseCategory,
-      courseIntro,
-      aboutCourse,
-      courseLogo,
-      imageName,
-      imageAltText,
-      coursePdf,
-    } = req.body;
+    const { courseName, slugTitle, courseCategory, courseIntro, aboutCourse, courseLogo, imageName, imageAltText, coursePdf } = req.body;
 
     const courseId = req.params.id;
 

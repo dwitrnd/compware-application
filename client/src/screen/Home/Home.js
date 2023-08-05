@@ -4,8 +4,8 @@ import Container from "@material-ui/core/Container";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-
 // import sections
+import react, { useState } from "react";
 
 import FeaturesSection from "./components/Features";
 import ClientsSection from "./components/Clients";
