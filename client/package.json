@@ -33,6 +33,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "react-scroll-to-top": "^3.0.0",
+    "react-select": "^5.7.4",
     "react-sizeme": "^3.0.2",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
