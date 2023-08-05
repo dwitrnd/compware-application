@@ -3,7 +3,7 @@ const Course = require("../models/Course");
 class courseController {
   static post = async (req, res) => {
     try {
-      const { courseName, slugTitle, courseCategory, courseIntro, aboutCourse, imageName, imageAltText } = req.body;
+      const { courseName, duration, schedule, slugTitle, courseCategory, courseIntro, aboutCourse, imageName, imageAltText } = req.body;
 
       const file1 = req.files.courseLogo;
       console.log(file1);
@@ -39,6 +39,8 @@ class courseController {
         imageName,
         imageAltText,
         coursePdf,
+        duration,
+        schedule,
       });
       const result = await course.save();
       res.status(200).json({
