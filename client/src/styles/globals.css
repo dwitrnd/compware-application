@@ -11626,6 +11626,10 @@ td {
   width: 20%;
 }
 
+.hero-course-search > div {
+  color: black !important;
+}
+
 .pagination-arrow {
   color: black !important;
 }
@@ -11737,7 +11741,6 @@ td {
 }
 
 .hero-text {
-  padding: 15px 18px;
   font-size: 16px;
 }
 
@@ -11838,6 +11841,12 @@ td {
 @media (max-width: 900px) {
   .grid-recommendation-item {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .blog-image {
+    margin: auto;
   }
 }
 /*# sourceMappingURL=globals.css.map */

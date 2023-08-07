@@ -11,6 +11,12 @@ import PlacementSection from "./components/PlacementPartner/PlacementPartner";
 import Header from "components/Header";
 import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqueCarousel";
 import ReviewsMarqueCarouselLower from "components/ReviewsMarqueCarousel/ReviewMarqueeUpper";
+import Select from "react-select";
+const options = [
+  { value: "chocolate", label: "Chocolate" },
+  { value: "strawberry", label: "Strawberry" },
+  { value: "vanilla", label: "Vanilla" },
+];
 
 const Home = () => {
   useEffect(() => {
@@ -105,8 +111,20 @@ const Home = () => {
             <HeroSubTitle className='fade-in-text hero-text' id='hero-subtitle' style={{ marginTop: "4rem" }}>
               Millions of students and people around the world showcase their skills and work on compware - the home to the world’s best trainers and professionals.
             </HeroSubTitle>
+            <div
+              style={{
+                margin: "auto",
 
-            <CourseSearchField placeholder='Search courses...' type='text' style={{ marginTop: "4rem" }} />
+                fontSize: "1.2rem",
+
+                padding: "1rem 1rem 1rem 1rem",
+
+                marginLeft: "50%",
+                transform: "translateX(-50%)",
+              }}
+            >
+              <Select options={options} placeholder='Search Courses....' className='hero-course-search' />
+            </div>
             <FilterCardContainer>
               <FilterCards>Programming</FilterCards>
               <FilterCards>Graphic Design</FilterCards>
@@ -180,7 +198,7 @@ const Home = () => {
             </div>
           </Container>
         </section>
-        ;{/* //todo: testimonial section */}
+        {/* //todo: testimonial section */}
         <div style={{ margin: "5rem 0rem" }}>
           <Header subTitle='IN THE NEWS' preTitle='Our' postTitle='Testimonials' />
           <SplideCarousel />

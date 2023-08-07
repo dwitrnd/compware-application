@@ -17,12 +17,23 @@ export const BlogData = () => {
           sx={{ marginTop: "2rem" }}
           spacing={2}
         >
-          <img src={BlogImage} height="100%" />
+          <img
+            src={BlogImage}
+            height="100%"
+            width="38.5%"
+            className="blog-image"
+          />
           <Stack direction="column" spacing={4}>
             <Typography variant="h6" color="primary">
               DeerHack: Fawning Upon Innovation
             </Typography>
-            <Typography variant="subtitle2">by:{authorName1} </Typography>
+            <span>
+              {" "}
+              <Typography variant="subtitle2">
+                by:{authorName1}{" "}
+              </Typography>{" "}
+              <Typography variant="subtitle 2">Date: 2023/04/05</Typography>{" "}
+            </span>
             {/* Upload date remaining  */}
             <Typography variant="body1">
               DWIT Software Club, a prominent student-run club of Deerwalk
@@ -49,7 +60,7 @@ export const BlogData = () => {
           sx={{ marginTop: "2rem" }}
           spacing={2}
         >
-          <img src={BlogImage2} width="38.5%" />
+          <img src={BlogImage2} width="38.5%" className="blog-image" />
           <Stack direction="column" spacing={4}>
             <Typography variant="h6" color="primary">
               About Deerwalk Training Center

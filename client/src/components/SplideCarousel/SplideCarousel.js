@@ -59,14 +59,21 @@ const SplideCarousel = () => {
 
   return (
     <>
-      <section class='splide' aria-label='Basic Structure Example'>
-        <div class='splide__track' data-aos='flip-up' data-aos-duration='2000'>
-          <ul class='splide__list'>
+      <section class="splide" aria-label="Basic Structure Example">
+        <div class="splide__track" data-aos="flip-up" data-aos-duration="2000">
+          <ul class="splide__list">
             {tableData &&
               tableData.map((item) => {
                 return (
-                  <li class='splide__slide' style={{ background: "#E8E9EB", color: "white" }}>
-                    <TestimonialCard name={item.name} description={item.description} photoUrl={`${constant.base}/storage/${item.image}`} />
+                  <li
+                    class="splide__slide"
+                    style={{ background: "#E8E9EB", color: "white" }}
+                  >
+                    <TestimonialCard
+                      name={item.name}
+                      description={item.description}
+                      photoUrl={`${constant.base}/storage/${item.image}`}
+                    />
                   </li>
                 );
               })}

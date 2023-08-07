@@ -37,6 +37,14 @@ const studentSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  startDuration: {
+    type: String,
+    required: true,
+  },
+  endDuration: {
+    type: String,
+    required: true,
+  },
 });
 
 const student = mongoose.model("studentCertificate", studentSchema);

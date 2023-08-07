@@ -12,10 +12,6 @@ import { useNavigate } from "react-router-dom";
 const CoursesItem = ({ id, name, schedule, teachinghour, image, abstract }) => {
   const [open, setOpen] = useState(false);
   const courseName = "Javascript";
-  const courseSchedule = "11AM - 2PM";
-  const teachingHour = "120 Hours";
-
-  const navigate = useNavigate();
   return (
     <>
       <Box
@@ -39,10 +35,12 @@ const CoursesItem = ({ id, name, schedule, teachinghour, image, abstract }) => {
                   alignItems: "flex-start",
                 }}
               >
-                <Typography variant='subtitle1'>Duration</Typography>
-                <Typography variant='subtitle1'>{teachinghour}</Typography>
-                <Typography variant='subtitle1'>Schedule</Typography>
-                <Typography variant='subtitle1'>{schedule}</Typography>
+                <Typography variant='subtitle1' sx={{ marginLeft: "2.5rem" }}>
+                  Time
+                </Typography>
+                <Typography variant='subtitle1'>07:00 AM - 09:00 AM</Typography>
+                <Typography variant='subtitle1'>03:00 PM - 05:00 PM</Typography>
+                <Typography variant='subtitle1'>06:00 PM - 08:00 PM</Typography>
               </div>
             </Stack>
           </div>
