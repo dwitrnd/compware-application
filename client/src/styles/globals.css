@@ -7422,4 +7422,9 @@ td {
   .user-box {
     margin: auto;
   }
+}
+@media only screen and (max-width: 960px) {
+  .blog-image {
+    margin: auto;
+  }
 }/*# sourceMappingURL=globals.css.map */

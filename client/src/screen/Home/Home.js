@@ -241,7 +241,7 @@ const Home = () => {
             </div>
           </Container>
         </section>
-        ;{/* //todo: testimonial section */}
+        {/* //todo: testimonial section */}
         <div style={{ margin: "5rem 0rem" }}>
           <Header
             subTitle="IN THE NEWS"

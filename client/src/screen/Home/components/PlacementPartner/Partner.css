@@ -137,17 +137,18 @@
   .course-main {
     flex-wrap: wrap;
     width: 90vw;
+    text-align: center;
   }
 
   .left-course {
-    height: 35%;
+    height: 55%;
     width: 100%;
     padding: 2vw;
   }
 
   .left-course .all-cards {
     width: 21vw;
-    height: 16vh;
+    height: 20vh;
   }
   .left-course .all-cards img {
     width: 10vw;

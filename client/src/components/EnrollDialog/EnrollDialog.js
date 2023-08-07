@@ -4,13 +4,24 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import { FormGroup, IconButton, Stack, Typography } from "@mui/material";
+import {
+  FormControl,
+  FormGroup,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
 import Image from "../../assets/images/enroll-image.svg";
+
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+
 import axios from "axios";
 
 const initialCheckboxState = false;
@@ -18,6 +29,11 @@ const initialCheckboxState = false;
 const EnrollDialog = ({}) => {
   const [open, setOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(initialCheckboxState);
+  const [time, setTime] = useState("");
+
+  const handleChange = (event) => {
+    setTime(event.target.value);
+  };
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -93,13 +109,26 @@ const EnrollDialog = ({}) => {
                 sx={{ width: "100%" }}
               ></TextField>
               <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
-                Schedule
+                Time
               </Typography>
-              <TextField
-                variant="outlined"
-                id="schedule"
-                sx={{ width: "100%" }}
-              />
+              <FormControl fullWidth>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={time}
+                  onChange={handleChange}
+                >
+                  <MenuItem value="07:00 AM - 09:00AM">
+                    07:00 AM - 09:00AM
+                  </MenuItem>
+                  <MenuItem value="03:00 PM - 05:00 PM">
+                    03:00 PM - 05:00 PM
+                  </MenuItem>
+                  <MenuItem value="06:00 PM - 09:00 PM">
+                    06:00 PM - 09:00 PM
+                  </MenuItem>
+                </Select>
+              </FormControl>
               <FormGroup>
                 <div
                   style={{
@@ -111,7 +140,7 @@ const EnrollDialog = ({}) => {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        style={{ position: "relative", marginRight: "0.25rem" }}
+                        style={{ position: "relative", marginRight: "-1rem" }}
                         checked={isChecked}
                         onChange={handleCheckboxChange}
                       />
