@@ -117,7 +117,7 @@ export default function CustomizedMenus() {
               <li>Maya for Animation</li>
               <li>Photography</li>
               <li>UI/UX</li>
-              <li>Graphic Designing</li>
+              <li>Designing</li>
               <li>Web Page and Multimedia</li>
             </ul>
           </li>

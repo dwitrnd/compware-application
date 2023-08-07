@@ -159,7 +159,7 @@ const Home = () => {
 
             <FilterCardContainer>
               <FilterCards>Programming</FilterCards>
-              <FilterCards>Graphic Design</FilterCards>
+              <FilterCards>Designing</FilterCards>
               <FilterCards>Diploma</FilterCards>
               <FilterCards>Short Term</FilterCards>
             </FilterCardContainer>
