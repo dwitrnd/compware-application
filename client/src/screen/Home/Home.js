@@ -150,9 +150,26 @@ const Home = () => {
                 <MenuItem value="" disabled>
                   Select a course
                 </MenuItem>
-                <MenuItem value="Course 1">Course 1</MenuItem>
-                <MenuItem value="03:00 PM - 05:00 PM">Course 2</MenuItem>
-                <MenuItem value="06:00 PM - 09:00 PM">Course 3</MenuItem>
+                <MenuItem value="Course 1">ANDROID PROGRAMMING</MenuItem>
+                <MenuItem value="Course 2">
+                  INTRODUCTION TO MICROSOFT SQL SERVER
+                </MenuItem>
+                <MenuItem value="Course 3">
+                  INTRODUCTION TO THE CRASH COURSE FOR SEE STUDENTS
+                </MenuItem>
+                <MenuItem value="Course 4">AWS CLOUD PRACTITIONER</MenuItem>
+                <MenuItem value="Course 5">PROGRAMMING IN PYTHON</MenuItem>
+                <MenuItem value="Course 6">REACT NATIVE</MenuItem>
+                <MenuItem value="Course 7">
+                  CISCO CERTIFIED NETWORK ASSOCIATE (CCNA)
+                </MenuItem>
+                <MenuItem value="Course 8">
+                  COMPLETE WEB DEVELOPER COURSE
+                </MenuItem>
+                <MenuItem value="Course 9">CYBER SECURITY</MenuItem>
+                <MenuItem value="Course 10">
+                  DATA SCIENCE AND MACHINE LEARNING IN PYTHON
+                </MenuItem>
               </Select>
             </FormControl>
 
