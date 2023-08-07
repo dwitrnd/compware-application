@@ -10,6 +10,12 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import ClipLoader from "react-spinners/ClipLoader";
 
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "#0f5288",
+};
+
 const Courses = () => {
   const [isLoading, setIsLoading] = useState(true);
   const itemsPerPage = 5;
@@ -82,10 +88,12 @@ const Courses = () => {
     return (
       <div
         style={{
+          paddingTop: "10rem",
           marginLeft: "50%",
+          transform: "translateX(-50%)",
         }}
       >
-        <ClipLoader color={"red"} loading={true} size={150} aria-label='Loading Spinner' data-testid='loader' />
+        <ClipLoader cssOverride={override} color={"red"} loading={true} size={90} aria-label='Loading Spinner' data-testid='loader' />
       </div>
     );
   }

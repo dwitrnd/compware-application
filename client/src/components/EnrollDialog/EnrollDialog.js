@@ -11,11 +11,16 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
 import Image from "../../assets/images/enroll-image.svg";
-import axios from "axios";
 
 const initialCheckboxState = false;
 
 const EnrollDialog = ({}) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [course, setCourse] = useState("");
+  const [schedule, setSchedule] = useState("");
+
   const [open, setOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(initialCheckboxState);
   const handleClickOpen = () => {
@@ -30,25 +35,17 @@ const EnrollDialog = ({}) => {
   };
   return (
     <>
-      <Button
-        variant="outlined"
-        onClick={handleClickOpen}
-        sx={{ marginRight: "1rem" }}
-      >
+      <Button variant='outlined' onClick={handleClickOpen} sx={{ marginRight: "1rem" }}>
         Enroll
       </Button>
-      <Dialog open={open} onClose={handleClose} maxWidth="md">
-        <Stack direction="row">
-          <img src={Image} className="enroll-image" />
+      <Dialog open={open} onClose={handleClose} maxWidth='md'>
+        <Stack direction='row'>
+          <img src={Image} className='enroll-image' />
           <form>
-            <DialogTitle
-              display="flex"
-              justifyContent="space-between"
-              color="primary"
-            >
+            <DialogTitle display='flex' justifyContent='space-between' color='primary'>
               Register Now{" "}
               <IconButton
-                aria-label="close"
+                aria-label='close'
                 onClick={handleClose}
                 sx={{
                   marginLeft: "auto",
@@ -58,46 +55,61 @@ const EnrollDialog = ({}) => {
               </IconButton>
             </DialogTitle>
             <DialogContent>
-              <Typography variant="body1">Name</Typography>
+              <Typography variant='body1'>Name</Typography>
               <TextField
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
                 required
-                variant="outlined"
-                id="name"
+                variant='outlined'
+                id='name'
                 sx={{ width: "100%" }}
               />
-              <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+              <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
                 Email
               </Typography>
               <TextField
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
                 required
-                variant="outlined"
-                id="email"
+                variant='outlined'
+                id='email'
                 sx={{ width: "100%" }}
               />
-              <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+              <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
                 Phone
               </Typography>
               <TextField
+                onChange={(e) => {
+                  setPhone(e.target.value);
+                }}
                 required
-                variant="outlined"
-                id="phone"
+                variant='outlined'
+                id='phone'
                 sx={{ width: "100%" }}
               />
-              <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+              <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
                 Course
               </Typography>
               <TextField
+                onChange={(e) => {
+                  setCourse(e.target.value);
+                }}
                 required
-                variant="outlined"
-                id="course"
+                variant='outlined'
+                id='course'
                 sx={{ width: "100%" }}
               ></TextField>
-              <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+              <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
                 Schedule
               </Typography>
               <TextField
-                variant="outlined"
-                id="schedule"
+                onChange={(e) => {
+                  setSchedule(e.target.value);
+                }}
+                variant='outlined'
+                id='schedule'
                 sx={{ width: "100%" }}
               />
               <FormGroup>
@@ -108,15 +120,7 @@ const EnrollDialog = ({}) => {
                     alignItems: "center",
                   }}
                 >
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        style={{ position: "relative", marginRight: "0.25rem" }}
-                        checked={isChecked}
-                        onChange={handleCheckboxChange}
-                      />
-                    }
-                  />
+                  <FormControlLabel control={<Checkbox style={{ position: "relative", marginRight: "0.25rem" }} checked={isChecked} onChange={handleCheckboxChange} />} />
                   <div
                     style={{
                       display: "flex",
@@ -126,20 +130,15 @@ const EnrollDialog = ({}) => {
                     }}
                   >
                     <span style={{ marginRight: "0.25rem" }}>I agree to</span>
-                    <Link to="/terms-and-condition" target="_blank">
-                      <Typography variant="body1" color="primary">
+                    <Link to='/terms-and-condition' target='_blank'>
+                      <Typography variant='body1' color='primary'>
                         Terms and Conditions
                       </Typography>
                     </Link>
                   </div>
                 </div>
 
-                <Button
-                  variant="contained"
-                  sx={{ display: "flex", justifyContent: "center" }}
-                  type="submit"
-                  disabled={!isChecked}
-                >
+                <Button variant='contained' sx={{ display: "flex", justifyContent: "center" }} type='submit' disabled={!isChecked}>
                   Register
                 </Button>
               </FormGroup>
