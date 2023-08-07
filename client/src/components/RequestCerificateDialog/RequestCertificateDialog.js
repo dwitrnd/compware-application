@@ -16,21 +16,26 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { toast } from "react-toastify";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  return <MuiAlert elevation={6} ref={ref} variant='filled' {...props} />;
 });
 
 const MemberDialogBox = () => {
+  const [fullName, setFullName] = useState("");
+  const [contactNumber, setContactNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [course, setCourse] = useState("");
+  const [courseTrainer, setCourseTrainer] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+
   const [open, setOpen] = useState(false);
   const [snackbarOpen, setsnackbarOpen] = useState(false);
 
   const currentDate = new Date();
-  const nextThreeMonths = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth() + 3,
-    currentDate.getDate()
-  );
+  const nextThreeMonths = new Date(currentDate.getFullYear(), currentDate.getMonth() + 3, currentDate.getDate());
   const formattedStartDate = currentDate.toLocaleDateString("en-GB");
   const formattedEndDate = nextThreeMonths.toLocaleDateString("en-GB");
   const placeholderText = `${formattedStartDate} - ${formattedEndDate}`;
@@ -49,21 +54,82 @@ const MemberDialogBox = () => {
     }
     setsnackbarOpen(false);
   };
+
+  const handleStartDatePickerChange = (value) => {
+    const selectedDate =
+      value && value.$d
+        ? value.$d.toLocaleDateString("en-US", {
+            weekday: "short",
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+          })
+        : null;
+    console.log(selectedDate);
+    setStartTime(selectedDate);
+  };
+  const handleEndDatePickerChange = (value) => {
+    const selectedDate =
+      value && value.$d
+        ? value.$d.toLocaleDateString("en-US", {
+            weekday: "short",
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+          })
+        : null;
+    console.log(selectedDate);
+    setEndTime(selectedDate);
+  };
+
   const action = (
     <React.Fragment>
-      <Button color="secondary" size="small" onClick={handleSnackBarClose}>
+      <Button color='secondary' size='small' onClick={handleSnackBarClose}>
         UNDO
       </Button>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleSnackBarClose}
-      >
-        <CloseIcon fontSize="small" />
+      <IconButton size='small' aria-label='close' color='inherit' onClick={handleSnackBarClose}>
+        <CloseIcon fontSize='small' />
       </IconButton>
     </React.Fragment>
   );
+
+  const handleSubmit = () => {
+    const data = {
+      fullName,
+      contactNumber,
+      email,
+      course,
+      courseTrainer,
+      startTime,
+      endTime,
+    };
+    console.log(data);
+
+    fetch("http://localhost:5001/api/request-certificate/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fullName,
+        contactNumber,
+        email,
+        course,
+        courseTrainer,
+        startTime,
+        endTime,
+      }),
+    })
+      .then((res) => {
+        console.log(res);
+        toast("Submitted successfully!");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    setOpen(false);
+  };
 
   return (
     <div style={{ display: "initial" }}>
@@ -73,134 +139,70 @@ const MemberDialogBox = () => {
           padding: "0.35rem 0.35rem 0.35rem 0.8rem",
           width: "100%",
         }}
-        variant="text"
+        variant='text'
         disableElevation
         onClick={handleClickOpen}
       >
         Request
       </div>
-      <Dialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-        id="request-certificate-dialog"
-      >
+      <Dialog onClose={handleClose} aria-labelledby='customized-dialog-title' open={open} id='request-certificate-dialog'>
         <form>
           <DialogTitle
-            id="customized-dialog-title"
+            id='customized-dialog-title'
             onClose={handleClose}
             sx={{
               display: "flex",
               justifyContent: "center",
             }}
           >
-            <Typography variant="h4" color="primary">
+            <Typography variant='h4' color='primary'>
               Get Your Certificate
             </Typography>
           </DialogTitle>
           <DialogContent sx={{ display: "flex", flexDirection: "column" }}>
-            <Stack spacing={2} marginTop="20px" margin="auto">
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                spacing={{ xs: 2, sm: 8 }}
-                alignItems="center"
-              >
-                <Typography minWidth="8rem">Full name</Typography>
-                <TextField
-                  required
-                  type="name"
-                  variant="outlined"
-                  size="small"
-                  style={{ flex: 1 }}
-                />
+            <Stack spacing={2} marginTop='20px' margin='auto'>
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 2, sm: 8 }} alignItems='center'>
+                <Typography minWidth='8rem'>Full name</Typography>
+                <TextField value={fullName} onChange={(e) => setFullName(e.target.value)} required type='name' variant='outlined' size='small' style={{ flex: 1 }} />
               </Stack>
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                alignItems="center"
-                spacing={{ xs: 2, sm: 8 }}
-              >
-                <Typography minWidth="8rem">Contact Number</Typography>
-                <TextField
-                  required
-                  type="contact"
-                  variant="outlined"
-                  size="small"
-                  style={{ flex: 1 }}
-                />
+              <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' spacing={{ xs: 2, sm: 8 }}>
+                <Typography minWidth='8rem'>Contact Number</Typography>
+                <TextField value={contactNumber} onChange={(e) => setContactNumber(e.target.value)} required type='contact' variant='outlined' size='small' style={{ flex: 1 }} />
               </Stack>
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                alignItems="center"
-                spacing={{ xs: 2, sm: 8 }}
-              >
-                <Typography minWidth="8rem">Email</Typography>
-                <TextField
-                  required
-                  type="email"
-                  variant="outlined"
-                  size="small"
-                  style={{ flex: 1 }}
-                />
+              <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' spacing={{ xs: 2, sm: 8 }}>
+                <Typography minWidth='8rem'>Email</Typography>
+                <TextField value={email} onChange={(e) => setEmail(e.target.value)} required type='email' variant='outlined' size='small' style={{ flex: 1 }} />
               </Stack>
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                alignItems="center"
-                spacing={{ xs: 2, sm: 8 }}
-              >
-                <Typography minWidth="8rem">Course</Typography>
-                <TextField
-                  required
-                  type="course"
-                  variant="outlined"
-                  size="small"
-                  style={{ flex: 1 }}
-                />
+              <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' spacing={{ xs: 2, sm: 8 }}>
+                <Typography minWidth='8rem'>Course</Typography>
+                <TextField value={course} onChange={(e) => setCourse(e.target.value)} required type='course' variant='outlined' size='small' style={{ flex: 1 }} />
               </Stack>
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                alignItems="center"
-                spacing={{ xs: 2, sm: 8 }}
-              >
-                <Typography minWidth="8rem">Course Trainer</Typography>
-                <TextField
-                  required
-                  type="courseTrainer"
-                  variant="outlined"
-                  size="small"
-                  style={{ flex: 1 }}
-                />
+              <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' spacing={{ xs: 2, sm: 8 }}>
+                <Typography minWidth='8rem'>Course Trainer</Typography>
+                <TextField value={courseTrainer} onChange={(e) => setCourseTrainer(e.target.value)} required type='courseTrainer' variant='outlined' size='small' style={{ flex: 1 }} />
               </Stack>
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                alignItems="center"
-                spacing={{ xs: 2, sm: 8 }}
-              >
-                <Typography minWidth="8rem">Start Time </Typography>
-                <LocalizationProvider
-                  dateAdapter={AdapterDayjs}
-                  style={{ flex: 1 }}
-                >
+              <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' spacing={{ xs: 2, sm: 8 }}>
+                <Typography minWidth='8rem'>Start Time </Typography>
+                <LocalizationProvider dateAdapter={AdapterDayjs} style={{ flex: 1 }}>
                   <DemoContainer components={["DatePicker"]}>
                     <DatePicker
                       inputProps={{
                         style: { fontSize: "0.8rem", padding: "0.5rem" },
                       }}
+                      onChange={handleStartDatePickerChange}
                     />
                   </DemoContainer>
                 </LocalizationProvider>
               </Stack>
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                alignItems="center"
-                spacing={{ xs: 2, sm: 8 }}
-              >
-                <Typography minWidth="8rem">End Time</Typography>
+              <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' spacing={{ xs: 2, sm: 8 }}>
+                <Typography minWidth='8rem'>End Time</Typography>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["DatePicker"]}>
                     <DatePicker
                       inputProps={{
                         style: { fontSize: "0.8rem", padding: "0.5rem" },
                       }}
+                      onChange={handleEndDatePickerChange}
                     />
                   </DemoContainer>
                 </LocalizationProvider>
@@ -211,19 +213,15 @@ const MemberDialogBox = () => {
             <Button autoFocus onClick={handleClose}>
               Close
             </Button>
-            <Button type="submit">Request</Button>
-            <Snackbar
-              open={snackbarOpen}
-              autoHideDuration={5000}
-              onClose={handleSnackBarClose}
-              message="Request Sent Sucessfully"
-              action={action}
+            <Button
+              onClick={() => {
+                handleSubmit();
+              }}
             >
-              <Alert
-                onClose={handleSnackBarClose}
-                severity="success"
-                sx={{ width: "100%" }}
-              >
+              Request
+            </Button>
+            <Snackbar open={snackbarOpen} autoHideDuration={5000} onClose={handleSnackBarClose} message='Request Sent Sucessfully' action={action}>
+              <Alert onClose={handleSnackBarClose} severity='success' sx={{ width: "100%" }}>
                 Register Request Sent Successfully
               </Alert>
             </Snackbar>

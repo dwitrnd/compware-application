@@ -5,6 +5,9 @@ import { useSelector } from "react-redux";
 import { ThemeProvider } from "@mui/material";
 import { MuiThemeProvider, createTheme } from "@material-ui/core/styles";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Layout from "./screen/Layout";
 import Home from "./screen/Home";
 import PageNotFound from "./screen/PageNotFound";
@@ -29,6 +32,7 @@ import DashboardLayout from "../src/components/DashboardLayout/DashboardLayout";
 import ListEnrollStudentBody from "screen/Dashboard/ListEnrollStudent";
 import ListTeamBody from "screen/Dashboard/ListTeamBody/ListTeamBody";
 import ListTestimonialBody from "screen/Dashboard/ListTestimonialBody/ListTestimonialBody";
+import ListRequestCertificate from "screen/Dashboard/ListRequestCertificate/ListRequestCertificate";
 import PageTitle from "components/PageTitle/PageTitle";
 
 // Simple git
@@ -109,7 +113,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='courses'
+                  path='/courses'
                   element={
                     <Layout>
                       <Courses />
@@ -257,6 +261,14 @@ function App() {
                   </DashboardLayout>
                 }
               />
+              <Route
+                path='/dashboard/list-request-certificate'
+                element={
+                  <DashboardLayout>
+                    <ListRequestCertificate />
+                  </DashboardLayout>
+                }
+              />
 
               {/* //! Dasboard private routes ends here */}
 
@@ -271,6 +283,7 @@ function App() {
               <Route path='*' element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>
+          <ToastContainer />
         </ThemeProvider>
       </MuiThemeProvider>
     </>

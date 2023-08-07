@@ -2,12 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { constant } from "constants/contants";
 
-const ListEnrollStudent = () => {
+const ListRequestCertificate = () => {
   // use useeffect
 
   const [tableData, setTableData] = useState(null);
 
-  const url = `${constant.base}/api/enquiry`;
+  const url = `${constant.base}/api/request-certificate`;
 
   useEffect(() => {
     axios.get(url).then((res) => {
@@ -27,11 +27,13 @@ const ListEnrollStudent = () => {
       <table>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Full name</th>
+            <th>Contact number</th>
+            <th>Email</th>
             <th>Course</th>
-            <th>Phone Number</th>
-            <th>Schedule Time</th>
-            <th>Status</th>
+            <th>Course trainer</th>
+            <th>Start time</th>
+            <th>End time</th>
             <th className='action-column'>Actions</th>
           </tr>
         </thead>
@@ -46,11 +48,13 @@ const ListEnrollStudent = () => {
                 return tableData.map((data, index) => {
                   return (
                     <tr key={index}>
-                      <td>{data.name}</td>
+                      <td>{data.fullName}</td>
+                      <td>{data.contactNumber}</td>
+                      <td>{data.email}</td>
                       <td>{data.course}</td>
-                      <td>{data.phoneNum}</td>
-                      <td>{data.enquiryDate}</td>
-                      <td>{data.status}</td>
+                      <td>{data.courseTrainer}</td>
+                      <td>{data.startTime}</td>
+                      <td>{data.endTime}</td>
                       <td>
                         <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
                         <button
@@ -74,4 +78,4 @@ const ListEnrollStudent = () => {
   );
 };
 
-export default ListEnrollStudent;
+export default ListRequestCertificate;

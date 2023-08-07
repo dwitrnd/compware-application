@@ -9,6 +9,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import ClipLoader from "react-spinners/ClipLoader";
+import { useParams } from "react-router-dom";
 
 const override = {
   display: "block",
@@ -17,6 +18,12 @@ const override = {
 };
 
 const Courses = () => {
+  const siteurl = useParams();
+  console.log(siteurl);
+
+  const [currentUrl, setCurrentUrl] = useState(null);
+  const [searchTextField, setSearchTextField] = useState("");
+
   const [isLoading, setIsLoading] = useState(true);
   const itemsPerPage = 5;
   const [pageNumber, setPageNumber] = useState(1);
@@ -25,6 +32,31 @@ const Courses = () => {
   const [allTableData, setAllTableData] = useState([]);
   const url = `${constant.base}/api/course`;
 
+  const filterCourse = (courseCategory) => {
+    const filteredData = allTableData.filter((item) => {
+      return item.courseCategory === courseCategory;
+    });
+    setTableData(filteredData);
+  };
+
+  const filterByTextSearch = (searchText = "") => {
+    const filteredData = allTableData.filter((item) => item.courseName.toLowerCase().includes(searchText.toLowerCase()));
+    setTableData(filteredData);
+  };
+
+  function getStringAfterSearchParam(url) {
+    const searchParam = "search=";
+    const index = url.indexOf(searchParam);
+
+    if (index === -1) {
+      return null; // Return null if "search=" is not found in the URL
+    }
+
+    const searchText = url.slice(index + searchParam.length);
+    return searchText;
+  }
+
+  const responseCourses = [];
   useEffect(() => {
     setIsLoading(true);
     axios.get(url).then((res) => {
@@ -32,6 +64,7 @@ const Courses = () => {
       setAllTableData(res.data.msg);
       setTableData(res.data.msg);
       setIsLoading(false);
+      setTimeout(() => {});
     });
   }, []);
 
@@ -40,7 +73,6 @@ const Courses = () => {
     margin-top: 0.75rem;
     justify-content: center;
     flex-wrap: wrap;
-
     @media (max-width: 550px) {
       display: none;
     }
@@ -71,18 +103,6 @@ const Courses = () => {
   };
 
   // filter tableData with only datas that has  "Programming" in tableData[i].courseCategory="Programming"
-
-  const filterCourse = (courseCategory) => {
-    const filteredData = allTableData.filter((item) => {
-      return item.courseCategory === courseCategory;
-    });
-    setTableData(filteredData);
-  };
-
-  const filterByTextSearch = (searchText = "") => {
-    const filteredData = allTableData.filter((item) => item.courseName.toLowerCase().includes(searchText.toLowerCase()));
-    setTableData(filteredData);
-  };
 
   if (isLoading) {
     return (
@@ -131,8 +151,10 @@ const Courses = () => {
               <Stack direction='row' justifyContent='center'>
                 <div style={{ width: "100%" }}>
                   <TextField
+                    value={searchTextField}
                     onChange={(e) => {
                       filterByTextSearch(e.target.value);
+                      setSearchTextField(e.target.value);
                     }}
                     label='Search Course'
                     id='searchCourse'

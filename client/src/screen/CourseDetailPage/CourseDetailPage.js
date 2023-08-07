@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Typography } from "@material-ui/core";
-import { Box, Container, Stack } from "@mui/material";
+import { Box, Button, Container, Stack } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import ExpressJs from "../../assets/images/courses/expressjs.png";
 import CourseEnrollDialog from "screen/Courses/components/CourseEnrollDialog/CourseEnrollDialog";
@@ -92,8 +92,15 @@ const CourseDetailPage = () => {
                       );
                     }
                   })()}
+                  <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
+                    <CourseEnrollDialog courseName={courseDetail.courseName} schedule={courseDetail.schedule && courseDetail.schedule} />
 
-                  <CourseEnrollDialog courseName={courseDetail.courseName} schedule={courseDetail.schedule && courseDetail.schedule} />
+                    <a href={`http://localhost:5001/storage/${courseDetail.coursePdf}`} download>
+                      <Button variant='contained' color='primary'>
+                        View Details
+                      </Button>
+                    </a>
+                  </div>
                 </Stack>
               </Stack>
             </Box>
@@ -117,10 +124,10 @@ const CourseDetailPage = () => {
                 <Typography variant='h6' color='primary'>
                   Recommended for you
                 </Typography>
-                <CourseRecommendation />
-                <CourseRecommendation />
-                <CourseRecommendation />
-                <CourseRecommendation />
+                <CourseRecommendation name={"DIPLOMA IN JAVA"} hour={"120"} image={"http://localhost:5001/storage/53aae0e9e7d50bd3c401e6496ed4831e1691145701032.jpg"} />
+                <CourseRecommendation name={"REACT NATIVE"} hour={"120"} image={"http://localhost:5001/storage/dcdf252fd3c76114ce6f245f858ed1301691053527521.jpg"} />
+                <CourseRecommendation name={"VUE JS"} hour={"120"} image={"http://localhost:5001/storage/c88568e705b0420ed927e3ad251c52c51691144738372.jpg"} />
+                <CourseRecommendation name={"DOT NET"} hour={"120"} image={"http://localhost:5001/storage/10695f41221fd7dfb4cbae37c8917e181691130646629.jpg"} />
               </Stack>
             </Box>
           </Grid>
