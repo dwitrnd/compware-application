@@ -62,7 +62,7 @@ const Home = () => {
   const FilterCards = styled.div`
     display: inline;
     font-size: 1.1rem;
-    background: rgba(0, 0, 0, 0.5) !important;
+    background: #0f5288 !important;
     margin: 0 5px;
     padding: 15px 18px;
     font-size: 16px;
@@ -134,7 +134,6 @@ const Home = () => {
               fullWidth
               sx={{
                 backgroundColor: "white",
-                borderRadius: "50px",
                 width: "50%",
                 marginLeft: "25%",
                 outline: "none",
