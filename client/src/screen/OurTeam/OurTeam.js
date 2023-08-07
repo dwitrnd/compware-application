@@ -1,5 +1,5 @@
 import { Container } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import OurTeamLayout from "./OurTeamLayout";
 import { constant } from "constants/contants";
@@ -20,14 +20,14 @@ const OurTeam = () => {
     <>
       <Container style={{ marginTop: "3rem" }}>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Typography variant='h3' color='primary'>
+          <Typography variant="h3" color="primary">
             Meet the Team
           </Typography>
         </div>
         <div>
           {(() => {
             if (tableData.length > 0) {
-              return <OurTeamLayout title='Our Team' datas={tableData} />;
+              return <OurTeamLayout title="Our Team" datas={tableData} />;
             }
           })()}
         </div>
