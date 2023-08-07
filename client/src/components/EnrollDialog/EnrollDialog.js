@@ -4,7 +4,13 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import { FormControl, FormGroup, IconButton, Stack, Typography } from "@mui/material";
+import {
+  FormControl,
+  FormGroup,
+  IconButton,
+  Stack,
+  Typography,
+} from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import CloseIcon from "@mui/icons-material/Close";
@@ -34,6 +40,10 @@ const EnrollDialog = ({}) => {
   const handleChange = (event) => {
     setTime(event.target.value);
   };
+
+  const handleCourseChange = (event) => {
+    setCourse(event.target.value);
+  };
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -46,17 +56,25 @@ const EnrollDialog = ({}) => {
   };
   return (
     <>
-      <Button variant='outlined' onClick={handleClickOpen} sx={{ marginRight: "1rem" }}>
+      <Button
+        variant="outlined"
+        onClick={handleClickOpen}
+        sx={{ marginRight: "1rem" }}
+      >
         Enroll
       </Button>
-      <Dialog open={open} onClose={handleClose} maxWidth='md'>
-        <Stack direction='row'>
-          <img src={Image} className='enroll-image' />
+      <Dialog open={open} onClose={handleClose} maxWidth="md">
+        <Stack direction="row">
+          <img src={Image} className="enroll-image" />
           <form>
-            <DialogTitle display='flex' justifyContent='space-between' color='primary'>
+            <DialogTitle
+              display="flex"
+              justifyContent="space-between"
+              color="primary"
+            >
               Register Now{" "}
               <IconButton
-                aria-label='close'
+                aria-label="close"
                 onClick={handleClose}
                 sx={{
                   marginLeft: "auto",
@@ -66,17 +84,17 @@ const EnrollDialog = ({}) => {
               </IconButton>
             </DialogTitle>
             <DialogContent>
-              <Typography variant='body1'>Name</Typography>
+              <Typography variant="body1">Name</Typography>
               <TextField
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
                 required
-                variant='outlined'
-                id='name'
+                variant="outlined"
+                id="name"
                 sx={{ width: "100%" }}
               />
-              <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
+              <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
                 Email
               </Typography>
               <TextField
@@ -84,11 +102,11 @@ const EnrollDialog = ({}) => {
                   setEmail(e.target.value);
                 }}
                 required
-                variant='outlined'
-                id='email'
+                variant="outlined"
+                id="email"
                 sx={{ width: "100%" }}
               />
-              <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
+              <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
                 Phone
               </Typography>
               <TextField
@@ -96,30 +114,44 @@ const EnrollDialog = ({}) => {
                   setPhone(e.target.value);
                 }}
                 required
-                variant='outlined'
-                id='phone'
+                variant="outlined"
+                id="phone"
                 sx={{ width: "100%" }}
               />
-              <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
+              <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
                 Course
               </Typography>
-              <TextField
-                onChange={(e) => {
-                  setCourse(e.target.value);
-                }}
-                required
-                variant='outlined'
-                id='course'
-                sx={{ width: "100%" }}
-              ></TextField>
-              <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
+              <FormControl fullWidth>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={course}
+                  onChange={handleCourseChange}
+                >
+                  <MenuItem value="%coursename1%">Course 1</MenuItem>
+                  <MenuItem value="%coursename2%">Course 2</MenuItem>
+                  <MenuItem value="%coursename3%">Course 3</MenuItem>
+                </Select>
+              </FormControl>
+              <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
                 Time
               </Typography>
               <FormControl fullWidth>
-                <Select labelId='demo-simple-select-label' id='demo-simple-select' value={time} onChange={handleChange}>
-                  <MenuItem value='07:00 AM - 09:00AM'>07:00 AM - 09:00AM</MenuItem>
-                  <MenuItem value='03:00 PM - 05:00 PM'>03:00 PM - 05:00 PM</MenuItem>
-                  <MenuItem value='06:00 PM - 09:00 PM'>06:00 PM - 09:00 PM</MenuItem>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={time}
+                  onChange={handleChange}
+                >
+                  <MenuItem value="07:00 AM - 09:00AM">
+                    07:00 AM - 09:00AM
+                  </MenuItem>
+                  <MenuItem value="03:00 PM - 05:00 PM">
+                    03:00 PM - 05:00 PM
+                  </MenuItem>
+                  <MenuItem value="06:00 PM - 09:00 PM">
+                    06:00 PM - 09:00 PM
+                  </MenuItem>
                 </Select>
               </FormControl>
               <FormGroup>
@@ -130,7 +162,15 @@ const EnrollDialog = ({}) => {
                     alignItems: "center",
                   }}
                 >
-                  <FormControlLabel control={<Checkbox style={{ position: "relative", marginRight: "-1rem" }} checked={isChecked} onChange={handleCheckboxChange} />} />
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        style={{ position: "relative", marginRight: "-1rem" }}
+                        checked={isChecked}
+                        onChange={handleCheckboxChange}
+                      />
+                    }
+                  />
                   <div
                     style={{
                       display: "flex",
@@ -140,15 +180,20 @@ const EnrollDialog = ({}) => {
                     }}
                   >
                     <span style={{ marginRight: "0.25rem" }}>I agree to</span>
-                    <Link to='/terms-and-condition' target='_blank'>
-                      <Typography variant='body1' color='primary'>
+                    <Link to="/terms-and-condition" target="_blank">
+                      <Typography variant="body1" color="primary">
                         Terms and Conditions
                       </Typography>
                     </Link>
                   </div>
                 </div>
 
-                <Button variant='contained' sx={{ display: "flex", justifyContent: "center" }} type='submit' disabled={!isChecked}>
+                <Button
+                  variant="contained"
+                  sx={{ display: "flex", justifyContent: "center" }}
+                  type="submit"
+                  disabled={!isChecked}
+                >
                   Register
                 </Button>
               </FormGroup>

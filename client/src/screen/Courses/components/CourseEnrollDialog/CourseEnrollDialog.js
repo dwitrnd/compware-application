@@ -32,6 +32,7 @@ const CourseEnrollDialog = ({ courseName, schedule }) => {
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
   };
+
   return (
     <>
       <Button
