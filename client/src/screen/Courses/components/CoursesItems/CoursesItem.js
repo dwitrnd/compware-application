@@ -11,8 +11,7 @@ import { Link } from "react-router-dom";
 const CoursesItem = ({ name, schedule, teachinghour, image, abstract }) => {
   const [open, setOpen] = useState(false);
   const courseName = "Javascript";
-  const courseSchedule = "11AM - 2PM";
-  const teachingHour = "120 Hours";
+
   return (
     <>
       <Box
@@ -25,9 +24,17 @@ const CoursesItem = ({ name, schedule, teachinghour, image, abstract }) => {
           boxShadow: "6px 6px 12px 3px rgba(99, 99, 99, 0.20)",
         }}
       >
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 2, md: 4 }}>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={{ xs: 2, md: 4 }}
+        >
           <div>
-            <Stack direction={{ xs: "row", sm: "column" }} justifyContent='space-around' alignItems='center' spacing={2}>
+            <Stack
+              direction={{ xs: "row", sm: "column" }}
+              justifyContent="space-around"
+              alignItems="center"
+              spacing={2}
+            >
               <img src={image} />
               <div
                 style={{
@@ -36,22 +43,30 @@ const CoursesItem = ({ name, schedule, teachinghour, image, abstract }) => {
                   alignItems: "flex-start",
                 }}
               >
-                <Typography variant='subtitle1'>Duration</Typography>
-                <Typography variant='subtitle1'>{teachinghour}</Typography>
-                <Typography variant='subtitle1'>Schedule</Typography>
-                <Typography variant='subtitle1'>{schedule}</Typography>
+                <Typography variant="subtitle1" sx={{ marginLeft: "2.5rem" }}>
+                  Time
+                </Typography>
+                <Typography variant="subtitle1">07:00 AM - 09:00 AM</Typography>
+                <Typography variant="subtitle1">03:00 PM - 05:00 PM</Typography>
+                <Typography variant="subtitle1">06:00 PM - 08:00 PM</Typography>
               </div>
             </Stack>
           </div>
           <div>
-            <Typography variant='h6' color='primary'>
+            <Typography variant="h6" color="primary">
               {name}
             </Typography>
 
-            <Typography textAlign='justify'>{abstract}</Typography>
-            <Stack direction='row' alignItems='flex-end' justifyContent='flex-end' spacing={4} marginTop='3rem'>
-              <Link to='/course-detail'>
-                <Button variant='outlined'>Read More</Button>
+            <Typography textAlign="justify">{abstract}</Typography>
+            <Stack
+              direction="row"
+              alignItems="flex-end"
+              justifyContent="flex-end"
+              spacing={4}
+              marginTop="3rem"
+            >
+              <Link to="/course-detail">
+                <Button variant="outlined">Read More</Button>
               </Link>
               <CourseEnrollDialog courseName={name} schedule={schedule} />
             </Stack>
