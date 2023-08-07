@@ -7,12 +7,15 @@ import { useState } from "react";
 import CourseEnrollDialog from "screen/Courses/components/CourseEnrollDialog/CourseEnrollDialog";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const CoursesItem = ({ name, schedule, teachinghour, image, abstract }) => {
+const CoursesItem = ({ id, name, schedule, teachinghour, image, abstract }) => {
   const [open, setOpen] = useState(false);
   const courseName = "Javascript";
   const courseSchedule = "11AM - 2PM";
   const teachingHour = "120 Hours";
+
+  const navigate = useNavigate();
   return (
     <>
       <Box
@@ -50,9 +53,10 @@ const CoursesItem = ({ name, schedule, teachinghour, image, abstract }) => {
 
             <Typography textAlign='justify'>{abstract}</Typography>
             <Stack direction='row' alignItems='flex-end' justifyContent='flex-end' spacing={4} marginTop='3rem'>
-              <Link to='/course-detail'>
+              <Link to={`/course-detail/${id}`}>
                 <Button variant='outlined'>Read More</Button>
               </Link>
+
               <CourseEnrollDialog courseName={name} schedule={schedule} />
             </Stack>
           </div>

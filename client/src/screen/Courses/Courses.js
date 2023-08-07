@@ -1,16 +1,17 @@
 import React from "react";
-import { Button, FormControl, IconButton, Stack, TextField, Typography } from "@mui/material";
+import { Button, IconButton, Stack, TextField, Typography } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Container } from "@material-ui/core";
 import CoursesItem from "screen/Courses/components/CoursesItems/CoursesItem";
 import Pagination from "@mui/material/Pagination";
 import { constant } from "constants/contants";
 import axios from "axios";
-import react, { useState, useEffect } from "react";
-
+import { useState, useEffect } from "react";
 import styled from "styled-components";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const Courses = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const itemsPerPage = 5;
   const [pageNumber, setPageNumber] = useState(1);
   const [tableData, setTableData] = useState([]);
@@ -19,10 +20,12 @@ const Courses = () => {
   const url = `${constant.base}/api/course`;
 
   useEffect(() => {
+    setIsLoading(true);
     axios.get(url).then((res) => {
       console.log(res.data.msg);
       setAllTableData(res.data.msg);
       setTableData(res.data.msg);
+      setIsLoading(false);
     });
   }, []);
 
@@ -70,6 +73,23 @@ const Courses = () => {
     setTableData(filteredData);
   };
 
+  const filterByTextSearch = (searchText = "") => {
+    const filteredData = allTableData.filter((item) => item.courseName.toLowerCase().includes(searchText.toLowerCase()));
+    setTableData(filteredData);
+  };
+
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          marginLeft: "50%",
+        }}
+      >
+        <ClipLoader color={"red"} loading={true} size={150} aria-label='Loading Spinner' data-testid='loader' />
+      </div>
+    );
+  }
+
   return (
     <main id='courses-page'>
       <Container
@@ -102,7 +122,16 @@ const Courses = () => {
             <Container style={{ width: "60vw", margin: "0.5rem" }}>
               <Stack direction='row' justifyContent='center'>
                 <div style={{ width: "100%" }}>
-                  <TextField label='Search Course' id='searchCourse' variant='outlined' fullWidth style={{ width: "100%" }}></TextField>
+                  <TextField
+                    onChange={(e) => {
+                      filterByTextSearch(e.target.value);
+                    }}
+                    label='Search Course'
+                    id='searchCourse'
+                    variant='outlined'
+                    fullWidth
+                    style={{ width: "100%" }}
+                  ></TextField>
                 </div>
                 <Button variant='contained' sx={{ borderRadius: "0rem 1.875rem 1.875rem 0rem" }}>
                   <IconButton>
@@ -154,7 +183,7 @@ const Courses = () => {
               .map((item) => {
                 return (
                   <>
-                    <CoursesItem name={item.courseName} schedule={"11am - 12pm"} teachinghour={"120 hour"} image={`${constant.base}/storage/${item.courseLogo}`} abstract={item.courseIntro} />
+                    <CoursesItem id={item._id} name={item.courseName} schedule={"11am - 12pm"} teachinghour={"120 hour"} image={`${constant.base}/storage/${item.courseLogo}`} abstract={item.courseIntro} />
                   </>
                 );
               })}

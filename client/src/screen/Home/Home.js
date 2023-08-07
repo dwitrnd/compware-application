@@ -4,14 +4,13 @@ import Container from "@material-ui/core/Container";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-// import sections
-import react, { useState } from "react";
 
 import FeaturesSection from "./components/Features";
 import ClientsSection from "./components/Clients";
 import PlacementSection from "./components/PlacementPartner/PlacementPartner";
 import Header from "components/Header";
 import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqueCarousel";
+import ReviewsMarqueCarouselLower from "components/ReviewsMarqueCarousel/ReviewMarqueeUpper";
 
 const Home = () => {
   useEffect(() => {
@@ -125,6 +124,7 @@ const Home = () => {
       <section style={{ marginTop: "5rem", marginBottom: "5rem" }}>
         <Header preTitle='Quality Courses For Our' postTitle='Students' />
         <ReviewsMarqueCarousel />
+        <ReviewsMarqueCarouselLower />
       </section>
 
       <Container maxWidth='lg'>

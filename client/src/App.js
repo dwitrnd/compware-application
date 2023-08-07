@@ -169,7 +169,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='course-detail'
+                  path='course-detail/:id'
                   element={
                     !token ? (
                       <Layout>
