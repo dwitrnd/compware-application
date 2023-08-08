@@ -11,6 +11,7 @@ import PlacementSection from "./components/PlacementPartner/PlacementPartner";
 import Header from "components/Header";
 import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqueCarousel";
 import ReviewsMarqueCarouselLower from "components/ReviewsMarqueCarousel/ReviewMarqueeUpper";
+import CourseSearch from "./components/CourseSearch/CoruseSearch";
 
 const Home = () => {
   const [course, setCourse] = useState("");
@@ -120,11 +121,7 @@ const Home = () => {
               trainers and professionals.
             </HeroSubTitle>
 
-            <CourseSearchField
-              placeholder="Search courses..."
-              type="text"
-              style={{ marginTop: "2rem" }}
-            />
+            <CourseSearch />
 
             <FilterCardContainer>
               <FilterCards>Programming</FilterCards>
