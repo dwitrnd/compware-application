@@ -37,6 +37,8 @@ const studentRoutes = require("./routes/studentRouter");
 const teacherRoutes = require("./routes/teacherRouter");
 const trainerRoutes = require("./routes/trainerRouter");
 const contactRoutes = require("./routes/contactRouter");
+const clientRoutes = require("./routes/clientRouter");
+const placementRoutes = require("./routes/placementRouter");
 
 app.use(fileUpload());
 app.use("/api/users", userRoutes);
@@ -56,6 +58,8 @@ app.use("/api/student", studentRoutes);
 app.use("/api/teacher", teacherRoutes);
 app.use("/api/trainer", trainerRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/client", clientRoutes);
+app.use("/api/placement", placementRoutes);
 
 app.use("/storage", express.static(path.join(appRoot, "storage")));
 
