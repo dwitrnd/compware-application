@@ -11,17 +11,10 @@ import PlacementSection from "./components/PlacementPartner/PlacementPartner";
 import Header from "components/Header";
 import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqueCarousel";
 import ReviewsMarqueCarouselLower from "components/ReviewsMarqueCarousel/ReviewMarqueeUpper";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import { FormControl } from "@mui/material";
-const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
-];
 
 const Home = () => {
   const [course, setCourse] = useState("");
+
   useEffect(() => {
     AOS.init({
       duration: 2000,
@@ -67,10 +60,13 @@ const Home = () => {
     padding: 15px 18px;
     font-size: 16px;
     border-radius: 50px;
+    border: 2px solid #0f5288;
+    color: black;
 
     &:hover {
-      background: white !important;
+      background: #0f5288 !important;
       color: black;
+      color: #fff;
     }
   `;
 
@@ -118,58 +114,17 @@ const Home = () => {
             </HeroTitle>
             <HeroTitle className="hero-text">training center</HeroTitle>
 
-            <HeroSubTitle
-              className="fade-in-text hero-text"
-              id="hero-subtitle"
-              style={{ marginTop: "4rem" }}
-            >
+            <HeroSubTitle id="hero-subtitle" style={{ marginTop: "4rem" }}>
               Millions of students and people around the world showcase their
               skills and work on compware - the home to the world’s best
               trainers and professionals.
             </HeroSubTitle>
 
-            <FormControl
-              fullWidth
-              sx={{
-                backgroundColor: "white",
-                width: "50%",
-                marginLeft: "25%",
-                outline: "none",
-              }}
-            >
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={course}
-                onChange={handleChange}
-                displayEmpty
-                sx={{ outline: "none" }}
-              >
-                <MenuItem value="" disabled>
-                  Select a course
-                </MenuItem>
-                <MenuItem value="Course 1">ANDROID PROGRAMMING</MenuItem>
-                <MenuItem value="Course 2">
-                  INTRODUCTION TO MICROSOFT SQL SERVER
-                </MenuItem>
-                <MenuItem value="Course 3">
-                  INTRODUCTION TO THE CRASH COURSE FOR SEE STUDENTS
-                </MenuItem>
-                <MenuItem value="Course 4">AWS CLOUD PRACTITIONER</MenuItem>
-                <MenuItem value="Course 5">PROGRAMMING IN PYTHON</MenuItem>
-                <MenuItem value="Course 6">REACT NATIVE</MenuItem>
-                <MenuItem value="Course 7">
-                  CISCO CERTIFIED NETWORK ASSOCIATE (CCNA)
-                </MenuItem>
-                <MenuItem value="Course 8">
-                  COMPLETE WEB DEVELOPER COURSE
-                </MenuItem>
-                <MenuItem value="Course 9">CYBER SECURITY</MenuItem>
-                <MenuItem value="Course 10">
-                  DATA SCIENCE AND MACHINE LEARNING IN PYTHON
-                </MenuItem>
-              </Select>
-            </FormControl>
+            <CourseSearchField
+              placeholder="Search courses..."
+              type="text"
+              style={{ marginTop: "2rem" }}
+            />
 
             <FilterCardContainer>
               <FilterCards>Programming</FilterCards>
