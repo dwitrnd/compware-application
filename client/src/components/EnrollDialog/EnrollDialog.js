@@ -17,7 +17,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import Backdrop from "@mui/material/Backdrop";
 import Image from "../../assets/images/enroll-image.svg";
-
+import { toast } from "react-toastify";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
@@ -26,12 +26,66 @@ import axios from "axios";
 
 const initialCheckboxState = false;
 
-const EnrollDialog = ({}) => {
+const EnrollDialog = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [course, setCourse] = useState("");
   const [schedule, setSchedule] = useState("");
+
+  const handleSubmit = () => {
+    console.log(
+      "name: " +
+        name +
+        " email: " +
+        email +
+        " phone: " +
+        phone +
+        " course: " +
+        course +
+        " schedule: " +
+        schedule
+    );
+    // axios
+    //   .post("http://localhost:5001/api/enquiry/", {
+    //     email: email.toString(),
+    //     name: name.toString(),
+    //     phoneNum: phone.toString(),
+    //     course: course.toString(),
+    //     enquiryDate: schedule.toString(),
+    //     status: "not done",
+    //   })
+    //   .then((res) => {
+    //     console.log(res);
+    //     toast("Wow so easy!");
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+
+    // use fetch
+    fetch("http://localhost:5001/api/enquiry/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email.toString(),
+        name: name.toString(),
+        phoneNum: phone.toString(),
+        course: course.toString(),
+        enquiryDate: schedule.toString(),
+        status: "reviewed",
+      }),
+    })
+      .then((res) => {
+        console.log(res);
+        toast("Submitted successfully!");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const [open, setOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(initialCheckboxState);
@@ -141,7 +195,10 @@ const EnrollDialog = ({}) => {
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   value={time}
-                  onChange={handleChange}
+                  onChange={(e) => {
+                    setTime(e.target.value);
+                    setSchedule(e.target.value);
+                  }}
                 >
                   <MenuItem value="07:00 AM - 09:00AM">
                     07:00 AM - 09:00AM
@@ -189,6 +246,10 @@ const EnrollDialog = ({}) => {
                 </div>
 
                 <Button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSubmit();
+                  }}
                   variant="contained"
                   sx={{ display: "flex", justifyContent: "center" }}
                   type="submit"

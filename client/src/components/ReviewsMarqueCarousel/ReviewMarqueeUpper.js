@@ -96,7 +96,7 @@ const People = ({ size }) => {
               /*  return below for half length of tableData  */
             }
 
-            if (index > 20) {
+            if (index < 30) {
               return (
                 <div
                   onMouseLeave={handleMouseLeave}
@@ -134,7 +134,7 @@ const People = ({ size }) => {
                 </div>
               );
             }
-            if (index > 10) {
+            if (index < 30) {
               return (
                 <div
                   onMouseLeave={handleMouseLeave}

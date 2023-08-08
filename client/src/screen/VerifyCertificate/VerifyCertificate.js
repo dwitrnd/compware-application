@@ -139,6 +139,11 @@ const VerifyCertificate = () => {
                       <h5>July 1, 2020</h5>
                     </strong>
                   </div>
+                  <div style={{ position: "absolute", top: "72%", left: "60.5%", transform: "translateX(-44.5%) translateY(-72%)" }}>
+                    <strong>
+                      <h5>July 1, 2020</h5>
+                    </strong>
+                  </div>
                 </section>
                 <Button variant='contained'>
                   <span>
