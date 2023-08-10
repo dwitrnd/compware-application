@@ -10,6 +10,7 @@ import TextField from "@mui/material/TextField";
 import Backdrop from "@mui/material/Backdrop";
 import { useState } from "react";
 import Alert from "@mui/material/Alert";
+import ForgotValidationID from "components/ForgotValidationID/ForgotValidationID";
 
 const MemberDialogBox = () => {
   const [open, setOpen] = useState(false);
@@ -114,13 +115,16 @@ const MemberDialogBox = () => {
                 spacing={{ xs: 2, sm: 8 }}
               >
                 <Typography>Validation ID</Typography>
-                <TextField
-                  required
-                  type="name"
-                  variant="outlined"
-                  onChange={handleChange}
-                  value={inputValue}
-                />
+                <Stack direction="column">
+                  <TextField
+                    required
+                    type="name"
+                    variant="outlined"
+                    onChange={handleChange}
+                    value={inputValue}
+                  />
+                  <ForgotValidationID />
+                </Stack>
               </Stack>
             </Stack>
           </DialogContent>

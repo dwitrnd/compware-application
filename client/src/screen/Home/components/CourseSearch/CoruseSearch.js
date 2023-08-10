@@ -29,6 +29,7 @@ const CourseSearch = () => {
         width: "50%",
         marginLeft: "25%",
         borderRadius: "50px",
+        border: "none !important",
       }}
     />
   );
