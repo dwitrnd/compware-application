@@ -21,7 +21,6 @@ import { toast } from "react-toastify";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-
 import axios from "axios";
 
 const initialCheckboxState = false;
@@ -211,6 +210,7 @@ const EnrollDialog = () => {
                   </MenuItem>
                 </Select>
               </FormControl>
+
               <FormGroup>
                 <div
                   style={{
@@ -246,7 +246,7 @@ const EnrollDialog = () => {
                 </div>
 
                 <Button
-                  onClick={(e) => {
+                  onSubmit={(e) => {
                     e.preventDefault();
                     handleSubmit();
                   }}

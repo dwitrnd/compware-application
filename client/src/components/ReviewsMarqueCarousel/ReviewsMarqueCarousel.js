@@ -32,15 +32,25 @@ const Photo = styled.img`
   object-fit: cover;
   object-position: top;
 
-  margin-left: ${(props) => (props.offset === "true" ? props.scale * 7 : props.scale * 87)}px;
-  margin-right: ${(props) => (props.offset === "true" ? props.scale * 80 : 0)}px;
+  margin-left: ${(props) =>
+    props.offset === "true" ? props.scale * 7 : props.scale * 87}px;
+  margin-right: ${(props) =>
+    props.offset === "true" ? props.scale * 80 : 0}px;
 `;
 
 const photos1 = [Devops, DotNet, DataMining, Flutter, MERN, Laravel, Excel];
-const photos2 = [Spss, SpringBoot, Java, Python, PowerBI, QualityAssurance, RProgramming];
+const photos2 = [
+  Spss,
+  SpringBoot,
+  Java,
+  Python,
+  PowerBI,
+  QualityAssurance,
+  RProgramming,
+];
 
 const People = ({ size }) => {
-  const [marqueeRunningState, setMarqueeRunningState] = useState(25);
+  const [marqueeRunningState, setMarqueeRunningState] = useState(15);
 
   const [key, setKey] = useState(nanoid());
 
@@ -82,7 +92,7 @@ const People = ({ size }) => {
     setMarqueeRunningState(0);
   }
   function handleMouseLeave() {
-    setMarqueeRunningState(25);
+    setMarqueeRunningState(15);
   }
 
   return (
@@ -106,11 +116,15 @@ const People = ({ size }) => {
                     margin: "0rem !important",
                     width: "19rem",
                   }}
-                  className='home_course_card'
+                  className="home_course_card"
                 >
-                  <Link to={`/course-detail/${item._id}`} target='_parent'>
-                    <Photo src={`${constant.base}/storage/${item.courseLogo}`} alt='' key={`marquee-example-people-${index}`} />
-                    <div className='course_card_content'>
+                  <Link to={`/course-detail/${item._id}`} target="_parent">
+                    <Photo
+                      src={`${constant.base}/storage/${item.courseLogo}`}
+                      alt=""
+                      key={`marquee-example-people-${index}`}
+                    />
+                    <div className="course_card_content">
                       <h6
                         style={{
                           color: "#0f5288",

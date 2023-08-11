@@ -114,7 +114,9 @@ const MemberDialogBox = () => {
                 justifyContent="center"
                 spacing={{ xs: 2, sm: 8 }}
               >
-                <Typography>Validation ID</Typography>
+                <Typography sx={{ marginBottom: "2rem" }}>
+                  Validation ID
+                </Typography>
                 <Stack direction="column">
                   <TextField
                     required
