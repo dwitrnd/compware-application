@@ -21,13 +21,14 @@ import Snackbar from "@mui/material/Snackbar";
 import { useEffect } from "react";
 import axios from "axios";
 import { constant } from "constants/contants";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
-
+  const [recaptchaValue, setRecaptchaValue] = useState("");
   const [open, setOpen] = React.useState(false);
   const [formData, setFormData] = useState({
     fullName: "",

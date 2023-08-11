@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -22,7 +22,11 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import axios from "axios";
+import ReCAPTCHA from "react-google-recaptcha";
+import Autocomplete from "@mui/material/Autocomplete";
+import { constant } from "constants/contants";
 
+const SITE_KEY = "6LczgZknAAAAAH1UXsFrSPEzqNW6HOFS1Bkmv-6N";
 const initialCheckboxState = false;
 
 const EnrollDialog = () => {
@@ -31,8 +35,49 @@ const EnrollDialog = () => {
   const [phone, setPhone] = useState("");
   const [course, setCourse] = useState("");
   const [schedule, setSchedule] = useState("");
+  const [recaptchaValue, setRecaptchaValue] = useState("");
+  const [allCourseName, setAllCourseName] = useState([]);
+  const [courseNameAndId, setCourseNameAndId] = useState([
+    {
+      courseName: "",
+      courseId: "",
+    },
+  ]);
+  // axios code to fetch all data get method from "/api/course"
+
+  useEffect(() => {
+    axios.get(`${constant.base}/api/course`).then((res) => {
+      if (res) {
+        console.log(
+          "res.data============================================================================"
+        );
+        console.log(res.data);
+        const allCourseList = [];
+        res.data.msg.map((course) => {
+          allCourseList.push(course.courseName);
+          setCourseNameAndId((prev) => [
+            ...prev,
+            {
+              courseName: course.courseName,
+              courseId: course._id,
+            },
+          ]);
+
+          setAllCourseName(allCourseList);
+        });
+      }
+    });
+  }, []);
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
 
   const handleSubmit = () => {
+    if (!recaptchaValue) {
+      alert("Please complete the reCAPTCHA");
+      return;
+    }
     console.log(
       "name: " +
         name +
@@ -107,6 +152,10 @@ const EnrollDialog = () => {
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
   };
+
+  const onChangeCaptcha = (value) => {
+    setRecaptchaValue(value);
+  };
   return (
     <>
       <Button
@@ -119,7 +168,7 @@ const EnrollDialog = () => {
       <Dialog open={open} onClose={handleClose} maxWidth="md">
         <Stack direction="row">
           <img src={Image} className="enroll-image" />
-          <form>
+          <form onSubmit={handleSubmit}>
             <DialogTitle
               display="flex"
               justifyContent="space-between"
@@ -174,18 +223,20 @@ const EnrollDialog = () => {
               <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
                 Course
               </Typography>
-              <FormControl fullWidth>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={course}
-                  onChange={handleCourseChange}
-                >
-                  <MenuItem value="%coursename1%">Course 1</MenuItem>
-                  <MenuItem value="%coursename2%">Course 2</MenuItem>
-                  <MenuItem value="%coursename3%">Course 3</MenuItem>
-                </Select>
-              </FormControl>
+              <Autocomplete
+                id="autocomplete-search"
+                options={allCourseName}
+                getOptionLabel={(option) => option}
+                renderInput={(params) => (
+                  <TextField {...params} variant="outlined" />
+                )}
+                sx={{
+                  backgroundColor: "white",
+                }}
+                onInputChange={(event, value) => {
+                  console.log(value);
+                }}
+              />
               <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
                 Time
               </Typography>
@@ -228,6 +279,7 @@ const EnrollDialog = () => {
                       />
                     }
                   />
+
                   <div
                     style={{
                       display: "flex",
@@ -244,7 +296,14 @@ const EnrollDialog = () => {
                     </Link>
                   </div>
                 </div>
-
+                <FormGroup
+                  sx={{ marginTop: "0.75rem", marginBottom: "0.75rem" }}
+                >
+                  <ReCAPTCHA
+                    sitekey={SITE_KEY}
+                    onChange={handleRecaptchaChange}
+                  />
+                </FormGroup>
                 <Button
                   onSubmit={(e) => {
                     e.preventDefault();
