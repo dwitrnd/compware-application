@@ -130,6 +130,8 @@ const People = ({ size }) => {
                           color: "#0f5288",
                           fontSize: "1.45rem",
                           textAlign: "center",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
                         }}
                       >
                         {item.courseName && item.courseName}
@@ -140,9 +142,7 @@ const People = ({ size }) => {
                           fontSize: "0.85rem",
                           padding: "0.75rem",
                         }}
-                      >
-                        Category: {item.courseCategory && item.courseCategory}
-                      </p>
+                      ></p>
                     </div>
                   </Link>
                 </div>

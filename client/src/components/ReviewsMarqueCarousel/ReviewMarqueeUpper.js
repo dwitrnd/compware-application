@@ -114,9 +114,7 @@ const People = ({ size }) => {
                           fontSize: "0.85rem",
                           padding: "0.75rem",
                         }}
-                      >
-                        Category: {item.courseCategory && item.courseCategory}
-                      </p>
+                      ></p>
                     </div>
                   </Link>
                 </div>

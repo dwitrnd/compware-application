@@ -20,7 +20,11 @@ const OurTeam = () => {
     <>
       <Container style={{ marginTop: "3rem" }}>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Typography variant="h3" color="primary">
+          <Typography
+            variant="h3"
+            color="primary"
+            style={{ marginBottom: "1.5rem" }}
+          >
             Meet the Team
           </Typography>
         </div>
