@@ -13,8 +13,10 @@ import Backdrop from "@mui/material/Backdrop";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { toast } from "react-toastify";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const initialCheckboxState = false;
+const SITE_KEY = "6LczgZknAAAAAH1UXsFrSPEzqNW6HOFS1Bkmv-6N";
 
 const CourseEnrollDialog = ({ courseName }) => {
   const [name, setName] = useState("");
@@ -22,10 +24,14 @@ const CourseEnrollDialog = ({ courseName }) => {
   const [phone, setPhone] = useState("");
   const [course, setCourse] = useState(courseName);
   const [schedule, setSchedule] = useState("");
-
+  const [recaptchaValue, setRecaptchaValue] = useState("");
   const [open, setOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(initialCheckboxState);
   const [time, setTime] = useState("");
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
 
   const handleChange = (event) => {
     setTime(event.target.value);
@@ -41,6 +47,10 @@ const CourseEnrollDialog = ({ courseName }) => {
   };
 
   const handleSubmit = () => {
+    if (!recaptchaValue) {
+      alert("Please complete the reCAPTCHA");
+      return;
+    }
     console.log(
       "name: " +
         name +
@@ -242,6 +252,9 @@ const CourseEnrollDialog = ({ courseName }) => {
                   </Link>
                 </div>
               </div>
+            </FormGroup>
+            <FormGroup sx={{ marginTop: "0.75rem", marginBottom: "0.75rem" }}>
+              <ReCAPTCHA sitekey={SITE_KEY} onChange={handleRecaptchaChange} />
             </FormGroup>
             <Button
               onClick={(e) => {

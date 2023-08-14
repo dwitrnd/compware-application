@@ -50,7 +50,11 @@ const CourseSearch = () => {
         marginLeft: "50%",
         transform: "translateX(-50%)",
         borderRadius: "50px",
+
         width: "50%",
+
+        border: "none !important",
+
       }}
       onInputChange={(event, value) => {
         console.log(value);

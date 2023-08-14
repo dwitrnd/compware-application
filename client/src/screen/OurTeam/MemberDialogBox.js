@@ -10,13 +10,11 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Unstable_Grid2";
-import TrainerPhoto from "../../assets/images/our-team/trainerphoto.jpeg";
 import { Avatar } from "@mui/material";
 import { makeStyles } from "@material-ui/core/styles";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
+
 import Backdrop from "@mui/material/Backdrop";
+import Stack from "@mui/material/Stack";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -68,33 +66,32 @@ const MemberDialogBox = ({ name, post, description, image }) => {
         </DialogTitle>
         <DialogContent>
           <Grid container>
-            <div style={{ margin: "0 auto" }}>
-              <Container className="team-profile">
-                <Avatar
-                  sx={{
-                    width: "10rem",
-                    height: "10rem",
-                    border: "4px solid #0f5288",
-                  }}
-                  src={image}
-                  className={classes.avatar}
-                />
-                <Typography variant="body1" color="primary">
-                  {name}
-                </Typography>
-                <Typography variant="caption">{post}</Typography>{" "}
-              </Container>
-            </div>
-            <div style={{ marginTop: "1rem" }}>
-              <Typography variant="body1">{description}</Typography>
-            </div>
+            <Grid xs={12}>
+              <div style={{ margin: "0 auto" }}>
+                <Stack alignItems="center" justifyContent="center">
+                  <Avatar
+                    sx={{
+                      width: "10rem",
+                      height: "10rem",
+                      border: "4px solid #0f5288",
+                    }}
+                    src={image}
+                    className={classes.avatar}
+                  />
+                  <Typography variant="body1" color="primary">
+                    {name}
+                  </Typography>
+                  <Typography variant="caption">{post}</Typography>{" "}
+                </Stack>
+              </div>
+            </Grid>
+            <Grid>
+              <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
+                <Typography variant="body1">{description}</Typography>
+              </div>
+            </Grid>
           </Grid>
         </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Close
-          </Button>
-        </DialogActions>
       </Dialog>
       <Backdrop
         open={open}
