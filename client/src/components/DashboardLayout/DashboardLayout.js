@@ -140,7 +140,7 @@ const Dashboard = ({ children }) => {
               </Link>
             </li>
             <li class='sidebar-list-item'>
-              <Link to='/dashboard/list-request-certificate'>
+              <Link to='/dashboard/list-course'>
                 {/* <svg
                   fill="#ffffff"
                   xmlns="http://www.w3.org/2000/svg"
@@ -156,14 +156,34 @@ const Dashboard = ({ children }) => {
                   <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
                   <polyline points="9 22 9 12 15 12 15 22" />
                 </svg> */}
-                <span>Certificate Requests</span>
+                <span>Courses</span>
+              </Link>
+            </li>
+            <li class='sidebar-list-item'>
+              <Link to='/dashboard/update-course'>
+                {/* <svg
+                  fill="#ffffff"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-home"
+                >
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                  <polyline points="9 22 9 12 15 12 15 22" />
+                </svg> */}
+                <span> Update Courses</span>
               </Link>
             </li>
           </ul>
         </div>
         <div class='app-content'>
           <div class='app-content-header'>
-            <h1 class='app-content-headerText'>Products</h1>
+            <h1 class='app-content-headerText'>Dashboard</h1>
             <div style={{ display: "flex", alignItems: "center" }}>
               <h6 className='roboto_400' style={{ color: "white", fontSize: "1.6rem", margin: "1rem" }}>
                 {userData ? userData.name : ""}

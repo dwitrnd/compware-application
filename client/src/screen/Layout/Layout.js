@@ -169,13 +169,6 @@ function DrawerAppBar(props) {
                       <LoginIcon color='primary' />
                     </Link>
                   </IconButton>
-
-                  {/* dropdown menu added explicitly  here starts*/}
-
-                  {/* <Button className='blue-color roboto_500' sx={{ color: "#fff" }}>
-                    <HoverDropdown />
-                  </Button> */}
-                  {/* dropdown menu added explicitly  here ends */}
                 </Box>
               </Toolbar>
             </Container>

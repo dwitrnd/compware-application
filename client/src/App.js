@@ -30,10 +30,12 @@ import CourseDetailPage from "screen/CourseDetailPage/CourseDetailPage";
 import SecondBlogPage from "screen/Blog/SecondBlogPage";
 import DashboardLayout from "../src/components/DashboardLayout/DashboardLayout";
 import ListEnrollStudentBody from "screen/Dashboard/ListEnrollStudent";
+import ListCourseBody from "screen/Dashboard/ListCourseBody";
 import ListTeamBody from "screen/Dashboard/ListTeamBody/ListTeamBody";
 import ListTestimonialBody from "screen/Dashboard/ListTestimonialBody/ListTestimonialBody";
 import ListRequestCertificate from "screen/Dashboard/ListRequestCertificate/ListRequestCertificate";
 import PageTitle from "components/PageTitle/PageTitle";
+import UpdateCourse from "screen/Dashboard/UpdateCourse/UpdateCourse";
 
 // Simple git
 const theme = createTheme({
@@ -242,6 +244,22 @@ function App() {
                 element={
                   <DashboardLayout>
                     <ListEnrollStudentBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-course'
+                element={
+                  <DashboardLayout>
+                    <ListCourseBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/update-course/:id'
+                element={
+                  <DashboardLayout>
+                    <UpdateCourse />
                   </DashboardLayout>
                 }
               />

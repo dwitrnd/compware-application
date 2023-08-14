@@ -47,9 +47,10 @@ const CourseSearch = () => {
       renderInput={(params) => <TextField {...params} label='Search' variant='outlined' />}
       sx={{
         backgroundColor: "white",
-        width: "50%",
-        marginLeft: "25%",
+        marginLeft: "50%",
+        transform: "translateX(-50%)",
         borderRadius: "50px",
+        width: "50%",
       }}
       onInputChange={(event, value) => {
         console.log(value);
