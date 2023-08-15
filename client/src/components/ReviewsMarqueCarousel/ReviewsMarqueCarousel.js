@@ -7,21 +7,7 @@ import { nanoid } from "nanoid";
 import { constant } from "constants/contants";
 import axios from "axios";
 
-import Devops from "assets/images/courses/DevOps.jpg";
-import DotNet from "assets/images/courses/Dot-Net.jpg";
-import DataMining from "assets/images/courses/Data-Mining-and-Machine-Learning-Using-R-Programming.jpg";
-import Flutter from "assets/images/courses/Flutter-App-Development.jpg";
-import MERN from "assets/images/courses/Full-Stack-Web-Development---MERN-Stack.jpg";
-import Laravel from "assets/images/courses/laravel.jpg";
-import Excel from "assets/images/courses/Microsoft-Excel.jpg";
-import Spss from "assets/images/courses/Statistical-Package-for-the-Social-Sciences-(SPSS).jpg";
-import RProgramming from "assets/images/courses/Statistical-Analysis-using-R.jpg";
-import QualityAssurance from "assets/images/courses/Software-Quality-Assurance.jpg";
-import Python from "assets/images/courses/Programming-in-Python.jpg";
-import Java from "assets/images/courses/Programming-In-Java.jpg";
-import SpringBoot from "assets/images/courses/Programming-Full-Stack-Development-in-JAVA-with-Spring-Boot-and-React.jpg";
-import PowerBI from "assets/images/courses/Power-BI.jpg";
-
+import ClipLoader from "react-spinners/ClipLoader";
 import { Link } from "react-router-dom";
 
 const Photo = styled.img`
@@ -38,21 +24,16 @@ const Photo = styled.img`
     props.offset === "true" ? props.scale * 80 : 0}px;
 `;
 
-const photos1 = [Devops, DotNet, DataMining, Flutter, MERN, Laravel, Excel];
-const photos2 = [
-  Spss,
-  SpringBoot,
-  Java,
-  Python,
-  PowerBI,
-  QualityAssurance,
-  RProgramming,
-];
-
 const People = ({ size }) => {
   const [marqueeRunningState, setMarqueeRunningState] = useState(15);
-
+  const [isLoading, setIsLoading] = useState(true);
   const [key, setKey] = useState(nanoid());
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "#0f5288",
+  };
 
   const [tableData, setTableData] = useState([
     {
@@ -64,9 +45,11 @@ const People = ({ size }) => {
   const url = `${constant.base}/api/course`;
 
   useEffect(() => {
+    setIsLoading(true);
     axios.get(url).then((res) => {
       console.log(res.data.msg);
       setTableData(res.data.msg);
+      setIsLoading(false);
     });
   }, []);
 
@@ -94,7 +77,26 @@ const People = ({ size }) => {
   function handleMouseLeave() {
     setMarqueeRunningState(15);
   }
-
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          paddingTop: "10rem",
+          marginLeft: "50%",
+          transform: "translateX(-50%)",
+        }}
+      >
+        <ClipLoader
+          cssOverride={override}
+          color={"red"}
+          loading={true}
+          size={90}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
+  }
   return (
     <div>
       <div>

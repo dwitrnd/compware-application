@@ -112,32 +112,20 @@ const Home = () => {
 
           <div id="hero-content">
             <HeroTitle style={{ marginTop: "3rem" }} className="hero-text">
-              Explore the world's leading
+              Explore Nepal's Leading Training Center
             </HeroTitle>
             <HeroTitle className="hero-text">training center</HeroTitle>
 
-            <HeroSubTitle id="hero-subtitle" style={{ marginTop: "4rem" }}>
+            <HeroSubTitle
+              id="hero-subtitle"
+              style={{ marginTop: "4rem", marginBottom: "4rem" }}
+            >
               Welcome to Deerwalk Training Center, where we are dedicated to
               providing premiere IT and Technical skills to facilitate your
               journey towards achieving success.
             </HeroSubTitle>
 
             <CourseSearch />
-
-            <FilterCardContainer>
-              <a href={`${constant.client}/courses?category=programming`}>
-                <FilterCards>Programming</FilterCards>
-              </a>
-              <a href={`${constant.client}/courses?category=designing`}>
-                <FilterCards>Designing</FilterCards>
-              </a>
-              <a href={`${constant.client}/courses?category=diploma`}>
-                <FilterCards>Diploma</FilterCards>
-              </a>
-              <a href={`${constant.client}/courses?category=short`}>
-                <FilterCards>Short Term</FilterCards>
-              </a>
-            </FilterCardContainer>
           </div>
         </section>
       </section>

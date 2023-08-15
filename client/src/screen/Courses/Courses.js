@@ -15,6 +15,10 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import ClipLoader from "react-spinners/ClipLoader";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
+
+const animatedComponents = makeAnimated();
 
 const override = {
   display: "block",
@@ -22,12 +26,62 @@ const override = {
   borderColor: "#0f5288",
 };
 
+const courseCategoryList = [
+  {
+    value: "Programming and Software Development",
+    label: "Programming and Software Development",
+  },
+  {
+    value: "Database Management",
+    label: "Database Management",
+  },
+  { value: "Designing", label: "Designing" },
+  {
+    value: "Software Testing and Quality Assurance",
+    label: "Software Testing and Quality Assurance",
+  },
+  { value: "Digital Marketing", label: "Digital Marketing" },
+  {
+    value: "Office Management Tools and Packages",
+    label: "Office Management Tools and Packages",
+  },
+  {
+    value: "Database Management and Warehousing",
+    label: "Database Management and Warehousing",
+  },
+  { value: "Project Management", label: "Project Management" },
+  { value: "AI and Machine Learning", label: "AI and Machine Learning" },
+  {
+    value: "Blockchain and Cryptocurrency",
+    label: "Blockchain and Cryptocurrency",
+  },
+  { value: "Data Science and Analytics", label: "Data Science and Analytics" },
+  {
+    value: "Network Administration and Management",
+    label: "Network Administration and Management",
+  },
+  { value: "Mobile App Development", label: "Mobile App Development" },
+  { value: "Personal Development", label: "Personal Development" },
+  {
+    value: "Cloud Computing and Management",
+    label: "Cloud Computing and Management",
+  },
+  {
+    value: "Specialized Tools and Utilities",
+    label: "Specialized Tools and Utilities",
+  },
+  {
+    value: "Cyber Security and Cryptocurrency",
+    label: "Cyber Security and Cryptocurrency",
+  },
+];
+
 const Courses = () => {
   const [isLoading, setIsLoading] = useState(true);
   const itemsPerPage = 5;
   const [pageNumber, setPageNumber] = useState(1);
   const [tableData, setTableData] = useState([]);
-
+  const [courseCategory, setCourseCategory] = useState([]);
   const [allTableData, setAllTableData] = useState([]);
   const url = `${constant.base}/api/course`;
 
@@ -42,10 +96,8 @@ const Courses = () => {
   }, []);
 
   const FilterCardContainer = styled.div`
-    display: flex;
-    margin-top: 0.75rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 
     @media (max-width: 550px) {
       display: none;
@@ -53,16 +105,15 @@ const Courses = () => {
   `;
 
   const FilterCards = styled.div`
-    display: inline;
     font-size: 1.1rem;
     background: #0f5288 !important;
     color: white;
     margin: 0 5px;
-    padding: 15px 18px;
+    padding: 15px 25px;
     font-size: 16px;
     font-weight: bold;
 
-    border-radius: 50px;
+    border-radius: 30px;
 
     &:hover {
       background: #e2e2e2 !important;
@@ -159,7 +210,6 @@ const Courses = () => {
       </div>
     );
   }
-
   return (
     <main id="courses-page">
       <Container
@@ -179,207 +229,69 @@ const Courses = () => {
             alignItems: "center",
           }}
         >
-          <header
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <Typography variant="h3" color="primary">
-              Our Courses
-            </Typography>
-            <Container style={{ width: "60vw", margin: "0.5rem" }}>
-              <Stack direction="row" justifyContent="center">
-                <div style={{ width: "100%" }}>
-                  <TextField
-                    onChange={(e) => {
-                      filterByTextSearch(e.target.value);
-                    }}
-                    label="Search Course"
-                    id="searchCourse"
-                    variant="outlined"
-                    fullWidth
-                    style={{ width: "100%" }}
-                  ></TextField>
-                </div>
-                <Button
-                  variant="contained"
-                  sx={{ borderRadius: "0rem 1.875rem 1.875rem 0rem" }}
-                >
-                  <IconButton>
-                    <SearchIcon sx={{ color: "white" }} />
-                  </IconButton>
-                  Search
-                </Button>
-              </Stack>
-              <FilterCardContainer>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Programming");
-                  }}
-                >
-                  Programming and Software Development
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Designing");
-                  }}
-                >
-                  Database Management
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Diploma");
-                  }}
-                >
-                  Designing
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Software Testing and Quality Assurance
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Digital Marketing
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Office Management Tools And Packages
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Database Management and Warehousing
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Project Management
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  AI and Machine Learning
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Blockchain and Cryptocurrency
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Data Science and Analytics
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Network Administration and Management
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Mobile App Development
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Personal Development
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Cloud Computing and Management
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Specialized Tools and Utilities
-                </FilterCards>
-                <FilterCards
-                  style={{ margin: "15px" }}
-                  onClick={() => {
-                    filterCourse("Short Term");
-                  }}
-                >
-                  Cyber Security and Cryptocurrency
-                </FilterCards>
-              </FilterCardContainer>
-            </Container>
-          </header>
-
-          {tableData &&
-            tableData
-              .slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage) // Slice the data for the current page
-              .map((item) => {
-                return (
-                  <>
-                    <CoursesItem
-                      id={item._id}
-                      name={item.courseName}
-                      schedule={"11am - 12pm"}
-                      teachinghour={"120 hour"}
-                      image={`${constant.base}/storage/${item.courseLogo}`}
-                      abstract={item.courseIntro}
-                    />
-                  </>
-                );
-              })}
-
-          <Pagination
-            onChange={handlePageChange}
-            count={Math.ceil(tableData.length / itemsPerPage)}
-            color="primary"
-            shape="rounded"
-            style={{ marginTop: "3rem" }}
-          />
+          <Typography variant="h3" color="primary">
+            Our Courses
+          </Typography>
         </header>
+        <Container style={{ width: "100vw" }}>
+          <Stack direction="row" justifyContent="center">
+            <div style={{ width: "60vw" }}>
+              <TextField
+                onChange={(e) => {
+                  filterByTextSearch(e.target.value);
+                }}
+                label="Search Course"
+                id="searchCourse"
+                variant="outlined"
+                fullWidth
+                style={{ width: "100%" }}
+              ></TextField>
+            </div>
+            <Button
+              variant="contained"
+              sx={{ borderRadius: "0rem 1.875rem 1.875rem 0rem" }}
+            >
+              <IconButton>
+                <SearchIcon sx={{ color: "white" }} />
+              </IconButton>
+              Search
+            </Button>
+          </Stack>
+        </Container>
+        <div className="course-category">
+          <Select
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
+            options={courseCategoryList}
+            placeholder="Select Category"
+          />
+        </div>
+        {tableData &&
+          tableData
+            .slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage) // Slice the data for the current page
+            .map((item) => {
+              return (
+                <>
+                  <CoursesItem
+                    id={item._id}
+                    name={item.courseName}
+                    schedule={"11am - 12pm"}
+                    teachinghour={"120 hour"}
+                    image={`${constant.base}/storage/${item.courseLogo}`}
+                    abstract={item.courseIntro}
+                  />
+                </>
+              );
+            })}
+
+        <Pagination
+          onChange={handlePageChange}
+          count={Math.ceil(tableData.length / itemsPerPage)}
+          color="primary"
+          shape="rounded"
+          style={{ marginTop: "3rem" }}
+        />
       </Container>
     </main>
   );

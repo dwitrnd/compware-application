@@ -209,15 +209,9 @@ const CourseEnrollDialog = ({ courseName }) => {
                   setSchedule(e.target.value);
                 }}
               >
-                <MenuItem value="07:00 AM - 09:00AM">
-                  07:00 AM - 09:00AM
-                </MenuItem>
-                <MenuItem value="03:00 PM - 05:00 PM">
-                  03:00 PM - 05:00 PM
-                </MenuItem>
-                <MenuItem value="06:00 PM - 09:00 PM">
-                  06:00 PM - 09:00 PM
-                </MenuItem>
+                <MenuItem value="Morning">Morning</MenuItem>
+                <MenuItem value="Afternoon">Afternoon</MenuItem>
+                <MenuItem value="Evening">Evening</MenuItem>
               </Select>
             </FormControl>
             <FormGroup>

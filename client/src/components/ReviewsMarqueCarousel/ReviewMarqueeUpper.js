@@ -6,8 +6,15 @@ import { withSize } from "react-sizeme";
 import { nanoid } from "nanoid";
 import { constant } from "constants/contants";
 import axios from "axios";
+import ClipLoader from "react-spinners/ClipLoader";
 
 import { Link } from "react-router-dom";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "#0f5288",
+};
 
 const Photo = styled.img`
   width: ${(props) => props.scale * 368}px;
@@ -25,7 +32,7 @@ const Photo = styled.img`
 
 const People = ({ size }) => {
   const [marqueeRunningState, setMarqueeRunningState] = useState(15);
-
+  const [isLoading, setIsLoading] = useState(true);
   const [key, setKey] = useState(nanoid());
 
   const [tableData, setTableData] = useState([
@@ -38,9 +45,11 @@ const People = ({ size }) => {
   const url = `${constant.base}/api/course`;
 
   useEffect(() => {
+    setIsLoading(true);
     axios.get(url).then((res) => {
       console.log(res.data.msg);
       setTableData(res.data.msg);
+      setIsLoading(false);
     });
   }, []);
 
@@ -68,7 +77,26 @@ const People = ({ size }) => {
   function handleMouseLeave() {
     setMarqueeRunningState(15);
   }
-
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          paddingTop: "10rem",
+          marginLeft: "50%",
+          transform: "translateX(-50%)",
+        }}
+      >
+        <ClipLoader
+          cssOverride={override}
+          color={"red"}
+          loading={true}
+          size={90}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
+  }
   return (
     <div>
       <div>

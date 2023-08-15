@@ -24,35 +24,48 @@ const CoursesItem = ({ id, name, schedule, teachinghour, image, abstract }) => {
           boxShadow: "6px 6px 12px 3px rgba(99, 99, 99, 0.20)",
         }}
       >
-        <Stack direction={{ xs: "column", sm: "row" }} spacing={{ xs: 2, md: 4 }}>
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={{ xs: 2, md: 4 }}
+        >
           <div>
-            <Stack direction={{ xs: "row", sm: "column" }} justifyContent='space-around' alignItems='center' spacing={2}>
+            <Stack direction={{ xs: "row", sm: "column" }} spacing={2}>
               <img src={image} />
               <div
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "flex-start",
+                  alignItems: "center",
                 }}
               >
-                <Typography variant='subtitle1' sx={{ marginLeft: "2.5rem" }}>
-                  Time
+                <Typography
+                  variant="subtitle1"
+                  color="primary"
+                  fontWeight="bold"
+                >
+                  Schedule
                 </Typography>
-                <Typography variant='subtitle1'>07:00 AM - 09:00 AM</Typography>
-                <Typography variant='subtitle1'>03:00 PM - 05:00 PM</Typography>
-                <Typography variant='subtitle1'>06:00 PM - 08:00 PM</Typography>
+                <Typography variant="subtitle1">Morning</Typography>
+                <Typography variant="subtitle1">Afternoon</Typography>
+                <Typography variant="subtitle1">Evening</Typography>
               </div>
             </Stack>
           </div>
           <div>
-            <Typography variant='h6' color='primary'>
+            <Typography variant="h6" color="primary">
               {name}
             </Typography>
 
-            <Typography textAlign='justify'>{abstract}</Typography>
-            <Stack direction='row' alignItems='flex-end' justifyContent='flex-end' spacing={4} marginTop='3rem'>
+            <Typography textAlign="justify">{abstract}</Typography>
+            <Stack
+              direction="row"
+              alignItems="flex-end"
+              justifyContent="flex-end"
+              spacing={4}
+              marginTop="3rem"
+            >
               <Link to={`/course-detail/${id}`}>
-                <Button variant='outlined'>Read More</Button>
+                <Button variant="outlined">Read More</Button>
               </Link>
 
               <CourseEnrollDialog courseName={name} schedule={schedule} />
