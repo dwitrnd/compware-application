@@ -77,82 +77,69 @@ const UpdateCourse = () => {
   };
 
   return (
-    <div>
+    <div style={{ maxWidth: "500px", margin: "auto", padding: "20px" }}>
       <form action=''>
-        {/* make input field for courseName, slugTitle, courseCategory, courseIntro, aboutCourse, courseLogo, imageName, imageAltText, coursePdf */}
-
-        <div className='form-group'>
+        <div style={{ marginBottom: "20px" }}>
           <label htmlFor='courseName'>Course Name</label>
-          <input type='text' className='form-control' id='courseName' placeholder='Enter course name' value={courseName} onChange={(e) => setCourseName(e.target.value)} />
+          <input style={{ width: "100%", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }} type='text' id='courseName' placeholder='Enter course name' value={courseName} onChange={(e) => setCourseName(e.target.value)} />
         </div>
 
-        <div className='form-group'>
+        <div style={{ marginBottom: "20px" }}>
           <label htmlFor='slugTitle'>Slug Title</label>
-          <input type='text' className='form-control' id='slugTitle' placeholder='Enter slug title' value={slugTitle} onChange={(e) => setSlugTitle(e.target.value)} />
+          <input style={{ width: "100%", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }} type='text' id='slugTitle' placeholder='Enter slug title' value={slugTitle} onChange={(e) => setSlugTitle(e.target.value)} />
         </div>
 
-        <div className='form-group'>
+        <div style={{ marginBottom: "20px" }}>
           <label htmlFor='courseCategory'>Course Category</label>
-          <input type='text' className='form-control' id='courseCategory' placeholder='Enter course category' value={courseCategory} onChange={(e) => setCourseCategory(e.target.value)} />
+          <input style={{ width: "100%", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }} type='text' id='courseCategory' placeholder='Enter course category' value={courseCategory} onChange={(e) => setCourseCategory(e.target.value)} />
         </div>
 
-        <div className='form-group'>
+        <div style={{ marginBottom: "20px" }}>
           <label htmlFor='courseIntro'>Course Intro</label>
-
-          {/* use textarea instead */}
-
-          <textarea
-            row={"6"}
-            column={"10"}
-            style={{
-              width: "100%",
-              height: "20rem",
-            }}
-            type='text'
-            className='form-control'
-            id='courseIntro'
-            placeholder='Enter course intro'
-            value={courseIntro}
-            onChange={(e) => setCourseIntro(e.target.value)}
-          />
+          <textarea rows='6' columns='10' style={{ width: "100%", height: "20rem", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }} type='text' id='courseIntro' placeholder='Enter course intro' value={courseIntro} onChange={(e) => setCourseIntro(e.target.value)} />
         </div>
 
-        <div className='form-group'>
+        <div style={{ marginBottom: "20px" }}>
           <label htmlFor='aboutCourse'>About Course</label>
-          <input type='text' className='form-control' id='aboutCourse' placeholder='Enter about course' value={aboutCourse} onChange={(e) => setAboutCourse(e.target.value)} />
+          <input style={{ width: "100%", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }} type='text' id='aboutCourse' placeholder='Enter about course' value={aboutCourse} onChange={(e) => setAboutCourse(e.target.value)} />
         </div>
 
-        <div className='form-group'>
+        <div style={{ marginBottom: "20px" }}>
           <label htmlFor='courseLogo'>Course Logo</label>
-          <input type='text' className='form-control' id='courseLogo' placeholder='Enter course logo' value={courseLogo} onChange={(e) => setCourseLogo(e.target.value)} />
+
+          {/* upload file */}
+          <input style={{ width: "100%", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }} type='file' id='courseLogo' placeholder='Enter course logo' value={courseLogo} onChange={(e) => setCourseLogo(e.target.value)} />
         </div>
 
-        <div className='form-group'>
+        <div style={{ marginBottom: "20px" }}>
           <label htmlFor='imageName'>Image Name</label>
-          <input type='text' className='form-control' id='imageName' placeholder='Enter image name' value={imageName} onChange={(e) => setImageName(e.target.value)} />
+          <input style={{ width: "100%", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }} type='text' id='imageName' placeholder='Enter image name' value={imageName} onChange={(e) => setImageName(e.target.value)} />
         </div>
 
-        <div className='form-group'>
+        <div style={{ marginBottom: "20px" }}>
           <label htmlFor='imageAltText'>Image Alt Text</label>
-          <input type='text' className='form-control' id='imageAltText' placeholder='Enter image alt text' value={imageAltText} onChange={(e) => setImageAltText(e.target.value)} />
+          <input style={{ width: "100%", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }} type='text' id='imageAltText' placeholder='Enter image alt text' value={imageAltText} onChange={(e) => setImageAltText(e.target.value)} />
         </div>
 
-        <div className='form-group'>
+        <div style={{ marginBottom: "20px" }}>
           <label htmlFor='coursePdf'>Course Pdf</label>
-          <input type='text' className='form-control' id='coursePdf' placeholder='Enter course pdf' value={coursePdf} onChange={(e) => setCoursePdf(e.target.value)} />
+          <input style={{ width: "100%", padding: "10px", borderRadius: "5px", border: "1px solid #ccc" }} type='file' id='coursePdf' placeholder='Enter course pdf' value={coursePdf} onChange={(e) => setCoursePdf(e.target.value)} />
         </div>
 
         <button
           style={{
-            padding: "2rem",
+            padding: "15px",
             background: "blue",
             color: "white",
-            margin: "1rem",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
             width: "100%",
+            fontSize: "16px",
+            marginTop: "20px",
           }}
           type='submit'
           onClick={updateCourse}
-          className='btn btn-primary'
         >
           Submit
         </button>

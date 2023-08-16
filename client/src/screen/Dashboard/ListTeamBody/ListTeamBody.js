@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { constant } from "constants/contants";
 
+import { Link } from "react-router-dom";
+
 const ListTeamBody = () => {
   // use useeffect
 
@@ -29,6 +31,21 @@ const ListTeamBody = () => {
 
   return (
     <div>
+      <Link to='/dashboard/create-team'>
+        <button
+          style={{
+            padding: "0.35rem 0.95rem",
+            margin: "0.25rem",
+            color: "white",
+            background: "#007bff",
+            border: "none",
+            outline: "none",
+          }}
+        >
+          create
+        </button>
+      </Link>
+
       <table>
         <thead>
           <tr>
