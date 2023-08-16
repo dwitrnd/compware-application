@@ -17,7 +17,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import compwareLogo from "../../assets/images/compware-logo.png";
-import whiteCompwareLogo from "../../assets/images/compware-logo-white.png";
+import whiteLogo from "../../assets/images/Deerwalk-Logos_white.png";
 import RequestCertificateDialog from "../../components/RequestCerificateDialog/RequestCertificateDialog";
 import { Link } from "react-router-dom";
 import ClickDropdown from "components/CoursesClickDropdown";
@@ -211,12 +211,49 @@ function DrawerAppBar(props) {
           loading='lazy'
           referrerpolicy='no-referrer-when-downgrade'
         ></iframe>
+<<<<<<< HEAD
         <Container maxWidth='lg'>
           <div class='container'>
             <div class='container-block'>
               <section class='footer__upper'>
                 <div class='footer__upper--left'>
                   <img src={whiteCompwareLogo} alt='it company' />
+=======
+        <Container maxWidth="lg">
+          <div class="container">
+            <div class="container-block">
+              <section class="footer__upper">
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div class="footer__upper--left">
+                    <img src={whiteLogo} alt="it company" />
+                  </div>
+                  <Stack
+                    direction="column"
+                    spacing={4}
+                    sx={{ marginTop: "1rem" }}
+                  >
+                    <Stack direction="row">
+                      <LocalPhoneOutlinedIcon
+                        sx={{ color: "white", marginRight: "2rem" }}
+                      />
+                      <Typography
+                        variant="body1"
+                        color="white"
+                        style={{ color: "#FFF" }}
+                      >
+                        01-5913021, 01-4567153
+                      </Typography>
+                    </Stack>
+                    <Stack direction="row">
+                      <EmailOutlinedIcon
+                        sx={{ color: "white", marginRight: "2rem" }}
+                      />
+                      <Typography variant="body1" style={{ color: "#FFF" }}>
+                        training@deerwalkcompware.com
+                      </Typography>
+                    </Stack>
+                  </Stack>
+>>>>>>> 21ace2f (Style: Alignment of our trainer)
                 </div>
                 <div class='footer__upper--center'>
                   <p class='' style={{ fontSize: "20px" }}>

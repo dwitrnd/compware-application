@@ -10692,12 +10692,15 @@ fieldset {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+<<<<<<< HEAD
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+=======
+>>>>>>> 21ace2f (Style: Alignment of our trainer)
   }
 }
 
