@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 function CreateTeam() {
   const [formData, setFormData] = useState({
@@ -19,6 +21,10 @@ function CreateTeam() {
   const handleImageChange = (event) => {
     const imageFile = event.target.files[0];
     setFormData({ ...formData, Image: imageFile, ImageName: imageFile.name });
+  };
+
+  const handleEditorChange = (value) => {
+    setFormData({ ...formData, Description: value });
   };
 
   const handleSubmit = async (event) => {
@@ -57,34 +63,55 @@ function CreateTeam() {
     }
   };
 
+  const labelStyle = {
+    fontWeight: "bold",
+    marginBottom: "8px",
+  };
+
+  const inputStyle = {
+    width: "100%",
+    padding: "8px",
+    marginBottom: "16px",
+    border: "1px solid #ccc",
+    borderRadius: "4px",
+  };
+
+  const buttonStyle = {
+    backgroundColor: "#007bff",
+    color: "white",
+    padding: "8px 16px",
+    borderRadius: "4px",
+    cursor: "pointer",
+  };
+
   return (
     <div>
       <h1>Create Team</h1>
       <form onSubmit={handleSubmit}>
-        <label>Name</label>
-        <input type='text' name='Name' value={formData.Name} onChange={handleInputChange} />
+        <label style={labelStyle}>Name</label>
+        <input type='text' name='Name' value={formData.Name} onChange={handleInputChange} style={inputStyle} />
 
-        <label>Email</label>
-        <input type='email' name='Email' value={formData.Email} onChange={handleInputChange} />
+        <label style={labelStyle}>Email</label>
+        <input type='email' name='Email' value={formData.Email} onChange={handleInputChange} style={inputStyle} />
 
-        <label>Post</label>
-        <input type='text' name='Post' value={formData.Post} onChange={handleInputChange} />
+        <label style={labelStyle}>Post</label>
+        <input type='text' name='Post' value={formData.Post} onChange={handleInputChange} style={inputStyle} />
 
-        <label>Description</label>
-        <textarea name='Description' value={formData.Description} onChange={handleInputChange} />
+        <label style={labelStyle}>Description</label>
+        <ReactQuill value={formData.Description} onChange={handleEditorChange} />
 
-        <label>Image</label>
-        <input type='file' accept='image/*' name='Image' onChange={handleImageChange} />
+        <label style={labelStyle}>Image</label>
+        <input type='file' accept='image/*' name='Image' onChange={handleImageChange} style={inputStyle} />
 
-        <label>Image Alt Text</label>
-        <input type='text' name='ImageAltText' value={formData.ImageAltText} onChange={handleInputChange} />
+        <label style={labelStyle}>Image Alt Text</label>
+        <input type='text' name='ImageAltText' value={formData.ImageAltText} onChange={handleInputChange} style={inputStyle} />
 
-        <button type='submit'>Create Team</button>
+        <button type='submit' style={buttonStyle}>
+          Create Team
+        </button>
       </form>
     </div>
   );
 }
 
 export default CreateTeam;
-
-// test

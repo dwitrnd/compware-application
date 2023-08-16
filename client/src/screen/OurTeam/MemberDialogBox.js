@@ -17,6 +17,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Backdrop from "@mui/material/Backdrop";
+import RenderHtmlString from "components/RenderHtmlString/RenderHtmlString";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -46,30 +47,25 @@ const MemberDialogBox = ({ name, post, description, image }) => {
         justifyContent: "center",
       }}
     >
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant='outlined' onClick={handleClickOpen}>
         Learn More
       </Button>
-      <Dialog
-        style={{ maxWidth: "50rem", margin: "0 auto" }}
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-        maxWidth="sm"
-        fullWidth
-      >
-        <DialogTitle
-          id="customized-dialog-title"
-          onClose={handleClose}
-          sx={{ display: "flex", justifyContent: "flex-end" }}
-        >
+      <Dialog style={{ maxWidth: "50rem", margin: "0 auto" }} onClose={handleClose} aria-labelledby='customized-dialog-title' open={open} maxWidth='sm' fullWidth>
+        <DialogTitle id='customized-dialog-title' onClose={handleClose} sx={{ display: "flex", justifyContent: "flex-end" }}>
           <IconButton onClick={handleClose}>
             <CloseIcon />
           </IconButton>
         </DialogTitle>
         <DialogContent>
-          <Grid container>
+          <Grid
+            container
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
             <div style={{ margin: "0 auto" }}>
-              <Container className="team-profile">
+              <Container className='team-profile'>
                 <Avatar
                   sx={{
                     width: "10rem",
@@ -79,14 +75,17 @@ const MemberDialogBox = ({ name, post, description, image }) => {
                   src={image}
                   className={classes.avatar}
                 />
-                <Typography variant="body1" color="primary">
+                <Typography variant='body1' color='primary'>
                   {name}
                 </Typography>
-                <Typography variant="caption">{post}</Typography>{" "}
+                <Typography variant='caption'>{post}</Typography>{" "}
               </Container>
             </div>
+
             <div style={{ marginTop: "1rem" }}>
-              <Typography variant="body1">{description}</Typography>
+              <Typography variant='body1'>
+                <RenderHtmlString htmlString={description} />
+              </Typography>
             </div>
           </Grid>
         </DialogContent>
