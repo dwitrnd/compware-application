@@ -5,9 +5,6 @@ import { Splide } from "@splidejs/splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import TestimonialCard from "../TestimonialCard/TestimonialCard";
 
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 import axios from "axios";
 
 const SplideCarousel = () => {
@@ -24,10 +21,6 @@ const SplideCarousel = () => {
         the table rows in the component. */
       setTableData(res.data.msg);
     });
-
-    AOS.init({
-      duration: 10000,
-    });
   }, []);
   useEffect(() => {
     // initialize  splide with loop
@@ -42,10 +35,10 @@ const SplideCarousel = () => {
       rewindSpeed: 10000,
       breakpoints: {
         600: {
-          perPage: 2,
+          perPage: 1,
         },
         800: {
-          perPage: 2,
+          perPage: 1,
         },
         1000: {
           perPage: 2,
@@ -60,7 +53,7 @@ const SplideCarousel = () => {
   return (
     <>
       <section class="splide" aria-label="Basic Structure Example">
-        <div class="splide__track" data-aos="flip-up" data-aos-duration="2000">
+        <div class="splide__track">
           <ul class="splide__list">
             {tableData &&
               tableData.map((item) => {

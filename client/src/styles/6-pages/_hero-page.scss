@@ -151,7 +151,7 @@
 .home_course_card {
   margin: 1rem;
   background: white;
-  transition: all ease-in-out
+  transition: all ease-in-out;
   // box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
@@ -172,6 +172,12 @@
 .course_card_content {
   padding: 0rem 1.75rem;
   background: white;
+  min-height: 110px;
+  max-height: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+;
 }
 
 @keyframes heroText{

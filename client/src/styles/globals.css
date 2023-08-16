@@ -6484,6 +6484,11 @@ fieldset {
 @media screen and (max-width: 600px) {
   .team-profile {
     display: flex;
+<<<<<<< HEAD
+=======
+    align-items: center;
+    justify-content: center;
+>>>>>>> Tejesh
   }
 }
 .find-your-path {
@@ -7323,6 +7328,14 @@ td {
 .course_card_content {
   padding: 0rem 1.75rem;
   background: white;
+<<<<<<< HEAD
+=======
+  min-height: 110px;
+  max-height: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+>>>>>>> Tejesh
 }
 
 @keyframes heroText {
@@ -7346,6 +7359,11 @@ td {
   border-radius: 1.875rem 0 0 1.875rem;
 }
 
+.course-category {
+  width: 60vw !important;
+  margin: 2rem;
+}
+
 .member {
   display: flex;
   flex-direction: column;
@@ -7363,13 +7381,14 @@ td {
 
 .member-role {
   color: rgba(0, 0, 0, 0.8);
-  text-align: justify;
+  text-align: center;
   font-family: Arial Rounded MT;
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.01688rem;
+  height: 60px;
 }
 
 .team-blob {
@@ -7407,6 +7426,14 @@ td {
     display: none;
   }
 }
+<<<<<<< HEAD
+=======
+@media only screen and (max-width: 960px) {
+  .course-image {
+    width: 50%;
+  }
+}
+>>>>>>> Tejesh
 .user-information {
   margin-bottom: 0.5rem !important;
 }
@@ -7430,6 +7457,14 @@ td {
     display: none;
   }
 }
+<<<<<<< HEAD
+=======
+@media only screen and (max-width: 960px) {
+  .course-image {
+    width: 50%;
+  }
+}
+>>>>>>> Tejesh
 @media only screen and (max-width: 960px) {
   .blog-image {
     margin: auto;

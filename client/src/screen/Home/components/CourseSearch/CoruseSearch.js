@@ -20,7 +20,9 @@ const CourseSearch = () => {
   useEffect(() => {
     axios.get(`${constant.base}/api/course`).then((res) => {
       if (res) {
-        console.log("res.data============================================================================");
+        console.log(
+          "res.data============================================================================"
+        );
         console.log(res.data);
         const allCourseList = [];
         res.data.msg.map((course) => {
@@ -41,16 +43,20 @@ const CourseSearch = () => {
 
   return (
     <Autocomplete
-      id='autocomplete-search'
+      id="autocomplete-search"
       options={allCourseName}
       getOptionLabel={(option) => option}
-      renderInput={(params) => <TextField {...params} label='Search' variant='outlined' />}
+      renderInput={(params) => (
+        <TextField {...params} label="Search" variant="outlined" />
+      )}
       sx={{
         backgroundColor: "white",
         marginLeft: "50%",
         transform: "translateX(-50%)",
         borderRadius: "50px",
         width: "50%",
+
+        border: "none !important",
       }}
       onInputChange={(event, value) => {
         console.log(value);

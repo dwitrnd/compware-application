@@ -32,9 +32,8 @@ import LinkedInLogo from "../../assets/svg/linkedin.svg";
 import YoutubeLogo from "../../assets/svg/youtube.svg";
 import ThreadsLogo from "../../assets/svg/threads.png";
 import TwitterLogo from "../../assets/svg/Twitter.png";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
-
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 const drawerWidth = 240;
 
 const navItems = [
@@ -154,9 +153,7 @@ function DrawerAppBar(props) {
                   {navItems.map((item) => {
                     console.log(item);
 
-                    if (item.name === "Courses") {
-                      return <ClickDropdown />;
-                    } else if (item.name === "Request Certificate") {
+                    if (item.name === "Request Certificate") {
                       return <RequestCertificateDialog />;
                     } else if (item.name === "About") {
                       return <AboutUsDropDown />;
