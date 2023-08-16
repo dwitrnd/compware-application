@@ -1,70 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { useParams } from "react-router-dom";
 
-function CreateTeam() {
-  const [formData, setFormData] = useState({
-    Name: "",
-    Email: "",
-    Post: "",
-    Description: "",
-    Role: "",
-    Image: null,
-    ImageName: "",
-    ImageAltText: "",
-  });
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleImageChange = (event) => {
-    const imageFile = event.target.files[0];
-    setFormData({ ...formData, Image: imageFile, ImageName: imageFile.name });
-  };
-
-  const handleEditorChange = (value) => {
-    setFormData({ ...formData, Description: value });
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const apiUrl = "http://localhost:5001/api/team";
-
-    const formDataToSend = new FormData();
-    for (const key in formData) {
-      formDataToSend.append(key, formData[key]);
-    }
-
-    try {
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        body: formDataToSend,
-      });
-
-      if (response.ok) {
-        console.log("Team created successfully");
-        // Reset the form fields
-        setFormData({
-          Name: "",
-          Email: "",
-          Post: "",
-          Description: "",
-          Role: "",
-          Image: null,
-          ImageName: "",
-          ImageAltText: "",
-        });
-        alert(" successfully created");
-      } else {
-        console.error("Failed to create team");
-      }
-    } catch (error) {
-      console.error("Error sending request:", error);
-    }
-  };
+function EditTeam() {
+  const { id } = useParams();
 
   const labelStyle = {
     fontWeight: "bold",
@@ -87,10 +27,85 @@ function CreateTeam() {
     cursor: "pointer",
   };
 
+  const [formData, setFormData] = useState({
+    Name: "",
+    Email: "",
+    Post: "",
+    Description: "",
+    Role: "",
+    Image: null,
+    ImageName: "",
+    ImageAltText: "",
+  });
+
+  useEffect(() => {
+    // Fetch team data based on the ID and populate the form
+    const fetchTeamData = async () => {
+      try {
+        const apiUrl = `http://localhost:5001/api/team/${id}`;
+        const response = await fetch(apiUrl);
+        if (response.ok) {
+          const teamData = await response.json();
+          setFormData(teamData);
+        } else {
+          console.error("Failed to fetch team data");
+        }
+      } catch (error) {
+        console.error("Error fetching team data:", error);
+      }
+    };
+
+    fetchTeamData();
+  }, [id]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleImageChange = (event) => {
+    const imageFile = event.target.files[0];
+    setFormData({ ...formData, Image: imageFile, ImageName: imageFile.name });
+  };
+
+  const handleEditorChange = (value) => {
+    setFormData({ ...formData, Description: value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const apiUrl = `http://localhost:5001/api/team/${id}`;
+
+    const formDataToSend = new FormData();
+    for (const key in formData) {
+      formDataToSend.append(key, formData[key]);
+    }
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: "PATCH",
+        body: formDataToSend,
+      });
+
+      if (response.ok) {
+        console.log("Team updated successfully");
+        alert("Team updated successfully");
+      } else {
+        console.error("Failed to update team");
+      }
+    } catch (error) {
+      console.error("Error sending request:", error);
+    }
+  };
+
+  // ... (rest of the code remains the same)
+
   return (
     <div>
-      <h1>Create Team</h1>
+      <h1>Update Team</h1>
       <form onSubmit={handleSubmit}>
+        {/* ... (form inputs and components) ... */}
+
         <label style={labelStyle}>Name</label>
         <input type='text' name='Name' value={formData.Name} onChange={handleInputChange} style={inputStyle} />
 
@@ -113,11 +128,11 @@ function CreateTeam() {
         <input type='text' name='ImageAltText' value={formData.ImageAltText} onChange={handleInputChange} style={inputStyle} />
 
         <button type='submit' style={buttonStyle}>
-          Create Team
+          Update Team
         </button>
       </form>
     </div>
   );
 }
 
-export default CreateTeam;
+export default EditTeam;
