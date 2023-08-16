@@ -11,9 +11,6 @@ const OurTeamLayout = ({ title, datas }) => {
 
   return (
     <>
-      <Typography variant="h5" color="primary">
-        Our Team
-      </Typography>
       <Grid container spacing={2} width="100%">
         {datas.map((data) => {
           if (!data.Role) {
@@ -62,8 +59,13 @@ const OurTeamLayout = ({ title, datas }) => {
         })}
       </Grid>
 
-      <Typography variant="h5" color="primary">
-        Our Trainers
+      <Typography
+        variant="h3"
+        color="primary"
+        align="center"
+        style={{ marginBottom: "1.5rem" }}
+      >
+        Meet the Trainers
       </Typography>
       <Grid container spacing={2} width="100%">
         {datas.map((data) => {

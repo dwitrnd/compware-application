@@ -7325,6 +7325,11 @@ td {
 .course_card_content {
   padding: 0rem 1.75rem;
   background: white;
+  min-height: 110px;
+  max-height: 110px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 
 @keyframes heroText {
@@ -7348,6 +7353,11 @@ td {
   border-radius: 1.875rem 0 0 1.875rem;
 }
 
+.course-category {
+  width: 60vw !important;
+  margin: 2rem;
+}
+
 .member {
   display: flex;
   flex-direction: column;
@@ -7365,13 +7375,14 @@ td {
 
 .member-role {
   color: rgba(0, 0, 0, 0.8);
-  text-align: justify;
+  text-align: center;
   font-family: Arial Rounded MT;
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.01688rem;
+  height: 60px;
 }
 
 .team-blob {
@@ -7409,6 +7420,11 @@ td {
     display: none;
   }
 }
+@media only screen and (max-width: 960px) {
+  .course-image {
+    width: 50%;
+  }
+}
 .user-information {
   margin-bottom: 0.5rem !important;
 }
@@ -7430,6 +7446,11 @@ td {
 @media (max-width: 900px) {
   .grid-recommendation-item {
     display: none;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .course-image {
+    width: 50%;
   }
 }
 @media only screen and (max-width: 960px) {

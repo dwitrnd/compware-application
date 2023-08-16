@@ -30,8 +30,10 @@ import FacebookLogo from "../../assets/svg/facebook.svg";
 import InstagramLogo from "../../assets/svg/instagram.svg";
 import LinkedInLogo from "../../assets/svg/linkedin.svg";
 import YoutubeLogo from "../../assets/svg/youtube.svg";
-import ThreadsLogo from "../../assets/svg/Threads.png";
+import ThreadsLogo from "../../assets/svg/threads.png";
 import TwitterLogo from "../../assets/svg/Twitter.png";
+import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
+import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 const drawerWidth = 240;
 
 const navItems = [
@@ -151,9 +153,7 @@ function DrawerAppBar(props) {
                   {navItems.map((item) => {
                     console.log(item);
 
-                    if (item.name === "Courses") {
-                      return <ClickDropdown />;
-                    } else if (item.name === "Request Certificate") {
+                    if (item.name === "Request Certificate") {
                       return <RequestCertificateDialog />;
                     } else if (item.name === "About") {
                       return <AboutUsDropDown />;
@@ -183,13 +183,6 @@ function DrawerAppBar(props) {
                       <LoginIcon color="primary" />
                     </Link>
                   </IconButton>
-
-                  {/* dropdown menu added explicitly  here starts*/}
-
-                  {/* <Button className='blue-color roboto_500' sx={{ color: "#fff" }}>
-                    <HoverDropdown />
-                  </Button> */}
-                  {/* dropdown menu added explicitly  here ends */}
                 </Box>
               </Toolbar>
             </Container>
@@ -236,8 +229,36 @@ function DrawerAppBar(props) {
           <div class="container">
             <div class="container-block">
               <section class="footer__upper">
-                <div class="footer__upper--left">
-                  <img src={whiteCompwareLogo} alt="it company" />
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div class="footer__upper--left">
+                    <img src={compwareLogo} alt="it company" />
+                  </div>
+                  <Stack
+                    direction="column"
+                    spacing={4}
+                    sx={{ marginTop: "1rem" }}
+                  >
+                    <Stack direction="row">
+                      <LocalPhoneOutlinedIcon
+                        sx={{ color: "white", marginRight: "2rem" }}
+                      />
+                      <Typography
+                        variant="body1"
+                        color="white"
+                        style={{ color: "#FFF" }}
+                      >
+                        01-5913021, 01-4567153
+                      </Typography>
+                    </Stack>
+                    <Stack direction="row">
+                      <EmailOutlinedIcon
+                        sx={{ color: "white", marginRight: "2rem" }}
+                      />
+                      <Typography variant="body1" style={{ color: "#FFF" }}>
+                        training@deerwalkcompware.com
+                      </Typography>
+                    </Stack>
+                  </Stack>
                 </div>
                 <div class="footer__upper--center">
                   <p class="" style={{ fontSize: "20px" }}>

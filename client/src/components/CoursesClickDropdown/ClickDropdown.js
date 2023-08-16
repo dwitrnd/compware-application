@@ -74,11 +74,11 @@ export default function CustomizedMenus() {
   return (
     <>
       <Button
-        id="demo-customized-button"
+        id='demo-customized-button'
         aria-controls={open ? "demo-customized-menu" : undefined}
-        aria-haspopup="true"
+        aria-haspopup='true'
         aria-expanded={open ? "true" : undefined}
-        variant="text"
+        variant='text'
         disableElevation
         onClick={handleClick}
         // endIcon={<KeyboardArrowDownIcon />}
@@ -87,7 +87,7 @@ export default function CustomizedMenus() {
       </Button>
       <ClickDropdown
         style={{ marginLeft: "-0.35rem" }}
-        id="demo-customized-menu"
+        id='demo-customized-menu'
         MenuListProps={{
           "aria-labelledby": "demo-customized-button",
         }}
@@ -96,105 +96,105 @@ export default function CustomizedMenus() {
         onClose={handleClose}
       >
         <MenuList>
-          <li className="menu_block">
+          <li className='menu_block'>
             <header style={{ display: "flex", alignItems: "center" }}>
-              <img src={programmingIcon} height="25" alt="menu icon" />
-              <b class="roboto_400">Programming</b>
+              <img src={programmingIcon} height='25' alt='menu icon' />
+              <b class='roboto_400'>Programming</b>
             </header>
-            <ul className="submenu_container roboto_400">
-              <Link to={`${constant.client}/courses?search=JavaScript`}>
+            <ul className='submenu_container roboto_400'>
+              <a href={`${constant.client}/courses?search=JavaScript`}>
                 <li>JavaScript</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=NodeJs`}>
+              </a>
+              <a href={`${constant.client}/courses?search=NodeJs`}>
                 <li>Node Js</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=Django`}>
+              </a>
+              <a href={`${constant.client}/courses?search=Django`}>
                 <li>Django</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=React`}>
+              </a>
+              <a href={`${constant.client}/courses?search=React`}>
                 <li>React</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=Angular`}>
+              </a>
+              <a href={`${constant.client}/courses?search=Angular`}>
                 <li>Angular</li>
-              </Link>
+              </a>
             </ul>
           </li>
-          <li className="menu_block">
+          <li className='menu_block'>
             <header style={{ display: "flex", alignItems: "center" }}>
-              <img src={graphicDesignIcon} height="25" alt="menu icon" />
-              <b class="roboto_400">Graphics Design</b>
+              <img src={graphicDesignIcon} height='25' alt='menu icon' />
+              <b class='roboto_400'>Graphics Design</b>
             </header>
-            <ul className="submenu_container roboto_400">
-              <Link to={`${constant.client}/courses?search=Angular`}>
+            <ul className='submenu_container roboto_400'>
+              <a href={`${constant.client}/courses?search=Angular`}>
                 <li>Maya for Animation</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=Photography`}>
+              </a>
+              <a href={`${constant.client}/courses?search=Photography`}>
                 <li>Photography</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=ui/ux`}>
+              </a>
+              <a href={`${constant.client}/courses?search=ui/ux`}>
                 <li>UI/UX</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=designing`}>
+              </a>
+              <a href={`${constant.client}/courses?search=designing`}>
                 <li>Graphic Designing</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=web`}>
+              </a>
+              <a href={`${constant.client}/courses?search=web`}>
                 <li>Web Page and Multimedia</li>
-              </Link>
+              </a>
             </ul>
           </li>
-          <li className="menu_block">
+          <li className='menu_block'>
             <header style={{ display: "flex", alignItems: "center" }}>
-              <img src={diplomaIcon} height="25" alt="menu icon" />
-              <b class="roboto_400">Diploma</b>
+              <img src={diplomaIcon} height='25' alt='menu icon' />
+              <b class='roboto_400'>Diploma</b>
             </header>
-            <ul className="submenu_container roboto_400">
-              <Link to={`${constant.client}/courses?search=python`}>
+            <ul className='submenu_container roboto_400'>
+              <a href={`${constant.client}/courses?search=python`}>
                 <li>Python</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=java`}>
+              </a>
+              <a href={`${constant.client}/courses?search=java`}>
                 <li>Java</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=devOps`}>
+              </a>
+              <a href={`${constant.client}/courses?search=devOps`}>
                 <li>DevOps</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=digitalmarketing`}>
+              </a>
+              <a href={`${constant.client}/courses?search=digital`}>
                 <li>Digital Marketing</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=dotnet`}>
+              </a>
+              <a href={`${constant.client}/courses?search=dotnet`}>
                 <li>DOT Net</li>
-              </Link>
+              </a>
             </ul>
           </li>
-          <li className="menu_block">
+          <li className='menu_block'>
             <header style={{ display: "flex", alignItems: "center" }}>
-              <img src={androidIcon} height="25" alt="menu icon" />
-              <b class="roboto_400">Short Term</b>
+              <img src={androidIcon} height='25' alt='menu icon' />
+              <b class='roboto_400'>Short Term</b>
             </header>
-            <ul className="submenu_container roboto_400">
-              <Link to={`${constant.client}/courses?search=laravel`}>
+            <ul className='submenu_container roboto_400'>
+              <a href={`${constant.client}/courses?search=laravel`}>
                 <li>Laravel</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=spss`}>
+              </a>
+              <a href={`${constant.client}/courses?search=spss`}>
                 <li>SPSS</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=flutter`}>
+              </a>
+              <a href={`${constant.client}/courses?search=flutter`}>
                 <li>Flutter App Development</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=mern`}>
+              </a>
+              <a href={`${constant.client}/courses?search=mern`}>
                 <li>MERN Stack</li>
-              </Link>
-              <Link to={`${constant.client}/courses?search=powerbi`}>
+              </a>
+              <a href={`${constant.client}/courses?search=power`}>
                 <li>Power BI</li>
-              </Link>
+              </a>
             </ul>
           </li>
         </MenuList>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Link to="/courses">
-            <Button variant="outlined" onClick={handleClose}>
+          <a href='/courses'>
+            <Button variant='outlined' onClick={handleClose}>
               See All Courses
             </Button>
-          </Link>
+          </a>
         </div>
       </ClickDropdown>
     </>

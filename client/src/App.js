@@ -30,10 +30,14 @@ import CourseDetailPage from "screen/CourseDetailPage/CourseDetailPage";
 import SecondBlogPage from "screen/Blog/SecondBlogPage";
 import DashboardLayout from "../src/components/DashboardLayout/DashboardLayout";
 import ListEnrollStudentBody from "screen/Dashboard/ListEnrollStudent";
+import ListCourseBody from "screen/Dashboard/ListCourseBody";
 import ListTeamBody from "screen/Dashboard/ListTeamBody/ListTeamBody";
+import CreateTeamBody from "screen/Dashboard/CreateTeam/CreateTeam";
 import ListTestimonialBody from "screen/Dashboard/ListTestimonialBody/ListTestimonialBody";
 import ListRequestCertificate from "screen/Dashboard/ListRequestCertificate/ListRequestCertificate";
+import ListVacancy from "screen/Dashboard/ListVacancy";
 import PageTitle from "components/PageTitle/PageTitle";
+import UpdateCourse from "screen/Dashboard/UpdateCourse/UpdateCourse";
 
 // Simple git
 const theme = createTheme({
@@ -246,10 +250,34 @@ function App() {
                 }
               />
               <Route
+                path='/dashboard/list-course'
+                element={
+                  <DashboardLayout>
+                    <ListCourseBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/update-course/:id'
+                element={
+                  <DashboardLayout>
+                    <UpdateCourse />
+                  </DashboardLayout>
+                }
+              />
+              <Route
                 path='/dashboard/list-team'
                 element={
                   <DashboardLayout>
                     <ListTeamBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-team'
+                element={
+                  <DashboardLayout>
+                    <CreateTeamBody />
                   </DashboardLayout>
                 }
               />
@@ -266,6 +294,14 @@ function App() {
                 element={
                   <DashboardLayout>
                     <ListRequestCertificate />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-vacancy'
+                element={
+                  <DashboardLayout>
+                    <ListVacancy />
                   </DashboardLayout>
                 }
               />

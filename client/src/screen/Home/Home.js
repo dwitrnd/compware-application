@@ -11,6 +11,8 @@ import PlacementSection from "./components/PlacementPartner/PlacementPartner";
 import Header from "components/Header";
 import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqueCarousel";
 import ReviewsMarqueCarouselLower from "components/ReviewsMarqueCarousel/ReviewMarqueeUpper";
+import CourseSearch from "./components/CourseSearch/CoruseSearch";
+import { constant } from "constants/contants";
 
 const Home = () => {
   const [course, setCourse] = useState("");
@@ -110,28 +112,20 @@ const Home = () => {
 
           <div id="hero-content">
             <HeroTitle style={{ marginTop: "3rem" }} className="hero-text">
-              Explore the world's leading
+              Explore Nepal's Leading Training Center
             </HeroTitle>
             <HeroTitle className="hero-text">training center</HeroTitle>
 
-            <HeroSubTitle id="hero-subtitle" style={{ marginTop: "4rem" }}>
-              Millions of students and people around the world showcase their
-              skills and work on compware - the home to the world’s best
-              trainers and professionals.
+            <HeroSubTitle
+              id="hero-subtitle"
+              style={{ marginTop: "4rem", marginBottom: "4rem" }}
+            >
+              Welcome to Deerwalk Training Center, where we are dedicated to
+              providing premiere IT and Technical skills to facilitate your
+              journey towards achieving success.
             </HeroSubTitle>
 
-            <CourseSearchField
-              placeholder="Search courses..."
-              type="text"
-              style={{ marginTop: "2rem" }}
-            />
-
-            <FilterCardContainer>
-              <FilterCards>Programming</FilterCards>
-              <FilterCards>Designing</FilterCards>
-              <FilterCards>Diploma</FilterCards>
-              <FilterCards>Short Term</FilterCards>
-            </FilterCardContainer>
+            <CourseSearch />
           </div>
         </section>
       </section>

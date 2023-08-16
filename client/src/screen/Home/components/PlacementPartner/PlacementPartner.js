@@ -3,9 +3,6 @@ import "./Partner.css";
 
 // import ContactFrom from "../UI/ContactForm";
 import CourseCard from "./PartnerCard";
-
-import Header from "components/Header";
-
 import Agile from "assets/images/placement partner/agile-It-solution.png";
 import Alternative from "assets/images/placement partner/Alternative-technology.png";
 import Arhant from "assets/images/placement partner/arhant-solution.png";
@@ -122,58 +119,31 @@ function Courses() {
     });
   }, []);
   return (
-    <div className="courses" id="contact">
-      <div className="course-main">
-        <div className="left-course">
-          <div className="row-one row" id="row">
+    <div className='courses' id='contact'>
+      <div className='course-main'>
+        <div className='left-course'>
+          <div className='row-one row' id='row'>
             {Card_1_db.map((val, index) => {
-              return (
-                <CourseCard
-                  key={index}
-                  imgsrc={val.imgsrc}
-                  title={val.title}
-                  modify={val.modify}
-                />
-              );
+              return <CourseCard key={index} imgsrc={val.imgsrc} title={val.title} modify={val.modify} />;
             })}
           </div>
-          <div className="row-two row">
+          <div className='row-two row'>
             {Card_2_db.map((val, index) => {
-              return (
-                <CourseCard
-                  key={index}
-                  imgsrc={val.imgsrc}
-                  title={val.title}
-                  modify={val.modify}
-                />
-              );
+              return <CourseCard key={index} imgsrc={val.imgsrc} title={val.title} modify={val.modify} />;
             })}
           </div>
-          <div className="row-three row">
+          <div className='row-three row'>
             {Card_3_db.map((val, index) => {
-              return (
-                <CourseCard
-                  key={index}
-                  imgsrc={val.imgsrc}
-                  title={val.title}
-                  modify={val.modify}
-                />
-              );
+              return <CourseCard key={index} imgsrc={val.imgsrc} title={val.title} modify={val.modify} />;
             })}
           </div>
         </div>
-        <div style={{ width: "50%" }}>
-          <div className="all-text" data-aos="zoom-in-left">
+        <div className='placement-right-section'>
+          <div className='all-text' data-aos='zoom-in-left'>
             <h2 style={{ fontSize: "2.5rem", color: "#0f5288" }}>
               Placement <br /> Partners
             </h2>
-            <p>
-              Several esteemed companies have partnered with us and experienced
-              remarkable success with our graduates. They have not only found
-              exceptional talent through our Placement Partner Program but also
-              witnessed increased productivity and innovation within their
-              teams.
-            </p>
+            <p>Several esteemed companies have partnered with us and experienced remarkable success with our graduates. They have not only found exceptional talent through our Placement Partner Program but also witnessed increased productivity and innovation within their teams.</p>
           </div>
         </div>
       </div>
