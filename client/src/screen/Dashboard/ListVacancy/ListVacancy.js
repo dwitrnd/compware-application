@@ -1,14 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { constant } from "constants/contants";
-import styled from "styled-components";
 
-const ListTestimonialBody = () => {
+const ListTeamBody = () => {
   // use useeffect
 
   const [tableData, setTableData] = useState(null);
 
-  const url = `${constant.base}/api/course`;
+  const url = `${constant.base}/api/vacancy`;
 
   useEffect(() => {
     axios.get(url).then((res) => {
@@ -33,10 +32,10 @@ const ListTestimonialBody = () => {
       <table>
         <thead>
           <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>PDF</th>
+            <th>Logo</th>
+            <th>CompanyName</th>
+            <th>Deadline</th>
+            <th>Position</th>
             <th className='action-column'>Actions</th>
           </tr>
         </thead>
@@ -60,27 +59,16 @@ const ListTestimonialBody = () => {
                     <tr key={index}>
                       <td>
                         <img
-                          style={{ width: "4rem" }}
+                          style={{ height: "4rem", width: "4rem" }}
                           src={`
-                        ${constant.base}/storage/${data.courseLogo}`}
+                        ${constant.base}/storage/${data.companyLogo}`}
                         ></img>
                       </td>
-                      <td>{data.courseName}</td>
-                      <td>{data.courseCategory}</td>
+                      <td>{data.companyName}</td>
+                      <td>{data.deadline}</td>
+                      <td>{data.position}</td>
                       <td>
-                        <a
-                          download
-                          href={`
-                        ${constant.base}/storage/${data.coursePdf}`}
-                        >
-                          view pdf
-                        </a>
-                      </td>
-                      <td>
-                        <a href={`/dashboard/update-course/${data._id}`}>
-                          <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
-                        </a>
-
+                        <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
                         <button
                           onClick={() => {
                             deleteRequest(data._id);
@@ -102,4 +90,4 @@ const ListTestimonialBody = () => {
   );
 };
 
-export default ListTestimonialBody;
+export default ListTeamBody;

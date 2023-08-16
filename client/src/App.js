@@ -32,8 +32,10 @@ import DashboardLayout from "../src/components/DashboardLayout/DashboardLayout";
 import ListEnrollStudentBody from "screen/Dashboard/ListEnrollStudent";
 import ListCourseBody from "screen/Dashboard/ListCourseBody";
 import ListTeamBody from "screen/Dashboard/ListTeamBody/ListTeamBody";
+import CreateTeamBody from "screen/Dashboard/CreateTeam/CreateTeam";
 import ListTestimonialBody from "screen/Dashboard/ListTestimonialBody/ListTestimonialBody";
 import ListRequestCertificate from "screen/Dashboard/ListRequestCertificate/ListRequestCertificate";
+import ListVacancy from "screen/Dashboard/ListVacancy";
 import PageTitle from "components/PageTitle/PageTitle";
 import UpdateCourse from "screen/Dashboard/UpdateCourse/UpdateCourse";
 
@@ -272,6 +274,14 @@ function App() {
                 }
               />
               <Route
+                path='/dashboard/create-team'
+                element={
+                  <DashboardLayout>
+                    <CreateTeamBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
                 path='/dashboard/list-testimonial'
                 element={
                   <DashboardLayout>
@@ -284,6 +294,14 @@ function App() {
                 element={
                   <DashboardLayout>
                     <ListRequestCertificate />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-vacancy'
+                element={
+                  <DashboardLayout>
+                    <ListVacancy />
                   </DashboardLayout>
                 }
               />
