@@ -15,6 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Backdrop from "@mui/material/Backdrop";
 import Stack from "@mui/material/Stack";
+import RenderHtmlString from "components/RenderHtmlString/RenderHtmlString";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -65,31 +66,36 @@ const MemberDialogBox = ({ name, post, description, image }) => {
           </IconButton>
         </DialogTitle>
         <DialogContent>
-          <Grid container>
-            <Grid xs={12}>
-              <div style={{ margin: "0 auto" }}>
-                <Stack alignItems="center" justifyContent="center">
-                  <Avatar
-                    sx={{
-                      width: "10rem",
-                      height: "10rem",
-                      border: "4px solid #0f5288",
-                    }}
-                    src={image}
-                    className={classes.avatar}
-                  />
-                  <Typography variant="body1" color="primary">
-                    {name}
-                  </Typography>
-                  <Typography variant="caption">{post}</Typography>{" "}
-                </Stack>
-              </div>
-            </Grid>
-            <Grid>
-              <div style={{ marginTop: "1rem", marginBottom: "1rem" }}>
-                <Typography variant="body1">{description}</Typography>
-              </div>
-            </Grid>
+          <Grid
+            container
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <div style={{ margin: "0 auto" }}>
+              <Container className="team-profile">
+                <Avatar
+                  sx={{
+                    width: "10rem",
+                    height: "10rem",
+                    border: "4px solid #0f5288",
+                  }}
+                  src={image}
+                  className={classes.avatar}
+                />
+                <Typography variant="body1" color="primary">
+                  {name}
+                </Typography>
+                <Typography variant="caption">{post}</Typography>{" "}
+              </Container>
+            </div>
+
+            <div style={{ marginTop: "1rem" }}>
+              <Typography variant="body1">
+                <RenderHtmlString htmlString={description} />
+              </Typography>
+            </div>
           </Grid>
         </DialogContent>
       </Dialog>

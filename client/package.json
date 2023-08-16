@@ -30,6 +30,7 @@
     "react-grid-gallery": "^1.0.0",
     "react-image-lightbox": "^5.1.4",
     "react-marquee-slider": "^1.1.5",
+    "react-quill": "^2.0.0",
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
