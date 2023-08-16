@@ -47,11 +47,22 @@ const MemberDialogBox = ({ name, post, description, image }) => {
         justifyContent: "center",
       }}
     >
-      <Button variant='outlined' onClick={handleClickOpen}>
+      <Button variant="outlined" onClick={handleClickOpen}>
         Learn More
       </Button>
-      <Dialog style={{ maxWidth: "50rem", margin: "0 auto" }} onClose={handleClose} aria-labelledby='customized-dialog-title' open={open} maxWidth='sm' fullWidth>
-        <DialogTitle id='customized-dialog-title' onClose={handleClose} sx={{ display: "flex", justifyContent: "flex-end" }}>
+      <Dialog
+        style={{ maxWidth: "50rem", margin: "0 auto" }}
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle
+          id="customized-dialog-title"
+          onClose={handleClose}
+          sx={{ display: "flex", justifyContent: "flex-end" }}
+        >
           <IconButton onClick={handleClose}>
             <CloseIcon />
           </IconButton>
@@ -64,29 +75,40 @@ const MemberDialogBox = ({ name, post, description, image }) => {
               flexDirection: "column",
             }}
           >
-            <div style={{ margin: "0 auto" }}>
-              <Container className='team-profile'>
-                <Avatar
-                  sx={{
-                    width: "10rem",
-                    height: "10rem",
-                    border: "4px solid #0f5288",
+            <Grid>
+              <div>
+                <Container
+                  className="team-profile"
+                  style={{
+                    margin: "0 auto",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
                   }}
-                  src={image}
-                  className={classes.avatar}
-                />
-                <Typography variant='body1' color='primary'>
-                  {name}
+                >
+                  <Avatar
+                    sx={{
+                      width: "10rem",
+                      height: "10rem",
+                      border: "4px solid #0f5288",
+                    }}
+                    src={image}
+                    className={classes.avatar}
+                  />
+                  <Typography variant="body1" color="primary">
+                    {name}
+                  </Typography>
+                  <Typography variant="caption">{post}</Typography>{" "}
+                </Container>
+              </div>
+            </Grid>
+            <Grid>
+              <div style={{ marginTop: "1rem" }}>
+                <Typography variant="body1">
+                  <RenderHtmlString htmlString={description} />
                 </Typography>
-                <Typography variant='caption'>{post}</Typography>{" "}
-              </Container>
-            </div>
-
-            <div style={{ marginTop: "1rem" }}>
-              <Typography variant='body1'>
-                <RenderHtmlString htmlString={description} />
-              </Typography>
-            </div>
+              </div>
+            </Grid>
           </Grid>
         </DialogContent>
         <DialogActions>
