@@ -6484,11 +6484,6 @@ fieldset {
 @media screen and (max-width: 600px) {
   .team-profile {
     display: flex;
-<<<<<<< HEAD
-=======
-    align-items: center;
-    justify-content: center;
->>>>>>> Tejesh
   }
 }
 .find-your-path {
@@ -7328,14 +7323,11 @@ td {
 .course_card_content {
   padding: 0rem 1.75rem;
   background: white;
-<<<<<<< HEAD
-=======
   min-height: 110px;
   max-height: 110px;
   overflow: hidden;
   text-overflow: ellipsis;
   word-wrap: break-word;
->>>>>>> Tejesh
 }
 
 @keyframes heroText {
@@ -7426,14 +7418,11 @@ td {
     display: none;
   }
 }
-<<<<<<< HEAD
-=======
 @media only screen and (max-width: 960px) {
   .course-image {
     width: 50%;
   }
 }
->>>>>>> Tejesh
 .user-information {
   margin-bottom: 0.5rem !important;
 }
@@ -7457,14 +7446,11 @@ td {
     display: none;
   }
 }
-<<<<<<< HEAD
-=======
 @media only screen and (max-width: 960px) {
   .course-image {
     width: 50%;
   }
 }
->>>>>>> Tejesh
 @media only screen and (max-width: 960px) {
   .blog-image {
     margin: auto;

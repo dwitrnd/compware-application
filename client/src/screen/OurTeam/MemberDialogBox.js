@@ -73,7 +73,6 @@ const MemberDialogBox = ({ name, post, description, image }) => {
               flexDirection: "column",
             }}
           >
-<<<<<<< HEAD
             <Grid>
               <div>
                 <Container
@@ -108,31 +107,6 @@ const MemberDialogBox = ({ name, post, description, image }) => {
                 </Typography>
               </div>
             </Grid>
-=======
-            <div style={{ margin: "0 auto" }}>
-              <Container className="team-profile">
-                <Avatar
-                  sx={{
-                    width: "10rem",
-                    height: "10rem",
-                    border: "4px solid #0f5288",
-                  }}
-                  src={image}
-                  className={classes.avatar}
-                />
-                <Typography variant="body1" color="primary">
-                  {name}
-                </Typography>
-                <Typography variant="caption">{post}</Typography>{" "}
-              </Container>
-            </div>
-
-            <div style={{ marginTop: "1rem" }}>
-              <Typography variant="body1">
-                <RenderHtmlString htmlString={description} />
-              </Typography>
-            </div>
->>>>>>> Tejesh
           </Grid>
         </DialogContent>
       </Dialog>
