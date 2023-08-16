@@ -7,4 +7,6 @@ studentRouter.patch("/:id", studentController.patch);
 studentRouter.delete("/:id", studentController.delete);
 studentRouter.get("/:id", studentController.getOne);
 
+studentRouter.post("/:token", studentController.checkCertificateToken);
+
 module.exports = studentRouter;

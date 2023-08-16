@@ -22,11 +22,11 @@ const studentSchema = mongoose.Schema({
     required: true,
   },
   gender: {
-    type: [String],
+    type: String,
     required: true,
   },
   courseDuration: {
-    type: Number,
+    type: String,
     required: true,
   },
   trainerTitle: {
@@ -35,13 +35,20 @@ const studentSchema = mongoose.Schema({
   },
   photo: {
     type: String,
-    required: true,
   },
-  startDuration: {
+  startDate: {
     type: String,
     required: true,
   },
-  endDuration: {
+  endDate: {
+    type: String,
+    required: true,
+  },
+  traineeID: {
+    type: String,
+    required: true,
+  },
+  qrURL: {
     type: String,
     required: true,
   },

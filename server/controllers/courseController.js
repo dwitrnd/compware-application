@@ -14,7 +14,10 @@ class courseController {
         aboutCourse,
         imageName,
         imageAltText,
+        fee,
       } = req.body;
+      console.log("=======================================================");
+      console.log(duration);
 
       const file1 = req.files.courseLogo;
       console.log(file1);
@@ -39,7 +42,6 @@ class courseController {
         }
         console.log("Upload Successful!");
       });
-
       const course = await new Course({
         courseName,
         slugTitle,
@@ -53,13 +55,18 @@ class courseController {
         duration,
         schedule,
         startDate,
+        fee,
       });
+
       const result = await course.save();
       res.status(200).json({
         status: true,
         msg: result,
       });
     } catch (error) {
+      console.log("+++++++++++++++++++++++++++++++++++++++++=");
+      console.log(error);
+
       res.status(500).json({
         status: false,
         msg: error,
@@ -91,6 +98,10 @@ class courseController {
       imageName,
       imageAltText,
       coursePdf,
+      duration,
+      schedule,
+      startDate,
+      fee,
     } = req.body;
 
     const courseId = req.params.id;
@@ -100,7 +111,7 @@ class courseController {
       const timestamp = Date.now();
       const fileName1 = file1.md5 + timestamp;
 
-      file1.mv(`./storage/${fileName1}`),
+      file1.mv(`./storage/${fileName1}.png`),
         (error) => {
           if (error) {
             return res.status(500).send(error);
@@ -137,6 +148,10 @@ class courseController {
           imageName,
           imageAltText,
           coursePdf,
+          fee,
+          duration,
+          startDate,
+          schedule,
         },
         { new: true }
       );

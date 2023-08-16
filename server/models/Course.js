@@ -12,7 +12,7 @@ const courseSchema = mongoose.Schema({
     required: true,
   },
   courseCategory: {
-    type: String,
+    type: [String],
     required: true,
   },
   courseIntro: {
@@ -45,9 +45,15 @@ const courseSchema = mongoose.Schema({
   },
   schedule: {
     type: String,
+    required: true,
   },
   startDate: {
     type: String,
+    required: true,
+  },
+  fee: {
+    type: String,
+    required: true,
   },
 });
 

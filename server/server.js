@@ -60,6 +60,7 @@ app.use("/api/trainer", trainerRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/client", clientRoutes);
 app.use("/api/placement", placementRoutes);
+app.use("/api/verify-certificate", studentRoutes);
 
 app.use("/storage", express.static(path.join(appRoot, "storage")));
 

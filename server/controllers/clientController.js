@@ -54,9 +54,9 @@ class clientController {
     if (Photo) {
       const file = req.files.Photo;
       const timestamp = Date.now();
-      const fileName = `photo_${timestamp}.jpeg`;
+      const fileName = `photo_${timestamp}`;
 
-      file.mv(`./storage/${fileName}`, (error) => {
+      file.mv(`./storage/${fileName}.png`, (error) => {
         if (error) {
           return res.status(500).send(error);
         }
