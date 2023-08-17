@@ -112,9 +112,9 @@ const Home = () => {
 
           <div id="hero-content">
             <HeroTitle style={{ marginTop: "3rem" }} className="hero-text">
-              Explore Nepal's Leading Training Center
+              Explore Nepal's Leading
             </HeroTitle>
-            <HeroTitle className="hero-text">training center</HeroTitle>
+            <HeroTitle className="hero-text">Training Center</HeroTitle>
 
             <HeroSubTitle
               id="hero-subtitle"

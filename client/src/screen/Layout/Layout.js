@@ -254,7 +254,11 @@ function DrawerAppBar(props) {
                       <EmailOutlinedIcon
                         sx={{ color: "white", marginRight: "2rem" }}
                       />
-                      <Typography variant="body1" style={{ color: "#FFF" }}>
+                      <Typography
+                        variant="body1"
+                        style={{ color: "#FFF" }}
+                        marginBottom="0.75rem"
+                      >
                         training@deerwalkcompware.com
                       </Typography>
                     </Stack>
@@ -272,7 +276,6 @@ function DrawerAppBar(props) {
                     direction="row"
                     spacing={4}
                     justifyContent="center"
-                    sx={{ paddingRight: "6rem" }}
                   >
                     <a
                       href="https://www.linkedin.com/company/deerwalktrainingcenter/"
