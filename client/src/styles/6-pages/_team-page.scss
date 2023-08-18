@@ -1,0 +1,42 @@
+.member {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-name {
+  color: #0f5288;
+  text-align: justify;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.125rem;
+}
+
+.member-role {
+  color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  font-family: Arial Rounded MT;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.01688rem;
+  height: 60px;
+}
+
+// .team-image {
+//   filter: grayscale(1);
+//   &:hover {
+//     cursor: pointer;
+//     filter: grayscale(0);
+//   }
+// }
+
+.team-blob {
+  background: #0f5288;
+}
+
+.team-card:hover .team-blob {
+  background: #cecece;
+}

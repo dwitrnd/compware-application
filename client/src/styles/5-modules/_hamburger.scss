@@ -1,0 +1,17 @@
+// public hamburger
+.MuiIconButton-colorInherit {
+  display: none !important;
+}
+
+.css-i4bv87-MuiSvgIcon-root {
+  fill: black !important;
+}
+
+@media (max-width: 680px) {
+  .css-130f8nx {
+    display: none !important;
+  }
+  .MuiIconButton-colorInherit {
+    display: block !important;
+  }
+}

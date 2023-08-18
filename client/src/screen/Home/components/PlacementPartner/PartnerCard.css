@@ -1,0 +1,16 @@
+.all-cards {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2vh;
+  justify-content: center;
+  width: 13vw;
+  height: 14vh;
+  border-radius: 10px;
+  /* background-color: rgb(245, 178, 178); */
+  box-shadow: 0px 16px 30px 0px rgba(0, 0, 0, 0.099);
+}
+
+.figma_modify {
+  width: 9vw;
+}

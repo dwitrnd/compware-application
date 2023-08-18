@@ -1,0 +1,55 @@
+.find-your-path {
+	margin: 5rem 0rem;
+	.path-section-container {
+	  display: flex;
+	  .left-section,
+	  .right-section {
+		width: 33.3% !important;
+	  }
+	}
+  
+	.left-section,
+	.right-section {
+	  .step {
+		margin-top: 5rem;
+	  }
+	}
+	.left-section,
+	.right-section {
+	  h4 {
+		font-weight: light;
+		margin-bottom: 1rem;
+		font-size: 1.5rem;
+		color: #0f5288;
+	  }
+	}
+	.middle-section {
+	  min-width: 20rem;
+	  background-image: url("../assets/images/path.png");
+	  background-size: contain;
+	  background-repeat: no-repeat;
+	  background-position: center;
+	}
+  }
+  
+  .text-justify {
+	text-align: justify;
+	text-justify: inter-word;
+  }
+  
+  @media only screen and (max-width: 750px) {
+	#middle-path-illustrator {
+	  display: none !important;
+	}
+  
+	.path-section-container {
+	  display: flex;
+	  flex-direction: column;
+	}
+  }
+  
+  .find-your-path .path-section-container .left-section,
+  .find-your-path .path-section-container .right-section {
+	width: 100%;
+  }
+  

@@ -1,0 +1,15 @@
+.course-info-header {
+  margin-top: 20rem;
+}
+
+@media (max-width: 900px) {
+  .grid-recommendation-item {
+    display: none;
+  }
+}
+
+@media only screen and (max-width:960px) {
+  .course-image{
+    width: 50%;
+  }
+}
