@@ -13,7 +13,7 @@ const OurTeamLayout = ({ title, datas }) => {
     <>
       <Grid container spacing={2} width="100%">
         {datas.map((data) => {
-          if (!data.Role) {
+          if (data.Role !== "Trainer") {
             return (
               <div
                 className="team-card"
@@ -69,7 +69,7 @@ const OurTeamLayout = ({ title, datas }) => {
       </Typography>
       <Grid container spacing={2} width="100%">
         {datas.map((data) => {
-          if (data.Role) {
+          if (data.Role === "Trainer") {
             return (
               <div
                 className="team-card"

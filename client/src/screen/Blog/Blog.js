@@ -7,6 +7,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import PaginationItem from "@mui/material/PaginationItem";
 
 const Blog = () => {
+  const itemsPerPage = 1;
   return (
     <>
       <Container>

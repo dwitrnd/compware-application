@@ -226,9 +226,16 @@ function DrawerAppBar(props) {
                         01-5913021, 01-4567153
                       </Typography>
                     </Stack>
-                    <Stack direction='row'>
-                      <EmailOutlinedIcon sx={{ color: "white", marginRight: "2rem" }} />
-                      <Typography variant='body1' style={{ color: "#FFF" }}>
+
+                    <Stack direction="row">
+                      <EmailOutlinedIcon
+                        sx={{ color: "white", marginRight: "2rem" }}
+                      />
+                      <Typography
+                        variant="body1"
+                        style={{ color: "#FFF" }}
+                        marginBottom="0.75rem"
+                      >
                         training@deerwalkcompware.com
                       </Typography>
                     </Stack>
@@ -238,8 +245,18 @@ function DrawerAppBar(props) {
                   <p class='' style={{ fontSize: "20px" }}>
                     Transform your skills, elevate your career, and embrace success with Deerwalk Training Center, we take pride in being recognized as a premier institution, excelling in IT Training and Software Courses.
                   </p>
-                  <Stack marginTop='7rem' direction='row' spacing={4} justifyContent='center' sx={{ paddingRight: "6rem" }}>
-                    <a href='https://www.linkedin.com/company/deerwalktrainingcenter/' target='_blank'>
+
+                  <Stack
+                    marginTop="7rem"
+                    direction="row"
+                    spacing={4}
+                    justifyContent="center"
+                  >
+                    <a
+                      href="https://www.linkedin.com/company/deerwalktrainingcenter/"
+                      target="_blank"
+                    >
+
                       {" "}
                       <img src={LinkedInLogo} />{" "}
                     </a>

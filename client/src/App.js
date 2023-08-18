@@ -38,6 +38,7 @@ import ListRequestCertificate from "screen/Dashboard/ListRequestCertificate/List
 import ListVacancy from "screen/Dashboard/ListVacancy";
 import PageTitle from "components/PageTitle/PageTitle";
 import UpdateCourse from "screen/Dashboard/UpdateCourse/UpdateCourse";
+import EditTeam from "screen/Dashboard/EditTeam";
 
 // Simple git
 const theme = createTheme({
@@ -278,6 +279,14 @@ function App() {
                 element={
                   <DashboardLayout>
                     <CreateTeamBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/edit-team/:id'
+                element={
+                  <DashboardLayout>
+                    <EditTeam />
                   </DashboardLayout>
                 }
               />
