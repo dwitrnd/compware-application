@@ -68,9 +68,9 @@ const Dashboard = () => {
   };
   return (
     <>
-      <h6>Email: {userData ? userData.email : ""}</h6>
-      <h6>Name: {userData ? userData.name : ""}</h6>
-      <button onClick={handleLogout}> Logout</button>
+      {/* <h6>Email: {userData ? userData.email : ""}</h6>
+      <h6>Name: {userData ? userData.name : ""}</h6> */}
+      {/* <button onClick={handleLogout}> Logout</button> */}
       <ChangePassword />
     </>
   );
