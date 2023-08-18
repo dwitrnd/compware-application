@@ -3,6 +3,48 @@ import { useState } from "react";
 import { useChangeUserPasswordMutation } from "../../redux/api/auth/userAuthApi";
 import { getTokenByValue } from "../../services/LocalStorageService";
 import { useSelector } from "react-redux";
+
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: "100vh",
+    backgroundColor: "#f7f7f7",
+    fontFamily: "Arial, sans-serif",
+  },
+  form: {
+    backgroundColor: "white",
+    padding: "20px",
+    borderRadius: "8px",
+    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+    width: "300px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  input: {
+    width: "100%",
+    padding: "10px",
+    marginBottom: "10px",
+    border: "1px solid #ccc",
+    borderRadius: "4px",
+    fontSize: "16px",
+  },
+  button: {
+    backgroundColor: "#007bff",
+    color: "white",
+    border: "none",
+    borderRadius: "4px",
+    padding: "10px 20px",
+    fontSize: "16px",
+    cursor: "pointer",
+  },
+  alert: {
+    marginTop: "10px",
+  },
+};
 const ChangePassword = () => {
   const userInfo = useSelector((state) => state.userInfo);
 
@@ -59,15 +101,23 @@ const ChangePassword = () => {
   };
   return (
     <>
-      <h1>Change Password</h1>
-      <form onSubmit={handleSubmit} id='password-change-form'>
-        <input required name='password' label='New Password' type='password' id='password' />
-        <br />
-        <input required name='password_confirmation' label='Confirm New Password' type='password' id='password_confirmation' />
-        <br />
-        <button type='submit'>Update</button>
-        {error.status ? <Alert severity={error.type}>{error.msg}</Alert> : ""}
-      </form>
+      <div style={styles.container}>
+        <h1>Change Password</h1>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <input required name='password' label='New Password' type='password' id='password' style={styles.input} />
+          <input required name='password_confirmation' label='Confirm New Password' type='password' id='password_confirmation' style={styles.input} />
+          <button type='submit' style={styles.button}>
+            Update
+          </button>
+          {error.status ? (
+            <div style={styles.alert}>
+              <Alert severity={error.type}>{error.msg}</Alert>
+            </div>
+          ) : (
+            ""
+          )}
+        </form>
+      </div>
     </>
   );
 };
