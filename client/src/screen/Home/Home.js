@@ -222,16 +222,12 @@ const Home = () => {
         </section>
         {/* //todo: testimonial section */}
         <div style={{ margin: "5rem 0rem" }}>
-          <Header
-            subTitle="IN THE NEWS"
-            preTitle="Our"
-            postTitle="Testimonials"
-          />
+          <Header subTitle="IN THE NEWS" preTitle="Testimonials" postTitle="" />
           <SplideCarousel />
         </div>
         {/* //todo: partners section */}
         <div style={{ margin: "5rem 0rem" }}>
-          <Header subTitle="" preTitle="Our" postTitle="Clients" />
+          <Header subTitle="" preTitle="Clients" />
           <ClientsSection />
         </div>
       </Container>
