@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 export class UserApiService {
-  static serverURL = 'http://localhost:8080';
+  static serverURL = "http://192.168.0.211";
   static getAllUsers() {
     // let dataURL = `${UserApiService.serverURL}/users`;
     // return axios.get(dataURL);
