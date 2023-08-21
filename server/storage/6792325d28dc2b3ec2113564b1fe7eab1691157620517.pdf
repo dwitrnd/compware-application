@@ -24,7 +24,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5001/api/sendEmail",
+							"raw": "https://api.deerwalktrainingcenter.com/api/sendEmail",
 							"host": [
 								"localhost"
 							],
@@ -48,7 +48,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/testimonial/64c7b400a3d5ac067b6a70ac",
+							"raw": "https://api.deerwalktrainingcenter.com/api/testimonial/64c7b400a3d5ac067b6a70ac",
 							"host": [
 								"localhost"
 							],
@@ -109,7 +109,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/testimonial/",
+							"raw": "https://api.deerwalktrainingcenter.com/api/testimonial/",
 							"host": [
 								"localhost"
 							],
@@ -139,7 +139,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/testimonial/64c7b400a3d5ac067b6a70ac",
+							"raw": "https://api.deerwalktrainingcenter.com/api/testimonial/64c7b400a3d5ac067b6a70ac",
 							"host": [
 								"localhost"
 							],
@@ -159,7 +159,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/testimonial/64c7b400a3d5ac067b6a70ac",
+							"raw": "https://api.deerwalktrainingcenter.com/api/testimonial/64c7b400a3d5ac067b6a70ac",
 							"host": [
 								"localhost"
 							],
@@ -191,7 +191,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "localhost:5001/api/vacancy/64c7b47e57decdebc51d190a",
+							"raw": "https://api.deerwalktrainingcenter.com/api/vacancy/64c7b47e57decdebc51d190a",
 							"host": [
 								"localhost"
 							],
@@ -263,7 +263,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/vacancy",
+							"raw": "https://api.deerwalktrainingcenter.com/api/vacancy",
 							"host": [
 								"localhost"
 							],
@@ -299,7 +299,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/vacancy/647de03f921d26d0707ca10a",
+							"raw": "https://api.deerwalktrainingcenter.com/api/vacancy/647de03f921d26d0707ca10a",
 							"host": [
 								"localhost"
 							],
@@ -319,7 +319,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/vacancy/64c7b47e57decdebc51d190a",
+							"raw": "https://api.deerwalktrainingcenter.com/api/vacancy/64c7b47e57decdebc51d190a",
 							"host": [
 								"localhost"
 							],
@@ -344,7 +344,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/team/64c7aafa61c5951649e59ae4",
+							"raw": "https://api.deerwalktrainingcenter.com/api/team/64c7aafa61c5951649e59ae4",
 							"host": [
 								"localhost"
 							],
@@ -411,7 +411,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/team",
+							"raw": "https://api.deerwalktrainingcenter.com/api/team",
 							"host": [
 								"localhost"
 							],
@@ -452,7 +452,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/team/64c7aa45df0907089fdfc6a0",
+							"raw": "https://api.deerwalktrainingcenter.com/api/team/64c7aa45df0907089fdfc6a0",
 							"host": [
 								"localhost"
 							],
@@ -472,7 +472,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/team/64c39b87537308e743b42763",
+							"raw": "https://api.deerwalktrainingcenter.com/api/team/64c39b87537308e743b42763",
 							"host": [
 								"localhost"
 							],
@@ -504,7 +504,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "localhost:5001/api/course/64ae8f96098314c3f7858a4f",
+							"raw": "https://api.deerwalktrainingcenter.com/api/course/64ae8f96098314c3f7858a4f",
 							"host": [
 								"localhost"
 							],
@@ -580,7 +580,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/course",
+							"raw": "https://api.deerwalktrainingcenter.com/api/course",
 							"host": [
 								"localhost"
 							],
@@ -619,7 +619,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/course/64c7983249387addb97ce11a",
+							"raw": "https://api.deerwalktrainingcenter.com/api/course/64c7983249387addb97ce11a",
 							"host": [
 								"localhost"
 							],
@@ -639,7 +639,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/course/64af9e35ce42b6596266850f",
+							"raw": "https://api.deerwalktrainingcenter.com/api/course/64af9e35ce42b6596266850f",
 							"host": [
 								"localhost"
 							],
@@ -664,7 +664,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/facts/64c7b4bd96719902521fb3cf",
+							"raw": "https://api.deerwalktrainingcenter.com/api/facts/64c7b4bd96719902521fb3cf",
 							"host": [
 								"localhost"
 							],
@@ -693,7 +693,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5001/api/facts",
+							"raw": "https://api.deerwalktrainingcenter.com/api/facts",
 							"host": [
 								"localhost"
 							],
@@ -721,7 +721,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5001/api/facts/64c3a0332ab18537933b7795",
+							"raw": "https://api.deerwalktrainingcenter.com/api/facts/64c3a0332ab18537933b7795",
 							"host": [
 								"localhost"
 							],
@@ -741,7 +741,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/facts/64c7b4bd96719902521fb3cf",
+							"raw": "https://api.deerwalktrainingcenter.com/api/facts/64c7b4bd96719902521fb3cf",
 							"host": [
 								"localhost"
 							],
@@ -766,7 +766,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/blog",
+							"raw": "https://api.deerwalktrainingcenter.com/api/blog",
 							"host": [
 								"localhost"
 							],
@@ -822,7 +822,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/blog",
+							"raw": "https://api.deerwalktrainingcenter.com/api/blog",
 							"host": [
 								"localhost"
 							],
@@ -863,7 +863,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/blog/6492e145b40fd49e9809e0b4",
+							"raw": "https://api.deerwalktrainingcenter.com/api/blog/6492e145b40fd49e9809e0b4",
 							"host": [
 								"localhost"
 							],
@@ -883,7 +883,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/blog/64c39f87bf0ff1663c75f3b5",
+							"raw": "https://api.deerwalktrainingcenter.com/api/blog/64c39f87bf0ff1663c75f3b5",
 							"host": [
 								"localhost"
 							],
@@ -908,7 +908,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/notifications",
+							"raw": "https://api.deerwalktrainingcenter.com/api/notifications",
 							"host": [
 								"localhost"
 							],
@@ -947,7 +947,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/notifications",
+							"raw": "https://api.deerwalktrainingcenter.com/api/notifications",
 							"host": [
 								"localhost"
 							],
@@ -981,7 +981,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/notifications/64b0e1d82131f2ae44a6a466",
+							"raw": "https://api.deerwalktrainingcenter.com/api/notifications/64b0e1d82131f2ae44a6a466",
 							"host": [
 								"localhost"
 							],
@@ -1001,7 +1001,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/notifications/64957e8084d779e58223b6ee",
+							"raw": "https://api.deerwalktrainingcenter.com/api/notifications/64957e8084d779e58223b6ee",
 							"host": [
 								"localhost"
 							],
@@ -1026,7 +1026,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/session",
+							"raw": "https://api.deerwalktrainingcenter.com/api/session",
 							"host": [
 								"localhost"
 							],
@@ -1075,7 +1075,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/session",
+							"raw": "https://api.deerwalktrainingcenter.com/api/session",
 							"host": [
 								"localhost"
 							],
@@ -1109,7 +1109,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/session/64b0e70ef2d421fef37d73ba",
+							"raw": "https://api.deerwalktrainingcenter.com/api/session/64b0e70ef2d421fef37d73ba",
 							"host": [
 								"localhost"
 							],
@@ -1129,7 +1129,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/session/649ad2bcce9036b29eae4c92",
+							"raw": "https://api.deerwalktrainingcenter.com/api/session/649ad2bcce9036b29eae4c92",
 							"host": [
 								"localhost"
 							],
@@ -1154,7 +1154,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/gallery/64c49ccde420531ca4ad40a0",
+							"raw": "https://api.deerwalktrainingcenter.com/api/gallery/64c49ccde420531ca4ad40a0",
 							"host": [
 								"localhost"
 							],
@@ -1194,7 +1194,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/gallery",
+							"raw": "https://api.deerwalktrainingcenter.com/api/gallery",
 							"host": [
 								"localhost"
 							],
@@ -1228,7 +1228,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/gallery/64c49ccde420531ca4ad40a0",
+							"raw": "https://api.deerwalktrainingcenter.com/api/gallery/64c49ccde420531ca4ad40a0",
 							"host": [
 								"localhost"
 							],
@@ -1248,7 +1248,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/gallery/64c49ccde420531ca4ad40a7",
+							"raw": "https://api.deerwalktrainingcenter.com/api/gallery/64c49ccde420531ca4ad40a7",
 							"host": [
 								"localhost"
 							],
@@ -1273,7 +1273,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/users/getloggeduserdata",
+							"raw": "https://api.deerwalktrainingcenter.com/api/users/getloggeduserdata",
 							"host": [
 								"localhost"
 							],
@@ -1323,7 +1323,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/users/login",
+							"raw": "https://api.deerwalktrainingcenter.com/api/users/login",
 							"host": [
 								"localhost"
 							],
@@ -1348,7 +1348,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/enquiry",
+							"raw": "https://api.deerwalktrainingcenter.com/api/enquiry",
 							"host": [
 								"localhost"
 							],
@@ -1397,7 +1397,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/enquiry",
+							"raw": "https://api.deerwalktrainingcenter.com/api/enquiry",
 							"host": [
 								"localhost"
 							],
@@ -1426,7 +1426,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/enquiry/64c39dceb938c78994019382",
+							"raw": "https://api.deerwalktrainingcenter.com/api/enquiry/64c39dceb938c78994019382",
 							"host": [
 								"localhost"
 							],
@@ -1446,7 +1446,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/enquiry/64c39dceb938c78994019382",
+							"raw": "https://api.deerwalktrainingcenter.com/api/enquiry/64c39dceb938c78994019382",
 							"host": [
 								"localhost"
 							],
@@ -1471,7 +1471,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/request/64ba70ae6716fae67469c02e",
+							"raw": "https://api.deerwalktrainingcenter.com/api/request/64ba70ae6716fae67469c02e",
 							"host": [
 								"localhost"
 							],
@@ -1541,7 +1541,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/request",
+							"raw": "https://api.deerwalktrainingcenter.com/api/request",
 							"host": [
 								"localhost"
 							],
@@ -1570,7 +1570,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/request/64c12ba70dbf9133040c0",
+							"raw": "https://api.deerwalktrainingcenter.com/api/request/64c12ba70dbf9133040c0",
 							"host": [
 								"localhost"
 							],
@@ -1590,7 +1590,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/request/64c12ba70dbf9133040c0648",
+							"raw": "https://api.deerwalktrainingcenter.com/api/request/64c12ba70dbf9133040c0648",
 							"host": [
 								"localhost"
 							],
@@ -1615,7 +1615,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/student",
+							"raw": "https://api.deerwalktrainingcenter.com/api/student",
 							"host": [
 								"localhost"
 							],
@@ -1684,7 +1684,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/student",
+							"raw": "https://api.deerwalktrainingcenter.com/api/student",
 							"host": [
 								"localhost"
 							],
@@ -1753,7 +1753,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/student/64bfb3a1f05642624a39ad85",
+							"raw": "https://api.deerwalktrainingcenter.com/api/student/64bfb3a1f05642624a39ad85",
 							"host": [
 								"localhost"
 							],
@@ -1773,7 +1773,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/student/64bfb3a1f05642624a39ad85",
+							"raw": "https://api.deerwalktrainingcenter.com/api/student/64bfb3a1f05642624a39ad85",
 							"host": [
 								"localhost"
 							],
@@ -1798,7 +1798,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/teacher/",
+							"raw": "https://api.deerwalktrainingcenter.com/api/teacher/",
 							"host": [
 								"localhost"
 							],
@@ -1845,7 +1845,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/teacher",
+							"raw": "https://api.deerwalktrainingcenter.com/api/teacher",
 							"host": [
 								"localhost"
 							],
@@ -1879,7 +1879,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/teacher/64c79a26728c142fb8d93cf6",
+							"raw": "https://api.deerwalktrainingcenter.com/api/teacher/64c79a26728c142fb8d93cf6",
 							"host": [
 								"localhost"
 							],
@@ -1899,7 +1899,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/teacher/64c79a26728c142fb8d93cf6",
+							"raw": "https://api.deerwalktrainingcenter.com/api/teacher/64c79a26728c142fb8d93cf6",
 							"host": [
 								"localhost"
 							],
@@ -1924,7 +1924,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/trainer/64c7a6133b32a38e182a3b1e",
+							"raw": "https://api.deerwalktrainingcenter.com/api/trainer/64c7a6133b32a38e182a3b1e",
 							"host": [
 								"localhost"
 							],
@@ -1970,7 +1970,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/trainer",
+							"raw": "https://api.deerwalktrainingcenter.com/api/trainer",
 							"host": [
 								"localhost"
 							],
@@ -1999,7 +1999,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:5001/api/trainer/64c7a44c378809a75f057b59",
+							"raw": "https://api.deerwalktrainingcenter.com/api/trainer/64c7a44c378809a75f057b59",
 							"host": [
 								"localhost"
 							],
@@ -2019,7 +2019,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:5001/api/trainer/64c7a44c378809a75f057b59",
+							"raw": "https://api.deerwalktrainingcenter.com/api/trainer/64c7a44c378809a75f057b59",
 							"host": [
 								"localhost"
 							],
