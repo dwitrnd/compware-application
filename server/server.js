@@ -12,9 +12,9 @@ app.use(express.json({ limit: "50mb" })); //? allow body parsing
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 // config cors
 var corsOptions = {
-  origin: "https://deerwalktrainingcenter.com",
+  origin: ["http://localhost:3000", "https://deerwalktrainingcenter.com"],
   credentials: true,
-  methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"],
+  methods: ["GET", "POST", "DELETE", "PATCH", "OPTIONS"],
   optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
