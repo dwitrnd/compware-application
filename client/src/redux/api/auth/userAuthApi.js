@@ -87,4 +87,11 @@ export const userAuthApi = createApi({
 });
 
 // export generated hooks
-export const { useRegisterUserMutation, useLoginUserMutation, useSendPasswordResetEmailMutation, useResetPasswordMutation, useGetLoggedUserQuery, useChangeUserPasswordMutation } = userAuthApi;
+export const {
+  useRegisterUserMutation,
+  useLoginUserMutation,
+  useSendPasswordResetEmailMutation,
+  useResetPasswordMutation,
+  useGetLoggedUserQuery,
+  useChangeUserPasswordMutation,
+} = userAuthApi;

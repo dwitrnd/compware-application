@@ -1,14 +1,17 @@
 import { Box, Button, Container, Typography } from "@material-ui/core";
 import { Pagination, Stack } from "@mui/material";
 import BlogImage from "../../assets/images/Blog-Image/blog-image.png";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import BlogImage2 from "../../assets/images/compware-gallery/compware-gallery-img1.jpg";
 
-export const BlogData = () => {
-  const authorName1 = "Bidhi Raghubanshi";
-  const authorName2 = "Roshan Khadka";
+export const BlogData = ({ id, title, date, author, logo, article }) => {
+  const [truncated, setTruncated] = useState(true);
+  const maxLines = 3; // Maximum number of lines to display
 
+  const toggleTruncate = () => {
+    setTruncated(!truncated);
+  };
   return (
     <>
       <Stack direction="column" spacing={4}>
@@ -17,66 +20,21 @@ export const BlogData = () => {
           sx={{ marginTop: "2rem" }}
           spacing={2}
         >
-          <img
-            src={BlogImage}
-            height="100%"
-            width="38.5%"
-            className="blog-image"
-          />
+          <img src={logo} height="100%" width="38.5%" className="blog-image" />
           <Stack direction="column" spacing={4}>
             <Typography variant="h6" color="primary">
-              DeerHack: Fawning Upon Innovation
+              {title}
             </Typography>
             <span>
               {" "}
-              <Typography variant="subtitle2">
-                by:{authorName1}{" "}
-              </Typography>{" "}
-              <Typography variant="subtitle 2">Date: 2023/04/05</Typography>{" "}
+              <Typography variant="subtitle2">by:- {author}</Typography>{" "}
+              <Typography variant="subtitle 2">Date: {date}</Typography>{" "}
             </span>
-            {/* Upload date remaining  */}
-            <Typography variant="body1">
-              DWIT Software Club, a prominent student-run club of Deerwalk
-              Institute of Technology, is thrilled to announce to host a
-              Hackathon "DeerHack 2023". This 36-hour-long event is going to
-              take place from 5th May 2023 - 7th May 2023 at Deerwalk Complex
-              with the primary objective of developing a culture of innovation
-              and idea-sharing within the IT industry. This hackathon aims to
-              provide a unique opportunity for the participants to collaborate.
+
+            <Typography variant="body1" className="blog-content">
+              {article}
             </Typography>
-            <Link to="/blog-page">
-              <Button
-                variant="outlined"
-                style={{ display: "flex", justifyContent: "flex-end" }}
-              >
-                Read More
-              </Button>
-            </Link>
-          </Stack>
-        </Stack>
-        {/* Second Blog */}
-        <Stack
-          direction={{ sm: "column", md: "row" }}
-          sx={{ marginTop: "2rem" }}
-          spacing={2}
-        >
-          <img src={BlogImage2} width="38.5%" className="blog-image" />
-          <Stack direction="column" spacing={4}>
-            <Typography variant="h6" color="primary">
-              About Deerwalk Training Center
-            </Typography>
-            <Typography variant="subtitle2">by:{authorName2} </Typography>
-            {/* Upload date remaining  */}
-            <Typography variant="body1">
-              We are proud to be recognized as a premier training institute in
-              Nepal, offering specialized courses in Java and Python programming
-              languages, as well as comprehensive data analytics-based computer
-              courses. Our curriculum is meticulously designed to cater to the
-              evolving demands of the industry, and we continuously update our
-              course offerings to reflect the latest developments in the field
-              of technology.
-            </Typography>
-            <Link to="/blog-page-2">
+            <Link to={`/blog-page/${id}`}>
               <Button
                 variant="outlined"
                 style={{ display: "flex", justifyContent: "flex-end" }}

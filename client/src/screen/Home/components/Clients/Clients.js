@@ -26,6 +26,8 @@ import Client20 from "../../../../assets/images/compware-clients/shivapuri-schoo
 import Client21 from "../../../../assets/images/compware-clients/siddharthaBank.jpg";
 import Client22 from "../../../../assets/images/compware-clients/vianet.jpg";
 import Client23 from "../../../../assets/images/compware-clients/worldlink.jpg";
+import Client24 from "../../../../assets/images/compware-clients/US Embassy.png";
+import Client25 from "../../../../assets/images/compware-clients/Shangri La development bank.png";
 import styled from "styled-components";
 
 const ClientImage = styled.img`
@@ -76,7 +78,8 @@ export default function Testimonials(props) {
     logo22: Client22,
     logo23: Client23,
     logo24: Client6,
-
+    logo25: Client24,
+    logo26: Client25,
     ...props.content,
   };
 
@@ -106,6 +109,8 @@ export default function Testimonials(props) {
         <ClientImage src={content["logo22"]} alt="" className={classes.logo} />
         <ClientImage src={content["logo23"]} alt="" className={classes.logo} />
         <ClientImage src={content["logo24"]} alt="" className={classes.logo} />
+        <ClientImage src={content["logo25"]} alt="" className={classes.logo} />
+        <ClientImage src={content["logo26"]} alt="" className={classes.logo} />
       </Box>
     </section>
   );

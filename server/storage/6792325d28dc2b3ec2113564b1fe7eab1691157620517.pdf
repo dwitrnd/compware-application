@@ -24,9 +24,15 @@
 							}
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/sendEmail",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/sendEmail",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -48,9 +54,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/testimonial/64c7b400a3d5ac067b6a70ac",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/testimonial/64c7b400a3d5ac067b6a70ac",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -109,9 +121,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/testimonial/",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/testimonial/",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -139,9 +157,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/testimonial/64c7b400a3d5ac067b6a70ac",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/testimonial/64c7b400a3d5ac067b6a70ac",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -159,9 +183,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/testimonial/64c7b400a3d5ac067b6a70ac",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/testimonial/64c7b400a3d5ac067b6a70ac",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -191,9 +221,15 @@
 							"formdata": []
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/vacancy/64c7b47e57decdebc51d190a",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/vacancy/64c7b47e57decdebc51d190a",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -263,9 +299,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/vacancy",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/vacancy",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -299,9 +341,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/vacancy/647de03f921d26d0707ca10a",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/vacancy/647de03f921d26d0707ca10a",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -319,9 +367,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/vacancy/64c7b47e57decdebc51d190a",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/vacancy/64c7b47e57decdebc51d190a",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -344,9 +398,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/team/64c7aafa61c5951649e59ae4",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/team/64c7aafa61c5951649e59ae4",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -411,9 +471,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/team",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/team",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -452,9 +518,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/team/64c7aa45df0907089fdfc6a0",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/team/64c7aa45df0907089fdfc6a0",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -472,9 +544,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/team/64c39b87537308e743b42763",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/team/64c39b87537308e743b42763",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -504,9 +582,15 @@
 							"formdata": []
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/course/64ae8f96098314c3f7858a4f",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/course/64ae8f96098314c3f7858a4f",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -580,9 +664,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/course",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/course",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -619,9 +709,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/course/64c7983249387addb97ce11a",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/course/64c7983249387addb97ce11a",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -639,9 +735,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/course/64af9e35ce42b6596266850f",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/course/64af9e35ce42b6596266850f",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -664,9 +766,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/facts/64c7b4bd96719902521fb3cf",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/facts/64c7b4bd96719902521fb3cf",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -693,9 +801,15 @@
 							}
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/facts",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/facts",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -721,9 +835,15 @@
 							}
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/facts/64c3a0332ab18537933b7795",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/facts/64c3a0332ab18537933b7795",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -741,9 +861,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/facts/64c7b4bd96719902521fb3cf",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/facts/64c7b4bd96719902521fb3cf",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -766,9 +892,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/blog",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/blog",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -822,9 +954,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/blog",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/blog",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -863,9 +1001,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/blog/6492e145b40fd49e9809e0b4",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/blog/6492e145b40fd49e9809e0b4",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -883,9 +1027,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/blog/64c39f87bf0ff1663c75f3b5",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/blog/64c39f87bf0ff1663c75f3b5",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -908,9 +1058,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/notifications",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/notifications",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -947,9 +1103,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/notifications",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/notifications",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -981,9 +1143,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/notifications/64b0e1d82131f2ae44a6a466",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/notifications/64b0e1d82131f2ae44a6a466",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1001,9 +1169,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/notifications/64957e8084d779e58223b6ee",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/notifications/64957e8084d779e58223b6ee",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1026,9 +1200,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/session",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/session",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1075,9 +1255,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/session",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/session",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1109,9 +1295,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/session/64b0e70ef2d421fef37d73ba",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/session/64b0e70ef2d421fef37d73ba",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1129,9 +1321,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/session/649ad2bcce9036b29eae4c92",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/session/649ad2bcce9036b29eae4c92",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1154,9 +1352,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/gallery/64c49ccde420531ca4ad40a0",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/gallery/64c49ccde420531ca4ad40a0",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1194,9 +1398,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/gallery",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/gallery",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1228,9 +1438,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/gallery/64c49ccde420531ca4ad40a0",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/gallery/64c49ccde420531ca4ad40a0",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1248,9 +1464,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/gallery/64c49ccde420531ca4ad40a7",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/gallery/64c49ccde420531ca4ad40a7",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1273,9 +1495,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/users/getloggeduserdata",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/users/getloggeduserdata",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1323,9 +1551,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/users/login",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/users/login",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1348,9 +1582,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/enquiry",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/enquiry",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1397,9 +1637,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/enquiry",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/enquiry",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1426,9 +1672,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/enquiry/64c39dceb938c78994019382",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/enquiry/64c39dceb938c78994019382",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1446,9 +1698,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/enquiry/64c39dceb938c78994019382",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/enquiry/64c39dceb938c78994019382",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1471,9 +1729,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/request/64ba70ae6716fae67469c02e",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/request/64ba70ae6716fae67469c02e",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1541,9 +1805,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/request",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/request",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1570,9 +1840,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/request/64c12ba70dbf9133040c0",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/request/64c12ba70dbf9133040c0",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1590,9 +1866,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/request/64c12ba70dbf9133040c0648",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/request/64c12ba70dbf9133040c0648",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1615,9 +1897,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/student",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/student",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1684,9 +1972,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/student",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/student",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1753,9 +2047,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/student/64bfb3a1f05642624a39ad85",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/student/64bfb3a1f05642624a39ad85",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1773,9 +2073,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/student/64bfb3a1f05642624a39ad85",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/student/64bfb3a1f05642624a39ad85",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1798,9 +2104,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/teacher/",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/teacher/",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1845,9 +2157,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/teacher",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/teacher",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1879,9 +2197,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/teacher/64c79a26728c142fb8d93cf6",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/teacher/64c79a26728c142fb8d93cf6",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1899,9 +2223,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/teacher/64c79a26728c142fb8d93cf6",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/teacher/64c79a26728c142fb8d93cf6",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1924,9 +2254,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/trainer/64c7a6133b32a38e182a3b1e",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/trainer/64c7a6133b32a38e182a3b1e",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1970,9 +2306,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/trainer",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/trainer",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -1999,9 +2341,15 @@
 							]
 						},
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/trainer/64c7a44c378809a75f057b59",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/trainer/64c7a44c378809a75f057b59",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [
@@ -2019,9 +2367,15 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
+<<<<<<< HEAD
 							"raw": "https://api.deerwalktrainingcenter.com/api/trainer/64c7a44c378809a75f057b59",
 							"host": [
 								"192.168.0.211"
+=======
+							"raw": "localhost:5001/api/trainer/64c7a44c378809a75f057b59",
+							"host": [
+								"localhost"
+>>>>>>> final-tushar-2
 							],
 							"port": "5001",
 							"path": [

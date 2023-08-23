@@ -40,8 +40,8 @@ const CourseDetailPage = () => {
       <Container style={{ marginTop: "3rem", marginBottom: "3rem" }}>
         <section>
           <Typography
-            variant='h3'
-            color='primary'
+            variant="h3"
+            color="primary"
             style={{
               display: "flex",
               alignItems: "center",
@@ -63,10 +63,13 @@ const CourseDetailPage = () => {
               }}
             >
               <Stack spacing={2} direction={{ sm: "column", md: "row" }}>
-                <img src={`${constant.base}/storage/${courseDetail.courseLogo}`} className='course-image' />
+                <img
+                  src={`${constant.base}/storage/${courseDetail.courseLogo}`}
+                  className="course-image"
+                />
 
-                <Stack spacing={2} direction='column'>
-                  <Typography variant='h5' color='primary'>
+                <Stack spacing={2} direction="column">
+                  <Typography variant="h5" color="primary">
                     {courseDetail.courseName}
                   </Typography>
                   {(() => {
@@ -74,11 +77,16 @@ const CourseDetailPage = () => {
                       return (
                         <>
                           <>
-                            <Typography variant='body1'>
+                            <Typography variant="body1">
                               Duration:
-                              {courseDetail.duration && courseDetail.duration}{" "}
+                              {courseDetail.duration &&
+                                courseDetail.duration}{" "}
                             </Typography>
-                            <Typography variant='body1'>Schedule: {courseDetail.schedule && courseDetail.schedule}</Typography>)
+                            <Typography variant="body1">
+                              Schedule:{" "}
+                              {courseDetail.schedule && courseDetail.schedule}
+                            </Typography>
+                            )
                           </>
                         </>
                       );
@@ -91,10 +99,16 @@ const CourseDetailPage = () => {
                       justifyContent: "space-evenly",
                     }}
                   >
-                    <CourseEnrollDialog courseName={courseDetail.courseName} schedule={courseDetail.schedule && courseDetail.schedule} />
+                    <CourseEnrollDialog
+                      courseName={courseDetail.courseName}
+                      schedule={courseDetail.schedule && courseDetail.schedule}
+                    />
 
-                    <a href={`${constant.base}/storage/${courseDetail.coursePdf}`} download>
-                      <Button variant='contained' color='primary'>
+                    <a
+                      href={`${constant.base}/storage/${courseDetail.coursePdf}`}
+                      download
+                    >
+                      <Button variant="contained" color="primary">
                         View Details
                       </Button>
                     </a>
@@ -102,11 +116,14 @@ const CourseDetailPage = () => {
                 </Stack>
               </Stack>
             </Box>
-            <Typography variant='h6' className='course-info-header'></Typography>
+            <Typography
+              variant="h6"
+              className="course-info-header"
+            ></Typography>
 
             <RenderHtmlString htmlString={courseDetail.aboutCourse} />
           </Grid>
-          <Grid md={4} className='grid-recommendation-item'>
+          <Grid md={4} className="grid-recommendation-item">
             <Box
               sx={{
                 display: "inline-block",
@@ -118,14 +135,34 @@ const CourseDetailPage = () => {
                 boxShadow: "6px 6px 12px 3px rgba(99, 99, 99, 0.20)",
               }}
             >
-              <Stack spacing={8} alignItems='center' justifyContent='space-around'>
-                <Typography variant='h6' color='primary'>
+              <Stack
+                spacing={8}
+                alignItems="center"
+                justifyContent="space-around"
+              >
+                <Typography variant="h6" color="primary">
                   Recommended for you
                 </Typography>
-                <CourseRecommendation name={"DIPLOMA IN JAVA"} hour={"120"} image={`${constant.base}/storage/53aae0e9e7d50bd3c401e6496ed4831e1691145701032.jpg`} />
-                <CourseRecommendation name={"REACT NATIVE"} hour={"120"} image={`${constant.base}/storage/dcdf252fd3c76114ce6f245f858ed1301691053527521.jpg`} />
-                <CourseRecommendation name={"VUE JS"} hour={"120"} image={`${constant.base}/storage/c88568e705b0420ed927e3ad251c52c51691144738372.jpg`} />
-                <CourseRecommendation name={"DOT NET"} hour={"120"} image={`${constant.base}/storage/10695f41221fd7dfb4cbae37c8917e181691130646629.jpg`} />
+                <CourseRecommendation
+                  name={"DIPLOMA IN JAVA"}
+                  hour={"120"}
+                  image={`${constant.base}/storage/53aae0e9e7d50bd3c401e6496ed4831e1691145701032.jpg`}
+                />
+                <CourseRecommendation
+                  name={"REACT NATIVE"}
+                  hour={"120"}
+                  image={`${constant.base}/storage/dcdf252fd3c76114ce6f245f858ed1301691053527521.jpg`}
+                />
+                <CourseRecommendation
+                  name={"VUE JS"}
+                  hour={"120"}
+                  image={`${constant.base}/storage/c88568e705b0420ed927e3ad251c52c51691144738372.jpg`}
+                />
+                <CourseRecommendation
+                  name={"DOT NET"}
+                  hour={"120"}
+                  image={`${constant.base}/storage/10695f41221fd7dfb4cbae37c8917e181691130646629.jpg`}
+                />
               </Stack>
             </Box>
           </Grid>

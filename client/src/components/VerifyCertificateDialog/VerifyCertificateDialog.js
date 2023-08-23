@@ -63,6 +63,11 @@ const MemberDialogBox = () => {
       fetchData();
     }
   };
+  const stopPropagationForTab = (event) => {
+    if (event.key === "Tab") {
+      event.stopPropagation();
+    }
+  };
 
   return (
     <div style={{ display: "initial" }}>
@@ -79,6 +84,7 @@ const MemberDialogBox = () => {
         Verify
       </div>
       <Dialog
+        onKeyDown={stopPropagationForTab}
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}

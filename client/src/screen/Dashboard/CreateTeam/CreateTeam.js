@@ -91,24 +91,57 @@ function CreateTeam() {
       <h1>Create Team</h1>
       <form onSubmit={handleSubmit}>
         <label style={labelStyle}>Name</label>
-        <input type='text' name='Name' value={formData.Name} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="Name"
+          value={formData.Name}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>Email</label>
-        <input type='email' name='Email' value={formData.Email} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="email"
+          name="Email"
+          value={formData.Email}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>Post</label>
-        <input type='text' name='Post' value={formData.Post} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="Post"
+          value={formData.Post}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>Description</label>
-        <ReactQuill value={formData.Description} onChange={handleEditorChange} />
+        <ReactQuill
+          value={formData.Description}
+          onChange={handleEditorChange}
+        />
 
         <label style={labelStyle}>Image</label>
-        <input type='file' accept='image/*' name='Image' onChange={handleImageChange} style={inputStyle} />
+        <input
+          type="file"
+          accept="image/*"
+          name="Image"
+          onChange={handleImageChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>Image Alt Text</label>
-        <input type='text' name='ImageAltText' value={formData.ImageAltText} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="ImageAltText"
+          value={formData.ImageAltText}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
-        <button type='submit' style={buttonStyle}>
+        <button type="submit" style={buttonStyle}>
           Create Team
         </button>
       </form>

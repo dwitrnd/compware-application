@@ -6531,7 +6531,7 @@ fieldset {
 }
 .find-your-path .path-section-container .left-section,
 .find-your-path .path-section-container .right-section {
-  width: 100%;
+  width: 100% !important;
 }
 
 :root {
@@ -7451,6 +7451,13 @@ td {
     width: 50%;
   }
 }
+.blog-content {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* Number of lines to display */
+  overflow: hidden;
+}
+
 @media only screen and (max-width: 960px) {
   .blog-image {
     margin: auto;
