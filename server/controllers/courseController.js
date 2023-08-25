@@ -151,7 +151,6 @@ class courseController {
         }
       }
     }
-
     try {
       const result = await Course.findByIdAndUpdate(
         courseId,
