@@ -1,6 +1,6 @@
 const { validationResult } = require("express-validator");
-const blog = require("../models/blog");
-
+const blog = require("../models/Blog");
+const fs = require("fs");
 class blogController {
   static post = async (req, res) => {
     try {
@@ -56,46 +56,79 @@ class blogController {
   static patch = async (req, res) => {
     const { title, date, author, logo, article } = req.body;
     const blogId = req.params.id;
-
-    if (logo) {
-      const file = req.files.logo;
-      const timestamp = Date.now();
-      const fileName = `photo_${timestamp}.jpeg`;
-
-      file.mv(`./storage/${fileName}`, (error) => {
-        if (error) {
-          return res.status(500).send(error);
-        }
-        console.log("File Uploaded!");
-      });
-      logo = fileName;
-    }
+    const savedBlog = await blog.findById(blogId);
     try {
-      const result = await blog.findByIdAndUpdate(
-        blogId,
-        {
-          title,
-          date,
-          author,
-          logo,
-          article,
-        },
-        { new: true }
-      );
-      if (!result) {
-        throw new Error("Not Updated");
+      if (req.files) {
+        const file = req.files.logo;
+        const timestamp = Date.now();
+        const fileName = `photo_${timestamp}.jpeg`;
+
+        file.mv(`./storage/${fileName}`, (error) => {
+          if (error) {
+            return res.status(500).send(error);
+          }
+          console.log("Upload Successful!");
+        });
+
+        const oldFilePath = `./storage/${savedBlog.logo}`;
+        fs.unlink(oldFilePath, (err) => {
+          if (err) {
+            return res.status(500).send(err);
+          }
+          console.log("Previous Image Deleted!");
+        });
+        const result = await blog.findByIdAndUpdate(
+          blogId,
+          {
+            title,
+            date,
+            author,
+            logo: fileName,
+            article,
+          },
+          { new: true }
+        );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
+      } else {
+        const result = await blog.findByIdAndUpdate(
+          blogId,
+          {
+            title,
+            date,
+            author,
+            article,
+          },
+          { new: true }
+        );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
       }
-      res.status(200).json({
-        status: true,
-        msg: result,
-      });
-    } catch (error) {
-      res.status(404).json({
+    } catch (err) {
+      console.log(err);
+      res.status(500).json({
         status: false,
-        msg: error,
+        msg: err,
       });
     }
   };
+
   static getOne = async (req, res) => {
     const Id = req.params.id;
     try {

@@ -1,5 +1,5 @@
 const Course = require("../models/Course");
-
+const fs = require("fs");
 class courseController {
   static post = async (req, res) => {
     try {
@@ -16,8 +16,6 @@ class courseController {
         imageAltText,
         fee,
       } = req.body;
-      console.log("=======================================================");
-      console.log(duration);
 
       const file1 = req.files.courseLogo;
       console.log(file1);
@@ -48,7 +46,7 @@ class courseController {
         courseCategory,
         courseIntro,
         aboutCourse,
-        courseLogo: `${courseLogo}.png`,
+        courseLogo,
         imageName,
         imageAltText,
         coursePdf,
@@ -64,7 +62,6 @@ class courseController {
         msg: result,
       });
     } catch (error) {
-      console.log("+++++++++++++++++++++++++++++++++++++++++=");
       console.log(error);
 
       res.status(500).json({
@@ -88,76 +85,81 @@ class courseController {
     }
   };
   static patch = async (req, res) => {
-    const {
-      courseName,
-      slugTitle,
-      courseCategory,
-      courseIntro,
-      aboutCourse,
-      courseLogo,
-      imageName,
-      imageAltText,
-      coursePdf,
-      duration,
-      schedule,
-      startDate,
-      fee,
-    } = req.body;
-
     const courseId = req.params.id;
+    const savedCourse = await Course.findById(courseId);
+    if (req.files) {
+      if (req.files.courseLogo) {
+        const file1 = req.files.courseLogo;
+        const timestamp = Date.now();
+        const fileName1 = file1.md5 + timestamp;
 
-    if (courseLogo) {
-      const file1 = req.files.courselogo;
-      const timestamp = Date.now();
-      const fileName1 = file1.md5 + timestamp;
-
-      file1.mv(`./storage/${fileName1}.png`),
-        (error) => {
+        file1.mv(`./storage/${fileName1}.png`, (error) => {
           if (error) {
             return res.status(500).send(error);
           }
-          console.log("File Updated!");
-        };
-      courseLogo = fileName1;
-    }
+          console.log("Upload Successful!");
+        });
 
-    if (coursePdf) {
-      const file2 = req.files.courselogo;
-      const timestamp = Date.now();
-      const fileName2 = file2.md5 + timestamp;
-
-      file2.mv(`./storage/${fileName2}`),
-        (error) => {
-          if (error) {
-            return res.status(500).send(error);
+        const oldFilePath = `./storage/${savedCourse.courseLogo}.png`;
+        fs.unlink(oldFilePath, (err) => {
+          if (err) {
+            return res.status(500).send(err);
           }
-          console.log("File Updated!");
-        };
-      coursePdf = fileName2;
+          console.log("Previous Image Deleted!");
+        });
+
+        savedCourse.courseLogo = fileName1;
+        try {
+          await savedCourse.save();
+        } catch (error) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+      }
+      if (req.files.coursePdf) {
+        const file2 = req.files.coursePdf;
+        console.log(file2);
+        const timestamp = Date.now();
+        const fileName2 = file2.md5 + timestamp;
+
+        file2.mv(`./storage/${fileName2}`),
+          (error) => {
+            if (error) {
+              return res.status(500).send(error);
+            }
+            console.log("File Updated!");
+          };
+
+        const oldFilePath2 = `./storage/${savedCourse.coursePdf}`;
+        fs.unlink(oldFilePath2, (err) => {
+          if (err) {
+            return res.status(500).send(err);
+          }
+          console.log("Previous Image Deleted!");
+        });
+
+        savedCourse.coursePdf = fileName2;
+        try {
+          await savedCourse.save();
+        } catch (error) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+      }
     }
+
     try {
       const result = await Course.findByIdAndUpdate(
         courseId,
         {
-          courseName,
-          slugTitle,
-          courseCategory,
-          courseIntro,
-          aboutCourse,
-          courseLogo,
-          imageName,
-          imageAltText,
-          coursePdf,
-          fee,
-          duration,
-          startDate,
-          schedule,
+          ...req.body,
         },
         { new: true }
       );
-      if (!result) {
-        throw new Error("Not Updated");
-      }
       res.status(200).json({
         status: true,
         msg: result,
@@ -165,7 +167,7 @@ class courseController {
     } catch (error) {
       res.status(404).json({
         status: false,
-        msg: "Not updated!",
+        msg: "Check Id again",
       });
     }
   };

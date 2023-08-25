@@ -1,5 +1,6 @@
 const partners = require("../models/PlacementPartners");
 const { validationResult } = require("express-validator");
+const fs = require("fs");
 
 class PlacementController {
   static post = async (req, res) => {
@@ -51,38 +52,69 @@ class PlacementController {
   static patch = async (req, res) => {
     const { Name, Photo } = req.body;
     const Id = req.params.id;
-    if (Photo) {
-      const file = req.files.Photo;
-      const timestamp = Date.now();
-      const fileName = `photo_${timestamp}.jpeg`;
-
-      file.mv(`./storage/${fileName}`, (error) => {
-        if (error) {
-          return res.status(500).send(error);
-        }
-        console.log("Upload Successful!");
-      });
-      Photo = fileName;
-    }
+    const savedPartners = await partners.findById(Id);
     try {
-      const result = await partners.findByIdAndUpdate(
-        Id,
-        {
-          Name,
-        },
-        { new: true }
-      );
-      if (!result) {
-        throw Error;
+      if (req.files) {
+        const file = req.files.Photo;
+        const timestamp = Date.now();
+        const fileName = `photo_${timestamp}.jpeg`;
+
+        file.mv(`./storage/${fileName}`, (error) => {
+          if (error) {
+            return res.status(500).send(error);
+          }
+          console.log("Upload Successful!");
+        });
+
+        const oldFilePath = `./storage/${savedPartners.Photo}`;
+        fs.unlink(oldFilePath, (err) => {
+          if (err) {
+            return res.status(500).send(err);
+          }
+          console.log("Previous Image Deleted!");
+        });
+        const result = await partners.findByIdAndUpdate(
+          Id,
+          {
+            Name,
+            Photo: fileName,
+          },
+          { new: true }
+        );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
+      } else {
+        const result = await partners.findByIdAndUpdate(
+          Id,
+          {
+            Name,
+          },
+          { new: true }
+        );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
       }
-      res.status(200).json({
-        status: true,
-        msg: result,
-      });
     } catch (err) {
-      res.status(404).json({
+      console.log(err);
+      res.status(500).json({
         status: false,
-        msg: "Check Id again",
+        msg: err,
       });
     }
   };

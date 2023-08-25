@@ -3,7 +3,7 @@ const student = require("../models/studentCertificate");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv");
 dotenv.config();
-
+const fs = require("fs");
 class studentController {
   static post = async (req, res) => {
     try {
@@ -131,50 +131,89 @@ class studentController {
       photo,
     } = req.body;
     const studentId = req.params.id;
-
-    if (photo) {
-      const file = req.files.companyLogo;
-      const timestamp = Date.now();
-      const fileName = `photo_${timestamp}.jpeg`;
-
-      file.mv(`./storage/${fileName}`, (error) => {
-        if (error) {
-          return res.status(500).send(error);
-        }
-        console.log("File Uploaded!");
-      });
-      photo = fileName;
-    }
+    const savedCerti = await student.findById(studentId);
     try {
-      const result = await student.findByIdAndUpdate(
-        studentId,
-        {
-          firstName,
-          lastName,
-          email,
-          course,
-          trainer,
-          gender,
-          courseDuration,
-          trainerTitle,
-          photo,
-          startDate,
-          endDate,
-          traineeID,
-        },
-        { new: true }
-      );
-      if (!result) {
-        throw Error;
+      if (req.files) {
+        const file = req.files.photo;
+        const timestamp = Date.now();
+        const fileName = `photo_${timestamp}.jpeg`;
+
+        file.mv(`./storage/${fileName}`, (error) => {
+          if (error) {
+            return res.status(500).send(error);
+          }
+          console.log("Upload Successful!");
+        });
+
+        const oldFilePath = `./storage/${savedCerti.photo}`;
+        fs.unlink(oldFilePath, (err) => {
+          if (err) {
+            return res.status(500).send(err);
+          }
+          console.log("Previous Image Deleted!");
+        });
+        const result = await student.findByIdAndUpdate(
+          studentId,
+          {
+            firstName,
+            lastName,
+            email,
+            course,
+            trainer,
+            gender,
+            courseDuration,
+            trainerTitle,
+            startDate,
+            endDate,
+            traineeID,
+            photo: fileName,
+          },
+          { new: true }
+        );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
+      } else {
+        const result = await student.findByIdAndUpdate(
+          studentId,
+          {
+            firstName,
+            lastName,
+            email,
+            course,
+            trainer,
+            gender,
+            courseDuration,
+            trainerTitle,
+            startDate,
+            endDate,
+            traineeID,
+          },
+          { new: true }
+        );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
       }
-      res.status(200).json({
-        status: true,
-        msg: result,
-      });
     } catch (err) {
-      res.status(404).json({
+      console.log(err);
+      res.status(500).json({
         status: false,
-        msg: "Check Id again",
+        msg: err,
       });
     }
   };
