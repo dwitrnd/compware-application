@@ -1,4 +1,4 @@
 export const constant = {
-  base: "http://localhost:5001",
-  client: "http://localhost:3000",
+  base: "https://api.deerwalktrainingcenter.com/",
+  client: "https://deerwalktrainingcenter.com/",
 };
