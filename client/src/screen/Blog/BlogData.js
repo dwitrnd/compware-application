@@ -27,7 +27,7 @@ export const BlogData = ({ id, title, date, author, logo, article }) => {
             </Typography>
             <span>
               {" "}
-              <Typography variant="subtitle2">by:- {author}</Typography>{" "}
+              <Typography variant="subtitle2">By:- {author}</Typography>{" "}
               <Typography variant="subtitle 2">Date: {date}</Typography>{" "}
             </span>
 

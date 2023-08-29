@@ -8,10 +8,12 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { constant } from "constants/contants";
 import axios from "axios";
+import RecentPost from "./components/RecentPost";
 
 const BlogPage = () => {
   const { id } = useParams();
-
+  const itemsPerPage = 3;
+  const pageNumber = 1;
   const [blogPage, setBlogPage] = useState({
     title: "",
     date: "",
@@ -19,14 +21,25 @@ const BlogPage = () => {
     logo: "",
     article: "",
   });
+  const [tableData, setTableData] = useState([]);
+  const [allTableData, setAllTableData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const url = `${constant.base}/api/blog/${id}`;
-
+  const recentUrl = `${constant.base}/api/blog`;
   useEffect(() => {
     axios.get(url).then((res) => {
       setBlogPage(res.data.msg);
     });
   });
+  useEffect(() => {
+    axios.get(recentUrl).then((res) => {
+      setAllTableData(res.data.msg);
+      setTableData(res.data.msg);
+      setIsLoading(false);
+    });
+  }, []);
+
   return (
     <>
       <Container style={{ marginTop: "3rem", marginBottom: "5rem" }}>
@@ -64,56 +77,26 @@ const BlogPage = () => {
               <Typography variant="h5" color="primary">
                 Recent Post
               </Typography>
-
-              <Container>
-                <Stack direction="column" spacing={4}>
-                  <Link to="/blog-page-2">
-                    <Stack
-                      direction={{ sm: "row", md: "column" }}
-                      spacing={2}
-                      justifyContent="center"
-                    >
-                      <img
-                        src={BlogRecommendedImage}
-                        style={{ width: "70%" }}
-                      />
-                      <Typography variant="h6" color="primary">
-                        About Deerwalk Training Center
-                      </Typography>
-                    </Stack>
-                  </Link>
-                  <Link to="/blog-page-2">
-                    <Stack
-                      direction={{ sm: "row", md: "column" }}
-                      spacing={2}
-                      justifyContent="center"
-                    >
-                      <img
-                        src={BlogRecommendedImage}
-                        style={{ width: "70%" }}
-                      />
-                      <Typography variant="h6" color="primary">
-                        About Deerwalk Training Center
-                      </Typography>
-                    </Stack>
-                  </Link>
-                  <Link to="/blog-page-2">
-                    <Stack
-                      direction={{ sm: "row", md: "column" }}
-                      spacing={2}
-                      justifyContent="center"
-                    >
-                      <img
-                        src={BlogRecommendedImage}
-                        style={{ width: "70%" }}
-                      />
-                      <Typography variant="h6" color="primary">
-                        About Deerwalk Training Center
-                      </Typography>
-                    </Stack>
-                  </Link>
-                </Stack>
-              </Container>
+              {tableData &&
+                tableData
+                  .slice(
+                    (pageNumber - 1) * itemsPerPage,
+                    pageNumber * itemsPerPage
+                  ) // Slice the data for the current page
+                  .map((item) => {
+                    return (
+                      <>
+                        <RecentPost
+                          id={item._id}
+                          title={item.title}
+                          date={item.date}
+                          author={item.author}
+                          image={`${constant.base}/storage/${item.logo}`}
+                          article={item.article}
+                        />
+                      </>
+                    );
+                  })}
             </Stack>
           </Grid>
         </Grid>

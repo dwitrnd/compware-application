@@ -137,7 +137,7 @@ function App() {
                   }
                 />
                 <Route
-                  path="blog-page"
+                  path="blog-page/:id"
                   element={
                     <Layout>
                       <BlogPage />
