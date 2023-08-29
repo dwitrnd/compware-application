@@ -1,11 +1,10 @@
 const { validationResult } = require("express-validator");
-const testimonial = require("../models/Testimonial");
+const testimonial = require("../models/testimonial");
 
 class testimonialController {
   static post = async (req, res) => {
     try {
-      const { name, affiliation, description, imageName, imageAltText } =
-        req.body;
+      const { name, affiliation, description, imageName, imageAltText } = req.body;
       const file = req.files.image;
 
       const timestamp = Date.now();
@@ -55,8 +54,7 @@ class testimonialController {
   };
 
   static patch = async (req, res) => {
-    const { name, affiliation, description, imageName, imageAltText } =
-      req.body;
+    const { name, affiliation, description, imageName, imageAltText } = req.body;
     const testimonialId = req.params.id;
     const file = req.files.image;
 
