@@ -27,26 +27,33 @@ function EditTeam() {
     cursor: "pointer",
   };
 
-  const [formData, setFormData] = useState({
-    Name: "",
-    Email: "",
-    Post: "",
-    Description: "",
-    Role: "",
-    Image: null,
-    ImageName: "",
-    ImageAltText: "",
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [post, setPost] = useState("");
+  const [description, setDescription] = useState("");
+  const [role, setRole] = useState("Staff"); // Default value
+  const [image, setImage] = useState(null);
+  const [imageName, setImageName] = useState("");
+  const [imageAltText, setImageAltText] = useState("");
 
   useEffect(() => {
-    // Fetch team data based on the ID and populate the form
     const fetchTeamData = async () => {
       try {
         const apiUrl = `http://localhost:5001/api/team/${id}`;
         const response = await fetch(apiUrl);
         if (response.ok) {
           const teamData = await response.json();
-          setFormData(teamData);
+          const { Description, Image, Email, ImageAltText, ImageName, Name, Post, Role } = teamData.msg;
+          setName(Name);
+          setEmail(Email);
+          setPost(Post);
+          setRole(Role);
+          setImage(Image);
+          setImageName(ImageName);
+          setImageAltText(ImageAltText);
+          setDescription(Description);
+
+          console.log("Team data fetched successfully", teamData.msg);
         } else {
           console.error("Failed to fetch team data");
         }
@@ -58,18 +65,10 @@ function EditTeam() {
     fetchTeamData();
   }, [id]);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
   const handleImageChange = (event) => {
     const imageFile = event.target.files[0];
-    setFormData({ ...formData, Image: imageFile, ImageName: imageFile.name });
-  };
-
-  const handleEditorChange = (value) => {
-    setFormData({ ...formData, Description: value });
+    setImage(imageFile);
+    setImageName(imageFile.name);
   };
 
   const handleSubmit = async (event) => {
@@ -77,9 +76,14 @@ function EditTeam() {
     const apiUrl = `http://localhost:5001/api/team/${id}`;
 
     const formDataToSend = new FormData();
-    for (const key in formData) {
-      formDataToSend.append(key, formData[key]);
-    }
+    formDataToSend.append("Name", name);
+    formDataToSend.append("Email", email);
+    formDataToSend.append("Post", post);
+    formDataToSend.append("Description", description);
+    formDataToSend.append("Role", role);
+    formDataToSend.append("Image", image);
+    formDataToSend.append("ImageName", imageName);
+    formDataToSend.append("ImageAltText", imageAltText);
 
     try {
       const response = await fetch(apiUrl, {
@@ -98,35 +102,28 @@ function EditTeam() {
     }
   };
 
-  // ... (rest of the code remains the same)
-
   return (
     <div>
       <h1>Update Team</h1>
       <form onSubmit={handleSubmit}>
-        {/* ... (form inputs and components) ... */}
-
         <label style={labelStyle}>Name</label>
-        <input type='text' name='Name' value={formData.Name} onChange={handleInputChange} style={inputStyle} />
-
+        <input type='text' name='Name' value={name} onChange={(e) => setName(e.target.value)} style={inputStyle} />
         <label style={labelStyle}>Email</label>
-        <input type='email' name='Email' value={formData.Email} onChange={handleInputChange} style={inputStyle} />
-
+        <input type='email' name='Email' value={email} onChange={(e) => setEmail(e.target.value)} style={inputStyle} />
         <label style={labelStyle}>Post</label>
-        <input type='text' name='Post' value={formData.Post} onChange={handleInputChange} style={inputStyle} />
-
+        <input type='text' name='Post' value={post} onChange={(e) => setPost(e.target.value)} style={inputStyle} />
         <label style={labelStyle}>Role</label>
-        <input type='text' name='Role' value={formData.Role} onChange={handleInputChange} style={inputStyle} />
+        <select name='Role' value={role} onChange={(e) => setRole(e.target.value)} style={inputStyle}>
+          <option value='Staff'>Staff</option>
+          <option value='Trainer'>Trainer</option>
+        </select>
 
         <label style={labelStyle}>Description</label>
-        <ReactQuill value={formData.Description} onChange={handleEditorChange} />
-
+        <ReactQuill value={description} onChange={setDescription} />
         <label style={labelStyle}>Image</label>
         <input type='file' accept='image/*' name='Image' onChange={handleImageChange} style={inputStyle} />
-
         <label style={labelStyle}>Image Alt Text</label>
-        <input type='text' name='ImageAltText' value={formData.ImageAltText} onChange={handleInputChange} style={inputStyle} />
-
+        <input type='text' name='ImageAltText' value={imageAltText} onChange={(e) => setImageAltText(e.target.value)} style={inputStyle} />
         <button type='submit' style={buttonStyle}>
           Update Team
         </button>

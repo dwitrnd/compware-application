@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { constant } from "constants/contants";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ListTestimonialBody = () => {
   // use useeffect
@@ -30,6 +31,21 @@ const ListTestimonialBody = () => {
 
   return (
     <div>
+      <Link to='/dashboard/create-course'>
+        <button
+          style={{
+            padding: "0.35rem 0.95rem",
+            margin: "0.25rem",
+            color: "white",
+            background: "#007bff",
+            border: "none",
+            outline: "none",
+          }}
+        >
+          create course
+        </button>
+      </Link>
+
       <table>
         <thead>
           <tr>

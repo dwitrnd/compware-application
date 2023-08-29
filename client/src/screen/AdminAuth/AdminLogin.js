@@ -127,9 +127,8 @@ const AdminLogin = () => {
               Forgot Password?
             </Link>
           </div>
-          <div>
-            <Link to='/register'>Register</Link>
-          </div>
+          
+          
         </Box>
       </Box>
     </>

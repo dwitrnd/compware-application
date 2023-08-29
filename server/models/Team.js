@@ -10,8 +10,12 @@ const teamSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  Role: {
+    type: String,
+    required: true,
+  },
   Post: {
-    type: [String],
+    type: String,
     required: true,
   },
   Description: {

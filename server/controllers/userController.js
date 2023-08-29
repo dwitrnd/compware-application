@@ -73,7 +73,7 @@ class UserController {
 
   static userPasswordReset = async (req, res) => {
     const { password, password_confirmation } = req.body;
-    // http://192.168.0.211:3000/api/users/:id/:token
+    // http://localhost:3000/api/users/:id/:token
     const { id, token } = req.params;
     const user = await userModel.findById(id);
     //to check validation of token -> generate token using same id and secret key that we used while creating token for Link in sendUserPasswordResetEmail Route

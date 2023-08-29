@@ -136,6 +136,11 @@ const Dashboard = ({ children }) => {
                 <span> Vacancy </span>
               </Link>
             </li>
+            <li class='sidebar-list-item'>
+              <Link to='/dashboard/list-gallery'>
+                <span> Gallery </span>
+              </Link>
+            </li>
           </ul>
         </div>
         <div class='app-content'>
