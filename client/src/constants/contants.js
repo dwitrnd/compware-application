@@ -1,4 +1,5 @@
 export const constant = {
-  base: "https://api.deerwalktrainingcenter.com/",
-  client: "https://deerwalktrainingcenter.com/",
+  base: "https://api.deerwalktrainingcenter.com",
+  client: "https://deerwalktrainingcenter.com",
 };
+// test
