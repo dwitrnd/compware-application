@@ -42,6 +42,8 @@ import UpdateCourse from "screen/Dashboard/UpdateCourse/UpdateCourse";
 import CreateCourse from "screen/Dashboard/ListCourseBody/CreateCourse";
 import EditTeam from "screen/Dashboard/EditTeam";
 import Event from "screen/Event/EventPage";
+import ListGalleryBody from "screen/Dashboard/ListGalleryBody/ListGalleryBody";
+import CreateGallery from "screen/Dashboard/ListGalleryBody/CreateGallery";
 
 // Simple git
 const theme = createTheme({
@@ -262,12 +264,28 @@ function App() {
                   </DashboardLayout>
                 }
               />
+              <Route
+                path='/dashboard/create-gallery'
+                element={
+                  <DashboardLayout>
+                    <CreateGallery />
+                  </DashboardLayout>
+                }
+              />
 
               <Route
                 path='/dashboard/list-course'
                 element={
                   <DashboardLayout>
                     <ListCourseBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-gallery'
+                element={
+                  <DashboardLayout>
+                    <ListGalleryBody />
                   </DashboardLayout>
                 }
               />
