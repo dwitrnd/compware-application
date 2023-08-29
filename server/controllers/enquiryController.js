@@ -1,66 +1,37 @@
 const Enquiry = require("../models/Enquiry");
 const https = require("https");
 
-const recaptchaSecret = "6LczgZknAAAAANrM1kLuALwLh4rqE46csLQ3iwJN"; // Replace with your reCAPTCHA secret key
+// const recaptchaSecret = "6LczgZknAAAAANrM1kLuALwLh4rqE46csLQ3iwJN"; // Replace with your reCAPTCHA secret key
 
 class enquiryController {
   static post = async (req, res) => {
     try {
-      const { name, phoneNum, course, enquiryDate, status, recaptchaValue } =
-        req.body;
+      const { name, email, phoneNum, course, enquiryDate } = req.body;
 
-      // Verify reCAPTCHA
-      const verificationURL = `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaValue}`;
-
-      https.get(verificationURL, (response) => {
-        let data = "";
-
-        response.on("data", (chunk) => {
-          data += chunk;
-        });
-
-        response.on("end", () => {
-          try {
-            const recaptchaResponse = JSON.parse(data);
-            if (!recaptchaResponse.success) {
-              return res.status(400).json({
-                status: false,
-                msg: "reCAPTCHA verification failed",
-              });
-            }
-
-            const enquiry = new Enquiry({
-              name,
-              phoneNum,
-              course,
-              enquiryDate,
-              status,
-            });
-            enquiry.save((err, result) => {
-              if (err) {
-                return res.status(500).json({
-                  status: false,
-                  msg: err,
-                });
-              }
-              res.status(200).json({
-                status: true,
-                msg: result,
-              });
-            });
-          } catch (error) {
-            console.error("Error verifying reCAPTCHA:", error);
-            res.status(500).json({
-              status: false,
-              msg: "Internal server error",
-            });
-          }
+      const enquiry = new Enquiry({
+        name,
+        email,
+        phoneNum,
+        course,
+        enquiryDate,
+      });
+      enquiry.save((err, result) => {
+        if (err) {
+          return res.status(500).json({
+            status: false,
+            msg: err,
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
         });
       });
     } catch (error) {
+      console.error("Error verifying reCAPTCHA:", error);
       res.status(500).json({
         status: false,
-        msg: error,
+        msg: "Internal server error",
       });
     }
   };
@@ -84,11 +55,7 @@ class enquiryController {
     try {
       const { name, phoneNum, course, enquiryDate, status } = req.body;
       const enquiryId = req.params.id;
-      const result = await Enquiry.findByIdAndUpdate(
-        enquiryId,
-        { name, phoneNum, course, enquiryDate, status },
-        { new: true }
-      );
+      const result = await Enquiry.findByIdAndUpdate(enquiryId, { name, phoneNum, course, enquiryDate, status }, { new: true });
       res.status(200).json({
         status: true,
         msg: result,

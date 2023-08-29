@@ -4,8 +4,7 @@ const team = require("../models/Team");
 class teamController {
   static post = async (req, res) => {
     try {
-      const { Name, Email, Post, Description, ImageName, ImageAltText } =
-        req.body;
+      const { Name, Email, Post, Role, Description, ImageName, ImageAltText } = req.body;
       const file = req.files.Image;
 
       const timestamp = Date.now();
@@ -22,6 +21,7 @@ class teamController {
         Name,
         Email,
         Post,
+        Role,
         Description,
         ImageAltText,
         ImageName,
@@ -55,8 +55,7 @@ class teamController {
   };
 
   static patch = async (req, res) => {
-    const { Name, Email, Post, Description, ImageName, Image, ImageAltText } =
-      req.body;
+    const { Name, Email, Post, Description, ImageName, Image, ImageAltText } = req.body;
     const teamId = req.params.id;
     if (Image) {
       const file = req.files.Image;
