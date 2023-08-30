@@ -7466,7 +7466,8 @@ td {
 .hero-section,
 .event-section {
   min-height: 70vh;
-  background-image: url("../assets/images/blur-bg.png");
+  background: rgba(0, 0, 0, 0.65) url("../assets/images/blur-bg.png");
+  background-blend-mode: darken;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -7496,25 +7497,6 @@ td {
 .hero-section span,
 .event-section span {
   color: #a6d7f3;
-}
-
-.event-section {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  background-image: url("../assets/images/female-speaker-bg.png");
-}
-.event-section span {
-  padding-left: 2rem;
-}
-.event-section h1,
-.event-section h4 {
-  text-align: left;
-  padding-left: 5rem;
-}
-.event-section h4 {
-  color: white;
-  font-size: 2rem;
 }
 
 .about-event-section .container {
@@ -7845,4 +7827,53 @@ td {
 
 section.sponsor-section {
   margin-bottom: 0 !important;
+}
+
+.event-header {
+  padding-top: 2rem;
+}
+.event-timeline {
+  color: white;
+  font-size: 1.6rem;
+}
+
+.justify-text {
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.panel-discussion-modal-img {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  margin-left: 50%;
+  border: 4px solid #0f5288;
+  margin-bottom: 2rem;
+}
+
+.panel-modal-desc::-webkit-scrollbar {
+  width: 0em;
+}
+
+.panel-modal-desc {
+  max-height: 50vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.css-1wnsr1i {
+  width: 70% !important;
+}
+@media only screen and (max-width: 900px) {
+  .css-1wnsr1i {
+    width: 90% !important;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .css-1wnsr1i {
+    width: 95% !important;
+  }
 }/*# sourceMappingURL=globals.css.map */

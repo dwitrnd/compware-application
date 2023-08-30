@@ -13,8 +13,38 @@ import Fb from "assets/icons/fb.png";
 import Insta from "assets/icons/insta.png";
 import Linkedin from "assets/icons/linkedin.png";
 import TestPdf from "assets/pdf/Passion_Letter_1.pdf";
+import Akankshya from "assets/images/panel-discussion/Akankshya Upadhyay 1.png";
+import Parag from "assets/images/panel-discussion/Parag Shrestha 1.png";
+import AnilDutta from "assets/images/panel-discussion/Anil Dutta 1.png";
+import Mona from "assets/images/panel-discussion/Mona Nyachhyon 1.png";
+import Avina from "assets/images/panel-discussion/AvinaNakarmi 1.png";
+import Rajib from "assets/images/panel-discussion/rajib.png";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 const EventPage = () => {
+  const [panelistImage, setPanelistImage] = React.useState("");
+  const [panelistName, setPanelistName] = React.useState("");
+  const [panelistDescription, setPanelistDescription] = React.useState("");
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   useEffect(() => {
     const accordion = document.querySelectorAll(".accordion h3");
     let mainParent;
@@ -38,35 +68,58 @@ const EventPage = () => {
 
   return (
     <main id='event-page'>
+      <>
+        <div>
+          <Modal
+            style={{
+              border: "none",
+              outline: "none",
+            }}
+            open={open}
+            onClose={handleClose}
+            aria-labelledby='modal-modal-title'
+            aria-describedby='modal-modal-description'
+          >
+            <Box sx={style}>
+              <img className='panel-discussion-modal-img' src={panelistImage} alt='' />
+              <h3 className='roboto_500 panel-discussion-modal-name'>
+                <center> {panelistName}</center>
+              </h3>
+              <Typography id='modal-modal-description ' className='roboto_400 justify-text panel-modal-desc' sx={{ mt: 2 }}>
+                {panelistDescription}
+              </Typography>
+            </Box>
+          </Modal>
+        </div>
+      </>
+
       <div className='hero-section'>
         <h1 className='roboto_500'>Deerwalk Tech Dialogue Series. Episode I</h1>
         <h1 className='roboto_500'>
           <span>"Making Nepal the IT Hub by 2030</span> - Possibilities and Challenges"
         </h1>
-      </div>
-      <div className='event-section'>
-        <div>
-          <h1>
-            <span className='roboto_500'>Event Details:</span>
-          </h1>
-          <h4 className='roboto_300'>
-            12th October, 2023 <br />
-            12 P.M to 4 P.M
-            <br />
-            Hotel Marriott
-          </h4>
-        </div>
+        <h1 className='event-header'>
+          <span className='roboto_500 event-title'>Event Details:</span>
+        </h1>
+        <h4 className='roboto_300 event-timeline'>
+          8th October, 2023 <br />
+          1:30 P.M to 4 P.M
+          <br />
+          Hotel Himalaya
+        </h4>
       </div>
 
       <section className='about-event-section'>
         <div className='container'>
           <h1 className='roboto_700'>About Event:</h1>
           <p className='roboto_400'>
-            Deerwalk Compware is organizing a panel discussion in collaboration with industry leaders, centering around the captivating topic, "deerwalk Tech Dialogue Series. Episode I", where we will delve into the strategies, innovations, and obstacles that shape Nepal's journey towards IT
-            prominence.
+            Deerwalk Compware is organizing a panel discussion in collaboration with industry leaders, centering around the captivating topic, "Deerwalk Tech Dialogue Series. Episode I", where we will delve into the strategies, innovations, and obstacles that shape Nepal's journey towards IT
+            prominence. With Deerwalk Tech Dialogue Series. Episode I, Panel Discussion - Making Nepal the IT Hub by 2030 - Possibilities and Challenges,  we're bringing together the smartest people, the creative thinkers, and the most influential figures, all accepted through a meticulous process
+            of evaluation and selection. This exclusive gathering is a testament to our commitment to fostering meaningful conversations that matter. As we dig into Nepal's tech progress, our panelists will break down the plans that lead to success, highlighting the new ideas that push us forward,
+            and face the challenges that we can only beat by working together.
           </p>
 
-          <a href='../../assets/pdf/Passion_Letter_1.pdf' download>
+          <a href='./EventPage.js' download>
             <button
               style={{
                 display: "flex",
@@ -92,27 +145,72 @@ const EventPage = () => {
         <div className='container'>
           <h2 className='heading roboto_700'>Panelist:</h2>
           <div className='panel-discussion-container'>
-            <div className='panel-list-card'>
-              <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> <img src={PanelListCardImage} alt='' /> <h6 className='roboto_400 panel-list-name'>Er. Kshitiz Singh</h6>
-              <h6 className='roboto_400 panel-list-designation'> Hod, Nepal reasearch </h6>
+            <div
+              className='panel-list-card'
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Rajib);
+                setPanelistName("Dr. Rajib Subba");
+                setPanelistDescription(
+                  "Dr. Rajib Subba is a pracademic in the ICT field, holding a PhD in Communication and Information Sciences from the University of Hawaii. He bridges academia and industry, applying ICT to solve complex organizational challenges, especially in crisis management. Dr. Subba's rich career spans roles in national and international organizations, including the United Nations Mission in Kosovo. He's also an educator, teaching organizational leadership and MIS. He has received numerous awards for his contributions, and he is actively involved in professional and community service organizations."
+                );
+              }}
+            >
+              <img src={Rajib} alt='' /> <h6 className='roboto_400 panel-list-name'>Dr. Rajib Subba</h6>
+              {/* <h6 className='roboto_400 panel-list-designation'> Dr. Rajib Subba </h6> */}
             </div>
-            <div className='panel-list-card'>
-              <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> <img src={PanelListCardImage} alt='' /> <h6 className='roboto_400 panel-list-name'>Er. Kshitiz Singh</h6>
-              <h6 className='roboto_400 panel-list-designation'> Hod, Nepal reasearch </h6>
+            <div
+              className='panel-list-card'
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Parag);
+                setPanelistName("Parag Shrestha");
+                setPanelistDescription(
+                  "Parag Shrestha is the Managing Director of South Asia at Fusemachines, dedicated to empowering businesses with AI solutions. His role involves overseeing AI strategies, solutions, research, and expanding Fusemachines' presence in South Asia. With over two decades of experience, Parag has worked with top tech firms like Salesforce, IBM, and 360Insights in North America, spanning diverse industries including finance, healthcare, and government. He's a strategic thinker, renowned for solving critical challenges for major clients like Coca-Cola and Delta Airlines."
+                );
+              }}
+            >
+              <img src={Parag} alt='' /> <h6 className='roboto_400 panel-list-name'>Parag Shrestha</h6>
+              {/* <h6 className='roboto_400 panel-list-designation'> Parag Shrestha </h6> */}
             </div>
-            <div className='panel-list-card'>
-              <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> <img src={PanelListCardImage} alt='' /> <h6 className='roboto_400 panel-list-name'>Er. Kshitiz Singh</h6>
-              <h6 className='roboto_400 panel-list-designation'> Hod, Nepal reasearch </h6>
+            <div
+              className='panel-list-card'
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(AnilDutta);
+                setPanelistName("Anil Dutta");
+                setPanelistDescription(
+                  "Anil Dutta is a distinguished professional currently holding the esteemed position of Joint Secretary at the Ministry of Communication and Information Technology. With a career spanning over two decades, he brings a wealth of experience and expertise to his pivotal role. Anil began his professional journey as a computer engineer at the Election Commission in April 1998, to which he has dedicated 25 years to date. In January 2020, he assumed the position of Joint Secretary at the Ministry of Communication and Information Technology, showcasing his dedication to public service and his invaluable contributions to the fields of technology and government administration."
+                );
+              }}
+            >
+              <img src={AnilDutta} alt='' /> <h6 className='roboto_400 panel-list-name'>Anil Dutta</h6>
+              {/* <h6 className='roboto_400 panel-list-designation'> Anil Dutta </h6> */}
             </div>
-            <div className='panel-list-card'>
-              <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> <img src={PanelListCardImage} alt='' /> <h6 className='roboto_400 panel-list-name'>Er. Kshitiz Singh</h6>
-              <h6 className='roboto_400 panel-list-designation'> Hod, Nepal reasearch </h6>
+            <div
+              className='panel-list-card'
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Mona);
+                setPanelistName("Mona Nyachhyon");
+                setPanelistDescription(`
+                  Mona Nyachhyon, the founder of Monal Tech, boasts over a decade of international experience as a cybersecurity professional in the IT sector. Throughout her career, she has demonstrated exceptional leadership in IT companies, offering technical and managerial expertise. Mona's
+                achievements include receiving the Women in IT award in Nepal and nominations for prestigious IT awards in the USA and Asia due to her leadership in a software company. She holds a range of certifications, including CEH, CAL, Scrum@Scale, and ATM, as well as holds both an MBA and
+                MPA, in addition to being a merit holder in BE. The primary objective of this panel discussion is convening key industry leaders, experts, and stakeholders to explore Nepal's potential to become a thriving IT hub by the year 2030. Together, we aim to address the opportunities and
+                challenges that lie ahead and discuss effective strategies for leveraging ideas and technologies. Your participation in this event as a sponsor would be incredibly valuable. Additionally, we extend a cordial invitation to your company to sponsor the event - a gesture that would be
+                genuinely appreciated and mutually advantageous. By choosing to sponsor this event, you not only demonstrate your commitment to Corporate Social Responsibility (CSR) but also stand to gain substantial exposure and direct marketing returns. Moreover, you will have ample opportunities
+                to engage with tech leaders from premier business organizations in Nepal, particularly within the information and technology sector. We firmly believe that your presence and involvement in this event will inspire and motivate the tech minds of Nepal to embrace the transformative
+                power of technology and innovation for a brighter future.`);
+              }}
+            >
+              <img src={Mona} alt='' /> <h6 className='roboto_400 panel-list-name'>Mona Nyachhyon</h6>
+              {/* <h6 className='roboto_400 panel-list-designation'> Mona Nyachhyon </h6> */}
             </div>
           </div>
         </div>
       </section>
       {/* speaker section */}
-      <section id='speaker-section'>
+      {/* <section id='speaker-section'>
         <div className='container'>
           <h2 className='heading roboto_700'>Speakers:</h2>
           <div className='panel-discussion-container'>
@@ -134,7 +232,7 @@ const EventPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* host section */}
       <section id='panel-list-section'>
@@ -149,12 +247,16 @@ const EventPage = () => {
           </h2>
           <div className='panel-discussion-container'>
             <div className='panel-list-card'>
-              <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> <img src={PanelListCardImage} alt='' /> <h6 className='roboto_400 panel-list-name'>Er. Kshitiz Singh</h6>
-              <h6 className='roboto_400 panel-list-designation'> Hod, Nepal reasearch </h6>
+              {/* <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> */}
+              <img src={Avina} alt='' /> <h6 className='roboto_400 panel-list-name'>Avina Nakarmi</h6>
+              <h6 className='roboto_400 panel-list-designation'> Avina Nakarmi </h6>
+              <h6 className='roboto_400 panel-list-designation'> Host </h6>
             </div>
             <div className='panel-list-card'>
-              <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> <img src={PanelListCardImage} alt='' /> <h6 className='roboto_400 panel-list-name'>Er. Kshitiz Singh</h6>
-              <h6 className='roboto_400 panel-list-designation'> Hod, Nepal reasearch </h6>
+              {/* <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> */}
+              <img src={Akankshya} alt='' /> <h6 className='roboto_400 panel-list-name'>Akankshya Upadhyay</h6>
+              <h6 className='roboto_400 panel-list-designation'> Akankshya Upadhyay </h6>
+              <h6 className='roboto_400 panel-list-designation'> Moderator </h6>
             </div>
           </div>
         </div>
@@ -171,7 +273,7 @@ const EventPage = () => {
                   <h3 className='roboto_700'>What is the event focusing on?</h3>
                 </div>
                 <div className='answer roboto_400'>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor necessitatibus voluptatibus quasi, perspiciatis similique beatae sint, assumenda vel magni corrupti asperiores esse eligendi possimus nesciunt veniam provident mollitia eveniet deserunt.</p>
+                  <p>The event is focusing on the objective of making Nepal a thriving IT hub by the year 2030. The primary focus is likely on discussing strategies, policies, investments, and collaborations required to expand the country’s IT sector.</p>
                 </div>
               </div>
 
@@ -180,10 +282,7 @@ const EventPage = () => {
                   <h3 className='roboto_700'>Who can join this discussion?</h3>
                 </div>
                 <div className='answer roboto_400'>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor necessitatibus voluptatibus quasi, perspiciatis similique beatae sint, assumenda vel magni corrupti asperiores esse eligendi possimus nesciunt veniam provident mollitia eveniet deserunt. Lorem ipsum dolor sit amet
-                    consectetur adipisicing elit. Dolor necessitatibus voluptatibus quasi, perspiciatis similique beatae sint, assumenda vel magni corrupti asperiores esse eligendi possimus nesciunt veniam provident mollitia eveniet deserunt.
-                  </p>
+                  <p>Upon submission of the form, invitations will be sent via email to those who qualify. Those who receive an invitation will have the honour of participating in the discussion.</p>
                 </div>
               </div>
 
@@ -192,7 +291,15 @@ const EventPage = () => {
                   <h3 className='roboto_700'>Who will be attending?</h3>
                 </div>
                 <div className='answer roboto_400'>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor necessitatibus voluptatibus quasi, perspiciatis similique beatae sint, assumenda vel magni corrupti asperiores esse eligendi possimus nesciunt veniam provident mollitia eveniet deserunt.</p>
+                  <p>Representatives from educational institutions, industry leaders in the IT sector, investors, and professionals from various fields will be present in the event.</p>
+                </div>
+              </div>
+              <div className='accordion'>
+                <div className='question'>
+                  <h3 className='roboto_700'>Why is this event being organized?</h3>
+                </div>
+                <div className='answer roboto_400'>
+                  <p>The event is being organized in order to foster the development of Nepal’s IT sector and bring together industry leaders for strategic planning.</p>
                 </div>
               </div>
               <div className='accordion'>
@@ -200,7 +307,7 @@ const EventPage = () => {
                   <h3 className='roboto_700'>What do we hope to achieve from this event?</h3>
                 </div>
                 <div className='answer roboto_400'>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor necessitatibus voluptatibus quasi, perspiciatis similique beatae sint, assumenda vel magni corrupti asperiores esse eligendi possimus nesciunt veniam provident mollitia eveniet deserunt.</p>
+                  <p>Our goal is to gather valuable insights and implementable strategies that will help Nepal become a vibrant IT hub by 2030.</p>
                 </div>
               </div>
             </div>

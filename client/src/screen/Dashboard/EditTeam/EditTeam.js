@@ -121,7 +121,7 @@ function EditTeam() {
         <label style={labelStyle}>Description</label>
         <ReactQuill value={description} onChange={setDescription} />
         <label style={labelStyle}>Image</label>
-        <input type='file' accept='image/*' name='Image' onChange={handleImageChange} style={inputStyle} />
+        <input type='file' required accept='image/*' name='Image' onChange={handleImageChange} style={inputStyle} />
         <label style={labelStyle}>Image Alt Text</label>
         <input type='text' name='ImageAltText' value={imageAltText} onChange={(e) => setImageAltText(e.target.value)} style={inputStyle} />
         <button type='submit' style={buttonStyle}>
