@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { constant } from "constants/contants";
 
 function CreateBlog() {
   const [formData, setFormData] = useState({
@@ -28,7 +29,7 @@ function CreateBlog() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const apiUrl = "http://localhost:5001/api/blog";
+    const apiUrl = `${constant.base}/api/blog`;
 
     const formDataToSend = new FormData();
     for (const key in formData) {
