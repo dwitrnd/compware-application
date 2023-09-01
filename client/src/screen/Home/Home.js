@@ -132,8 +132,8 @@ const Home = () => {
       {isPopupOpen && (
         <>
           {/* Add an overlay to close the popup when clicked outside */}
-          <Overlay ref={popupRef} onClick={handlePopUpClose} />
-          <Popup />
+          {/* <Overlay ref={popupRef} onClick={handlePopUpClose} /> */}
+          {/* <Popup /> */}
           {/* Your PopUp component */}
         </>
       )}

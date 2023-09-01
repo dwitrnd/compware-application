@@ -16,12 +16,7 @@ const CourseRecommendation = ({ id, name, image }) => {
 
   return (
     <>
-      <Stack
-        spacing={2}
-        direction={{ sm: "column", md: "row" }}
-        sx={{ marginTop: "1.5rem" }}
-      >
-        {/* <div
+      {/* <div
           style={{
             // background image
             backgroundImage: `url(${image})`,
@@ -32,15 +27,14 @@ const CourseRecommendation = ({ id, name, image }) => {
             width: "5rem",
           }}
         ></div> */}
-        <a href={`/course-detail/${id}`}>
-          <img src={image} style={{ width: "70%" }} />
-          <Stack spacing={2} direction="column">
-            <Typography variant="body1" color="primary">
-              {name}
-            </Typography>
-          </Stack>
-        </a>
-      </Stack>
+      <a href={`/course-detail/${id}`}>
+        <img src={image} style={{ width: "70%" }} />
+        <Stack spacing={2} direction="column">
+          <Typography variant="body1" color="primary">
+            {name}
+          </Typography>
+        </Stack>
+      </a>
     </>
   );
 };
