@@ -75,38 +75,37 @@ class courseController {
   };
   static patch = async (req, res) => {
     const { courseName, courseDuration, schedule, startDate, slugTitle, courseCategory, courseIntro, aboutCourse, imageName, imageAltText } = req.body;
-
+    console.log("req.body====");
+    console.log(req.body);
+    console.log("req.files====");
+    console.log(req.files);
     const courseId = req.params.id;
     let courseLogoName;
-    if (courseLogo) {
-      const file1 = req.files.courseLogo;
-      const timestamp = Date.now();
-      const fileName1 = file1.md5 + timestamp;
+    const file1 = req.files.courseLogo;
+    const timestamp = Date.now();
+    const fileName1 = file1.md5 + timestamp;
 
-      file1.mv(`./storage/${fileName1}.jpg`),
-        (error) => {
-          if (error) {
-            return res.status(500).send(error);
-          }
-          console.log("File Updated!");
-        };
-      courseLogoName = fileName1;
-    }
+    await file1.mv(`./storage/${fileName1}.jpg`),
+      (error) => {
+        if (error) {
+          return res.status(500).send(error);
+        }
+        console.log("File Updated!");
+      };
+    courseLogoName = fileName1;
     let coursePdfName;
-    if (coursePdf) {
-      const file2 = req.files.coursePdf;
-      const timestamp = Date.now();
-      const fileName2 = file2.md5 + timestamp;
+    const file2 = req.files.coursePdf;
+    const timestamp2 = Date.now();
+    const fileName2 = file2.md5 + timestamp2;
 
-      file2.mv(`./storage/${fileName2}.pdf`),
-        (error) => {
-          if (error) {
-            return res.status(500).send(error);
-          }
-          console.log("File Updated!");
-        };
-      coursePdfName = fileName2;
-    }
+    await file2.mv(`./storage/${fileName2}.pdf`),
+      (error) => {
+        if (error) {
+          return res.status(500).send(error);
+        }
+        console.log("File Updated!");
+      };
+    coursePdfName = fileName2;
     try {
       const result = await Course.findByIdAndUpdate(
         courseId,
@@ -117,7 +116,7 @@ class courseController {
           courseIntro,
           duration: courseDuration,
           aboutCourse,
-          courseLogo: `${courseLogoName}.png`,
+          courseLogo: `${courseLogoName}.jpg`,
           imageName,
           imageAltText,
           coursePdf: `${coursePdfName}.pdf`,

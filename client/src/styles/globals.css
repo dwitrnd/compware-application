@@ -7876,4 +7876,20 @@ section.sponsor-section {
   .css-1wnsr1i {
     width: 95% !important;
   }
+}
+
+.clickable {
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+  transform: scale(1);
+}
+
+.clickable:hover {
+  transition: all ease-in-out 100ms;
+  transform: scale(1.05);
+}
+
+.clickable:active {
+  transition: all ease-in-out 0ms;
+  transform: scale(0.95);
 }/*# sourceMappingURL=globals.css.map */
