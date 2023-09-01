@@ -32,7 +32,7 @@ function CreateTeam() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const apiUrl = `${constant.base}/api/team`;
+    const apiUrl = `https://api.deerwalktrainingcenter.com/api/team`;
 
     const formDataToSend = new FormData();
     for (const key in formData) {
