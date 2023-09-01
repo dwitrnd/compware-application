@@ -3,7 +3,18 @@ const Course = require("../models/Course");
 class courseController {
   static post = async (req, res) => {
     try {
-      const { courseName, courseDuration, schedule, startDate, slugTitle, courseCategory, courseIntro, aboutCourse, imageName, imageAltText } = req.body;
+      const {
+        courseName,
+        courseDuration,
+        schedule,
+        startDate,
+        slugTitle,
+        courseCategory,
+        courseIntro,
+        aboutCourse,
+        imageName,
+        imageAltText,
+      } = req.body;
 
       console.log("=====debug====");
 
@@ -74,7 +85,18 @@ class courseController {
     }
   };
   static patch = async (req, res) => {
-    const { courseName, courseDuration, schedule, startDate, slugTitle, courseCategory, courseIntro, aboutCourse, imageName, imageAltText } = req.body;
+    const {
+      courseName,
+      courseDuration,
+      schedule,
+      startDate,
+      slugTitle,
+      courseCategory,
+      courseIntro,
+      aboutCourse,
+      imageName,
+      imageAltText,
+    } = req.body;
 
     const courseId = req.params.id;
     let courseLogoName;
