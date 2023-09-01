@@ -77,8 +77,10 @@ function DrawerAppBar(props) {
   //   setCourseToggle((prevState) => !prevState);
   // };
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
+  const handleDrawerToggle = (e) => {
+    if (e.target.tagName !== "A") {
+      setMobileOpen((prevState) => !prevState);
+    }
   };
 
   // function to get current year
@@ -87,7 +89,7 @@ function DrawerAppBar(props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle}>
+    <Box>
       <Typography variant="h6" sx={{ my: 2 }}>
         Deerwalk Training Center
       </Typography>
@@ -118,6 +120,10 @@ function DrawerAppBar(props) {
                   className="blue-color roboto_500"
                   key={item.path.toLowerCase()}
                   sx={{ color: "#fff" }}
+                  onClick={() => {
+                    // Close the drawer when a link is clicked
+                    setMobileOpen(false);
+                  }}
                 >
                   {item.name}
                 </Button>
