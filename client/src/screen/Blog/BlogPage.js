@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import { constant } from "constants/contants";
 import axios from "axios";
 import RecentPost from "./components/RecentPost";
+import RenderHtmlString from "components/RenderHtmlString/RenderHtmlString";
 
 const BlogPage = () => {
   const { id } = useParams();
@@ -55,45 +56,33 @@ const BlogPage = () => {
             }}
           >
             <header>
-              <Typography variant="h3" color="primary" marginBottom="1rem">
+              <Typography variant='h3' color='primary' marginBottom='1rem'>
                 {blogPage.title}
               </Typography>
             </header>
             <Container>
-              <img
-                src={blogPage.logo}
-                width="100%"
-                style={{ borderRadius: "16px" }}
-              />
+              <img src={`${constant.base}/storage/${blogPage.logo}`} width='100%' style={{ borderRadius: "16px" }} />
 
-              <Typography variant="subtitle2" gutterBottom>
+              <Typography variant='subtitle2' gutterBottom>
                 -{blogPage.author}
               </Typography>
-              <p style={{ textAlign: "justify" }}>{blogPage.article}</p>
+              <p style={{ textAlign: "justify" }}>
+                <RenderHtmlString htmlString={blogPage.article} />
+              </p>
             </Container>
           </Grid>
           <Grid xs={12} md={4}>
-            <Stack direction="column" spacing={2} marginTop="2rem">
-              <Typography variant="h5" color="primary">
+            <Stack direction='column' spacing={2} marginTop='2rem'>
+              <Typography variant='h5' color='primary'>
                 Recent Post
               </Typography>
               {tableData &&
                 tableData
-                  .slice(
-                    (pageNumber - 1) * itemsPerPage,
-                    pageNumber * itemsPerPage
-                  ) // Slice the data for the current page
+                  .slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage) // Slice the data for the current page
                   .map((item) => {
                     return (
                       <>
-                        <RecentPost
-                          id={item._id}
-                          title={item.title}
-                          date={item.date}
-                          author={item.author}
-                          image={`${constant.base}/storage/${item.logo}`}
-                          article={item.article}
-                        />
+                        <RecentPost id={item._id} title={item.title} date={item.date} author={item.author} image={`${constant.base}/storage/${item.logo}`} article={item.article} />
                       </>
                     );
                   })}

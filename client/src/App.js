@@ -44,6 +44,8 @@ import EditTeam from "screen/Dashboard/EditTeam";
 import Event from "screen/Event/EventPage";
 import ListGalleryBody from "screen/Dashboard/ListGalleryBody/ListGalleryBody";
 import CreateGallery from "screen/Dashboard/ListGalleryBody/CreateGallery";
+import ListBlogBody from "screen/Dashboard/ListBlogBody/ListBlogBody";
+import CreateBlog from "screen/Dashboard/ListBlogBody/CreateBlog";
 
 // Simple git
 const theme = createTheme({
@@ -253,6 +255,22 @@ function App() {
                 element={
                   <DashboardLayout>
                     <ListEnrollStudentBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-blog'
+                element={
+                  <DashboardLayout>
+                    <ListBlogBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-blog'
+                element={
+                  <DashboardLayout>
+                    <CreateBlog />
                   </DashboardLayout>
                 }
               />
