@@ -81,7 +81,7 @@ function EditTeam() {
     formDataToSend.append("Post", post);
     formDataToSend.append("Description", description);
     formDataToSend.append("Role", role);
-    formDataToSend.append("Image", image);
+    // formDataToSend.append("Image", image);
     formDataToSend.append("ImageName", imageName);
     formDataToSend.append("ImageAltText", imageAltText);
 
@@ -118,12 +118,13 @@ function EditTeam() {
           <option value='Trainer'>Trainer</option>
         </select>
 
-        <label style={labelStyle}>Description</label>
-        <ReactQuill value={description} onChange={setDescription} />
-        <label style={labelStyle}>Image</label>
-        <input type='file' required accept='image/*' name='Image' onChange={handleImageChange} style={inputStyle} />
         <label style={labelStyle}>Image Alt Text</label>
         <input type='text' name='ImageAltText' value={imageAltText} onChange={(e) => setImageAltText(e.target.value)} style={inputStyle} />
+
+        <label style={labelStyle}>Description</label>
+        <ReactQuill value={description} onChange={setDescription} />
+        {/* <label style={labelStyle}>Image</label> */}
+        {/* <input type='file' accept='image/*' name='Image' onChange={handleImageChange} style={inputStyle} /> */}
         <button type='submit' style={buttonStyle}>
           Update Team
         </button>
