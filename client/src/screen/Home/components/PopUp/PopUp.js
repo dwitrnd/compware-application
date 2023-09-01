@@ -8,7 +8,7 @@ const PopupStyle = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0); /* Adjust the alpha value here */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,22 +19,12 @@ const PopUp = () => {
   return (
     <>
       <PopupStyle>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "white",
-          }}
-        >
-          <div style={{ width: "60vw", height: "50vh" }}>
-            <img src={Image1} />
-          </div>
-          {/* <div>
+        <div style={{ height: "50vh", margin: "auto" }}>
+          <img src={Image1} />
+        </div>
+        {/* <div>
             <Button variant="contained">Learn More</Button>
           </div> */}
-        </div>
       </PopupStyle>
     </>
   );
