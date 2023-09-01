@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useParams } from "react-router-dom";
+import { constant } from "constants/contants";
 
 function EditTeam() {
   const { id } = useParams();
@@ -39,7 +40,7 @@ function EditTeam() {
   useEffect(() => {
     const fetchTeamData = async () => {
       try {
-        const apiUrl = `http://localhost:5001/api/team/${id}`;
+        const apiUrl = `${constant.base}/api/team/${id}`;
         const response = await fetch(apiUrl);
         if (response.ok) {
           const teamData = await response.json();
@@ -73,7 +74,7 @@ function EditTeam() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const apiUrl = `http://localhost:5001/api/team/${id}`;
+    const apiUrl = `${constant.base}/api/team/${id}`;
 
     const formDataToSend = new FormData();
     formDataToSend.append("Name", name);

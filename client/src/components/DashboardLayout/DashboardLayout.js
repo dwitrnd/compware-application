@@ -147,6 +147,11 @@ const Dashboard = ({ children }) => {
                 <span> Blog </span>
               </Link>
             </li>
+            <li class='sidebar-list-item'>
+              <Link to='/dashboard/list-sessions'>
+                <span> Sessions </span>
+              </Link>
+            </li>
           </ul>
         </div>
         <div class='app-content'>

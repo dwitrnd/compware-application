@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { constant } from "constants/contants";
 
 function CreateTeam() {
   const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@ function CreateTeam() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const apiUrl = "http://localhost:5001/api/team";
+    const apiUrl = `https://api.deerwalktrainingcenter.com/api/team`;
 
     const formDataToSend = new FormData();
     for (const key in formData) {

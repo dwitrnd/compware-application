@@ -23,6 +23,13 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import SifalSchool from "assets/icons/Sifal School.png";
+import Logispark from "assets/icons/Logispark.png";
+import HamroPatra from "assets/icons/hamropatro.png";
+import DWIT from "assets/icons/DWIT.png";
+import CND from "assets/icons/CNA.png";
+import CedarGate from "assets/icons/Cedar Gate.png";
+import Atkans from "assets/icons/Atkans.png";
 
 const style = {
   position: "absolute",
@@ -146,7 +153,7 @@ const EventPage = () => {
           <h2 className='heading roboto_700'>Panelist:</h2>
           <div className='panel-discussion-container'>
             <div
-              className='panel-list-card'
+              className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
                 setPanelistImage(Rajib);
@@ -160,7 +167,7 @@ const EventPage = () => {
               {/* <h6 className='roboto_400 panel-list-designation'> Dr. Rajib Subba </h6> */}
             </div>
             <div
-              className='panel-list-card'
+              className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
                 setPanelistImage(Parag);
@@ -174,7 +181,7 @@ const EventPage = () => {
               {/* <h6 className='roboto_400 panel-list-designation'> Parag Shrestha </h6> */}
             </div>
             <div
-              className='panel-list-card'
+              className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
                 setPanelistImage(AnilDutta);
@@ -188,7 +195,7 @@ const EventPage = () => {
               {/* <h6 className='roboto_400 panel-list-designation'> Anil Dutta </h6> */}
             </div>
             <div
-              className='panel-list-card'
+              className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
                 setPanelistImage(Mona);
@@ -210,29 +217,6 @@ const EventPage = () => {
         </div>
       </section>
       {/* speaker section */}
-      {/* <section id='speaker-section'>
-        <div className='container'>
-          <h2 className='heading roboto_700'>Speakers:</h2>
-          <div className='panel-discussion-container'>
-            <div className='panel-list-card'>
-              <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> <img src={PanelListCardImage} alt='' /> <h6 className='roboto_400 panel-list-name'>Er. Kshitiz Singh</h6>
-              <h6 className='roboto_400 panel-list-designation'> Hod, Nepal reasearch </h6>
-            </div>
-            <div className='panel-list-card'>
-              <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> <img src={PanelListCardImage} alt='' /> <h6 className='roboto_400 panel-list-name'>Er. Kshitiz Singh</h6>
-              <h6 className='roboto_400 panel-list-designation'> Hod, Nepal reasearch </h6>
-            </div>
-            <div className='panel-list-card'>
-              <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> <img src={PanelListCardImage} alt='' /> <h6 className='roboto_400 panel-list-name'>Er. Kshitiz Singh</h6>
-              <h6 className='roboto_400 panel-list-designation'> Hod, Nepal reasearch </h6>
-            </div>
-            <div className='panel-list-card'>
-              <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> <img src={PanelListCardImage} alt='' /> <h6 className='roboto_400 panel-list-name'>Er. Kshitiz Singh</h6>
-              <h6 className='roboto_400 panel-list-designation'> Hod, Nepal reasearch </h6>
-            </div>
-          </div>
-        </div>
-      </section> */}
 
       {/* host section */}
       <section id='panel-list-section'>
@@ -249,13 +233,11 @@ const EventPage = () => {
             <div className='panel-list-card'>
               {/* <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> */}
               <img src={Avina} alt='' /> <h6 className='roboto_400 panel-list-name'>Avina Nakarmi</h6>
-              <h6 className='roboto_400 panel-list-designation'> Avina Nakarmi </h6>
               <h6 className='roboto_400 panel-list-designation'> Host </h6>
             </div>
             <div className='panel-list-card'>
               {/* <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> */}
               <img src={Akankshya} alt='' /> <h6 className='roboto_400 panel-list-name'>Akankshya Upadhyay</h6>
-              <h6 className='roboto_400 panel-list-designation'> Akankshya Upadhyay </h6>
               <h6 className='roboto_400 panel-list-designation'> Moderator </h6>
             </div>
           </div>
@@ -317,8 +299,28 @@ const EventPage = () => {
 
       <section className='sponsor-section'>
         <h2 className='sponsor-heading roboto_700'>Sponsors:</h2>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <img className='sponsor-logos sponsor-logos--medium' src={SifalSchool} alt='' />
+          <img className='sponsor-logos' src={Logispark} alt='' />
+          <img className='sponsor-logos' src={HamroPatra} alt='' />
+          <img className='sponsor-logos sponsor-logos--medium' src={DWIT} alt='' />
+          <img className='sponsor-logos' src={Deerhold} alt='' />
+          <img className='sponsor-logos' src={CND} alt='' />
+          <img className='sponsor-logos sponsor-logos--medium' src={CedarGate} alt='' />
+          <img className='sponsor-logos' src={Atkans} alt='' />
+        </div>
+
         <div className='sponsor-container'>
           <h4 className='roboto_700'>Title Sponsor:</h4>
+
           <div className='sponsor-logo-container'>
             <img src={HamroPatro} alt='' />
           </div>

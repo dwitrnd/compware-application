@@ -7,14 +7,15 @@ class studentController {
       const {
         firstName,
         lastName,
-        email,
-        course,
-        trainer,
-        gender,
-        courseDuration,
-        trainerTitle,
         startDuration,
         endDuration,
+        courseDuration,
+        course,
+        trainer,
+        trainerTitle,
+        // verification id
+        email,
+        gender,
       } = req.body;
 
       const file = req.files.photo;
@@ -74,19 +75,7 @@ class studentController {
   };
 
   static patch = async (req, res) => {
-    const {
-      firstName,
-      lastName,
-      email,
-      course,
-      trainer,
-      gender,
-      courseDuration,
-      trainerTitle,
-      startDuration,
-      endDuration,
-      photo,
-    } = req.body;
+    const { firstName, lastName, email, course, trainer, gender, courseDuration, trainerTitle, startDuration, endDuration, photo } = req.body;
     const studentId = req.params.id;
 
     if (photo) {

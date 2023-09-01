@@ -2,74 +2,89 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { constant } from "constants/contants";
 
 const UpdateCourse = () => {
-  const navigate = useNavigate();
   const { id } = useParams();
+  const apiUrl = `${constant.base}/api/course/${id}`; // create URL
 
   const [courseName, setCourseName] = useState("");
+  const [courseDuration, setCourseDuration] = useState("");
   const [slugTitle, setSlugTitle] = useState("");
   const [courseCategory, setCourseCategory] = useState("");
   const [courseIntro, setCourseIntro] = useState("");
   const [aboutCourse, setAboutCourse] = useState("");
-  const [courseLogo, setCourseLogo] = useState("");
+  const [courseLogo, setCourseLogo] = useState(null);
   const [imageName, setImageName] = useState("");
   const [imageAltText, setImageAltText] = useState("");
-  const [coursePdf, setCoursePdf] = useState("");
-
-  const apiUrl = "http://localhost:5001/api/course/" + id;
+  const [coursePdf, setCoursePdf] = useState(null);
 
   useEffect(() => {
-    const getCourse = async () => {
-      const res = await fetch(apiUrl);
-      const data = await res.json();
-
-      setCourseName(data.msg.courseName);
-      setSlugTitle(data.msg.slugTitle);
-      setCourseCategory(data.msg.courseCategory);
-      setCourseIntro(data.msg.courseIntro);
-      setAboutCourse(data.msg.aboutCourse);
-      setCourseLogo(data.msg.courseLogo);
-      setImageName(data.msg.imageName);
-      setImageAltText(data.msg.imageAltText);
-      setCoursePdf(data.msg.coursePdf);
-    };
-
-    getCourse();
+    axios.get(apiUrl).then((res) => {
+      const { courseName, courseIntro, courseCategory, aboutCourse, duration, imageAltText, imageName, slugTitle } = res.data.msg;
+      setCourseName(courseName);
+      setCourseIntro(courseIntro);
+      setCourseCategory(courseCategory);
+      setAboutCourse(aboutCourse);
+      setCourseDuration(duration);
+      setImageAltText(imageAltText);
+      setImageName(imageName);
+      setSlugTitle(slugTitle);
+    });
   }, []);
 
   const updateCourse = async (e) => {
     e.preventDefault();
 
-    const courseData = {
-      courseName,
-      slugTitle,
-      courseCategory,
-      courseIntro,
-      aboutCourse,
-      imageName,
-      imageAltText,
-    };
+    console.log("courseName =", courseName);
+    console.log("courseDuration =", courseDuration);
+    console.log("slugTitle =", slugTitle);
+    console.log("courseCategory =", courseCategory);
+    console.log("courseIntro =", courseIntro);
+    console.log("aboutCourse =", aboutCourse);
+    console.log("courseLogo =", courseLogo);
+    console.log("imageName =", imageName);
+    console.log("imageAltText =", imageAltText);
+    console.log("coursePdf =", coursePdf);
 
-    const res = await fetch(apiUrl, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(courseData),
-    });
+    // do a post request to apiUrl
 
-    const data = await res.json();
-    console.log(data);
-    toast.success("Updated successfully");
-    navigate("/dashboard/list-course");
+    const formData = new FormData();
+    formData.append("courseName", courseName);
+    formData.append("slugTitle", slugTitle);
+    formData.append("courseCategory", courseCategory);
+    formData.append("courseIntro", courseIntro);
+    formData.append("courseDuration", courseDuration);
+    formData.append("aboutCourse", aboutCourse);
+    formData.append("courseLogo", courseLogo);
+    formData.append("imageName", imageName);
+    formData.append("imageAltText", imageAltText);
+    formData.append("coursePdf", coursePdf);
+
+    console.log(formData);
+
+    try {
+      const response = await axios.patch(apiUrl, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      console.log("response =", response);
+      toast.success("Course updated successfully");
+      // navigate("/dashboard");
+    } catch (error) {
+      console.log("error =", error);
+      toast.error("Something went wrong");
+    }
   };
 
   return (
     <div style={{ maxWidth: "500px", margin: "auto", padding: "20px" }}>
-      <form action=''>
+      <form onSubmit={updateCourse}>
         <div style={{ marginBottom: "20px" }}>
           <label htmlFor='courseName'>Course Name</label>
           <input
@@ -84,6 +99,24 @@ const UpdateCourse = () => {
             placeholder='Enter course name'
             value={courseName}
             onChange={(e) => setCourseName(e.target.value)}
+          />
+        </div>
+        {/* for duration input field  */}
+
+        <div style={{ marginBottom: "20px" }}>
+          <label htmlFor='courseDuration'>Course Duration</label>
+          <input
+            style={{
+              width: "100%",
+              padding: "10px",
+              borderRadius: "5px",
+              border: "1px solid #ccc",
+            }}
+            type='text'
+            id='courseDuration'
+            placeholder='Enter course duration'
+            value={courseDuration}
+            onChange={(e) => setCourseDuration(e.target.value)}
           />
         </div>
 
@@ -161,10 +194,14 @@ const UpdateCourse = () => {
               borderRadius: "5px",
               border: "1px solid #ccc",
             }}
+            required
             type='file'
             id='courseLogo'
             placeholder='Enter course logo'
-            onChange={(e) => setCourseLogo(e.target.value)}
+            onChange={(e) => {
+              console.log(e.target.files[0]);
+              setCourseLogo(e.target.files[0]);
+            }}
           />
         </div>
 
@@ -205,6 +242,7 @@ const UpdateCourse = () => {
         <div style={{ marginBottom: "20px" }}>
           <label htmlFor='coursePdf'>Course Pdf</label>
           <input
+            required
             style={{
               width: "100%",
               padding: "10px",
@@ -214,7 +252,10 @@ const UpdateCourse = () => {
             type='file'
             id='coursePdf'
             placeholder='Enter course pdf'
-            onChange={(e) => setCoursePdf(e.target.value)}
+            onChange={(e) => {
+              console.log(e.target.files[0]);
+              setCoursePdf(e.target.files[0]);
+            }}
           />
         </div>
 
@@ -232,9 +273,8 @@ const UpdateCourse = () => {
             marginTop: "20px",
           }}
           type='submit'
-          onClick={updateCourse}
         >
-          Submit
+          Update Course
         </button>
       </form>
     </div>
