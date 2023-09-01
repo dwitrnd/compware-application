@@ -27,7 +27,9 @@ import SifalSchool from "assets/icons/Sifal School.png";
 import Logispark from "assets/icons/Logispark.png";
 import HamroPatra from "assets/icons/hamropatro.png";
 import DWIT from "assets/icons/DWIT.png";
-// import Deerhold from "assets/icons/deerholdo.png";
+import CND from "assets/icons/CNA.png";
+import CedarGate from "assets/icons/Cedar Gate.png";
+import Atkans from "assets/icons/Atkans.png";
 
 const style = {
   position: "absolute",
@@ -298,8 +300,27 @@ const EventPage = () => {
       <section className='sponsor-section'>
         <h2 className='sponsor-heading roboto_700'>Sponsors:</h2>
 
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <img className='sponsor-logos sponsor-logos--medium' src={SifalSchool} alt='' />
+          <img className='sponsor-logos' src={Logispark} alt='' />
+          <img className='sponsor-logos' src={HamroPatra} alt='' />
+          <img className='sponsor-logos sponsor-logos--medium' src={DWIT} alt='' />
+          <img className='sponsor-logos' src={Deerhold} alt='' />
+          <img className='sponsor-logos' src={CND} alt='' />
+          <img className='sponsor-logos sponsor-logos--medium' src={CedarGate} alt='' />
+          <img className='sponsor-logos' src={Atkans} alt='' />
+        </div>
+
         <div className='sponsor-container'>
           <h4 className='roboto_700'>Title Sponsor:</h4>
+
           <div className='sponsor-logo-container'>
             <img src={HamroPatro} alt='' />
           </div>

@@ -7892,4 +7892,13 @@ section.sponsor-section {
 .clickable:active {
   transition: all ease-in-out 0ms;
   transform: scale(0.95);
+}
+
+.sponsor-logos {
+  height: 5rem;
+  margin: 1rem;
+}
+
+.sponsor-logos--larger {
+  height: 19rem;
 }/*# sourceMappingURL=globals.css.map */
