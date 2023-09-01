@@ -23,6 +23,11 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import SifalSchool from "assets/icons/Sifal School.png";
+import Logispark from "assets/icons/Logispark.png";
+import HamroPatra from "assets/icons/hamropatro.png";
+import DWIT from "assets/icons/DWIT.png";
+// import Deerhold from "assets/icons/deerholdo.png";
 
 const style = {
   position: "absolute",
@@ -292,6 +297,7 @@ const EventPage = () => {
 
       <section className='sponsor-section'>
         <h2 className='sponsor-heading roboto_700'>Sponsors:</h2>
+
         <div className='sponsor-container'>
           <h4 className='roboto_700'>Title Sponsor:</h4>
           <div className='sponsor-logo-container'>

@@ -45,7 +45,9 @@ import Event from "screen/Event/EventPage";
 import ListGalleryBody from "screen/Dashboard/ListGalleryBody/ListGalleryBody";
 import CreateGallery from "screen/Dashboard/ListGalleryBody/CreateGallery";
 import ListBlogBody from "screen/Dashboard/ListBlogBody/ListBlogBody";
+import ListSessionBody from "screen/Dashboard/ListSessionBody/ListSessionBody";
 import CreateBlog from "screen/Dashboard/ListBlogBody/CreateBlog";
+import CreateSession from "screen/Dashboard/ListSessionBody/CreateSession";
 
 // Simple git
 const theme = createTheme({
@@ -255,6 +257,22 @@ function App() {
                 element={
                   <DashboardLayout>
                     <ListEnrollStudentBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-sessions'
+                element={
+                  <DashboardLayout>
+                    <ListSessionBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-session'
+                element={
+                  <DashboardLayout>
+                    <CreateSession />
                   </DashboardLayout>
                 }
               />

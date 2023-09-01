@@ -25,7 +25,6 @@ const UpdateCourse = () => {
   useEffect(() => {
     axios.get(apiUrl).then((res) => {
       const { courseName, courseIntro, courseCategory, aboutCourse, duration, imageAltText, imageName, slugTitle } = res.data.msg;
-
       setCourseName(courseName);
       setCourseIntro(courseIntro);
       setCourseCategory(courseCategory);
