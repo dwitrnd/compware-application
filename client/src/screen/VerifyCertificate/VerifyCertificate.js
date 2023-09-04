@@ -1,12 +1,55 @@
 import { Box, TextField, Typography, Button, Container } from "@mui/material";
-import React from "react";
+import React, { useRef } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import CertificateImage from "../../assets/images/training_certificate.jpg";
 import TestimonialImage from "../../assets/images/TestimonialPhotos/Student12.jpg";
 import Stack from "@mui/material/Stack";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 
 const VerifyCertificate = () => {
+  const certificateRef = useRef(null);
+
+  const handleDownloadPNG = async () => {
+    const certificate = certificateRef.current;
+
+    if (!certificate) {
+      return;
+    }
+
+    // Create a canvas from the certificate image
+    const canvas = await html2canvas(certificate);
+
+    // Convert canvas to PNG
+    const pngDataUrl = canvas.toDataURL("image/png");
+
+    // Trigger download
+    const link = document.createElement("a");
+    link.href = pngDataUrl;
+    link.download = "certificate.png";
+    link.click();
+  };
+
+  const handleDownloadPDF = async () => {
+    const certificate = certificateRef.current;
+
+    if (!certificate) {
+      return;
+    }
+
+    // Create a canvas from the certificate image
+    const canvas = await html2canvas(certificate);
+
+    // Convert canvas to PNG
+    const pngDataUrl = canvas.toDataURL("image/png");
+
+    // Convert canvas to PDF
+    const pdf = new jsPDF();
+    pdf.addImage(pngDataUrl, "PNG", 15, 15, 180, 120); // Adjust the position and dimensions as needed
+    pdf.save("certificate.pdf");
+  };
+
   return (
     <>
       <div
@@ -130,6 +173,7 @@ const VerifyCertificate = () => {
                   style={{
                     position: "relative",
                   }}
+                  ref={certificateRef}
                 >
                   <img
                     src={CertificateImage}
@@ -215,18 +259,38 @@ const VerifyCertificate = () => {
                     </strong>
                   </div>
                 </section>
-                <Button variant="contained">
-                  <span>
-                    <FileDownloadIcon
-                      sx={{
-                        color: "white",
-                        paddingTop: "0.5rem",
-                        paddingRight: "0.5rem",
-                      }}
-                    />
-                  </span>{" "}
-                  Download Certificate
-                </Button>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-evenly",
+                  }}
+                >
+                  <Button variant="contained" onClick={handleDownloadPNG}>
+                    <span>
+                      <FileDownloadIcon
+                        sx={{
+                          color: "white",
+                          paddingTop: "0.5rem",
+                          paddingRight: "0.5rem",
+                        }}
+                      />
+                    </span>{" "}
+                    Download as PNG
+                  </Button>
+                  <Button variant="contained" onClick={handleDownloadPDF}>
+                    <span>
+                      <FileDownloadIcon
+                        sx={{
+                          color: "white",
+                          paddingTop: "0.5rem",
+                          paddingRight: "0.5rem",
+                        }}
+                      />
+                    </span>{" "}
+                    Download as PDF
+                  </Button>
+                </div>
               </Stack>
             </Grid>
           </Grid>
