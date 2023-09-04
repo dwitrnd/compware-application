@@ -132,6 +132,7 @@ const People = ({ size }) => {
                           color: "#0f5288",
                           fontSize: "1.45rem",
                           textAlign: "center",
+                          fontWeight: "normal",
                         }}
                       >
                         {item.courseName && item.courseName}
@@ -172,6 +173,7 @@ const People = ({ size }) => {
                           color: "#0f5288",
                           fontSize: "1.45rem",
                           textAlign: "center",
+                          fontWeight: "normal",
                         }}
                       >
                         {item.courseName && item.courseName}

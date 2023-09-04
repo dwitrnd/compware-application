@@ -134,6 +134,7 @@ const People = ({ size }) => {
                           textAlign: "center",
                           overflow: "hidden",
                           textOverflow: "ellipsis",
+                          fontWeight: "normal",
                         }}
                       >
                         {item.courseName && item.courseName}

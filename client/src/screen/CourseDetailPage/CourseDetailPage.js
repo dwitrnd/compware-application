@@ -173,6 +173,7 @@ const CourseDetailPage = () => {
                 spacing={8}
                 alignItems="center"
                 justifyContent="space-around"
+                marginTop="2rem"
               >
                 <Typography variant="h6" color="primary">
                   Courses You Might Like

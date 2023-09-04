@@ -30,7 +30,7 @@ const CourseRecommendation = ({ id, name, image }) => {
       <a href={`/course-detail/${id}`}>
         <img src={image} style={{ width: "70%" }} />
         <Stack spacing={2} direction="column">
-          <Typography variant="body1" color="primary">
+          <Typography variant="body1" color="primary" align="left">
             {name}
           </Typography>
         </Stack>
