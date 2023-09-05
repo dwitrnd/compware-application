@@ -6177,6 +6177,7 @@ html {
 
 button {
   outline: none;
+  border-radius: 0.25rem;
 }
 
 @keyframes float {
@@ -6246,6 +6247,11 @@ a {
 
 section.how-it-work .MuiCardMedia-root {
   background-size: contain !important;
+}
+
+* {
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 400 !important;
 }
 
 .Roboto_Base, .roboto_700, .roboto_500, .roboto_400, .roboto_300 {
@@ -7435,6 +7441,203 @@ td {
 @media only screen and (max-width: 960px) {
   .user-box {
     margin: auto;
+  }
+}
+.fullName-overlay {
+  position: absolute;
+  top: 235px;
+  text-align: center;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+@media only screen and (max-width: 1210px) {
+  .fullName-overlay {
+    top: 215px;
+  }
+}
+@media only screen and (max-width: 1140px) {
+  .fullName-overlay {
+    top: 200px;
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 1035px) {
+  .fullName-overlay {
+    top: 180px;
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .fullName-overlay {
+    top: 250px;
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 866px) {
+  .fullName-overlay {
+    top: 225px;
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 785px) {
+  .fullName-overlay {
+    top: 200px;
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 695px) {
+  .fullName-overlay {
+    top: 180px;
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 639px) {
+  .fullName-overlay {
+    top: 160px;
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 530px) {
+  .fullName-overlay {
+    top: 150px;
+    font-size: 0.5rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .fullName-overlay {
+    top: 140px;
+    font-size: 0.5rem;
+  }
+}
+@media only screen and (max-width: 427px) {
+  .fullName-overlay {
+    top: 130px;
+    font-size: 0.4rem;
+  }
+}
+@media only screen and (max-width: 395px) {
+  .fullName-overlay {
+    top: 120px;
+    font-size: 0.4rem;
+  }
+}
+
+.course-overlay {
+  position: absolute;
+  top: 335px;
+  text-align: center;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+@media only screen and (max-width: 1210px) {
+  .course-overlay {
+    top: 315px;
+  }
+}
+@media only screen and (max-width: 1140px) {
+  .course-overlay {
+    top: 270px;
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 1042px) {
+  .course-overlay {
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 1035px) {
+  .course-overlay {
+    top: 260px;
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .course-overlay {
+    top: 350px;
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 866px) {
+  .course-overlay {
+    top: 315px;
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 785px) {
+  .course-overlay {
+    top: 290px;
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 727px) {
+  .course-overlay {
+    top: 265px;
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 695px) {
+  .course-overlay {
+    top: 255px;
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 641px) {
+  .course-overlay {
+    top: 240px;
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 593px) {
+  .course-overlay {
+    top: 230px;
+    font-size: 0.6rem;
+  }
+}
+@media only screen and (max-width: 545px) {
+  .course-overlay {
+    top: 215px;
+    font-size: 0.6rem;
+  }
+}
+@media only screen and (max-width: 520px) {
+  .course-overlay {
+    top: 200px;
+    font-size: 0.5rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .course-overlay {
+    top: 190px;
+    font-size: 0.5rem;
+  }
+}
+@media only screen and (max-width: 445px) {
+  .course-overlay {
+    top: 180px;
+    font-size: 0.4rem;
+  }
+}
+@media only screen and (max-width: 417px) {
+  .course-overlay {
+    top: 170px;
+    font-size: 0.4rem;
+  }
+}
+@media only screen and (max-width: 392px) {
+  .course-overlay {
+    top: 155px;
+    font-size: 0.4rem;
+  }
+}
+
+@media only screen and (max-width: 356px) {
+  section.certificate {
+    display: none;
+  }
+  .certificate-download-btn {
+    display: none;
   }
 }
 .course-info-header {

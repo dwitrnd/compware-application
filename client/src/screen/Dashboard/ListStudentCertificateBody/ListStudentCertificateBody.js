@@ -1,20 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { constant } from "constants/contants";
+
 import { Link } from "react-router-dom";
 
-const ListTestimonialBody = () => {
+const ListStudentCertificateBody = () => {
   const [tableData, setTableData] = useState(null);
-  const url = `${constant.base}/api/blog`;
+
+  const url = `${constant.base}/api/student`;
 
   useEffect(() => {
     axios.get(url).then((res) => {
       console.log(res.data.msg);
-      /* The line `// setTableData(res.data.msg);` is commented out, which means it is not currently
-      being executed. However, if it were to be uncommented, it would set the value of the
-      `tableData` state variable to `res.data.msg`. This means that the data received from the API
-      response would be stored in the `tableData` state variable, which can then be used to render
-      the table rows in the component. */
       setTableData(res.data.msg);
     });
   }, []);
@@ -27,7 +24,7 @@ const ListTestimonialBody = () => {
 
   return (
     <div>
-      <Link to='/dashboard/create-blog'>
+      <Link to='/dashboard/create-team'>
         <button
           style={{
             padding: "0.35rem 0.95rem",
@@ -38,17 +35,23 @@ const ListTestimonialBody = () => {
             outline: "none",
           }}
         >
-          create blog
+          create
         </button>
       </Link>
 
       <table>
         <thead>
           <tr>
-            <th>Logo</th>
-            <th>Titlee</th>
-            <th>Author</th>
-            <th>Date</th>
+            <th>photo</th>
+            <th>fullName</th>
+            <th>startDuration</th>
+            <th>endDuration</th>
+            <th>course</th>
+            <th>courseDuration</th>
+            <th>trainer</th>
+            <th>trainerTitle</th>
+            <th>verificationId</th>
+            {/* <th>email</th> */}
             <th className='action-column'>Actions</th>
           </tr>
         </thead>
@@ -71,20 +74,27 @@ const ListTestimonialBody = () => {
                   return (
                     <tr key={index}>
                       <td>
-                        <img
-                          style={{ width: "4rem" }}
-                          src={`
-                        ${constant.base}/storage/${data.logo}`}
-                        ></img>
+                        {(() => {
+                          if (!data.photo) {
+                            return <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsvKYGexBwzDSVXsx2PtJV8s_p7rWwNwJONTNQIf7q&s"} alt='student' style={{ width: "50px", height: "50px" }} />;
+                          } else {
+                            return <img src={data.photo} alt='student' style={{ width: "50px", height: "50px" }} />;
+                          }
+                        })()}
                       </td>
-                      <td>{data.title}</td>
-                      <td>{data.author}</td>
-                      <td>{data.date}</td>
-
+                      <td>{data.fullName}</td>
+                      <td>{data.startDuration}</td>
+                      <td>{data.endDuration}</td>
+                      <td>{data.course}</td>
+                      <td>{data.courseDuration}</td>
+                      <td>{data.trainer}</td>
+                      <td>{data.trainerTitle}</td>
+                      <td>{data.verificationId}</td>
+                      {/* <td>{data.email === "" ? null : data.email}</td> */}
                       <td>
-                        <a href={`/dashboard/update-blog/${data._id}`}>
+                        <Link to={`/dashboard/edit-team/${data._id}`}>
                           <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
-                        </a>
+                        </Link>
 
                         <button
                           onClick={() => {
@@ -107,4 +117,4 @@ const ListTestimonialBody = () => {
   );
 };
 
-export default ListTestimonialBody;
+export default ListStudentCertificateBody;

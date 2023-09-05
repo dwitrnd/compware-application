@@ -129,7 +129,7 @@ function DrawerAppBar(props) {
                   <MenuIcon />
                 </IconButton>
 
-                <Link to='/home'>
+                <a href='/home'>
                   <div
                     style={{
                       display: "flex",
@@ -145,7 +145,7 @@ function DrawerAppBar(props) {
                       src={compwareLogo}
                     />
                   </div>
-                </Link>
+                </a>
                 <Box sx={{ display: { xs: "none", sm: "block" } }}>
                   {navItems.map((item) => {
                     console.log(item);
@@ -160,18 +160,18 @@ function DrawerAppBar(props) {
                       return <EnrollDialog />;
                     } else {
                       return (
-                        <Link to={`/${item.path.toLowerCase()}`} key={item.path}>
+                        <a href={`/${item.path.toLowerCase()}`} key={item.path}>
                           <Button className='blue-color roboto_500' key={item.path.toLowerCase()} sx={{ color: "#fff" }}>
                             {item.name}
                           </Button>
-                        </Link>
+                        </a>
                       );
                     }
                   })}
                   <IconButton aria-label='login'>
-                    <Link to={"/login"}>
+                    <a href={"/login"}>
                       <LoginIcon color='primary' />
-                    </Link>
+                    </a>
                   </IconButton>
                 </Box>
               </Toolbar>

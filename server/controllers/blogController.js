@@ -54,22 +54,26 @@ class blogController {
   };
 
   static patch = async (req, res) => {
-    const { title, date, author, logo, article } = req.body;
+    const { title, date, author, article } = req.body;
+
+    console.log("blog patch req");
     const blogId = req.params.id;
 
-    if (logo) {
-      const file = req.files.logo;
-      const timestamp = Date.now();
-      const fileName = `photo_${timestamp}.jpeg`;
+    console.log(req.body);
 
-      file.mv(`./storage/${fileName}`, (error) => {
-        if (error) {
-          return res.status(500).send(error);
-        }
-        console.log("File Uploaded!");
-      });
-      logo = fileName;
-    }
+    // if (logo) {
+    //   const file = req.files.logo;
+    //   const timestamp = Date.now();
+    //   const fileName = `photo_${timestamp}.jpeg`;
+
+    //   file.mv(`./storage/${fileName}`, (error) => {
+    //     if (error) {
+    //       return res.status(500).send(error);
+    //     }
+    //     console.log("File Uploaded!");
+    //   });
+    //   logo = fileName;
+    // }
     try {
       const result = await blog.findByIdAndUpdate(
         blogId,
@@ -77,7 +81,7 @@ class blogController {
           title,
           date,
           author,
-          logo,
+          // logo: fileName,
           article,
         },
         { new: true }

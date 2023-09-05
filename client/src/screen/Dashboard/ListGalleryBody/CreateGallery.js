@@ -29,7 +29,7 @@ const CreateGallery = () => {
       });
 
       console.log("response =", response);
-      toast.success("Course created successfully");
+      toast.success("Gallery created successfully");
       // navigate("/dashboard");
     } catch (error) {
       console.log("error =", error);
@@ -42,7 +42,7 @@ const CreateGallery = () => {
       <form onSubmit={createCourse}>
         {/* //! IMAGE "File" */}
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor='courseLogo'>Image File Upload</label>
+          <label htmlFor='gallery-img'>Image File Upload</label>
           <input
             style={{
               width: "100%",
@@ -51,7 +51,7 @@ const CreateGallery = () => {
               border: "1px solid #ccc",
             }}
             type='file'
-            id='courseLogo'
+            id='gallery-img'
             placeholder='Enter course logo'
             onChange={(e) => {
               console.log(e.target.files[0]);

@@ -4,46 +4,34 @@ const student = require("../models/studentCertificate");
 class studentController {
   static post = async (req, res) => {
     try {
-      const {
-        firstName,
-        lastName,
-        startDuration,
-        endDuration,
-        courseDuration,
-        course,
-        trainer,
-        trainerTitle,
-        // verification id
-        email,
-        gender,
-      } = req.body;
+      const { fullName, startDuration, endDuration, courseDuration, course, trainer, trainerTitle, verificationId, email, gender } = req.body;
 
-      const file = req.files.photo;
+      // const file = req.files.photo;
 
-      console.log(file);
+      // console.log(file);
 
-      const timestamp = Date.now();
+      // const timestamp = Date.now();
 
-      const fileName = `photo_${timestamp}.jpeg`;
+      // const fileName = `photo_${timestamp}.jpeg`;
 
-      file.mv(`./storage/${fileName}`, (error) => {
-        if (error) {
-          return res.status(500).send(error);
-        }
-        console.log("File Uploaded!");
-      });
+      // file.mv(`./storage/${fileName}`, (error) => {
+      //   if (error) {
+      //     return res.status(500).send(error);
+      //   }
+      //   console.log("File Uploaded!");
+      // });
       const Student = await new student({
-        firstName,
-        lastName,
-        email,
-        course,
-        trainer,
-        gender,
-        courseDuration,
-        trainerTitle,
+        fullName,
         startDuration,
         endDuration,
-        photo: fileName,
+        courseDuration,
+        course,
+        trainer,
+        trainerTitle,
+        verificationId,
+        email,
+        gender,
+        // photo: fileName,
       });
 
       const result = await Student.save();
@@ -59,6 +47,25 @@ class studentController {
     }
   };
 
+  static checkId = async (req, res) => {
+    try {
+      const result = await student.find({ verificationId: req.body.verificationId });
+
+      if (result.length === 0) {
+        throw Error;
+      }
+      res.status(200).json({
+        status: true,
+        msg: "Id exists",
+        data: result,
+      });
+    } catch (err) {
+      res.status(500).json({
+        status: false,
+        msg: err,
+      });
+    }
+  };
   static get = async (req, res) => {
     try {
       const result = await student.find({});
