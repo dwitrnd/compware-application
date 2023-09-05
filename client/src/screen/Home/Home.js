@@ -210,6 +210,7 @@ const Home = () => {
               fontSize: "2.5rem",
               color: "#0f5288",
               textAlign: "center",
+              fontWeight: "normal",
             }}
             data-aos="fade-down"
           >
