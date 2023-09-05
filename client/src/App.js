@@ -50,6 +50,8 @@ import CreateBlog from "screen/Dashboard/ListBlogBody/CreateBlog";
 import CreateSession from "screen/Dashboard/ListSessionBody/CreateSession";
 import ListTrainer from "screen/Dashboard/ListTrainer/ListTrainer";
 import AddTrainer from "screen/Dashboard/AddTrainer/AddTrainer";
+import UpdateBlog from "screen/Dashboard/ListBlogBody/UpdateBlog";
+import ListStudentCertificateBody from "screen/Dashboard/ListStudentCertificateBody/ListStudentCertificateBody";
 
 // Simple git
 const theme = createTheme({
@@ -128,6 +130,7 @@ function App() {
                     </Layout>
                   }
                 />
+
                 <Route
                   path="/courses"
                   element={
@@ -148,6 +151,14 @@ function App() {
                   }
                 />
                 <Route
+                  path="/dashboard/update-blog/:id"
+                  element={
+                    <DashboardLayout>
+                      <UpdateBlog />
+                    </DashboardLayout>
+                  }
+                />
+                <Route
                   path="blog-page/:id"
                   element={
                     <Layout>
@@ -165,7 +176,7 @@ function App() {
                   }
                 />
                 <Route
-                  path="verify-certificate"
+                  path="verify-certificate/:id"
                   element={
                     !token ? (
                       <Layout>
@@ -283,6 +294,14 @@ function App() {
                 element={
                   <DashboardLayout>
                     <ListBlogBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path="/dashboard/list-students"
+                element={
+                  <DashboardLayout>
+                    <ListStudentCertificateBody />
                   </DashboardLayout>
                 }
               />
