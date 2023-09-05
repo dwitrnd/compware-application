@@ -50,7 +50,7 @@ const ForgotValidationID = () => {
         style={{
           fontSize: "1rem",
           padding: "0.35rem 0.35rem 0.35rem 0.8rem",
-          width: "100%",
+          width: "fit-content",
           cursor: "pointer",
         }}
         variant="text"

@@ -216,7 +216,7 @@ const VerifyCertificate = () => {
                   }}
                 >
                   <img
-                    className='certificate-image'
+                    className='secttion-'
                     src={CertificateImage}
                     style={{
                       position: "relative",
@@ -237,32 +237,31 @@ const VerifyCertificate = () => {
 
                   <div style={{ position: "absolute", top: "65%", left: "36%", transform: "translateX(-36%) translateY(-65%)" }}>
                     <strong>
-                      <h5>{courseDuration.split(" ")[0]}</h5>
+                      <h5 className='hour'>{courseDuration.split(" ")[0]}</h5>
                     </strong>
                   </div>
 
                   <div style={{ position: "absolute", top: "72.5%", left: "44.5%", transform: "translateX(-44.5%) translateY(-72%)" }}>
                     <strong>
-                      <h5>{convertDate(startDuration)}</h5>
+                      <h5 className='date'>{convertDate(startDuration)}</h5>
                     </strong>
                   </div>
                   <div style={{ position: "absolute", top: "72.5%", left: "62.5%", transform: "translateX(-44.5%) translateY(-72%)" }}>
                     <strong>
-                      <h5>{convertDate(endDuration)}</h5>
+                      <h5 className='date'>{convertDate(endDuration)}</h5>
                     </strong>
                   </div>
                 </section>
-                <Button variant='contained'>
+                <Button className='certificate-download-btn' variant='contained'>
                   <span>
                     <FileDownloadIcon
-                      className='certificate-download-btn'
                       sx={{
                         color: "white",
                         paddingTop: "0.5rem",
                         paddingRight: "0.5rem",
                       }}
                     />
-                  </span>{" "}
+                  </span>
                   Download Certificate
                 </Button>
               </Stack>

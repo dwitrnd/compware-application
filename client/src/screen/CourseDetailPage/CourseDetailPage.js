@@ -27,6 +27,12 @@ const CourseDetailPage = () => {
   });
 
   const url = `${constant.base}/api/course/${id}`;
+  const recommendationUrl = `${constant.base}/api/course`;
+  const pageNumber = 1;
+  const itemsPerPage = 6;
+  const [tableData, setTableData] = useState([]);
+  const [allTableData, setAllTableData] = useState([]);
+  const [recommendationTableData, setRecommendationTableData] = useState([]);
 
   useEffect(() => {
     axios.get(url).then((res) => {
@@ -34,6 +40,34 @@ const CourseDetailPage = () => {
       setCourseDetail(res.data.msg);
     });
   }, []);
+
+  useEffect(() => {
+    axios.get(recommendationUrl).then((res) => {
+      console.log(res.data.msg);
+      setRecommendationTableData(res.data.msg);
+    });
+  }, []);
+
+  const shuffleArray = (array) => {
+    const shuffledArray = array.slice();
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [
+        shuffledArray[j],
+        shuffledArray[i],
+      ];
+    }
+    return shuffledArray;
+  };
+
+  const getRandomRecommendations = () => {
+    // Shuffle the recommendationTableData array
+    const shuffledRecommendations = shuffleArray(recommendationTableData);
+    // Slice the first 6 elements (random recommendations)
+    return shuffledRecommendations.slice(0, 6);
+  };
+
+  const randomRecommendations = getRandomRecommendations();
 
   return (
     <>
@@ -128,10 +162,10 @@ const CourseDetailPage = () => {
               sx={{
                 display: "inline-block",
                 height: "100%",
-                width: "85%",
+                width: "100%",
                 borderRadius: "0.75rem",
                 margin: "1.25rem",
-                padding: "1.75rem",
+
                 boxShadow: "6px 6px 12px 3px rgba(99, 99, 99, 0.20)",
               }}
             >
@@ -139,30 +173,19 @@ const CourseDetailPage = () => {
                 spacing={8}
                 alignItems="center"
                 justifyContent="space-around"
+                marginTop="2rem"
               >
                 <Typography variant="h6" color="primary">
-                  Recommended for you
+                  Courses You Might Like
                 </Typography>
-                <CourseRecommendation
-                  name={"DIPLOMA IN JAVA"}
-                  hour={"120"}
-                  image={`${constant.base}/storage/53aae0e9e7d50bd3c401e6496ed4831e1691145701032.jpg`}
-                />
-                <CourseRecommendation
-                  name={"REACT NATIVE"}
-                  hour={"120"}
-                  image={`${constant.base}/storage/dcdf252fd3c76114ce6f245f858ed1301691053527521.jpg`}
-                />
-                <CourseRecommendation
-                  name={"VUE JS"}
-                  hour={"120"}
-                  image={`${constant.base}/storage/c88568e705b0420ed927e3ad251c52c51691144738372.jpg`}
-                />
-                <CourseRecommendation
-                  name={"DOT NET"}
-                  hour={"120"}
-                  image={`${constant.base}/storage/10695f41221fd7dfb4cbae37c8917e181691130646629.jpg`}
-                />
+                {randomRecommendations.map((recommendation) => (
+                  <CourseRecommendation
+                    key={recommendation._id}
+                    id={recommendation._id}
+                    name={recommendation.courseName}
+                    image={`${constant.base}/storage/${recommendation.courseLogo}`}
+                  />
+                ))}
               </Stack>
             </Box>
           </Grid>

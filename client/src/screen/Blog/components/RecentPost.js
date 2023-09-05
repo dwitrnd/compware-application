@@ -10,7 +10,7 @@ const RecentPost = ({ id, title, image }) => {
     <>
       <Container>
         <Stack direction="column" spacing={4}>
-          <Link to={`/blog-page/${id}`}>
+          <a href={`/blog-page/${id}`}>
             <Stack
               direction={{ sm: "row", md: "column" }}
               spacing={2}
@@ -21,7 +21,7 @@ const RecentPost = ({ id, title, image }) => {
                 {title}
               </Typography>
             </Stack>
-          </Link>
+          </a>
         </Stack>
       </Container>
     </>

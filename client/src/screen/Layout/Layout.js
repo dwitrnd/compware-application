@@ -77,8 +77,10 @@ function DrawerAppBar(props) {
   //   setCourseToggle((prevState) => !prevState);
   // };
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
+  const handleDrawerToggle = (e) => {
+    if (e.target.tagName !== "A") {
+      setMobileOpen((prevState) => !prevState);
+    }
   };
 
   // function to get current year
@@ -87,20 +89,49 @@ function DrawerAppBar(props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+    <Box>
       <Typography variant='h6' sx={{ my: 2 }}>
-        MUI
+        Deerwalk Training Center
       </Typography>
       <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item.path} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item.name} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      <Stack
+        direction='column'
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        {navItems.map((item) => {
+          console.log(item);
+
+          if (item.name === "Request Certificate") {
+            return <RequestCertificateDialog />;
+          } else if (item.name === "About") {
+            return <AboutUsDropDown />;
+          } else if (item.name === "Certificate") {
+            return <CertificateDropDown />;
+          } else if (item.name === "Enroll") {
+            return <EnrollDialog />;
+          } else {
+            return (
+              <Link to={`/${item.path.toLowerCase()}`} key={item.path}>
+                <Button
+                  className='blue-color roboto_500'
+                  key={item.path.toLowerCase()}
+                  sx={{ color: "#fff" }}
+                  onClick={() => {
+                    // Close the drawer when a link is clicked
+                    setMobileOpen(false);
+                  }}
+                >
+                  {item.name}
+                </Button>
+              </Link>
+            );
+          }
+        })}
+      </Stack>
     </Box>
   );
 
