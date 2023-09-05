@@ -3,7 +3,6 @@ import { Box, TextField, Typography, Button, Container } from "@mui/material";
 import React from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import CertificateImage from "../../assets/images/certificateimage.jpg";
-import TestimonialImage from "../../assets/images/TestimonialPhotos/Student12.jpg";
 import Stack from "@mui/material/Stack";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { constant } from "constants/contants";
@@ -112,7 +111,18 @@ const VerifyCertificate = () => {
       }),
     }).then((res) => res.json());
 
-    const { course, courseDuration, email, endDuration, fullName, gender, startDuration, trainer, trainerTitle, verificationId } = response.data[0];
+    const {
+      course,
+      courseDuration,
+      email,
+      endDuration,
+      fullName,
+      gender,
+      startDuration,
+      trainer,
+      trainerTitle,
+      verificationId,
+    } = response.data[0];
     setCourse(course);
     setCourseDuration(courseDuration);
     setEmail(email);
@@ -162,9 +172,9 @@ const VerifyCertificate = () => {
           marginBottom: "3rem",
         }}
       >
-        <Container maxWidth='lg'>
+        <Container maxWidth="lg">
           <section>
-            <Typography variant='h3' color='primary' marginBottom='2rem'>
+            <Typography variant="h3" color="primary" marginBottom="2rem">
               Congratulations {fullName}!
             </Typography>
           </section>
@@ -172,7 +182,7 @@ const VerifyCertificate = () => {
             {" "}
             <Grid item xs={12} md={4}>
               <Box
-                className='user-box'
+                className="user-box"
                 sx={{
                   display: "flex",
                   flexDirection: "column",
@@ -187,51 +197,78 @@ const VerifyCertificate = () => {
                   "& .MuiTextField-root": { width: "30rem" },
                 }}
               >
-                <Stack direction='column' spacing={2}>
-                  <img src={TestimonialImage} />
-                  <Typography textAlign='center'>{fullName}</Typography>
+                <Stack direction="column" spacing={2}>
+                  <Typography textAlign="center">{fullName}</Typography>
                   <hr />
-                  <Grid container margin='0.5rem'>
+                  <Grid container margin="0.5rem">
                     <Grid item xs={6}>
-                      <Typography className='user-information topic'>Course</Typography>
+                      <Typography className="user-information topic">
+                        Course
+                      </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className='user-information' textAlign='center'>
+                      <Typography
+                        className="user-information"
+                        textAlign="center"
+                      >
                         {course}
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className='user-information topic'>Started On</Typography>
+                      <Typography className="user-information topic">
+                        Started On
+                      </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className='user-information' textAlign='center'>
+                      <Typography
+                        className="user-information"
+                        textAlign="center"
+                      >
                         {convertDate(startDuration)}
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className='user-information topic'>Completed On</Typography>
+                      <Typography className="user-information topic">
+                        Completed On
+                      </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className='user-information' textAlign='center'>
+                      <Typography
+                        className="user-information"
+                        textAlign="center"
+                      >
                         {convertDate(endDuration)}
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className='user-information topic'>Verification Id</Typography>
+                      <Typography className="user-information topic">
+                        Verification Id
+                      </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className='user-information' textAlign='center'>
+                      <Typography
+                        className="user-information"
+                        textAlign="center"
+                      >
                         {verificationIdNo}
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className='user-information topic'>Trainer</Typography>
+                      <Typography className="user-information topic">
+                        Trainer
+                      </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className='user-information' textAlign='center'>
+                      <Typography
+                        className="user-information"
+                        textAlign="center"
+                      >
                         {trainer}
                       </Typography>
-                      <Typography className='user-information' textAlign='center'>
+                      <Typography
+                        className="user-information"
+                        textAlign="center"
+                      >
                         {trainerTitle}
                       </Typography>
                     </Grid>
@@ -240,16 +277,16 @@ const VerifyCertificate = () => {
               </Box>
             </Grid>
             <Grid item xs={12} md={8}>
-              <Stack direction='column' spacing={4}>
+              <Stack direction="column" spacing={4}>
                 <section
                   ref={certificateRef}
-                  className='certificate'
+                  className="certificate"
                   style={{
                     position: "relative",
                   }}
                 >
                   <img
-                    className='secttion-'
+                    className="secttion-"
                     src={CertificateImage}
                     style={{
                       position: "relative",
@@ -258,43 +295,68 @@ const VerifyCertificate = () => {
                       marginTop: "2rem",
                       border: "5px solid #0f5288",
                     }}
-                    alt='Certificate'
+                    alt="Certificate"
                   />
 
                   <img
                     style={{
                       height: "2rem",
                     }}
-                    className='training-manager-signature'
+                    className="training-manager-signature"
                     src={TrainingManager}
-                    alt=''
+                    alt=""
                   />
 
-                  <strong className='fullName-overlay'>
+                  <strong className="fullName-overlay">
                     <h2>{fullName}</h2>
                   </strong>
-                  <strong className='course-overlay'>
+                  <strong className="course-overlay">
                     <h2>{course}</h2>
                   </strong>
 
-                  <div style={{ position: "absolute", top: "65%", left: "36%", transform: "translateX(-36%) translateY(-65%)" }}>
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "65%",
+                      left: "36%",
+                      transform: "translateX(-36%) translateY(-65%)",
+                    }}
+                  >
                     <strong>
-                      <h5 className='hour'>{courseDuration.split(" ")[0]}</h5>
+                      <h5 className="hour">{courseDuration.split(" ")[0]}</h5>
                     </strong>
                   </div>
 
-                  <div style={{ position: "absolute", top: "72.5%", left: "44.5%", transform: "translateX(-44.5%) translateY(-72%)" }}>
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "72.5%",
+                      left: "44.5%",
+                      transform: "translateX(-44.5%) translateY(-72%)",
+                    }}
+                  >
                     <strong>
-                      <h5 className='date'>{convertDate(startDuration)}</h5>
+                      <h5 className="date">{convertDate(startDuration)}</h5>
                     </strong>
                   </div>
-                  <div style={{ position: "absolute", top: "72.5%", left: "62.5%", transform: "translateX(-44.5%) translateY(-72%)" }}>
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "72.5%",
+                      left: "62.5%",
+                      transform: "translateX(-44.5%) translateY(-72%)",
+                    }}
+                  >
                     <strong>
-                      <h5 className='date'>{convertDate(endDuration)}</h5>
+                      <h5 className="date">{convertDate(endDuration)}</h5>
                     </strong>
                   </div>
                 </section>
-                <Button onClick={handleDownloadPNG} className='certificate-download-btn' variant='contained'>
+                <Button
+                  onClick={handleDownloadPNG}
+                  className="certificate-download-btn"
+                  variant="contained"
+                >
                   <span>
                     <FileDownloadIcon
                       sx={{
@@ -306,7 +368,11 @@ const VerifyCertificate = () => {
                   </span>
                   Download PNG
                 </Button>
-                <Button onClick={handleDownloadPDF} className='certificate-download-btn' variant='contained'>
+                <Button
+                  onClick={handleDownloadPDF}
+                  className="certificate-download-btn"
+                  variant="contained"
+                >
                   <span>
                     <FileDownloadIcon
                       sx={{
