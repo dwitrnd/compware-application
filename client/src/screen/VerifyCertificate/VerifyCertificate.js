@@ -8,7 +8,14 @@ import Stack from "@mui/material/Stack";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { constant } from "constants/contants";
 import { useParams } from "react-router-dom";
+import { useRef } from "react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+import TrainingManager from "assets/images/praveen-signature.png";
+
 const VerifyCertificate = () => {
+  const certificateRef = useRef(null);
+
   const { id } = useParams();
 
   const [course, setCourse] = useState("");
@@ -118,6 +125,31 @@ const VerifyCertificate = () => {
     setVerificationIdNo(verificationId);
   }, []);
 
+  const handleDownloadPNG = async () => {
+    const certificate = certificateRef.current;
+    if (!certificate) {
+      return 0;
+    }
+    const canvas = await html2canvas(certificate);
+    const pngDataUrl = canvas.toDataURL("image/png");
+    const link = document.createElement("a");
+    link.href = pngDataUrl;
+    link.download = "certificate.png";
+    link.click();
+  };
+  const handleDownloadPDF = async () => {
+    const certificate = certificateRef.current;
+    if (!certificate) {
+      return;
+    }
+
+    const canvas = await html2canvas(certificate);
+    const pngDataUrl = canvas.toDataURL("image/png");
+    const pdf = new jsPDF();
+    pdf.addImage(pngDataUrl, "PNG", 15, 15, 180, 120);
+    pdf.save("certificate.pdf");
+  };
+
   return (
     <>
       <div
@@ -148,7 +180,7 @@ const VerifyCertificate = () => {
                   borderRadius: ".25rem",
                   width: "fit-content",
                   maxWidth: "23rem",
-                  marginTop: "2rem",
+
                   marginBottom: "3rem",
                   padding: "25px 25px 25px 25px",
                   boxShadow: "0px 3px 8px rgba(0, 0, 0, 0.24)",
@@ -210,6 +242,7 @@ const VerifyCertificate = () => {
             <Grid item xs={12} md={8}>
               <Stack direction='column' spacing={4}>
                 <section
+                  ref={certificateRef}
                   className='certificate'
                   style={{
                     position: "relative",
@@ -226,6 +259,15 @@ const VerifyCertificate = () => {
                       border: "5px solid #0f5288",
                     }}
                     alt='Certificate'
+                  />
+
+                  <img
+                    style={{
+                      height: "2rem",
+                    }}
+                    className='training-manager-signature'
+                    src={TrainingManager}
+                    alt=''
                   />
 
                   <strong className='fullName-overlay'>
@@ -252,7 +294,7 @@ const VerifyCertificate = () => {
                     </strong>
                   </div>
                 </section>
-                <Button className='certificate-download-btn' variant='contained'>
+                <Button onClick={handleDownloadPNG} className='certificate-download-btn' variant='contained'>
                   <span>
                     <FileDownloadIcon
                       sx={{
@@ -262,7 +304,19 @@ const VerifyCertificate = () => {
                       }}
                     />
                   </span>
-                  Download Certificate
+                  Download PNG
+                </Button>
+                <Button onClick={handleDownloadPDF} className='certificate-download-btn' variant='contained'>
+                  <span>
+                    <FileDownloadIcon
+                      sx={{
+                        color: "white",
+                        paddingTop: "0.5rem",
+                        paddingRight: "0.5rem",
+                      }}
+                    />
+                  </span>
+                  Download PDF
                 </Button>
               </Stack>
             </Grid>
