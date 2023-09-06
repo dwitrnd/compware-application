@@ -213,6 +213,20 @@ const EventPage = () => {
               <img src={Mona} alt='' /> <h6 className='roboto_400 panel-list-name'>Mona Nyachhyon</h6>
               {/* <h6 className='roboto_400 panel-list-designation'> Mona Nyachhyon </h6> */}
             </div>
+            <div
+              className='panel-list-card clickable'
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Mona);
+                setPanelistName("Chiranjibi Adhikari");
+                setPanelistDescription(`
+                Chiranjibi Adhikari, a renowned cybersecurity expert from Nepal, is the CEO of One Cover Pvt. Ltd., a cybersecurity consulting firm. With extensive knowledge in cybersecurity, information security, and digital forensics, he's a prolific writer and researcher, having authored books and research papers in these fields. Chiranjibi is an advocate for cybersecurity awareness and education, delivering lectures and workshops. He also serves as the General Secretary at CAN Federation and holds several other key roles in the tech industry.
+`);
+              }}
+            >
+              <img src={Mona} alt='' /> <h6 className='roboto_400 panel-list-name'>Chiranjibi Adhikari</h6>
+              {/* <h6 className='roboto_400 panel-list-designation'> Mona Nyachhyon </h6> */}
+            </div>
           </div>
         </div>
       </section>
@@ -319,11 +333,11 @@ const EventPage = () => {
         </div>
 
         <div className='sponsor-container'>
-          <h4 className='roboto_700'>Title Sponsor:</h4>
+          {/* <h4 className='roboto_700'>Title Sponsor:</h4>
 
           <div className='sponsor-logo-container'>
             <img src={HamroPatro} alt='' />
-          </div>
+          </div> */}
           <h4 className='roboto_700'>Powered By:</h4>
           <div className='sponsor-logo-container'>
             <img src={Khalti} alt='' />
