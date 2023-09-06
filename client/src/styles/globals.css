@@ -6137,12 +6137,6 @@ template {
   cursor: pointer;
 }
 
-* {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-}
-
 html {
   overflow-x: hidden;
 }
@@ -7431,6 +7425,7 @@ td {
 }
 .user-information {
   margin-bottom: 0.5rem !important;
+  text-align: left !important;
 }
 
 .topic {
@@ -7492,36 +7487,6 @@ td {
     font-size: 0.8rem;
   }
 }
-@media only screen and (max-width: 639px) {
-  .fullName-overlay {
-    top: 160px;
-    font-size: 0.7rem;
-  }
-}
-@media only screen and (max-width: 530px) {
-  .fullName-overlay {
-    top: 150px;
-    font-size: 0.5rem;
-  }
-}
-@media only screen and (max-width: 480px) {
-  .fullName-overlay {
-    top: 140px;
-    font-size: 0.5rem;
-  }
-}
-@media only screen and (max-width: 427px) {
-  .fullName-overlay {
-    top: 130px;
-    font-size: 0.4rem;
-  }
-}
-@media only screen and (max-width: 395px) {
-  .fullName-overlay {
-    top: 120px;
-    font-size: 0.4rem;
-  }
-}
 
 .course-overlay {
   position: absolute;
@@ -7577,60 +7542,6 @@ td {
     font-size: 0.7rem;
   }
 }
-@media only screen and (max-width: 695px) {
-  .course-overlay {
-    top: 255px;
-    font-size: 0.7rem;
-  }
-}
-@media only screen and (max-width: 641px) {
-  .course-overlay {
-    top: 240px;
-    font-size: 0.7rem;
-  }
-}
-@media only screen and (max-width: 593px) {
-  .course-overlay {
-    top: 230px;
-    font-size: 0.6rem;
-  }
-}
-@media only screen and (max-width: 545px) {
-  .course-overlay {
-    top: 215px;
-    font-size: 0.6rem;
-  }
-}
-@media only screen and (max-width: 520px) {
-  .course-overlay {
-    top: 200px;
-    font-size: 0.5rem;
-  }
-}
-@media only screen and (max-width: 480px) {
-  .course-overlay {
-    top: 190px;
-    font-size: 0.5rem;
-  }
-}
-@media only screen and (max-width: 445px) {
-  .course-overlay {
-    top: 180px;
-    font-size: 0.4rem;
-  }
-}
-@media only screen and (max-width: 417px) {
-  .course-overlay {
-    top: 170px;
-    font-size: 0.4rem;
-  }
-}
-@media only screen and (max-width: 392px) {
-  .course-overlay {
-    top: 155px;
-    font-size: 0.4rem;
-  }
-}
 
 @media only screen and (max-width: 356px) {
   section.certificate {
@@ -7640,6 +7551,131 @@ td {
     display: none;
   }
 }
+.training-manager-signature {
+  position: absolute;
+  bottom: 3.5rem;
+  left: 3rem;
+  height: 5.5rem;
+}
+
+.course-duration-overlay {
+  font-weight: bolder;
+  font-size: 1rem;
+  position: absolute;
+  top: 65%;
+  left: 36%;
+  transform: translateX(-36%) translateY(-65%);
+}
+@media only screen and (max-width: 1220px) {
+  .course-duration-overlay {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 1160px) {
+  .course-duration-overlay {
+    font-size: 0.7rem;
+    margin-top: 0.1rem;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .course-duration-overlay {
+    left: 34.5%;
+    font-size: 0.9rem;
+  }
+}
+
+.course-start-overlay,
+.course-end-overlay {
+  font-size: 0.8rem;
+}
+@media only screen and (max-width: 1212px) {
+  .course-start-overlay,
+  .course-end-overlay {
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 1039px) {
+  .course-start-overlay,
+  .course-end-overlay {
+    font-size: 0.6rem;
+  }
+}
+@media only screen and (max-width: 1179px) {
+  .course-start-overlay,
+  .course-end-overlay {
+    margin-top: 0.1rem;
+  }
+}
+
+.course-end-overlay {
+  position: absolute;
+  top: 72%;
+  left: 59.5%;
+  transform: translateX(-44.5%) translateY(-72%);
+}
+@media only screen and (max-width: 1143px) {
+  .course-end-overlay {
+    left: 60%;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .course-start-overlay {
+    font-size: 0.65rem;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .course-end-overlay {
+    font-size: 0.65rem;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .certificate {
+    width: 40rem;
+  }
+  .certificate-container {
+    overflow-x: scroll;
+  }
+  .course-duration-overlay {
+    margin-top: 0.1rem;
+    margin-left: 0.65rem;
+    font-size: 0.75rem;
+  }
+  .course-overlay {
+    top: 265px;
+    font-size: 0.7rem;
+  }
+}
+@media only screen and (max-width: 960px) and (max-width: 1210px) {
+  .fullName-overlay {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 12rem;
+  }
+}
+.trainer-name-overlay {
+  position: absolute;
+  font-weight: bolder !important;
+  font-size: 0.35rem;
+  bottom: 3.2rem;
+  right: 5rem;
+}
+@media only screen and (max-width: 960px) {
+  .trainer-name-overlay {
+    bottom: 2.2rem;
+    right: 4rem;
+  }
+}
+
+.trainer-signature-overlay {
+  position: absolute;
+  bottom: 3.5rem;
+  right: 3rem;
+  height: 5.5rem;
+}
+
 .course-info-header {
   margin-top: 20rem;
 }

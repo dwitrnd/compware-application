@@ -50,6 +50,7 @@ import CreateBlog from "screen/Dashboard/ListBlogBody/CreateBlog";
 import CreateSession from "screen/Dashboard/ListSessionBody/CreateSession";
 import UpdateBlog from "screen/Dashboard/ListBlogBody/UpdateBlog";
 import ListStudentCertificateBody from "screen/Dashboard/ListStudentCertificateBody/ListStudentCertificateBody";
+import CreateStudentCertificate from "screen/Dashboard/ListStudentCertificateBody/CreateStudentCertificate";
 
 // Simple git
 const theme = createTheme({
@@ -308,6 +309,14 @@ function App() {
                 element={
                   <DashboardLayout>
                     <CreateBlog />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-student'
+                element={
+                  <DashboardLayout>
+                    <CreateStudentCertificate />
                   </DashboardLayout>
                 }
               />

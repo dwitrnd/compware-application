@@ -188,7 +188,7 @@ const VerifyCertificate = () => {
                 }}
               >
                 <Stack direction='column' spacing={2}>
-                  <img src={TestimonialImage} />
+                  <img src={"https://deerwalkcompware.com/training/frontend/images/computer-training-institute.png"} />
                   <Typography textAlign='center'>{fullName}</Typography>
                   <hr />
                   <Grid container margin='0.5rem'>
@@ -241,59 +241,61 @@ const VerifyCertificate = () => {
             </Grid>
             <Grid item xs={12} md={8}>
               <Stack direction='column' spacing={4}>
-                <section
-                  ref={certificateRef}
-                  className='certificate'
-                  style={{
-                    position: "relative",
-                  }}
-                >
-                  <img
-                    className='secttion-'
-                    src={CertificateImage}
+                <div className='certificate-container'>
+                  <section
+                    ref={certificateRef}
+                    className='certificate'
                     style={{
                       position: "relative",
-                      maxWidth: "100%",
-                      height: "auto",
-                      marginTop: "2rem",
-                      border: "5px solid #0f5288",
                     }}
-                    alt='Certificate'
-                  />
+                  >
+                    <img
+                      src={CertificateImage}
+                      style={{
+                        position: "relative",
+                        maxWidth: "100%",
+                        height: "auto",
+                        marginTop: "2rem",
+                        border: "5px solid #0f5288",
+                      }}
+                      alt='Certificate'
+                    />
 
-                  <img
-                    style={{
-                      height: "2rem",
-                    }}
-                    className='training-manager-signature'
-                    src={TrainingManager}
-                    alt=''
-                  />
+                    <img className='training-manager-signature' src={TrainingManager} alt='' />
+                    <img className='trainer-signature-overlay' src={TrainingManager} alt='' />
 
-                  <strong className='fullName-overlay'>
-                    <h2>{fullName}</h2>
-                  </strong>
-                  <strong className='course-overlay'>
-                    <h2>{course}</h2>
-                  </strong>
+                    <span className='trainer-name-overlay roboto_700'>
+                      <strong>
+                        <h1 classNme='roboto_700'>Kshitiz Bahadur Shah</h1>
+                      </strong>
+                    </span>
 
-                  <div style={{ position: "absolute", top: "65%", left: "36%", transform: "translateX(-36%) translateY(-65%)" }}>
-                    <strong>
-                      <h5 className='hour'>{courseDuration.split(" ")[0]}</h5>
+                    <strong className='fullName-overlay'>
+                      <h2>{fullName}</h2>
                     </strong>
-                  </div>
+                    <strong className='course-overlay'>
+                      <h2>{course}</h2>
+                    </strong>
 
-                  <div style={{ position: "absolute", top: "72.5%", left: "44.5%", transform: "translateX(-44.5%) translateY(-72%)" }}>
-                    <strong>
-                      <h5 className='date'>{convertDate(startDuration)}</h5>
-                    </strong>
-                  </div>
-                  <div style={{ position: "absolute", top: "72.5%", left: "62.5%", transform: "translateX(-44.5%) translateY(-72%)" }}>
-                    <strong>
-                      <h5 className='date'>{convertDate(endDuration)}</h5>
-                    </strong>
-                  </div>
-                </section>
+                    <div className='course-duration-overlay'>
+                      <strong>
+                        <h5 className='hour roboto_700'>{courseDuration.split(" ")[0]}</h5>
+                      </strong>
+                    </div>
+
+                    <div className='course-start-overlay' style={{ position: "absolute", top: "72%", left: "44.5%", transform: "translateX(-44.5%) translateY(-72%)" }}>
+                      <strong>
+                        <h5 className='date roboto_700'>{convertDate(startDuration)}</h5>
+                      </strong>
+                    </div>
+                    <div className='course-end-overlay'>
+                      <strong>
+                        <h5 className='date roboto_700'>{convertDate(endDuration)}</h5>
+                      </strong>
+                    </div>
+                  </section>
+                </div>
+
                 <Button onClick={handleDownloadPNG} className='certificate-download-btn' variant='contained'>
                   <span>
                     <FileDownloadIcon

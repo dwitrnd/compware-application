@@ -24,7 +24,7 @@ const ListStudentCertificateBody = () => {
 
   return (
     <div>
-      <Link to='/dashboard/create-team'>
+      <Link to='/dashboard/create-student'>
         <button
           style={{
             padding: "0.35rem 0.95rem",
@@ -35,7 +35,7 @@ const ListStudentCertificateBody = () => {
             outline: "none",
           }}
         >
-          create
+          create student
         </button>
       </Link>
 
