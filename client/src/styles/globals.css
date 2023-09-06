@@ -7586,7 +7586,7 @@ td {
 
 .course-start-overlay,
 .course-end-overlay {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 @media only screen and (max-width: 1212px) {
   .course-start-overlay,
@@ -7675,6 +7675,14 @@ td {
   bottom: 3.5rem;
   right: 3rem;
   height: 5.5rem;
+}
+
+.verification_id_overlay {
+  text-align: center;
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .course-info-header {

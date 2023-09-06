@@ -104,12 +104,42 @@ function CreateStudentCertificate() {
   // function that generates the certificate verificationId in format of current date and time i.e DTC-YYYYMMDD-3digitrandomnumber
 
   function generateVerificationId() {
-    var today = new Date();
-    var date = today.getFullYear() + "" + (today.getMonth() + 1) + "" + today.getDate();
-    var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds();
-    var dateTime = date + "" + time;
-    var randomnumber = Math.floor(Math.random() * 1000 + 1);
-    var verificationId = "DTC-" + dateTime + "-" + randomnumber;
+    // generate in format DTC-YYYYMMDD(8digit)-random3digitnumber
+
+    // DTC - 20181004 - 001;
+
+    // get current date
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1;
+    const currentDay = currentDate.getDate();
+
+    // convert current date to string
+    const currentYearString = currentYear.toString();
+    let currentMonthString = currentMonth.toString();
+    let currentDayString = currentDay.toString();
+
+    // if month or date is single digit then make it double digit by adding 0 in front of it
+    if (currentMonthString.length === 1) {
+      currentMonthString = "0" + currentMonthString;
+    }
+
+    if (currentDayString.length === 1) {
+      currentDayString = "0" + currentDayString;
+    }
+
+    // convert current date to 8 digit string
+    const currentDateString = currentYearString + currentMonthString + currentDayString;
+
+    // generate random 3 digit number
+    const randomNumber = Math.floor(Math.random() * 1000);
+
+    // convert random number to 3 digit string
+    const randomNumberString = randomNumber.toString();
+
+    // combine all strings
+    const verificationId = "DTC-" + currentDateString + "-" + randomNumberString;
+
     return verificationId;
   }
 
@@ -121,10 +151,10 @@ function CreateStudentCertificate() {
         <input type='text' name='fullName' value={formData.fullName} onChange={handleInputChange} style={inputStyle} />
 
         <label style={labelStyle}>startDuration</label>
-        <input type='text' name='startDuration' value={formData.startDuration} onChange={handleInputChange} style={inputStyle} />
+        <input type='date' name='startDuration' value={formData.startDuration} onChange={handleInputChange} style={inputStyle} />
 
         <label style={labelStyle}>endDuration</label>
-        <input type='text' name='endDuration' value={formData.endDuration} onChange={handleInputChange} style={inputStyle} />
+        <input type='date' name='endDuration' value={formData.endDuration} onChange={handleInputChange} style={inputStyle} />
 
         <label style={labelStyle}>courseDuration</label>
         <input type='text' name='courseDuration' value={formData.courseDuration} onChange={handleInputChange} style={inputStyle} />
@@ -145,22 +175,21 @@ function CreateStudentCertificate() {
         <label style={labelStyle}>trainerTitle</label>
         <input type='text' name='trainerTitle' value={formData.trainerTitle} onChange={handleInputChange} style={inputStyle} />
 
-        <label style={labelStyle}>verificationId</label>
-        <input
-          type='text'
-          name='verificationId'
-          value={() => {
-            generateVerificationId();
-          }}
-          onChange={handleInputChange}
-          style={inputStyle}
-        />
+        <label style={labelStyle}>verificationId : {generateVerificationId()}</label>
+        <input type='text' name='verificationId' value={formData.verificationId} onChange={handleInputChange} style={inputStyle} />
 
         <label style={labelStyle}>email</label>
         <input type='text' name='email' value={formData.email} onChange={handleInputChange} style={inputStyle} />
 
         <label style={labelStyle}>gender</label>
-        <input type='text' name='gender' value={formData.gender} onChange={handleInputChange} style={inputStyle} />
+
+        <select name='course' value={formData.course} onChange={handleInputChange} style={inputStyle}>
+          <option default value=''>
+            Select Gender
+          </option>
+          <option value='male'>Male</option>
+          <option value='female'>Female</option>
+        </select>
 
         <button type='submit' style={buttonStyle}>
           Create Certificate

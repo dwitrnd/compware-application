@@ -101,22 +101,25 @@ const EventPage = () => {
       </>
 
       <div className='hero-section'>
-        <h1 className='roboto_500'>Deerwalk Tech Dialogue Series. Episode I</h1>
+        <h1 className='roboto_500'>Deerwalk Tech Dialogue Series | Episode I</h1>
         <h1 className='roboto_500'>
           <span>"Making Nepal the IT Hub by 2030</span> - Possibilities and Challenges"
         </h1>
         <h1 className='event-header'>
-          <span className='roboto_500 event-title'>Event Details:</span>
+          <span className='roboto_500 event-title'>
+            <u>Event Details</u>
+          </span>
         </h1>
+        <br />
         <h4 className='roboto_300 event-timeline'>
           8th October, 2023 <br />
-          1:30 P.M to 4 P.M
+          2:00 P.M to 4:00 P.M
           <br />
           Hotel Himalaya
         </h4>
       </div>
 
-      <section className='about-event-section'>
+      {/* <section className='about-event-section'>
         <div className='container'>
           <h1 className='roboto_700'>About Event:</h1>
           <p className='roboto_400'>
@@ -146,7 +149,7 @@ const EventPage = () => {
             </button>
           </a>
         </div>
-      </section>
+      </section> */}
       {/* panelist section */}
       <section id='panel-list-section'>
         <div className='container'>
