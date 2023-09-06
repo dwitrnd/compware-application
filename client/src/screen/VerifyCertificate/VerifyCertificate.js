@@ -27,6 +27,7 @@ const VerifyCertificate = () => {
   const [trainer, setTrainer] = useState("");
   const [trainerTitle, setTrainerTitle] = useState("");
   const [verificationIdNo, setVerificationIdNo] = useState("");
+  const [trainerSignature, setTrainerSignature] = useState("");
 
   function convertDate(date) {
     const dateArray = date.split("/");
@@ -84,23 +85,7 @@ const VerifyCertificate = () => {
     }
   }
 
-  const fetchStudentData = async () => {
-    const response = await fetch(`${constant.base}/api/student/check-id`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        verificationId: id,
-      }),
-    }).then((res) => res.json());
-    return response;
-  };
-
   useEffect(async () => {
-    console.log("----    fetchStudentData()");
-    console.log(fetchStudentData());
-
     const response = await fetch(`${constant.base}/api/student/check-id`, {
       method: "POST",
       headers: {
@@ -122,6 +107,25 @@ const VerifyCertificate = () => {
     setTrainer(trainer);
     setTrainerTitle(trainerTitle);
     setVerificationIdNo(verificationId);
+
+    const getTrainerResponse = await fetch(`${constant.base}/api/trainer/get-by-name`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        trainerName: trainer,
+      }),
+    }).then((res) => res.json());
+
+    console.log("->->->->-<", getTrainerResponse);
+    console.log("->->->->-<", getTrainerResponse);
+    console.log("->->->->-<", getTrainerResponse);
+    console.log("->->->->-<", getTrainerResponse);
+    console.log("->->->->-<", getTrainerResponse);
+
+    console.log(`${constant.base}/storage/${getTrainerResponse.msg[0].signature}`);
+    setTrainerSignature(`${constant.base}/storage/${getTrainerResponse.msg[0].signature}`);
   }, []);
 
   const handleDownloadPNG = async () => {
@@ -265,7 +269,7 @@ const VerifyCertificate = () => {
 
                     <span className='trainer-name-overlay roboto_700'>
                       <strong>
-                        <h1 classNme='roboto_700'>Kshitiz Bahadur Shah</h1>
+                        <h1 classNme='roboto_700'>{trainer}</h1>
                       </strong>
                     </span>
 

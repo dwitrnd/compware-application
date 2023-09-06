@@ -39,6 +39,21 @@ class trainerController {
       });
     }
   };
+  static getByName = async (req, res) => {
+    try {
+      const { trainerName } = req.body;
+      const result = await trainer.find({ trainerName: trainerName });
+      res.status(200).json({
+        status: true,
+        msg: result,
+      });
+    } catch (err) {
+      res.status(500).json({
+        status: false,
+        msg: err,
+      });
+    }
+  };
   static get = async (req, res) => {
     try {
       const result = await trainer.find({});
