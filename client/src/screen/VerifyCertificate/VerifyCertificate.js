@@ -3,7 +3,6 @@ import { Box, TextField, Typography, Button, Container } from "@mui/material";
 import React from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import CertificateImage from "../../assets/images/certificateimage.jpg";
-import TestimonialImage from "../../assets/images/TestimonialPhotos/Student12.jpg";
 import Stack from "@mui/material/Stack";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { constant } from "constants/contants";

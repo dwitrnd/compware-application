@@ -101,54 +101,59 @@ const Dashboard = ({ children }) => {
     navigate("/login");
   };
   return (
-    <main id='compware-dashboard-layout'>
-      <div class='app-container'>
-        <div class='sidebar'>
-          <div class='sidebar-header'>
-            <div class='app-icon'>
+    <main id="compware-dashboard-layout">
+      <div class="app-container">
+        <div class="sidebar">
+          <div class="sidebar-header">
+            <div class="app-icon">
               <h2 style={{ color: "white" }}>Dashboard</h2>
             </div>
           </div>
-          <ul class='sidebar-list'>
-            <li class='sidebar-list-item'>
-              <Link to='/dashboard/list-enroll-students'>
+          <ul class="sidebar-list">
+            <li class="sidebar-list-item">
+              <Link to="/dashboard/list-enroll-students">
                 <span>Enrolled Students</span>
               </Link>
             </li>
-            <li class='sidebar-list-item'>
-              <Link to='/dashboard/list-testimonial'>
+            <li class="sidebar-list-item">
+              <Link to="/dashboard/list-testimonial">
                 <span>Testimonial</span>
               </Link>
             </li>
 
-            <li class='sidebar-list-item'>
-              <Link to='/dashboard/list-team'>
+            <li class="sidebar-list-item">
+              <Link to="/dashboard/list-team">
                 <span>Team</span>
               </Link>
             </li>
-            <li class='sidebar-list-item'>
-              <Link to='/dashboard/list-course'>
+            <li class="sidebar-list-item">
+              <Link to="/dashboard/list-trainer">
+                <span>Trainer</span>
+              </Link>
+            </li>
+            <li class="sidebar-list-item">
+              <Link to="/dashboard/list-course">
                 <span>Courses</span>
               </Link>
             </li>
-            <li class='sidebar-list-item'>
-              <Link to='/dashboard/list-vacancy'>
+            <li class="sidebar-list-item">
+              <Link to="/dashboard/list-vacancy">
                 <span> Vacancy </span>
               </Link>
             </li>
-            <li class='sidebar-list-item'>
-              <Link to='/dashboard/list-gallery'>
+            <li class="sidebar-list-item">
+              <Link to="/dashboard/list-gallery">
                 <span> Gallery </span>
               </Link>
             </li>
 
-            <li class='sidebar-list-item'>
-              <Link to='/dashboard/list-blog'>
+            <li class="sidebar-list-item">
+              <Link to="/dashboard/list-blog">
                 <span> Blog </span>
               </Link>
             </li>
-            <li class='sidebar-list-item'>
-              <Link to='/dashboard/list-sessions'>
+            <li class="sidebar-list-item">
+              <Link to="/dashboard/list-sessions">
                 <span> Sessions </span>
               </Link>
             </li>
@@ -159,7 +164,7 @@ const Dashboard = ({ children }) => {
             </li>
           </ul>
         </div>
-        <div class='app-content'>
+        <div class="app-content">
           <div style={styles.appContentHeader}>
             <h1 style={styles.appContentHeaderText}>Dashboard</h1>
             <div style={{ display: "flex", alignItems: "center" }}>
