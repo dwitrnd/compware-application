@@ -265,7 +265,7 @@ const VerifyCertificate = () => {
                     />
 
                     <img className='training-manager-signature' src={TrainingManager} alt='' />
-                    <img className='trainer-signature-overlay' src={TrainingManager} alt='' />
+                    <img className='trainer-signature-overlay' src={trainerSignature} alt='' />
 
                     <span className='trainer-name-overlay roboto_700'>
                       <strong>
