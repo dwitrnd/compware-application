@@ -124,8 +124,10 @@ const VerifyCertificate = () => {
     console.log("->->->->-<", getTrainerResponse);
     console.log("->->->->-<", getTrainerResponse);
 
-    console.log(`${constant.base}/storage/${getTrainerResponse.msg[0].signature}`);
-    setTrainerSignature(`${constant.base}/storage/${getTrainerResponse.msg[0].signature}`);
+    if (getTrainerResponse.msg.length !== 0) {
+      console.log(`${constant.base}/storage/${getTrainerResponse.msg[0].signature}`);
+      setTrainerSignature(`${constant.base}/storage/${getTrainerResponse.msg[0].signature}`);
+    }
   }, []);
 
   const handleDownloadPNG = async () => {
