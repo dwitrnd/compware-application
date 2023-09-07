@@ -264,7 +264,12 @@ const EventPage = () => {
       </section>
 
       {/* accordion section */}
-      <section className='accordion-section'>
+      <section
+        className='accordion-section'
+        style={{
+          marginBottom: "0",
+        }}
+      >
         <h3 className='faq-header roboto_700'>Frequently Asked Questions:</h3>
         <div className='accordion-wrapper roboto_500'>
           <div className='accordion-division'>
@@ -316,10 +321,10 @@ const EventPage = () => {
         </div>
       </section>
 
-      <section className='sponsor-section'>
-        <h2 className='sponsor-heading roboto_700'>Sponsors:</h2>
+      <div className='sponsor-section'>
+        {/* <h2 className='sponsor-heading roboto_700'>Sponsors:</h2> */}
 
-        <div
+        {/* <div
           style={{
             display: "flex",
             justifyContent: "center",
@@ -336,7 +341,7 @@ const EventPage = () => {
           <img className='sponsor-logos sponsor-logos--medium' src={CedarGate} alt='' />
           <img className='sponsor-logos' src={Atkans} alt='' />
           <img className='sponsor-logos' src={Infrasoft} alt='' />
-        </div>
+        </div> */}
 
         <div className='sponsor-container'>
           {/* <h4 className='roboto_700'>Title Sponsor:</h4>
@@ -344,21 +349,31 @@ const EventPage = () => {
           <div className='sponsor-logo-container'>
             <img src={HamroPatro} alt='' />
           </div> */}
-          <h4 className='roboto_700'>Powered By:</h4>
+          {/* <h4 className='roboto_700'>Powered By:</h4>
           <div className='sponsor-logo-container'>
             <img src={Khalti} alt='' />
             <img src={WordLink} alt='' />
             <img src={Bhoj} alt='' />
-          </div>
-          <h4 className='roboto_700'>Sponsored By:</h4>
+          </div> */}
+          <h4 className='roboto_700'>Sponsors:</h4>
           <div className='sponsor-logo-container'>
-            <img src={Deerhold} alt='' />
+            {/* <img src={Deerhold} alt='' />
             <img src={Leapfrog} alt='' />
             <img src={Bajra} alt='' />
-            <img src={Nabil} alt='' />
+            <img src={Nabil} alt='' /> */}
+
+            <img className='sponsor-logos large' src={SifalSchool} alt='' />
+            <img className='sponsor-logos' src={Logispark} alt='' />
+            <img className='sponsor-logos' src={HamroPatra} alt='' />
+            <img className='sponsor-logos large' src={DWIT} alt='' />
+            <img className='sponsor-logos' src={Deerhold} alt='' />
+            <img className='sponsor-logos' src={CND} alt='' />
+            <img className='sponsor-logos large' src={CedarGate} alt='' />
+            <img className='sponsor-logos' src={Atkans} alt='' />
+            <img className='sponsor-logos' src={Infrasoft} alt='' />
           </div>
         </div>
-      </section>
+      </div>
 
       <footer className='panelist-footer'>
         <div className='icon-container'>

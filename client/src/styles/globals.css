@@ -8039,12 +8039,17 @@ td {
 .sponsor-logo-container {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
 }
 
 .sponsor-logo-container img {
   margin: 1rem;
-  height: 2.5rem;
+  height: 3.5rem;
+}
+
+.sponsor-logo-container img.large {
+  height: 5.5rem;
 }
 
 .sponsor-section .sponsor-heading {
@@ -8052,7 +8057,6 @@ td {
   text-align: center;
 }
 .sponsor-section .sponsor-container {
-  margin-top: 3rem;
   padding: 1rem 0rem;
   background-color: #1a1a1a;
 }
