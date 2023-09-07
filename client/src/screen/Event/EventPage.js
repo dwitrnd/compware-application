@@ -30,6 +30,7 @@ import DWIT from "assets/icons/DWIT.png";
 import CND from "assets/icons/CNA.png";
 import CedarGate from "assets/icons/Cedar Gate.png";
 import Atkans from "assets/icons/Atkans.png";
+import Infrasoft from "assets/icons/Infrasoft.png";
 
 const style = {
   position: "absolute",
@@ -333,6 +334,7 @@ const EventPage = () => {
           <img className='sponsor-logos' src={CND} alt='' />
           <img className='sponsor-logos sponsor-logos--medium' src={CedarGate} alt='' />
           <img className='sponsor-logos' src={Atkans} alt='' />
+          <img className='sponsor-logos' src={Infrasoft} alt='' />
         </div>
 
         <div className='sponsor-container'>
