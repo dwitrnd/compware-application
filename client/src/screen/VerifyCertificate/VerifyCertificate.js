@@ -150,8 +150,8 @@ const VerifyCertificate = () => {
 
     const canvas = await html2canvas(certificate);
     const pngDataUrl = canvas.toDataURL("image/png");
-    const pdf = new jsPDF();
-    pdf.addImage(pngDataUrl, "PNG", 15, 15, 180, 120);
+    const pdf = new jsPDF({ orientation: "landscape" });
+    pdf.addImage(pngDataUrl, "PNG", 15, 15, 270, 180);
     pdf.save("certificate.pdf");
   };
 
@@ -290,7 +290,15 @@ const VerifyCertificate = () => {
                       </strong>
                     </div>
 
-                    <div className='course-start-overlay' style={{ position: "absolute", top: "72%", left: "44.5%", transform: "translateX(-44.5%) translateY(-72%)" }}>
+                    <div
+                      className='course-start-overlay'
+                      style={{
+                        position: "absolute",
+                        top: "72%",
+                        left: "44.5%",
+                        transform: "translateX(-44.5%) translateY(-72%)",
+                      }}
+                    >
                       <strong>
                         <h5 className='date roboto_700'>{convertDate(startDuration)}</h5>
                       </strong>
