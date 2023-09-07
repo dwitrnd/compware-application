@@ -125,8 +125,8 @@ const VerifyCertificate = () => {
     console.log("->->->->-<", getTrainerResponse);
 
     if (getTrainerResponse.msg.length !== 0) {
-      console.log(`${constant.base}/storage/${getTrainerResponse.msg[0].signature}`);
-      setTrainerSignature(`${constant.base}/storage/${getTrainerResponse.msg[0].signature}`);
+      console.log(`https://api.deerwalktrainingcenter.com/storage/${getTrainerResponse.msg[0].signature}`);
+      setTrainerSignature(`https://api.deerwalktrainingcenter.com/storage/${getTrainerResponse.msg[0].signature}`);
     }
   }, []);
 
@@ -135,7 +135,8 @@ const VerifyCertificate = () => {
     if (!certificate) {
       return 0;
     }
-    const canvas = await html2canvas(certificate);
+    const canvasOpption = { useCORS: true };
+    const canvas = await html2canvas(certificate, canvasOpption);
     const pngDataUrl = canvas.toDataURL("image/png");
     const link = document.createElement("a");
     link.href = pngDataUrl;
@@ -147,8 +148,8 @@ const VerifyCertificate = () => {
     if (!certificate) {
       return;
     }
-
-    const canvas = await html2canvas(certificate);
+    const canvasOpption = { useCORS: true };
+    const canvas = await html2canvas(certificate, canvasOpption);
     const pngDataUrl = canvas.toDataURL("image/png");
     const pdf = new jsPDF({ orientation: "landscape" });
     pdf.addImage(pngDataUrl, "PNG", 15, 15, 270, 180);
@@ -268,6 +269,7 @@ const VerifyCertificate = () => {
 
                     <img className='training-manager-signature' src={TrainingManager} alt='' />
                     <img className='trainer-signature-overlay' src={trainerSignature} alt='' />
+                    <h5 className='trainer-title-overlay'>{trainerTitle}</h5>
 
                     <h5 className='verification_id_overlay roboto_700'>{verificationIdNo}</h5>
 
