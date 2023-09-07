@@ -92,7 +92,7 @@ const ListStudentCertificateBody = () => {
                       <td>{data.verificationId}</td>
                       {/* <td>{data.email === "" ? null : data.email}</td> */}
                       <td>
-                        <Link to={`/dashboard/edit-team/${data._id}`}>
+                        <Link to={`/dashboard/edit-student-certificate/${data._id}`}>
                           <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
                         </Link>
 
