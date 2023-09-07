@@ -18,6 +18,7 @@ import Parag from "assets/images/panel-discussion/Parag Shrestha 1.png";
 import AnilDutta from "assets/images/panel-discussion/Anil Dutta 1.png";
 import Mona from "assets/images/panel-discussion/Mona Nyachhyon 1.png";
 import Avina from "assets/images/panel-discussion/AvinaNakarmi 1.png";
+import Chiranjibi from "assets/images/panel-discussion/Chiranjibi Adhikari.jpg";
 import Rajib from "assets/images/panel-discussion/rajib.png";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -221,14 +222,14 @@ const EventPage = () => {
               className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
-                setPanelistImage(Mona);
+                setPanelistImage(Chiranjibi);
                 setPanelistName("Chiranjibi Adhikari");
                 setPanelistDescription(`
                 Chiranjibi Adhikari, a renowned cybersecurity expert from Nepal, is the CEO of One Cover Pvt. Ltd., a cybersecurity consulting firm. With extensive knowledge in cybersecurity, information security, and digital forensics, he's a prolific writer and researcher, having authored books and research papers in these fields. Chiranjibi is an advocate for cybersecurity awareness and education, delivering lectures and workshops. He also serves as the General Secretary at CAN Federation and holds several other key roles in the tech industry.
 `);
               }}
             >
-              <img src={Mona} alt='' /> <h6 className='roboto_400 panel-list-name'>Chiranjibi Adhikari</h6>
+              <img src={Chiranjibi} alt='' /> <h6 className='roboto_400 panel-list-name'>Chiranjibi Adhikari</h6>
               {/* <h6 className='roboto_400 panel-list-designation'> Mona Nyachhyon </h6> */}
             </div>
           </div>
