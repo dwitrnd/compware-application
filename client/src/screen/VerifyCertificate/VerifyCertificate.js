@@ -107,7 +107,10 @@ const VerifyCertificate = () => {
     setCourseDuration(courseDuration);
     setEmail(email);
     setEndDuration(endDuration);
-    setFullName(fullName);
+
+    // convert MR. SASIN CHAND PRADHAN to Mr. Sasin Chand Pradhan or if the text is MS. ANU THAPALIYA then it should be Ms. Anu Thapaliya name could be anything MR. KSHItIZ SHAH or MR. KSHITIZ KUMAR SHAH just convert MR. or MS. to Mr. and Ms. and other remaining words to titile  case
+    setFullName(capitalToTitleCase(fullName));
+
     setGender(gender);
     setStartDuration(startDuration);
     setTrainer(trainer);
