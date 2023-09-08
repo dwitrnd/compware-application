@@ -44,7 +44,7 @@ function CreateSession() {
           end: "",
         });
 
-        toast("session created successfully!");
+        toast("Session created successfully!");
         window.location.href = "/dashboard/list-sessions";
       } else {
         console.error("Failed to create team");

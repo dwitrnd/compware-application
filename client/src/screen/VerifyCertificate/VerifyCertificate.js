@@ -96,18 +96,7 @@ const VerifyCertificate = () => {
       }),
     }).then((res) => res.json());
 
-    const {
-      course,
-      courseDuration,
-      email,
-      endDuration,
-      fullName,
-      gender,
-      startDuration,
-      trainer,
-      trainerTitle,
-      verificationId,
-    } = response.data[0];
+    const { course, courseDuration, email, endDuration, fullName, gender, startDuration, trainer, trainerTitle, verificationId } = response.data[0];
     setCourse(course);
     setCourseDuration(courseDuration);
     setEmail(email);
@@ -119,18 +108,15 @@ const VerifyCertificate = () => {
     setTrainerTitle(trainerTitle);
     setVerificationIdNo(verificationId);
 
-    const getTrainerResponse = await fetch(
-      `${constant.base}/api/trainer/get-by-name`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          trainerName: trainer,
-        }),
-      }
-    ).then((res) => res.json());
+    const getTrainerResponse = await fetch(`${constant.base}/api/trainer/get-by-name`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        trainerName: trainer,
+      }),
+    }).then((res) => res.json());
 
     console.log("->->->->-<", getTrainerResponse);
     console.log("->->->->-<", getTrainerResponse);
@@ -139,12 +125,8 @@ const VerifyCertificate = () => {
     console.log("->->->->-<", getTrainerResponse);
 
     if (getTrainerResponse.msg.length !== 0) {
-      console.log(
-        `https://api.deerwalktrainingcenter.com/storage/${getTrainerResponse.msg[0].signature}`
-      );
-      setTrainerSignature(
-        `https://api.deerwalktrainingcenter.com/storage/${getTrainerResponse.msg[0].signature}`
-      );
+      console.log(`https://api.deerwalktrainingcenter.com/storage/${getTrainerResponse.msg[0].signature}`);
+      setTrainerSignature(`https://api.deerwalktrainingcenter.com/storage/${getTrainerResponse.msg[0].signature}`);
     }
   }, []);
 
@@ -186,9 +168,9 @@ const VerifyCertificate = () => {
           marginBottom: "3rem",
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth='lg'>
           <section>
-            <Typography variant="h3" color="primary" marginBottom="2rem">
+            <Typography variant='h3' color='primary' marginBottom='2rem'>
               Congratulations {fullName}!
             </Typography>
           </section>
@@ -196,7 +178,7 @@ const VerifyCertificate = () => {
             {" "}
             <Grid item xs={12} md={4}>
               <Box
-                className="user-box"
+                className='user-box'
                 sx={{
                   display: "flex",
                   flexDirection: "column",
@@ -211,83 +193,51 @@ const VerifyCertificate = () => {
                   "& .MuiTextField-root": { width: "30rem" },
                 }}
               >
-                <Stack direction="column" spacing={2}>
-                  <img
-                    src={
-                      "https://deerwalkcompware.com/training/frontend/images/computer-training-institute.png"
-                    }
-                  />
-                  <Typography textAlign="center">{fullName}</Typography>
+                <Stack direction='column' spacing={2}>
+                  <img src={"https://deerwalkcompware.com/training/frontend/images/computer-training-institute.png"} />
+                  <Typography textAlign='center'>{fullName}</Typography>
                   <hr />
-                  <Grid container margin="0.5rem">
+                  <Grid container margin='0.5rem'>
                     <Grid item xs={6}>
-                      <Typography className="user-information topic">
-                        Course
-                      </Typography>
+                      <Typography className='user-information topic'>Course</Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography
-                        className="user-information"
-                        textAlign="center"
-                      >
+                      <Typography className='user-information' textAlign='center'>
                         {course}
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className="user-information topic">
-                        Started On
-                      </Typography>
+                      <Typography className='user-information topic'>Started On</Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography
-                        className="user-information"
-                        textAlign="center"
-                      >
+                      <Typography className='user-information' textAlign='center'>
                         {convertDate(startDuration)}
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className="user-information topic">
-                        Completed On
-                      </Typography>
+                      <Typography className='user-information topic'>Completed On</Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography
-                        className="user-information"
-                        textAlign="center"
-                      >
+                      <Typography className='user-information' textAlign='center'>
                         {convertDate(endDuration)}
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className="user-information topic">
-                        Verification Id
-                      </Typography>
+                      <Typography className='user-information topic'>Verification Id</Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography
-                        className="user-information"
-                        textAlign="center"
-                      >
+                      <Typography className='user-information' textAlign='center'>
                         {verificationIdNo}
                       </Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography className="user-information topic">
-                        Trainer
-                      </Typography>
+                      <Typography className='user-information topic'>Trainer</Typography>
                     </Grid>
                     <Grid item xs={6}>
-                      <Typography
-                        className="user-information"
-                        textAlign="center"
-                      >
+                      <Typography className='user-information' textAlign='center'>
                         {trainer}
                       </Typography>
-                      <Typography
-                        className="user-information"
-                        textAlign="center"
-                      >
+                      <Typography className='user-information' textAlign='center'>
                         {trainerTitle}
                       </Typography>
                     </Grid>
@@ -296,11 +246,11 @@ const VerifyCertificate = () => {
               </Box>
             </Grid>
             <Grid item xs={12} md={8}>
-              <Stack direction="column" spacing={4}>
-                <div className="certificate-container">
+              <Stack direction='column' spacing={4}>
+                <div className='certificate-container'>
                   <section
                     ref={certificateRef}
-                    className="certificate"
+                    className='certificate'
                     style={{
                       position: "relative",
                     }}
@@ -314,48 +264,41 @@ const VerifyCertificate = () => {
                         marginTop: "2rem",
                         border: "5px solid #0f5288",
                       }}
-                      alt="Certificate"
+                      alt='Certificate'
                     />
 
-                    <img
-                      className="training-manager-signature"
-                      src={TrainingManager}
-                      alt=""
+                    <img className='training-manager-signature' src={TrainingManager} alt='' />
+                    <div
+                      className='trainer-signature-overlay'
+                      style={{
+                        backgroundImage: `url(${trainerSignature})`,
+                      }}
                     />
-                    <img
-                      className="trainer-signature-overlay"
-                      src={trainerSignature}
-                      alt=""
-                    />
-                    <h5 className="trainer-title-overlay">{trainerTitle}</h5>
+                    <h5 className='trainer-title-overlay'>{trainerTitle}</h5>
 
-                    <h5 className="verification_id_overlay roboto_700">
-                      {verificationIdNo}
-                    </h5>
+                    <h5 className='verification_id_overlay roboto_700'>{verificationIdNo}</h5>
 
-                    <span className="trainer-name-overlay roboto_700">
+                    <span className='trainer-name-overlay roboto_700'>
                       <strong>
-                        <h1 classNme="roboto_700">{trainer}</h1>
+                        <h1 classNme='roboto_700'>{trainer}</h1>
                       </strong>
                     </span>
 
-                    <strong className="fullName-overlay">
+                    <strong className='fullName-overlay'>
                       <h2>{fullName}</h2>
                     </strong>
-                    <strong className="course-overlay">
+                    <strong className='course-overlay'>
                       <h2>{course}</h2>
                     </strong>
 
-                    <div className="course-duration-overlay">
+                    <div className='course-duration-overlay'>
                       <strong>
-                        <h5 className="hour roboto_700">
-                          {courseDuration.split(" ")[0]}
-                        </h5>
+                        <h5 className='hour roboto_700'>{courseDuration.split(" ")[0]}</h5>
                       </strong>
                     </div>
 
                     <div
-                      className="course-start-overlay"
+                      className='course-start-overlay'
                       style={{
                         position: "absolute",
                         top: "72%",
@@ -364,26 +307,18 @@ const VerifyCertificate = () => {
                       }}
                     >
                       <strong>
-                        <h5 className="date roboto_700">
-                          {convertDate(startDuration)}
-                        </h5>
+                        <h5 className='date roboto_700'>{convertDate(startDuration)}</h5>
                       </strong>
                     </div>
-                    <div className="course-end-overlay">
+                    <div className='course-end-overlay'>
                       <strong>
-                        <h5 className="date roboto_700">
-                          {convertDate(endDuration)}
-                        </h5>
+                        <h5 className='date roboto_700'>{convertDate(endDuration)}</h5>
                       </strong>
                     </div>
                   </section>
                 </div>
 
-                <Button
-                  onClick={handleDownloadPNG}
-                  className="certificate-download-btn"
-                  variant="contained"
-                >
+                <Button onClick={handleDownloadPNG} className='certificate-download-btn' variant='contained'>
                   <span>
                     <FileDownloadIcon
                       sx={{
@@ -395,11 +330,7 @@ const VerifyCertificate = () => {
                   </span>
                   Download PNG
                 </Button>
-                <Button
-                  onClick={handleDownloadPDF}
-                  className="certificate-download-btn"
-                  variant="contained"
-                >
+                <Button onClick={handleDownloadPDF} className='certificate-download-btn' variant='contained'>
                   <span>
                     <FileDownloadIcon
                       sx={{

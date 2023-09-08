@@ -7676,9 +7676,19 @@ td {
 
 .trainer-signature-overlay {
   position: absolute;
-  bottom: 3.5rem;
+  bottom: 3.8rem;
   right: 3rem;
-  height: 5.5rem;
+  height: 4.5rem;
+  width: 8rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media only screen and (min-width: 960px) {
+  .trainer-signature-overlay {
+    bottom: 4.5rem;
+    right: 3.8rem;
+  }
 }
 
 .trainer-title-overlay {

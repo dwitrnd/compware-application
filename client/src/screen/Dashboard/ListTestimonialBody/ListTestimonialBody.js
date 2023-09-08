@@ -12,12 +12,6 @@ const ListTestimonialBody = () => {
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
-      /* The line `// setTableData(res.data.msg);` is commented out, which means it is not currently
-      being executed. However, if it were to be uncommented, it would set the value of the
-      `tableData` state variable to `res.data.msg`. This means that the data received from the API
-      response would be stored in the `tableData` state variable, which can then be used to render
-      the table rows in the component. */
       setTableData(res.data.msg);
     });
   }, []);

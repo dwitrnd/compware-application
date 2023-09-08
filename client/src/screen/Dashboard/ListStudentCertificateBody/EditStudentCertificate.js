@@ -20,7 +20,6 @@ function EditStudentCertificate() {
     trainerTitle: "",
     verificationId: "",
     email: "",
-    gender: "",
   });
   useEffect(() => {
     const apiUrl = `${constant.base}/api/course`;
@@ -54,7 +53,6 @@ function EditStudentCertificate() {
             trainerTitle,
             verificationId,
             email,
-            gender,
           });
 
           console.log("Student data fetched successfully", studentData.msg);
@@ -81,6 +79,21 @@ function EditStudentCertificate() {
 
     const formDataToSend = new FormData();
     for (const key in formData) {
+      // if key is start date or end date then convert value into mm/dd/yyyy eg: january 1st 2023 will be 1/1/2023
+
+      if (key === "startDuration" || key === "endDuration") {
+        const date = new Date(formData[key]);
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const year = date.getFullYear();
+
+        const dateString = month + "/" + day + "/" + year;
+
+        formDataToSend.append(key, dateString);
+      } else {
+        formDataToSend.append(key, formData[key]);
+      }
+
       formDataToSend.append(key, formData[key]);
     }
 
@@ -184,16 +197,6 @@ function EditStudentCertificate() {
 
         <label style={labelStyle}>email</label>
         <input type='text' name='email' value={formData.email} onChange={handleInputChange} style={inputStyle} />
-
-        <label style={labelStyle}>gender</label>
-
-        <select name='course' value={formData.course} onChange={handleInputChange} style={inputStyle}>
-          <option default value=''>
-            Select Gender
-          </option>
-          <option value='male'>Male</option>
-          <option value='female'>Female</option>
-        </select>
 
         <button type='submit' style={buttonStyle}>
           Create Certificate

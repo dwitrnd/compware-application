@@ -4,7 +4,7 @@ const student = require("../models/studentCertificate");
 class studentController {
   static post = async (req, res) => {
     try {
-      const { fullName, startDuration, endDuration, courseDuration, course, trainer, trainerTitle, verificationId, email, gender } = req.body;
+      const { fullName, startDuration, endDuration, courseDuration, course, trainer, trainerTitle, verificationId, email } = req.body;
 
       // const file = req.files.photo;
 
@@ -30,7 +30,6 @@ class studentController {
         trainerTitle,
         verificationId,
         email,
-        gender,
         // photo: fileName,
       });
 
@@ -82,7 +81,7 @@ class studentController {
   };
 
   static patch = async (req, res) => {
-    const { firstName, lastName, email, course, trainer, gender, courseDuration, trainerTitle, startDuration, endDuration, photo } = req.body;
+    const { firstName, lastName, email, course, trainer, courseDuration, trainerTitle, startDuration, endDuration, photo } = req.body;
     const studentId = req.params.id;
 
     if (photo) {
@@ -107,7 +106,6 @@ class studentController {
           email,
           course,
           trainer,
-          gender,
           courseDuration,
           trainerTitle,
           photo,

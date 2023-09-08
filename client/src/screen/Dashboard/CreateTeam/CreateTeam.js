@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { constant } from "constants/contants";
+import { toast } from "react-toastify";
 
 function CreateTeam() {
   const [formData, setFormData] = useState({
@@ -64,7 +65,8 @@ function CreateTeam() {
           ImageName: "",
           ImageAltText: "",
         });
-        alert(" successfully created");
+        toast("Created successfully!");
+        window.location.href = "/dashboard/list-team";
       } else {
         console.error("Failed to create team");
       }
