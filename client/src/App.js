@@ -47,7 +47,8 @@ import CreateGallery from "screen/Dashboard/ListGalleryBody/CreateGallery";
 import ListBlogBody from "screen/Dashboard/ListBlogBody/ListBlogBody";
 import ListSessionBody from "screen/Dashboard/ListSessionBody/ListSessionBody";
 import CreateBlog from "screen/Dashboard/ListBlogBody/CreateBlog";
-import CreateSession from "screen/Dashboard/ListSessionBody/CreateSession";
+import CreateSessions from "screen/Dashboard/ListSessionBody/CreateSessions";
+import EditSessions from "screen/Dashboard/ListSessionBody/EditSessions";
 import ListTrainer from "screen/Dashboard/ListTrainer/ListTrainer";
 import AddTrainer from "screen/Dashboard/AddTrainer/AddTrainer";
 import UpdateBlog from "screen/Dashboard/ListBlogBody/UpdateBlog";
@@ -89,71 +90,71 @@ function App() {
                     !token ? (
                       <Layout>
                         <Home />
-                        <PageTitle title="Deerwalk Training Center" />
+                        <PageTitle title='Deerwalk Training Center' />
                       </Layout>
                     ) : (
-                      <Navigate to="/dashboard" />
+                      <Navigate to='/dashboard' />
                     )
                   }
                 />
                 <Route
-                  path="home"
+                  path='home'
                   element={
                     <Layout>
                       <Home />
-                      <PageTitle title="Deerwalk Training Center" />
+                      <PageTitle title='Deerwalk Training Center' />
                     </Layout>
                   }
                 />
                 <Route
-                  path="our-team"
+                  path='our-team'
                   element={
                     <Layout>
                       <OurTeam />
-                      <PageTitle title="Our Team" />
+                      <PageTitle title='Our Team' />
                     </Layout>
                   }
                 />
                 <Route
-                  path="gallery"
+                  path='gallery'
                   element={
                     <Layout>
                       <Gallery />
-                      <PageTitle title="Gallery" />
+                      <PageTitle title='Gallery' />
                     </Layout>
                   }
                 />
                 <Route
-                  path="contact-us"
+                  path='contact-us'
                   element={
                     <Layout>
                       <ContactUs />
-                      <PageTitle title="Contact Us" />
+                      <PageTitle title='Contact Us' />
                     </Layout>
                   }
                 />
 
                 <Route
-                  path="/courses"
+                  path='/courses'
                   element={
                     <Layout>
                       <Courses />
-                      <PageTitle title="Courses" />
+                      <PageTitle title='Courses' />
                     </Layout>
                   }
                 />
 
                 <Route
-                  path="blog"
+                  path='blog'
                   element={
                     <Layout>
                       <Blog />
-                      <PageTitle title="Blogs" />
+                      <PageTitle title='Blogs' />
                     </Layout>
                   }
                 />
                 <Route
-                  path="/dashboard/update-blog/:id"
+                  path='/dashboard/update-blog/:id'
                   element={
                     <DashboardLayout>
                       <UpdateBlog />
@@ -161,16 +162,16 @@ function App() {
                   }
                 />
                 <Route
-                  path="blog-page/:id"
+                  path='blog-page/:id'
                   element={
                     <Layout>
                       <BlogPage />
                     </Layout>
                   }
                 />
-                <Route path="event" element={<Event />} />
+                <Route path='event' element={<Event />} />
                 <Route
-                  path="blog-page-2"
+                  path='blog-page-2'
                   element={
                     <Layout>
                       <SecondBlogPage />
@@ -178,52 +179,52 @@ function App() {
                   }
                 />
                 <Route
-                  path="verify-certificate/:id"
+                  path='verify-certificate/:id'
                   element={
                     !token ? (
                       <Layout>
                         <VerifyCertificate />
-                        <PageTitle title="Verify Certificate" />
+                        <PageTitle title='Verify Certificate' />
                       </Layout>
                     ) : (
-                      <Navigate to="/dashboard" />
+                      <Navigate to='/dashboard' />
                     )
                   }
                 />
                 <Route
-                  path="terms-and-condition"
+                  path='terms-and-condition'
                   element={
                     !token ? (
                       <Layout>
                         <TermsAndConditions />
                       </Layout>
                     ) : (
-                      <Navigate to="/dashboard" />
+                      <Navigate to='/dashboard' />
                     )
                   }
                 />
                 <Route
-                  path="course-detail/:id"
+                  path='course-detail/:id'
                   element={
                     !token ? (
                       <Layout>
                         <CourseDetailPage />
                       </Layout>
                     ) : (
-                      <Navigate to="/dashboard" />
+                      <Navigate to='/dashboard' />
                     )
                   }
                 />
 
                 <Route
-                  path="login"
+                  path='login'
                   element={
                     !token ? (
                       <Layout>
                         <AdminLogin />
                       </Layout>
                     ) : (
-                      <Navigate to="/dashboard" />
+                      <Navigate to='/dashboard' />
                     )
                   }
                 />
@@ -240,7 +241,7 @@ function App() {
                   }
                 /> */}
                 <Route
-                  path="sendpasswordresetemail"
+                  path='sendpasswordresetemail'
                   element={
                     <Layout>
                       <SendPasswordResetEmail />
@@ -248,7 +249,7 @@ function App() {
                   }
                 />
                 <Route
-                  path="/api/users/reset/:id/:token"
+                  path='/api/users/reset/:id/:token'
                   element={
                     <Layout>
                       <ResetPassword />
@@ -260,7 +261,7 @@ function App() {
               {/* //! Dasboard private routes starts here */}
 
               <Route
-                path="/dashboard"
+                path='/dashboard'
                 element={
                   <DashboardLayout>
                     <Dashboard />
@@ -268,7 +269,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/list-enroll-students"
+                path='/dashboard/list-enroll-students'
                 element={
                   <DashboardLayout>
                     <ListEnrollStudentBody />
@@ -276,7 +277,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/list-sessions"
+                path='/dashboard/list-sessions'
                 element={
                   <DashboardLayout>
                     <ListSessionBody />
@@ -284,15 +285,23 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/create-session"
+                path='/dashboard/create-session'
                 element={
                   <DashboardLayout>
-                    <CreateSession />
+                    <CreateSessions />
                   </DashboardLayout>
                 }
               />
               <Route
-                path="/dashboard/list-blog"
+                path='/dashboard/edit-session/:id'
+                element={
+                  <DashboardLayout>
+                    <EditSessions />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-blog'
                 element={
                   <DashboardLayout>
                     <ListBlogBody />
@@ -300,7 +309,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/list-students"
+                path='/dashboard/list-students'
                 element={
                   <DashboardLayout>
                     <ListStudentCertificateBody />
@@ -308,7 +317,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/create-blog"
+                path='/dashboard/create-blog'
                 element={
                   <DashboardLayout>
                     <CreateBlog />
@@ -316,7 +325,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/create-student"
+                path='/dashboard/create-student'
                 element={
                   <DashboardLayout>
                     <CreateStudentCertificate />
@@ -324,7 +333,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/create-course"
+                path='/dashboard/create-course'
                 element={
                   <DashboardLayout>
                     <CreateCourse />
@@ -332,7 +341,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/create-gallery"
+                path='/dashboard/create-gallery'
                 element={
                   <DashboardLayout>
                     <CreateGallery />
@@ -341,7 +350,7 @@ function App() {
               />
 
               <Route
-                path="/dashboard/list-course"
+                path='/dashboard/list-course'
                 element={
                   <DashboardLayout>
                     <ListCourseBody />
@@ -349,7 +358,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/list-gallery"
+                path='/dashboard/list-gallery'
                 element={
                   <DashboardLayout>
                     <ListGalleryBody />
@@ -365,7 +374,7 @@ function App() {
                 }
               /> */}
               <Route
-                path="/dashboard/update-course/:id"
+                path='/dashboard/update-course/:id'
                 element={
                   <DashboardLayout>
                     <UpdateCourse />
@@ -373,7 +382,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/edit-student-certificate/:id"
+                path='/dashboard/edit-student-certificate/:id'
                 element={
                   <DashboardLayout>
                     <EditStudentCertificate />
@@ -381,7 +390,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/list-team"
+                path='/dashboard/list-team'
                 element={
                   <DashboardLayout>
                     <ListTeamBody />
@@ -389,7 +398,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/list-trainer"
+                path='/dashboard/list-trainer'
                 element={
                   <DashboardLayout>
                     <ListTrainer />
@@ -397,7 +406,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/add-trainer"
+                path='/dashboard/add-trainer'
                 element={
                   <DashboardLayout>
                     <AddTrainer />
@@ -405,7 +414,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/create-team"
+                path='/dashboard/create-team'
                 element={
                   <DashboardLayout>
                     <CreateTeamBody />
@@ -413,7 +422,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/edit-team/:id"
+                path='/dashboard/edit-team/:id'
                 element={
                   <DashboardLayout>
                     <EditTeam />
@@ -421,7 +430,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/list-testimonial"
+                path='/dashboard/list-testimonial'
                 element={
                   <DashboardLayout>
                     <ListTestimonialBody />
@@ -429,7 +438,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/list-request-certificate"
+                path='/dashboard/list-request-certificate'
                 element={
                   <DashboardLayout>
                     <ListRequestCertificate />
@@ -437,7 +446,7 @@ function App() {
                 }
               />
               <Route
-                path="/dashboard/list-vacancy"
+                path='/dashboard/list-vacancy'
                 element={
                   <DashboardLayout>
                     <ListVacancy />
@@ -448,14 +457,14 @@ function App() {
               {/* //! Dasboard private routes ends here */}
 
               <Route
-                path="resetpassword"
+                path='resetpassword'
                 element={
                   <Layout>
                     <AdminForgotPassword />
                   </Layout>
                 }
               />
-              <Route path="*" element={<PageNotFound />} />
+              <Route path='*' element={<PageNotFound />} />
             </Routes>
           </BrowserRouter>
           <ToastContainer />

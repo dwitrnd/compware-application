@@ -32,7 +32,7 @@ function EditTeam() {
   const [email, setEmail] = useState("");
   const [post, setPost] = useState("");
   const [description, setDescription] = useState("");
-  const [role, setRole] = useState("Staff"); // Default value
+  const [role, setRole] = useState(""); // Default value
   const [image, setImage] = useState(null);
   const [imageName, setImageName] = useState("");
   const [imageAltText, setImageAltText] = useState("");
@@ -114,7 +114,15 @@ function EditTeam() {
         <label style={labelStyle}>Post</label>
         <input type='text' name='Post' value={post} onChange={(e) => setPost(e.target.value)} style={inputStyle} />
         <label style={labelStyle}>Role</label>
-        <select name='Role' value={role} onChange={(e) => setRole(e.target.value)} style={inputStyle}>
+        <select
+          name='Role'
+          value={role}
+          onChange={(e) => {
+            setRole(e.target.value);
+            console.log("Role set to", e.target.value);
+          }}
+          style={inputStyle}
+        >
           <option value='Staff'>Staff</option>
           <option value='Trainer'>Trainer</option>
         </select>

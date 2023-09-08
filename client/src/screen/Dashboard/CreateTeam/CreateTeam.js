@@ -107,8 +107,17 @@ function CreateTeam() {
         <label style={labelStyle}>Post</label>
         <input type='text' name='Post' value={formData.Post} onChange={handleInputChange} style={inputStyle} />
 
+        {/* <label style={labelStyle}>Role</label>
+        <input type='text' name='Role' value={formData.Role} onChange={handleInputChange} style={inputStyle} /> */}
+
+        {/* role must be either Staff or Trainer  */}
+
         <label style={labelStyle}>Role</label>
-        <input type='text' name='Role' value={formData.Role} onChange={handleInputChange} style={inputStyle} />
+        <select name='Role' value={formData.Role} onChange={handleInputChange} style={inputStyle}>
+          <option value=''>Select Role</option>
+          <option value={constant.ROLE_STAFF}>Staff</option>
+          <option value={constant.ROLE_TRAINER}>Trainer</option>
+        </select>
 
         <label style={labelStyle}>Description</label>
         <ReactQuill value={formData.Description} onChange={handleEditorChange} />

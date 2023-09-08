@@ -52,7 +52,7 @@ const ListEnrollStudent = () => {
                       <td>{data.enquiryDate}</td>
                       <td>{data.status}</td>
                       <td>
-                        <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                        {/* <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button> */}
                         <button
                           onClick={() => {
                             deleteRequest(data._id);

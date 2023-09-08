@@ -37,6 +37,9 @@ body {
   -webkit-tap-highlight-color: transparent !important;
   -webkit-highlight: none;
 }
+input {
+  outline: none;
+}
 button,
 div {
   -webkit-tap-highlight-color: transparent !important;

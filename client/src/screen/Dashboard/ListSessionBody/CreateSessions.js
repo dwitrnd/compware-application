@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { constant } from "constants/contants";
+import { toast } from "react-toastify";
 
 function CreateSession() {
   const [formData, setFormData] = useState({
@@ -43,7 +43,9 @@ function CreateSession() {
           start: "",
           end: "",
         });
-        alert(" successfully created");
+
+        toast("session created successfully!");
+        window.location.href = "/dashboard/list-sessions";
       } else {
         console.error("Failed to create team");
       }

@@ -55,7 +55,8 @@ class teamController {
   };
 
   static patch = async (req, res) => {
-    const { Name, Email, Post, Description, ImageName, Image, ImageAltText } = req.body;
+    const { Name, Email, Post, Description, ImageName, Image, ImageAltText, Role } = req.body;
+
     const teamId = req.params.id;
     if (Image) {
       const file = req.files.Image;
@@ -78,6 +79,7 @@ class teamController {
           Name,
           Email,
           Post,
+          Role,
           Description,
           ImageName,
           ImageAltText,
