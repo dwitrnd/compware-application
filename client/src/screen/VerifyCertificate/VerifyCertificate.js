@@ -38,6 +38,12 @@ const VerifyCertificate = () => {
     return `${monthName} ${day}, ${year}`;
   }
 
+  function capitalToTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
+
   function getMonthName(month) {
     switch (month) {
       case "01":
@@ -274,13 +280,13 @@ const VerifyCertificate = () => {
                         backgroundImage: `url(${trainerSignature})`,
                       }}
                     />
-                    <h5 className='trainer-title-overlay'>{trainerTitle}</h5>
 
                     <h5 className='verification_id_overlay roboto_700'>{verificationIdNo}</h5>
 
                     <span className='trainer-name-overlay roboto_700'>
                       <strong>
-                        <h1 classNme='roboto_700'>{trainer}</h1>
+                        <h1 className='roboto_500'>{trainer}</h1>
+                        <h5 className='trainer-title-overlay roboto_500'>{capitalToTitleCase(trainerTitle)}</h5>
                       </strong>
                     </span>
 
