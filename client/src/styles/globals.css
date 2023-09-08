@@ -8058,11 +8058,11 @@ td {
 }
 .sponsor-section .sponsor-container {
   padding: 1rem 0rem;
-  background-color: #1a1a1a;
+  background-color: white;
 }
 .sponsor-section .sponsor-container h4 {
   margin: 1rem 0rem;
-  color: white;
+  color: black;
   font-size: 1.5rem;
   text-align: center;
 }
