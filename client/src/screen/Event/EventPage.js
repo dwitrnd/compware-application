@@ -1,18 +1,9 @@
 import React from "react";
-import PanelListCardImage from "assets/images/ellipse-placeholder.png";
 import { useEffect } from "react";
-import HamroPatro from "assets/icons/hamropatro.png";
-import Khalti from "assets/icons/khalti.png";
-import WordLink from "assets/icons/wordlink.png";
-import Bhoj from "assets/icons/bhoj.png";
 import Deerhold from "assets/icons/deerhold.png";
-import Leapfrog from "assets/icons/leapfrog.png";
-import Bajra from "assets/icons/bajra.png";
-import Nabil from "assets/icons/nabil.png";
 import Fb from "assets/icons/fb.png";
 import Insta from "assets/icons/insta.png";
 import Linkedin from "assets/icons/linkedin.png";
-import TestPdf from "assets/pdf/Passion_Letter_1.pdf";
 import Akankshya from "assets/images/panel-discussion/Akankshya Upadhyay 1.png";
 import Parag from "assets/images/panel-discussion/Parag Shrestha 1.png";
 import AnilDutta from "assets/images/panel-discussion/Anil Dutta 1.png";
@@ -22,7 +13,6 @@ import Chiranjibi from "assets/images/panel-discussion/Chiranjibi Adhikari.jpg";
 import Rajib from "assets/images/panel-discussion/rajib.png";
 import Prakash from "assets/images/panel-discussion/Prakash Aryal.jpg";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import SifalSchool from "assets/icons/Sifal School.png";
@@ -33,6 +23,9 @@ import CND from "assets/icons/CNA.png";
 import CedarGate from "assets/icons/Cedar Gate.png";
 import Atkans from "assets/icons/Atkans.png";
 import Infrasoft from "assets/icons/Infrasoft.png";
+import DWITCollege from "assets/images/dwit-college.png";
+import cotivity from "assets/images/cotivity.png";
+import lalitpurEngineeringCollege from "assets/images/lalitpur-engineering-college.jpg";
 
 const style = {
   position: "absolute",
@@ -62,8 +55,7 @@ const EventPage = () => {
     let answer;
     accordion.forEach((item) => {
       item.addEventListener("click", () => {
-        height =
-          item.parentElement.nextElementSibling.firstElementChild.offsetHeight;
+        height = item.parentElement.nextElementSibling.firstElementChild.offsetHeight;
         answer = item.parentElement.nextElementSibling;
         mainParent = item.parentElement.parentElement;
         if (mainParent.classList.contains("active")) {
@@ -78,7 +70,7 @@ const EventPage = () => {
   }, []);
 
   return (
-    <main id="event-page">
+    <main id='event-page'>
       <>
         <div>
           <Modal
@@ -88,23 +80,15 @@ const EventPage = () => {
             }}
             open={open}
             onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
+            aria-labelledby='modal-modal-title'
+            aria-describedby='modal-modal-description'
           >
             <Box sx={style}>
-              <img
-                className="panel-discussion-modal-img"
-                src={panelistImage}
-                alt=""
-              />
-              <h3 className="roboto_500 panel-discussion-modal-name">
+              <img className='panel-discussion-modal-img' src={panelistImage} alt='' />
+              <h3 className='roboto_500 panel-discussion-modal-name'>
                 <center> {panelistName}</center>
               </h3>
-              <Typography
-                id="modal-modal-description "
-                className="roboto_400 justify-text panel-modal-desc"
-                sx={{ mt: 2 }}
-              >
+              <Typography id='modal-modal-description ' className='roboto_400 justify-text panel-modal-desc' sx={{ mt: 2 }}>
                 {panelistDescription}
               </Typography>
             </Box>
@@ -112,21 +96,18 @@ const EventPage = () => {
         </div>
       </>
 
-      <div className="hero-section">
-        <h1 className="roboto_500">
-          Deerwalk Tech Dialogue Series | Episode I
+      <div className='hero-section'>
+        <h1 className='roboto_500'>Deerwalk Tech Dialogue Series | Episode I</h1>
+        <h1 className='roboto_500'>
+          <span>"Making Nepal the IT Hub by 2030</span> - Possibilities and Challenges"
         </h1>
-        <h1 className="roboto_500">
-          <span>"Making Nepal the IT Hub by 2030</span> - Possibilities and
-          Challenges"
-        </h1>
-        <h1 className="event-header">
-          <span className="roboto_500 event-title">
+        <h1 className='event-header'>
+          <span className='roboto_500 event-title'>
             <u>Event Details</u>
           </span>
         </h1>
         <br />
-        <h4 className="roboto_300 event-timeline">
+        <h4 className='roboto_300 event-timeline'>
           8th October, 2023 <br />
           2:00 P.M to 4:00 P.M
           <br />
@@ -134,44 +115,12 @@ const EventPage = () => {
         </h4>
       </div>
 
-      {/* <section className='about-event-section'>
+      <section id='panel-list-section'>
         <div className='container'>
-          <h1 className='roboto_700'>About Event:</h1>
-          <p className='roboto_400'>
-            Deerwalk Compware is organizing a panel discussion in collaboration with industry leaders, centering around the captivating topic, "Deerwalk Tech Dialogue Series. Episode I", where we will delve into the strategies, innovations, and obstacles that shape Nepal's journey towards IT
-            prominence. With Deerwalk Tech Dialogue Series. Episode I, Panel Discussion - Making Nepal the IT Hub by 2030 - Possibilities and Challenges,  we're bringing together the smartest people, the creative thinkers, and the most influential figures, all accepted through a meticulous process
-            of evaluation and selection. This exclusive gathering is a testament to our commitment to fostering meaningful conversations that matter. As we dig into Nepal's tech progress, our panelists will break down the plans that lead to success, highlighting the new ideas that push us forward,
-            and face the challenges that we can only beat by working together.
-          </p>
-
-          <a href='./EventPage.js' download>
-            <button
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              className='roboto_500 event-schedule-btn'
-            >
-              Event Schedule
-              <i
-                style={{
-                  marginLeft: "10px",
-                  fontSize: "1.2rem",
-                }}
-                class='bx bx-down-arrow-circle'
-              ></i>
-            </button>
-          </a>
-        </div>
-      </section> */}
-      {/* panelist section */}
-      <section id="panel-list-section">
-        <div className="container">
-          <h2 className="heading roboto_700">Panelist:</h2>
-          <div className="panel-discussion-container">
+          <h2 className='heading roboto_700'>Panelist:</h2>
+          <div className='panel-discussion-container'>
             <div
-              className="panel-list-card clickable"
+              className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
                 setPanelistImage(Rajib);
@@ -181,12 +130,10 @@ const EventPage = () => {
                 );
               }}
             >
-              <img src={Rajib} alt="" />{" "}
-              <h6 className="roboto_400 panel-list-name">Dr. Rajib Subba</h6>
-              {/* <h6 className='roboto_400 panel-list-designation'> Dr. Rajib Subba </h6> */}
+              <img src={Rajib} alt='' /> <h6 className='roboto_400 panel-list-name'>Dr. Rajib Subba</h6>
             </div>
             <div
-              className="panel-list-card clickable"
+              className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
                 setPanelistImage(Parag);
@@ -196,12 +143,11 @@ const EventPage = () => {
                 );
               }}
             >
-              <img src={Parag} alt="" />{" "}
-              <h6 className="roboto_400 panel-list-name">Parag Shrestha</h6>
+              <img src={Parag} alt='' /> <h6 className='roboto_400 panel-list-name'>Parag Shrestha</h6>
               {/* <h6 className='roboto_400 panel-list-designation'> Parag Shrestha </h6> */}
             </div>
             <div
-              className="panel-list-card clickable"
+              className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
                 setPanelistImage(AnilDutta);
@@ -211,12 +157,10 @@ const EventPage = () => {
                 );
               }}
             >
-              <img src={AnilDutta} alt="" />{" "}
-              <h6 className="roboto_400 panel-list-name">Anil Dutta</h6>
-              {/* <h6 className='roboto_400 panel-list-designation'> Anil Dutta </h6> */}
+              <img src={AnilDutta} alt='' /> <h6 className='roboto_400 panel-list-name'>Anil Dutta</h6>
             </div>
             <div
-              className="panel-list-card clickable"
+              className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
                 setPanelistImage(Mona);
@@ -231,12 +175,10 @@ const EventPage = () => {
                 power of technology and innovation for a brighter future.`);
               }}
             >
-              <img src={Mona} alt="" />{" "}
-              <h6 className="roboto_400 panel-list-name">Mona Nyachhyon</h6>
-              {/* <h6 className='roboto_400 panel-list-designation'> Mona Nyachhyon </h6> */}
+              <img src={Mona} alt='' /> <h6 className='roboto_400 panel-list-name'>Mona Nyachhyon</h6>
             </div>
             <div
-              className="panel-list-card clickable"
+              className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
                 setPanelistImage(Chiranjibi);
@@ -246,14 +188,10 @@ const EventPage = () => {
 `);
               }}
             >
-              <img src={Chiranjibi} alt="" />{" "}
-              <h6 className="roboto_400 panel-list-name">
-                Chiranjibi Adhikari
-              </h6>
-              {/* <h6 className='roboto_400 panel-list-designation'> Mona Nyachhyon </h6> */}
+              <img src={Chiranjibi} alt='' /> <h6 className='roboto_400 panel-list-name'>Chiranjibi Adhikari</h6>
             </div>
             <div
-              className="panel-list-card clickable"
+              className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
                 setPanelistImage(Prakash);
@@ -263,8 +201,7 @@ const EventPage = () => {
 `);
               }}
             >
-              <img src={Prakash} alt="" />{" "}
-              <h6 className="roboto_400 panel-list-name">Prakash Aryal</h6>
+              <img src={Prakash} alt='' /> <h6 className='roboto_400 panel-list-name'>Prakash Aryal</h6>
             </div>
           </div>
         </div>
@@ -272,19 +209,19 @@ const EventPage = () => {
       {/* speaker section */}
 
       {/* host section */}
-      <section id="panel-list-section">
-        <div className="container">
+      <section id='panel-list-section'>
+        <div className='container'>
           <h2
-            className="heading roboto_700"
+            className='heading roboto_700'
             style={{
               textAlign: "center",
             }}
           >
             Host & Moderator
           </h2>
-          <div className="panel-discussion-container">
+          <div className='panel-discussion-container'>
             <div
-              className="panel-list-card clickable"
+              className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
                 setPanelistImage(Avina);
@@ -294,12 +231,11 @@ const EventPage = () => {
 `);
               }}
             >
-              <img src={Avina} alt="" />{" "}
-              <h6 className="roboto_400 panel-list-name">Avina Nakarmi</h6>
-              <h6 className="roboto_400 panel-list-designation"> Host </h6>
+              <img src={Avina} alt='' /> <h6 className='roboto_400 panel-list-name'>Avina Nakarmi</h6>
+              <h6 className='roboto_400 panel-list-designation'> Host </h6>
             </div>
             <div
-              className="panel-list-card clickable"
+              className='panel-list-card clickable'
               onClick={() => {
                 handleOpen();
                 setPanelistImage(Akankshya);
@@ -310,9 +246,8 @@ const EventPage = () => {
               }}
             >
               {/* <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> */}
-              <img src={Akankshya} alt="" />{" "}
-              <h6 className="roboto_400 panel-list-name">Akankshya Upadhyay</h6>
-              <h6 className="roboto_400 panel-list-designation"> Moderator </h6>
+              <img src={Akankshya} alt='' /> <h6 className='roboto_400 panel-list-name'>Akankshya Upadhyay</h6>
+              <h6 className='roboto_400 panel-list-designation'> Moderator </h6>
             </div>
           </div>
         </div>
@@ -320,80 +255,55 @@ const EventPage = () => {
 
       {/* accordion section */}
       <section
-        className="accordion-section"
+        className='accordion-section'
         style={{
           marginBottom: "0",
         }}
       >
-        <h3 className="faq-header roboto_700">Frequently Asked Questions:</h3>
-        <div className="accordion-wrapper roboto_500">
-          <div className="accordion-division">
-            <div className="accordion-container">
-              <div className="accordion">
-                <div className="question">
-                  <h3 className="roboto_700">What is the event focusing on?</h3>
+        <h3 className='faq-header roboto_700'>Frequently Asked Questions:</h3>
+        <div className='accordion-wrapper roboto_500'>
+          <div className='accordion-division'>
+            <div className='accordion-container'>
+              <div className='accordion'>
+                <div className='question'>
+                  <h3 className='roboto_700'>What is the event focusing on?</h3>
                 </div>
-                <div className="answer roboto_400">
-                  <p>
-                    The event is focusing on the objective of making Nepal a
-                    thriving IT hub by the year 2030. The primary focus is
-                    likely on discussing strategies, policies, investments, and
-                    collaborations required to expand the country’s IT sector.
-                  </p>
+                <div className='answer roboto_400'>
+                  <p>The event is focusing on the objective of making Nepal a thriving IT hub by the year 2030. The primary focus is likely on discussing strategies, policies, investments, and collaborations required to expand the country’s IT sector.</p>
                 </div>
               </div>
 
-              <div className="accordion">
-                <div className="question">
-                  <h3 className="roboto_700">Who can join this discussion?</h3>
+              <div className='accordion'>
+                <div className='question'>
+                  <h3 className='roboto_700'>Who can join this discussion?</h3>
                 </div>
-                <div className="answer roboto_400">
-                  <p>
-                    Upon submission of the form, invitations will be sent via
-                    email to those who qualify. Those who receive an invitation
-                    will have the honour of participating in the discussion.
-                  </p>
+                <div className='answer roboto_400'>
+                  <p>Upon submission of the form, invitations will be sent via email to those who qualify. Those who receive an invitation will have the honour of participating in the discussion.</p>
                 </div>
               </div>
 
-              <div className="accordion">
-                <div className="question">
-                  <h3 className="roboto_700">Who will be attending?</h3>
+              <div className='accordion'>
+                <div className='question'>
+                  <h3 className='roboto_700'>Who will be attending?</h3>
                 </div>
-                <div className="answer roboto_400">
-                  <p>
-                    Representatives from educational institutions, industry
-                    leaders in the IT sector, investors, and professionals from
-                    various fields will be present in the event.
-                  </p>
+                <div className='answer roboto_400'>
+                  <p>Representatives from educational institutions, industry leaders in the IT sector, investors, and professionals from various fields will be present in the event.</p>
                 </div>
               </div>
-              <div className="accordion">
-                <div className="question">
-                  <h3 className="roboto_700">
-                    Why is this event being organized?
-                  </h3>
+              <div className='accordion'>
+                <div className='question'>
+                  <h3 className='roboto_700'>Why is this event being organized?</h3>
                 </div>
-                <div className="answer roboto_400">
-                  <p>
-                    The event is being organized in order to foster the
-                    development of Nepal’s IT sector and bring together industry
-                    leaders for strategic planning.
-                  </p>
+                <div className='answer roboto_400'>
+                  <p>The event is being organized in order to foster the development of Nepal’s IT sector and bring together industry leaders for strategic planning.</p>
                 </div>
               </div>
-              <div className="accordion">
-                <div className="question">
-                  <h3 className="roboto_700">
-                    What do we hope to achieve from this event?
-                  </h3>
+              <div className='accordion'>
+                <div className='question'>
+                  <h3 className='roboto_700'>What do we hope to achieve from this event?</h3>
                 </div>
-                <div className="answer roboto_400">
-                  <p>
-                    Our goal is to gather valuable insights and implementable
-                    strategies that will help Nepal become a vibrant IT hub by
-                    2030.
-                  </p>
+                <div className='answer roboto_400'>
+                  <p>Our goal is to gather valuable insights and implementable strategies that will help Nepal become a vibrant IT hub by 2030.</p>
                 </div>
               </div>
             </div>
@@ -401,77 +311,85 @@ const EventPage = () => {
         </div>
       </section>
 
-      <div className="sponsor-section">
-        {/* <h2 className='sponsor-heading roboto_700'>Sponsors:</h2> */}
-
-        {/* <div
+      <div className='sponsor-section'>
+        <div
           style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexWrap: "wrap",
+            padding: "0",
           }}
+          className='sponsor-container'
         >
-          <img className='sponsor-logos sponsor-logos--medium' src={SifalSchool} alt='' />
-          <img className='sponsor-logos' src={Logispark} alt='' />
-          <img className='sponsor-logos' src={HamroPatra} alt='' />
-          <img className='sponsor-logos sponsor-logos--medium' src={DWIT} alt='' />
-          <img className='sponsor-logos' src={Deerhold} alt='' />
-          <img className='sponsor-logos' src={CND} alt='' />
-          <img className='sponsor-logos sponsor-logos--medium' src={CedarGate} alt='' />
-          <img className='sponsor-logos' src={Atkans} alt='' />
-          <img className='sponsor-logos' src={Infrasoft} alt='' />
-        </div> */}
+          <div
+            style={{
+              background: "#322653",
+              paddingTop: "1rem",
+              paddingBottom: "2rem",
+            }}
+          >
+            <h4
+              style={{
+                color: "white",
+              }}
+              className='roboto_700'
+            >
+              Title Sponsor:
+            </h4>
+            <div className='sponsor-logo-container'>
+              <img
+                style={{
+                  height: "1rem",
+                }}
+                className='sponsor-logos'
+                src={cotivity}
+                alt=''
+              />
+            </div>
+          </div>
 
-        <div className="sponsor-container">
-          {/* <h4 className='roboto_700'>Title Sponsor:</h4>
-
+          <h4 className='roboto_700'>Powered By:</h4>
           <div className='sponsor-logo-container'>
-            <img src={HamroPatro} alt='' />
-          </div> */}
-          {/* <h4 className='roboto_700'>Powered By:</h4>
-          <div className='sponsor-logo-container'>
-            <img src={Khalti} alt='' />
-            <img src={WordLink} alt='' />
-            <img src={Bhoj} alt='' />
-          </div> */}
-          <h4 className="roboto_700">Sponsors:</h4>
-          <div className="sponsor-logo-container">
-            {/* <img src={Deerhold} alt='' />
-            <img src={Leapfrog} alt='' />
-            <img src={Bajra} alt='' />
-            <img src={Nabil} alt='' /> */}
+            <img className='sponsor-logos' src={DWITCollege} alt='' />
+          </div>
 
-            <img className="sponsor-logos large" src={SifalSchool} alt="" />
-            <img className="sponsor-logos" src={Logispark} alt="" />
-            <img className="sponsor-logos" src={HamroPatra} alt="" />
-            <img className="sponsor-logos large" src={DWIT} alt="" />
-            <img className="sponsor-logos" src={Deerhold} alt="" />
-            <img className="sponsor-logos" src={CND} alt="" />
-            <img className="sponsor-logos large" src={CedarGate} alt="" />
-            <img className="sponsor-logos" src={Atkans} alt="" />
-            <img className="sponsor-logos" src={Infrasoft} alt="" />
+          <h4 className='roboto_700'>Sponsored By:</h4>
+          <div className='sponsor-logo-container'>
+            <img
+              style={{
+                height: "5rem",
+              }}
+              className='sponsor-logos'
+              src={lalitpurEngineeringCollege}
+              alt=''
+            />
+          </div>
+          <h4 className='roboto_700'>Supported By:</h4>
+          <div className='sponsor-logo-container'>
+            <img className='sponsor-logos large' src={SifalSchool} alt='' />
+            <img className='sponsor-logos' src={Logispark} alt='' />
+            <img className='sponsor-logos' src={HamroPatra} alt='' />
+            <img className='sponsor-logos large' src={DWIT} alt='' />
+            <img className='sponsor-logos' src={Deerhold} alt='' />
+            <img className='sponsor-logos' src={CND} alt='' />
+            <img className='sponsor-logos large' src={CedarGate} alt='' />
+            <img className='sponsor-logos' src={Atkans} alt='' />
+            <img className='sponsor-logos' src={Infrasoft} alt='' />
           </div>
         </div>
       </div>
 
-      <footer className="panelist-footer">
-        <div className="icon-container">
-          <a
-            href="https://www.facebook.com/deerwalktrainingcenter/"
-            target="_blank"
-          >
-            <img src={Fb} alt="" />
+      <footer className='panelist-footer'>
+        <div className='icon-container'>
+          <a href='https://www.facebook.com/deerwalktrainingcenter/' target='_blank'>
+            <img src={Fb} alt='' />
           </a>
-          <a href="https://www.instagram.com/deerwalk.training.center/?hl=en">
-            <img src={Insta} alt="" />
+          <a href='https://www.instagram.com/deerwalk.training.center/?hl=en'>
+            <img src={Insta} alt='' />
           </a>
 
-          <a href="https://np.linkedin.com/company/deerwalk-compware-ltd">
-            <img src={Linkedin} alt="" />
+          <a href='https://np.linkedin.com/company/deerwalk-compware-ltd'>
+            <img src={Linkedin} alt='' />
           </a>
         </div>
-        <p className="roboto_400">Copyright &copy; 2023 Deerwalk Compware</p>
+        <p className='roboto_400'>Copyright &copy; 2023 Deerwalk Compware</p>
       </footer>
     </main>
   );
