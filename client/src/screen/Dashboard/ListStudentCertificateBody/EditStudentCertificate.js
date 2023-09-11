@@ -1,26 +1,25 @@
 import React, { useState } from "react";
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { constant } from "constants/contants";
 import axios from "axios";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function EditStudentCertificate() {
   const { id } = useParams();
   const [courses, setCourses] = useState([]);
 
-  const [formData, setFormData] = useState({
-    fullName: "",
-    startDuration: "",
-    endDuration: "",
-    courseDuration: "",
-    course: "",
-    trainer: "",
-    trainerTitle: "",
-    verificationId: "",
-    email: "",
-  });
+  const [fullName, setFullName] = useState("");
+  const [startDuration, setStartDuration] = useState("");
+  const [endDuration, setEndDuration] = useState("");
+  const [courseDuration, setCourseDuration] = useState("");
+  const [course, setCourse] = useState("");
+  const [trainer, setTrainer] = useState("");
+  const [trainerTitle, setTrainerTitle] = useState("");
+  const [verificationId, setVerificationId] = useState("");
+  const [email, setEmail] = useState("");
+
   useEffect(() => {
     const apiUrl = `${constant.base}/api/course`;
 
@@ -36,104 +35,51 @@ function EditStudentCertificate() {
   }, []);
 
   useEffect(() => {
-    const fetchStudentData = async () => {
-      try {
-        const apiUrl = `${constant.base}/api/student/${id}`;
-        const response = await fetch(apiUrl);
-        if (response.ok) {
-          const studentData = await response.json();
-          const {
-            fullName,
-            startDuration,
-            endDuration,
-            courseDuration,
-            course,
-            trainer,
-            trainerTitle,
-            verificationId,
-            email,
-          } = studentData.msg;
-          setFormData({
-            fullName,
-            startDuration,
-            endDuration,
-            courseDuration,
-            course,
-            trainer,
-            trainerTitle,
-            verificationId,
-            email,
-          });
+    axios.get(`${constant.base}/api/student/${id}`).then((res) => {
+      const student = res.data.msg;
+      setFullName(student.fullName);
+      // convert to date format the end Date is in format of9/30/2023
+      const endDate = new Date(student.endDuration);
+      const endDateFormat = endDate.toISOString().split("T")[0];
+      setEndDuration(endDateFormat);
+      // convert to date format the start Date is in format of9/30/2023
+      const startDate = new Date(student.startDuration);
+      const startDateFormat = startDate.toISOString().split("T")[0];
+      setStartDuration(startDateFormat);
 
-          console.log("Student data fetched successfully", studentData.msg);
-        } else {
-          console.error("Failed to fetch student data");
-        }
-      } catch (error) {
-        console.error("Error fetching student data:", error);
-      }
-    };
-
-    fetchStudentData();
+      setCourseDuration(student.courseDuration);
+      setCourse(student.course);
+      setTrainer(student.trainer);
+      setTrainerTitle(student.trainerTitle);
+      setVerificationId(student.verificationId);
+      setEmail(student.email);
+    });
   }, [id]);
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const apiUrl = `${constant.base}/api/student/${id}`;
 
-    const formDataToSend = new FormData();
-    for (const key in formData) {
-      // if key is start date or end date then convert value into mm/dd/yyyy eg: january 1st 2023 will be 1/1/2023
+    const data = {
+      fullName: fullName,
+      startDuration: startDuration,
+      endDuration: endDuration,
+      courseDuration: courseDuration,
+      course: course,
+      trainer: trainer,
+      trainerTitle: trainerTitle,
+      verificationId: verificationId,
+      email: email,
+    };
 
-      if (key === "startDuration" || key === "endDuration") {
-        const date = new Date(formData[key]);
-        const month = date.getMonth() + 1;
-        const day = date.getDate();
-        const year = date.getFullYear();
+    axios.patch(apiUrl, data).then((res) => {
+      console.log(res);
 
-        const dateString = month + "/" + day + "/" + year;
+      toast.success("Updated successfully !");
 
-        formDataToSend.append(key, dateString);
-      } else {
-        formDataToSend.append(key, formData[key]);
-      }
-
-      formDataToSend.append(key, formData[key]);
-    }
-
-    try {
-      const response = await fetch(apiUrl, {
-        method: "PATCH",
-        body: formDataToSend,
-      });
-
-      if (response.ok) {
-        console.log("Session created successfully");
-        // Reset the form fields
-        setFormData({
-          fullName: "",
-          startDuration: "",
-          endDuration: "",
-          courseDuration: "",
-          course: "",
-          trainer: "",
-          trainerTitle: "",
-          verificationId: "",
-          email: "",
-        });
-        alert(" successfully edited");
-      } else {
-        console.error("Failed to edit student");
-      }
-    } catch (error) {
-      console.error("Error sending request:", error);
-    }
+      window.location.href = "/dashboard/list-students";
+    });
   };
 
   const labelStyle = {
@@ -161,10 +107,8 @@ function EditStudentCertificate() {
 
   function generateVerificationId() {
     var today = new Date();
-    var date =
-      today.getFullYear() + "" + (today.getMonth() + 1) + "" + today.getDate();
-    var time =
-      today.getHours() + "" + today.getMinutes() + "" + today.getSeconds();
+    var date = today.getFullYear() + "" + (today.getMonth() + 1) + "" + today.getDate();
+    var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds();
     var dateTime = date + "" + time;
     var randomnumber = Math.floor(Math.random() * 1000 + 1);
     var verificationId = "DTC-" + dateTime + "-" + randomnumber;
@@ -177,48 +121,58 @@ function EditStudentCertificate() {
       <form onSubmit={handleSubmit}>
         <label style={labelStyle}>fullName</label>
         <input
-          type="text"
-          name="fullName"
-          value={formData.fullName}
-          onChange={handleInputChange}
+          type='text'
+          name='fullName'
+          value={fullName}
+          onChange={(e) => {
+            setFullName(e.target.value);
+          }}
           style={inputStyle}
         />
 
         <label style={labelStyle}>startDuration</label>
         <input
-          type="date"
-          name="startDuration"
-          value={formData.startDuration}
-          onChange={handleInputChange}
+          type='date'
+          name='startDuration'
+          value={startDuration}
+          onChange={(e) => {
+            setStartDuration(e.target.value);
+          }}
           style={inputStyle}
         />
 
         <label style={labelStyle}>endDuration</label>
         <input
-          type="date"
-          name="endDuration"
-          value={formData.endDuration}
-          onChange={handleInputChange}
+          type='date'
+          name='endDuration'
+          value={endDuration}
+          onChange={(e) => {
+            setEndDuration(e.target.value);
+          }}
           style={inputStyle}
         />
 
         <label style={labelStyle}>courseDuration</label>
         <input
-          type="text"
-          name="courseDuration"
-          value={formData.courseDuration}
-          onChange={handleInputChange}
+          type='text'
+          name='courseDuration'
+          value={courseDuration}
+          onChange={(e) => {
+            setCourseDuration(e.target.value);
+          }}
           style={inputStyle}
         />
 
         <label style={labelStyle}>course</label>
         <select
-          name="course"
-          value={formData.course}
-          onChange={handleInputChange}
+          name='course'
+          value={course}
+          onChange={(e) => {
+            setCourse(e.target.value);
+          }}
           style={inputStyle}
         >
-          <option value="">Select Course</option>
+          <option value=''>Select Course</option>
           {courses.map((course) => (
             <option key={course} value={course}>
               {course}
@@ -228,43 +182,49 @@ function EditStudentCertificate() {
 
         <label style={labelStyle}>trainer</label>
         <input
-          type="text"
-          name="trainer"
-          value={formData.trainer}
-          onChange={handleInputChange}
+          type='text'
+          name='trainer'
+          value={trainer}
+          onChange={(e) => {
+            setTrainer(e.target.value);
+          }}
           style={inputStyle}
         />
 
         <label style={labelStyle}>trainerTitle</label>
         <input
-          type="text"
-          name="trainerTitle"
-          value={formData.trainerTitle}
-          onChange={handleInputChange}
+          type='text'
+          name='trainerTitle'
+          value={trainerTitle}
+          onChange={(e) => {
+            setTrainerTitle(e.target.value);
+          }}
           style={inputStyle}
         />
 
-        <label style={labelStyle}>
-          verificationId : {generateVerificationId()}
-        </label>
+        <label style={labelStyle}>verificationId : {generateVerificationId()}</label>
         <input
-          type="text"
-          name="verificationId"
-          value={formData.verificationId}
-          onChange={handleInputChange}
+          type='text'
+          name='verificationId'
+          value={verificationId}
+          onChange={(e) => {
+            setVerificationId(e.target.value);
+          }}
           style={inputStyle}
         />
 
         <label style={labelStyle}>email</label>
         <input
-          type="text"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
+          type='text'
+          name='email'
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
           style={inputStyle}
         />
 
-        <button type="submit" style={buttonStyle}>
+        <button type='submit' style={buttonStyle}>
           Edit Certificate
         </button>
       </form>

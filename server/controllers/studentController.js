@@ -81,52 +81,32 @@ class studentController {
   };
 
   static patch = async (req, res) => {
-    const { firstName, lastName, email, course, trainer, courseDuration, trainerTitle, startDuration, endDuration, photo } = req.body;
-    const studentId = req.params.id;
+    const { fullName, startDuration, endDuration, courseDuration, course, trainer, trainerTitle, verificationId, email } = req.body;
 
-    if (photo) {
-      const file = req.files.companyLogo;
-      const timestamp = Date.now();
-      const fileName = `photo_${timestamp}.jpeg`;
+    console.log(req.body);
 
-      file.mv(`./storage/${fileName}`, (error) => {
-        if (error) {
-          return res.status(500).send(error);
-        }
-        console.log("File Uploaded!");
-      });
-      photo = fileName;
-    }
-    try {
-      const result = await student.findByIdAndUpdate(
-        studentId,
-        {
-          firstName,
-          lastName,
-          email,
-          course,
-          trainer,
-          courseDuration,
-          trainerTitle,
-          photo,
+    const Id = req.params.id;
+
+    const result = await student.updateOne(
+      { _id: Id },
+      {
+        $set: {
+          fullName,
           startDuration,
           endDuration,
+          courseDuration,
+          course,
+          trainer,
+          trainerTitle,
+          verificationId,
+          email,
         },
-        { new: true }
-      );
-      if (!result) {
-        throw Error;
       }
-      res.status(200).json({
-        status: true,
-        msg: result,
-      });
-    } catch (err) {
-      res.status(404).json({
-        status: false,
-        msg: "Check Id again",
-      });
-    }
+    );
+    res.status(200).json({
+      status: true,
+      msg: result,
+    });
   };
 
   static getOne = async (req, res) => {
