@@ -42,7 +42,17 @@ function EditStudentCertificate() {
         const response = await fetch(apiUrl);
         if (response.ok) {
           const studentData = await response.json();
-          const { fullName, startDuration, endDuration, courseDuration, course, trainer, trainerTitle, verificationId, email, gender } = studentData.msg;
+          const {
+            fullName,
+            startDuration,
+            endDuration,
+            courseDuration,
+            course,
+            trainer,
+            trainerTitle,
+            verificationId,
+            email,
+          } = studentData.msg;
           setFormData({
             fullName,
             startDuration,
@@ -116,11 +126,10 @@ function EditStudentCertificate() {
           trainerTitle: "",
           verificationId: "",
           email: "",
-          gender: "",
         });
-        alert(" successfully created");
+        alert(" successfully edited");
       } else {
-        console.error("Failed to create student");
+        console.error("Failed to edit student");
       }
     } catch (error) {
       console.error("Error sending request:", error);
@@ -152,8 +161,10 @@ function EditStudentCertificate() {
 
   function generateVerificationId() {
     var today = new Date();
-    var date = today.getFullYear() + "" + (today.getMonth() + 1) + "" + today.getDate();
-    var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds();
+    var date =
+      today.getFullYear() + "" + (today.getMonth() + 1) + "" + today.getDate();
+    var time =
+      today.getHours() + "" + today.getMinutes() + "" + today.getSeconds();
     var dateTime = date + "" + time;
     var randomnumber = Math.floor(Math.random() * 1000 + 1);
     var verificationId = "DTC-" + dateTime + "-" + randomnumber;
@@ -165,20 +176,49 @@ function EditStudentCertificate() {
       <h1>Edit Certificate</h1>
       <form onSubmit={handleSubmit}>
         <label style={labelStyle}>fullName</label>
-        <input type='text' name='fullName' value={formData.fullName} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="fullName"
+          value={formData.fullName}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>startDuration</label>
-        <input type='date' name='startDuration' value={formData.startDuration} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="date"
+          name="startDuration"
+          value={formData.startDuration}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>endDuration</label>
-        <input type='date' name='endDuration' value={formData.endDuration} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="date"
+          name="endDuration"
+          value={formData.endDuration}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>courseDuration</label>
-        <input type='text' name='courseDuration' value={formData.courseDuration} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="courseDuration"
+          value={formData.courseDuration}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>course</label>
-        <select name='course' value={formData.course} onChange={handleInputChange} style={inputStyle}>
-          <option value=''>Select Course</option>
+        <select
+          name="course"
+          value={formData.course}
+          onChange={handleInputChange}
+          style={inputStyle}
+        >
+          <option value="">Select Course</option>
           {courses.map((course) => (
             <option key={course} value={course}>
               {course}
@@ -187,19 +227,45 @@ function EditStudentCertificate() {
         </select>
 
         <label style={labelStyle}>trainer</label>
-        <input type='text' name='trainer' value={formData.trainer} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="trainer"
+          value={formData.trainer}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>trainerTitle</label>
-        <input type='text' name='trainerTitle' value={formData.trainerTitle} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="trainerTitle"
+          value={formData.trainerTitle}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
-        <label style={labelStyle}>verificationId : {generateVerificationId()}</label>
-        <input type='text' name='verificationId' value={formData.verificationId} onChange={handleInputChange} style={inputStyle} />
+        <label style={labelStyle}>
+          verificationId : {generateVerificationId()}
+        </label>
+        <input
+          type="text"
+          name="verificationId"
+          value={formData.verificationId}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>email</label>
-        <input type='text' name='email' value={formData.email} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
-        <button type='submit' style={buttonStyle}>
-          Create Certificate
+        <button type="submit" style={buttonStyle}>
+          Edit Certificate
         </button>
       </form>
     </div>
