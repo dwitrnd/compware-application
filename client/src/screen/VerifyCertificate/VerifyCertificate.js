@@ -11,6 +11,12 @@ import { useRef } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import TrainingManager from "assets/images/praveen-signature.png";
+import {
+  FacebookIcon,
+  FacebookShareButton,
+  LinkedinIcon,
+  LinkedinShareButton,
+} from "react-share";
 
 const VerifyCertificate = () => {
   const certificateRef = useRef(null);
@@ -157,6 +163,7 @@ const VerifyCertificate = () => {
     }
   }, []);
 
+  const shareURL = `https://deerwalktrainingcenter.com/verify-certificate/${verificationIdNo}`;
   const handleDownloadPNG = async () => {
     const certificate = certificateRef.current;
     if (!certificate) {
@@ -203,10 +210,40 @@ const VerifyCertificate = () => {
         }}
       >
         <Container maxWidth="lg">
-          <section>
+          <section
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
             <Typography variant="h3" color="primary" marginBottom="2rem">
               Congratulations {fullName}!
             </Typography>
+            <div
+              style={{
+                display: "flex",
+                width: "30%",
+              }}
+            >
+              <Typography variant="h6" color="primary">
+                Share:
+              </Typography>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  width: "25%",
+                }}
+              >
+                <FacebookShareButton url={shareUrl}>
+                  <FacebookIcon size={32} round={true} />
+                </FacebookShareButton>
+                <LinkedinShareButton url={shareUrl}>
+                  <LinkedinIcon size={32} round={true} />
+                </LinkedinShareButton>
+              </div>
+            </div>
           </section>
           <Grid container spacing={4}>
             {" "}
