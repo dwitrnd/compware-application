@@ -119,7 +119,7 @@ function EditStudentCertificate() {
     <div>
       <h1>Edit Certificate</h1>
       <form onSubmit={handleSubmit}>
-        <label style={labelStyle}>fullName</label>
+        <label style={labelStyle}>Full name</label>
         <input
           type='text'
           name='fullName'
@@ -130,7 +130,7 @@ function EditStudentCertificate() {
           style={inputStyle}
         />
 
-        <label style={labelStyle}>startDuration</label>
+        <label style={labelStyle}>Start duration</label>
         <input
           type='date'
           name='startDuration'
@@ -141,7 +141,7 @@ function EditStudentCertificate() {
           style={inputStyle}
         />
 
-        <label style={labelStyle}>endDuration</label>
+        <label style={labelStyle}>End duration</label>
         <input
           type='date'
           name='endDuration'
@@ -152,7 +152,7 @@ function EditStudentCertificate() {
           style={inputStyle}
         />
 
-        <label style={labelStyle}>courseDuration</label>
+        <label style={labelStyle}>Course duration</label>
         <input
           type='text'
           name='courseDuration'
@@ -163,7 +163,7 @@ function EditStudentCertificate() {
           style={inputStyle}
         />
 
-        <label style={labelStyle}>course</label>
+        <label style={labelStyle}>Course</label>
         <select
           name='course'
           value={course}
@@ -180,7 +180,7 @@ function EditStudentCertificate() {
           ))}
         </select>
 
-        <label style={labelStyle}>trainer</label>
+        <label style={labelStyle}>Trainer</label>
         <input
           type='text'
           name='trainer'
@@ -191,7 +191,7 @@ function EditStudentCertificate() {
           style={inputStyle}
         />
 
-        <label style={labelStyle}>trainerTitle</label>
+        <label style={labelStyle}>Trainer title</label>
         <input
           type='text'
           name='trainerTitle'
@@ -202,7 +202,7 @@ function EditStudentCertificate() {
           style={inputStyle}
         />
 
-        <label style={labelStyle}>verificationId : {generateVerificationId()}</label>
+        <label style={labelStyle}>Verification Id : {generateVerificationId()}</label>
         <input
           type='text'
           name='verificationId'
@@ -213,7 +213,7 @@ function EditStudentCertificate() {
           style={inputStyle}
         />
 
-        <label style={labelStyle}>email</label>
+        <label style={labelStyle}>Email</label>
         <input
           type='text'
           name='email'

@@ -42,15 +42,15 @@ const ListStudentCertificateBody = () => {
       <table>
         <thead>
           <tr>
-            <th>photo</th>
-            <th>fullName</th>
-            <th>startDuration</th>
-            <th>endDuration</th>
-            <th>course</th>
-            <th>courseDuration</th>
-            <th>trainer</th>
-            <th>trainerTitle</th>
-            <th>verificationId</th>
+            <th>Photo</th>
+            <th>Full name</th>
+            <th>Start duration</th>
+            <th>End duration</th>
+            <th>Course</th>
+            <th>Course Duration</th>
+            <th>Trainer</th>
+            <th>Trainer Title</th>
+            <th>Verification Id</th>
             {/* <th>email</th> */}
             <th className='action-column'>Actions</th>
           </tr>

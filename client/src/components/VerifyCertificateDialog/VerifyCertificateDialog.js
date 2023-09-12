@@ -42,9 +42,9 @@ const MemberDialogBox = () => {
       console.log(data);
       const { status } = data;
       if (status === true && data.msg === "Id exists") {
-        // window.href = `${constant.client}/verify-certificate/${inputValue}`;
         setOpen(false);
-        navigate(`/verify-certificate/${inputValue}`);
+        window.location.href = `${constant.client}/verify-certificate/${inputValue}`;
+
         isFetching(false);
       }
 

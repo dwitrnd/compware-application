@@ -35,6 +35,7 @@ import ListCourseBody from "screen/Dashboard/ListCourseBody";
 import ListTeamBody from "screen/Dashboard/ListTeamBody/ListTeamBody";
 import CreateTeamBody from "screen/Dashboard/CreateTeam/CreateTeam";
 import ListTestimonialBody from "screen/Dashboard/ListTestimonialBody/ListTestimonialBody";
+import EditTestimonial from "screen/Dashboard/ListTestimonialBody/EditTestimonial";
 import ListRequestCertificate from "screen/Dashboard/ListRequestCertificate/ListRequestCertificate";
 import ListVacancy from "screen/Dashboard/ListVacancy";
 import PageTitle from "components/PageTitle/PageTitle";
@@ -54,6 +55,7 @@ import AddTrainer from "screen/Dashboard/AddTrainer/AddTrainer";
 import UpdateBlog from "screen/Dashboard/ListBlogBody/UpdateBlog";
 import ListStudentCertificateBody from "screen/Dashboard/ListStudentCertificateBody/ListStudentCertificateBody";
 import CreateStudentCertificate from "screen/Dashboard/ListStudentCertificateBody/CreateStudentCertificate";
+import CreateTestimonial from "screen/Dashboard/ListTestimonialBody/CreateTestimonial";
 import EditStudentCertificate from "screen/Dashboard/ListStudentCertificateBody/EditStudentCertificate";
 
 // Simple git
@@ -434,6 +436,22 @@ function App() {
                 element={
                   <DashboardLayout>
                     <ListTestimonialBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-testimonial'
+                element={
+                  <DashboardLayout>
+                    <CreateTestimonial />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/edit-testimonial/:id'
+                element={
+                  <DashboardLayout>
+                    <EditTestimonial />
                   </DashboardLayout>
                 }
               />

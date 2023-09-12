@@ -5,6 +5,9 @@ class testimonialController {
   static post = async (req, res) => {
     try {
       const { name, affiliation, description, imageName, imageAltText } = req.body;
+
+      console.log("data captured:", req.body);
+
       const file = req.files.image;
 
       const timestamp = Date.now();
@@ -55,6 +58,7 @@ class testimonialController {
 
   static patch = async (req, res) => {
     const { name, affiliation, description, imageName, imageAltText } = req.body;
+    console.log("data captured:", req.body);
     const testimonialId = req.params.id;
     const file = req.files.image;
 
