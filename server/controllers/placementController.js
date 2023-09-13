@@ -1,41 +1,29 @@
-const partners = require("../models/PlacementPartners");
 const { validationResult } = require("express-validator");
+const placementPartner = require("../models/PlacementPartner");
 
-class PlacementController {
+class placementController {
   static post = async (req, res) => {
     try {
-      const { Name } = req.body;
-      const file = req.files.Photo;
+      const { ImageName, ImageAltText } = req.body;
+      const file = req.files.Image;
 
       const timestamp = Date.now();
       const filename = `photo_${timestamp}.jpeg`;
-
+      console.log("--------------------------------------");
       file.mv(`./storage/${filename}`, (error) => {
         if (error) {
+          console.log("YOUR ERROR IS :", error);
           return res.status(500).send(error);
         }
         console.log("Upload Successful");
       });
 
-      const Partners = await new partners({
-        Name,
-        Photo: filename,
+      const Placement = await new placementPartner({
+        Image: filename,
+        ImageName,
+        ImageAltText,
       });
-      const result = await Partners.save();
-      res.status(200).json({
-        status: true,
-        msg: result,
-      });
-    } catch (err) {
-      res.status(500).json({
-        status: false,
-        msg: err,
-      });
-    }
-  };
-  static get = async (req, res) => {
-    try {
-      const result = await partners.find({});
+      const result = await Placement.save();
       res.status(200).json({
         status: true,
         msg: result,
@@ -48,11 +36,25 @@ class PlacementController {
     }
   };
 
+  static get = async (req, res) => {
+    try {
+      const result = await placementPartner.find({});
+      res.status(200).json({
+        status: true,
+        msg: result,
+      });
+    } catch (err) {
+      res.status(500).json({
+        status: false,
+        msg: err,
+      });
+    }
+  };
   static patch = async (req, res) => {
-    const { Name, Photo } = req.body;
-    const Id = req.params.id;
-    if (Photo) {
-      const file = req.files.Photo;
+    const { ImageName, ImageAltText, Image } = req.body;
+    const notificationId = req.params.id;
+    if (Image) {
+      const file = req.files.Image;
       const timestamp = Date.now();
       const fileName = `photo_${timestamp}.jpeg`;
 
@@ -62,13 +64,14 @@ class PlacementController {
         }
         console.log("Upload Successful!");
       });
-      Photo = fileName;
+      Image = fileName;
     }
     try {
-      const result = await partners.findByIdAndUpdate(
-        Id,
+      const result = await placementPartner.findByIdAndUpdate(
+        notificationId,
         {
-          Name,
+          ImageName,
+          ImageAltText,
         },
         { new: true }
       );
@@ -90,7 +93,7 @@ class PlacementController {
   static getOne = async (req, res) => {
     try {
       const Id = req.params.id;
-      const result = await partners.findOne({ _id: Id });
+      const result = await placementPartner.findOne({ _id: Id });
       if (!result) {
         throw Error;
       }
@@ -109,7 +112,7 @@ class PlacementController {
   static delete = async (req, res) => {
     try {
       const Id = req.params.id;
-      const result = await partners.deleteOne({ _id: Id });
+      const result = await placementPartner.deleteOne({ _id: Id });
       console.log(result);
       res.status(200).json({
         status: true,
@@ -124,4 +127,4 @@ class PlacementController {
   };
 }
 
-module.exports = PlacementController;
+module.exports = placementController;

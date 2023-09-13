@@ -57,6 +57,10 @@ import ListStudentCertificateBody from "screen/Dashboard/ListStudentCertificateB
 import CreateStudentCertificate from "screen/Dashboard/ListStudentCertificateBody/CreateStudentCertificate";
 import CreateTestimonial from "screen/Dashboard/ListTestimonialBody/CreateTestimonial";
 import EditStudentCertificate from "screen/Dashboard/ListStudentCertificateBody/EditStudentCertificate";
+import ListClientBody from "screen/Dashboard/ListClientBody/ListClientBody";
+import CreateClient from "screen/Dashboard/ListClientBody/CreateClient";
+import ListPlacementPartnerBody from "screen/Dashboard/ListPlacementPartnerBody/ListPlacementPartnerBody";
+import CreatePlacementPartner from "screen/Dashboard/ListPlacementPartnerBody/CreatePlacementPartner";
 
 // Simple git
 const theme = createTheme({
@@ -295,6 +299,30 @@ function App() {
                 }
               />
               <Route
+                path='/dashboard/create-client'
+                element={
+                  <DashboardLayout>
+                    <CreateClient />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-partner'
+                element={
+                  <DashboardLayout>
+                    <ListPlacementPartnerBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-placement'
+                element={
+                  <DashboardLayout>
+                    <CreatePlacementPartner />
+                  </DashboardLayout>
+                }
+              />
+              <Route
                 path='/dashboard/edit-session/:id'
                 element={
                   <DashboardLayout>
@@ -428,6 +456,14 @@ function App() {
                 element={
                   <DashboardLayout>
                     <EditTeam />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-client'
+                element={
+                  <DashboardLayout>
+                    <ListClientBody />
                   </DashboardLayout>
                 }
               />

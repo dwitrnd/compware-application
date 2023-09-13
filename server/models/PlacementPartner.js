@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const clientSchema = mongoose.Schema({
+const placementPartnerSchema = mongoose.Schema({
   Image: {
     type: String,
     required: true,
@@ -16,6 +16,6 @@ const clientSchema = mongoose.Schema({
   },
 });
 
-const client = mongoose.model("client", clientSchema);
+const placementPartner = mongoose.model("placement", placementPartnerSchema);
 
-module.exports = client;
+module.exports = placementPartner;
