@@ -236,10 +236,10 @@ const VerifyCertificate = () => {
                   width: "25%",
                 }}
               >
-                <FacebookShareButton url={shareUrl}>
+                <FacebookShareButton url={shareURL}>
                   <FacebookIcon size={32} round={true} />
                 </FacebookShareButton>
-                <LinkedinShareButton url={shareUrl}>
+                <LinkedinShareButton url={shareURL}>
                   <LinkedinIcon size={32} round={true} />
                 </LinkedinShareButton>
               </div>
