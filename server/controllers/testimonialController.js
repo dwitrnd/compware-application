@@ -60,30 +60,56 @@ class testimonialController {
     const { name, affiliation, description, imageName, imageAltText } = req.body;
     console.log("data captured:", req.body);
     const testimonialId = req.params.id;
-    const file = req.files.image;
 
-    const timestamp = Date.now();
-    const fileName = `photo_${timestamp}.jpeg`;
+    //  if there is files.image then only
 
-    file.mv(`./storage/${fileName}`, (error) => {
-      if (error) {
-        return res.status(500).send(error);
-      }
-      console.log("File Uploaded");
-    });
     try {
-      const result = await testimonial.findByIdAndUpdate(
-        testimonialId,
-        {
-          name,
-          affiliation,
-          description,
-          image: fileName,
-          imageName,
-          imageAltText,
-        },
-        { new: true }
-      );
+      let result;
+      if (req.files) {
+        const file = req.files.image;
+
+        const timestamp = Date.now();
+        const fileName = `photo_${timestamp}.jpeg`;
+
+        file.mv(`./storage/${fileName}`, (error) => {
+          if (error) {
+            return res.status(500).send(error);
+          }
+          console.log("File Uploaded");
+        });
+
+        result = await testimonial.findByIdAndUpdate(
+          testimonialId,
+          {
+            name,
+            affiliation,
+            description,
+            image: fileName,
+            imageName,
+            imageAltText,
+          },
+          { new: true }
+        );
+
+        console.log(" result ===");
+        console.log(result);
+
+        console.log("--- updated successfully with image");
+      } else {
+        console.log("--- without image is updated");
+        result = await testimonial.findByIdAndUpdate(
+          testimonialId,
+          {
+            name,
+            affiliation,
+            description,
+            imageName,
+            imageAltText,
+          },
+          { new: true }
+        );
+      }
+
       if (!result) {
         throw Error;
       }
@@ -94,7 +120,7 @@ class testimonialController {
     } catch (err) {
       res.status(404).json({
         status: false,
-        msg: "Check Id again",
+        msg: "error while updating testimonial",
       });
     }
   };

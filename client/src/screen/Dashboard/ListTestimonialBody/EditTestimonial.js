@@ -2,52 +2,48 @@ import React, { useState, useEffect } from "react";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { constant } from "constants/contants";
-import { toast } from "react-toastify";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import { toast } from "react-toastify";
 
-function EditTeam() {
+function EditTestimonial() {
   const { id } = useParams();
-
-  const [formData, setFormData] = useState({
-    name: "",
-    affiliation: "",
-    description: "",
-    image: "",
-    imageName: "",
-    imageAltText: "",
-  });
+  const [name, setName] = useState("");
+  const [affiliation, setAffiliation] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
+  const [imageName, setImageName] = useState("");
+  const [imageAltText, setImageAltText] = useState("");
 
   useEffect(() => {
-    axios.get(`${constant.base}/api/testimonial/${id}`).then((res) => {
-      console.log(res.data.msg);
+    const fetchTestimonialData = async () => {
+      try {
+        const apiUrl = `${constant.base}/api/testimonial/${id}`;
+        const response = await fetch(apiUrl);
+        if (response.ok) {
+          const testimonialData = await response.json();
 
-      const { affiliation, description, image, imageAltText, imageName, name } = res.data.msg;
-      console.log(affiliation);
+          console.log(testimonialData);
 
-      setFormData({
-        name: name,
-        affiliation: affiliation,
-        image: image,
-        imageName: imageName,
-        imageAltText: imageAltText,
-      });
-      // setFormData({ ...formData, description: description });
-    });
+          const { affiliation, description, image, imageAltText, imageName, name } = testimonialData.msg;
+
+          setName(name);
+          setAffiliation(affiliation);
+          setDescription(description);
+          setImageName(imageName);
+          setImageAltText(imageAltText);
+        } else {
+          console.error("Failed to fetch testimonial data");
+        }
+      } catch (error) {
+        console.error("Error fetching testimonial data:", error);
+      }
+    };
+
+    fetchTestimonialData();
   }, []);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleImageChange = (event) => {
-    const imageFile = event.target.files[0];
-    setFormData({ ...formData, image: imageFile, imageName: imageFile.name });
-  };
-
   const handleEditorChange = (value) => {
-    setFormData({ ...formData, description: value });
+    setDescription(value);
   };
 
   const handleSubmit = async (event) => {
@@ -56,32 +52,41 @@ function EditTeam() {
     const apiUrl = `${constant.base}/api/testimonial/${id}`;
 
     const formDataToSend = new FormData();
-    for (const key in formData) {
-      formDataToSend.append(key, formData[key]);
-    }
+
+    formDataToSend.append("name", name);
+    formDataToSend.append("affiliation", affiliation);
+    formDataToSend.append("description", description);
+    formDataToSend.append("image", image);
+    formDataToSend.append("imageName", imageName);
+    formDataToSend.append("imageAltText", imageAltText);
 
     try {
-      const response = await fetch(apiUrl, {
-        method: "PATCH",
-        body: formDataToSend,
-      });
-
+      const response = await fetch(
+        apiUrl,
+        {
+          method: "PATCH",
+          body: formDataToSend,
+        },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       console.log(response);
-      if (response.ok) {
-        console.log("Testimonial updated successfully!");
 
-        setFormData({
-          name: "",
-          affiliation: "",
-          description: "",
-          image: "",
-          imageName: "",
-          imageAltText: "",
-        });
-        toast("Updated Successfully!");
+      if (response.ok) {
+        setName("");
+        setAffiliation("");
+        setDescription("");
+        setImage("");
+        setImageName("");
+        setImageAltText("");
+
+        toast.success(" successfully updated testimonial!");
         window.location.href = "/dashboard/list-testimonial";
       } else {
-        console.error("Failed to update testimonial!");
+        console.error("Failed to update testimonial");
       }
     } catch (error) {
       console.error("Error sending request:", error);
@@ -111,21 +116,34 @@ function EditTeam() {
 
   return (
     <div>
-      <h1>Edit Testimonial</h1>
+      <h1>Update Testimonial</h1>
       <form onSubmit={handleSubmit}>
-        <label style={labelStyle}>Name</label>
-        <input type='text' name='name' value={formData.name} onChange={handleInputChange} style={inputStyle} />
-        <label style={labelStyle}>Affiliation</label>
-        <input type='text' name='affiliation' value={formData.affiliation} onChange={handleInputChange} style={inputStyle} />
+        <label style={labelStyle}>name</label>
+        <input required type='text' name='name' value={name} onChange={(e) => setName(e.target.value)} style={inputStyle} />
 
-        <label style={labelStyle}>Description</label>
-        <ReactQuill value={formData.description} onChange={handleEditorChange} />
+        <label style={labelStyle}>affiliation</label>
+        <input required type='text' name='affiliation' value={affiliation} onChange={(e) => setAffiliation(e.target.value)} style={inputStyle} />
 
-        <label style={labelStyle}>Image</label>
-        <input type='file' accept='image/*' name='image' onChange={handleImageChange} style={inputStyle} />
+        <label style={labelStyle}>imageName</label>
+        <input required type='text' name='imageName' value={imageName} onChange={(e) => setImageName(e.target.value)} style={inputStyle} />
 
-        <label style={labelStyle}>Image Alt Text</label>
-        <input type='text' name='imageAltText' value={formData.imageAltText} onChange={handleInputChange} style={inputStyle} />
+        <label style={labelStyle}>imageAltText</label>
+        <input required type='text' name='imageAltText' value={imageAltText} onChange={(e) => setImageAltText(e.target.value)} style={inputStyle} />
+
+        <label style={labelStyle}>description</label>
+        <ReactQuill value={description} onChange={handleEditorChange} />
+
+        <label style={labelStyle}>blog image</label>
+        <input
+          type='file'
+          accept='image/*'
+          name='logo'
+          onChange={(e) => {
+            const imageFile = e.target.files[0];
+            setImage(imageFile);
+          }}
+          style={inputStyle}
+        />
 
         <button type='submit' style={buttonStyle}>
           Update Testimonial
@@ -135,4 +153,4 @@ function EditTeam() {
   );
 }
 
-export default EditTeam;
+export default EditTestimonial;
