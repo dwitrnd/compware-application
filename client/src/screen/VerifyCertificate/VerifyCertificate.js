@@ -11,6 +11,12 @@ import { useRef } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import TrainingManager from "assets/images/praveen-signature.png";
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from "react-share";
 
 const VerifyCertificate = () => {
   const certificateRef = useRef(null);
@@ -36,12 +42,6 @@ const VerifyCertificate = () => {
     const year = dateArray[2];
     const monthName = getMonthName(month);
     return `${monthName} ${day}, ${year}`;
-  }
-
-  function capitalToTitleCase(str) {
-    return str.replace(/\w\S*/g, function (txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
   }
 
   function getMonthName(month) {
@@ -118,10 +118,7 @@ const VerifyCertificate = () => {
     setCourseDuration(courseDuration);
     setEmail(email);
     setEndDuration(endDuration);
-
-    // convert MR. SASIN CHAND PRADHAN to Mr. Sasin Chand Pradhan or if the text is MS. ANU THAPALIYA then it should be Ms. Anu Thapaliya name could be anything MR. KSHItIZ SHAH or MR. KSHITIZ KUMAR SHAH just convert MR. or MS. to Mr. and Ms. and other remaining words to titile  case
-    setFullName(capitalToTitleCase(fullName));
-
+    setFullName(fullName);
     setGender(gender);
     setStartDuration(startDuration);
     setTrainer(trainer);
@@ -157,6 +154,8 @@ const VerifyCertificate = () => {
     }
   }, []);
 
+  const shareUrl = `https://deerwalktrainingcenter.com/verify-certificate/${verificationIdNo}`;
+
   const handleDownloadPNG = async () => {
     const certificate = certificateRef.current;
     if (!certificate) {
@@ -179,14 +178,23 @@ const VerifyCertificate = () => {
     const canvas = await html2canvas(certificate, canvasOpption);
     const pngDataUrl = canvas.toDataURL("image/png");
     const pdf = new jsPDF({ orientation: "landscape" });
-    pdf.addImage(pngDataUrl, "PNG", 15, 15, 270, 180);
+    pdf.addImage(pngDataUrl, "PNG", 0, -13, 300, 230);
     pdf.save("certificate.pdf");
   };
-  const capitalizeTrainerTitle = (title) => {
-    if (title === "QA Trainer") {
-      return "QA Trainer";
-    } else {
-      return capitalToTitleCase(title);
+
+  const shareContent = () => {
+    if (certificateRef.current) {
+      // Replace 'example.com' with your own URL
+      const shareUrl = `https://deerwalktrainingcenter.com/verify-certificate/${verificationIdNo}`;
+
+      // Open the Facebook sharing dialog
+      window.open(
+        `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+          shareUrl
+        )}`,
+        "Share on Facebook",
+        "width=600,height=300"
+      );
     }
   };
 
@@ -203,10 +211,40 @@ const VerifyCertificate = () => {
         }}
       >
         <Container maxWidth="lg">
-          <section>
+          <section
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
             <Typography variant="h3" color="primary" marginBottom="2rem">
               Congratulations {fullName}!
             </Typography>
+            <div
+              style={{
+                display: "flex",
+                width: "30%",
+              }}
+            >
+              <Typography variant="h6" color="primary">
+                Share:
+              </Typography>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  width: "25%",
+                }}
+              >
+                <FacebookShareButton url={shareUrl}>
+                  <FacebookIcon size={32} round={true} />
+                </FacebookShareButton>
+                <LinkedinShareButton url={shareUrl}>
+                  <LinkedinIcon size={32} round={true} />
+                </LinkedinShareButton>
+              </div>
+            </div>
           </section>
           <Grid container spacing={4}>
             {" "}
@@ -328,7 +366,6 @@ const VerifyCertificate = () => {
                         maxWidth: "100%",
                         height: "auto",
                         marginTop: "2rem",
-                        border: "5px solid #0f5288",
                       }}
                       alt="Certificate"
                     />
@@ -338,12 +375,12 @@ const VerifyCertificate = () => {
                       src={TrainingManager}
                       alt=""
                     />
-                    <div
+                    <img
                       className="trainer-signature-overlay"
-                      style={{
-                        backgroundImage: `url(${trainerSignature})`,
-                      }}
+                      src={trainerSignature}
+                      alt=""
                     />
+                    <h5 className="trainer-title-overlay">{trainerTitle}</h5>
 
                     <h5 className="verification_id_overlay roboto_700">
                       {verificationIdNo}
@@ -351,18 +388,15 @@ const VerifyCertificate = () => {
 
                     <span className="trainer-name-overlay roboto_700">
                       <strong>
-                        <h1 className="roboto_500">{trainer}</h1>
-                        <h5 className="trainer-title-overlay roboto_500">
-                          {trainerTitle}
-                        </h5>
+                        <h1 classNme="roboto_700">{trainer}</h1>
                       </strong>
                     </span>
 
                     <strong className="fullName-overlay">
-                      <h2 className="roboto_500">{fullName}</h2>
+                      <h2>{fullName}</h2>
                     </strong>
                     <strong className="course-overlay">
-                      <h2 className="roboto_500">{course}</h2>
+                      <h2>{course}</h2>
                     </strong>
 
                     <div className="course-duration-overlay">
