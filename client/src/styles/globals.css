@@ -7500,15 +7500,31 @@ td {
   width: 100%;
   z-index: 1;
 }
+@media only screen and (max-width: 1280px) {
+  .course-overlay {
+    top: 315px;
+  }
+}
 @media only screen and (max-width: 1210px) {
   .course-overlay {
     top: 315px;
   }
 }
+@media only screen and (max-width: 1196px) {
+  .course-overlay {
+    top: 300px;
+    font-size: 0.9rem;
+  }
+}
 @media only screen and (max-width: 1140px) {
   .course-overlay {
-    top: 270px;
+    top: 285px;
     font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 1092px) {
+  .course-overlay {
+    top: 270px;
   }
 }
 @media only screen and (max-width: 1042px) {

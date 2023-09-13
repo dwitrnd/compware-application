@@ -76,12 +76,22 @@
   position: absolute;
   top: 335px;
 
+  @media only screen and (max-width: 1280px) {
+    top: 315px;
+  }
   @media only screen and (max-width: 1210px) {
     top: 315px;
   }
-  @media only screen and (max-width: 1140px) {
-    top: 270px;
+  @media only screen and (max-width: 1196px) {
+    top: 300px;
     font-size: 0.9rem;
+  }
+  @media only screen and (max-width: 1140px) {
+    top: 285px;
+    font-size: 0.9rem;
+  }
+  @media only screen and (max-width: 1092px) {
+    top: 270px;
   }
   @media only screen and (max-width: 1042px) {
     font-size: 0.7rem;
