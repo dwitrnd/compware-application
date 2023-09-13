@@ -338,12 +338,26 @@ const VerifyCertificate = () => {
                       }}
                     >
                       <strong>
-                        <h5 className='date roboto_700'>{convertDate(startDuration)}</h5>
+                        <h5
+                          style={{
+                            marginTop: "0.75rem",
+                          }}
+                          className='date roboto_700'
+                        >
+                          {convertDate(startDuration)}
+                        </h5>
                       </strong>
                     </div>
                     <div className='course-end-overlay'>
                       <strong>
-                        <h5 className='date roboto_700'>{convertDate(endDuration)}</h5>
+                        <h5
+                          style={{
+                            marginTop: "0.75rem",
+                          }}
+                          className='date roboto_700'
+                        >
+                          {convertDate(endDuration)}
+                        </h5>
                       </strong>
                     </div>
                   </section>
