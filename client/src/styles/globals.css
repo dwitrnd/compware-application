@@ -7660,32 +7660,85 @@ td {
     top: 12rem;
   }
 }
+.trainer-name-overlay h1 {
+  margin: 0;
+}
+
 .trainer-name-overlay {
   position: absolute;
-  font-weight: bolder !important;
   font-size: 0.35rem;
-  bottom: 3.2rem;
+  bottom: 1.2rem;
   right: 5rem;
 }
 @media only screen and (max-width: 960px) {
   .trainer-name-overlay {
-    bottom: 2.2rem;
+    bottom: 1.5rem;
     right: 4rem;
+  }
+}
+@media only screen and (min-width: 961px) {
+  .trainer-name-overlay {
+    bottom: 1.4rem;
+    right: 4rem;
+  }
+}
+@media only screen and (min-width: 1020px) {
+  .trainer-name-overlay {
+    bottom: 1.6rem;
+    right: 4.5rem;
+  }
+}
+@media only screen and (min-width: 1020px) {
+  .trainer-name-overlay {
+    bottom: 1.8rem;
+    right: 4.75rem;
+  }
+}
+@media only screen and (min-width: 1141px) {
+  .trainer-name-overlay {
+    bottom: 1.9rem;
+    right: 5rem;
+  }
+}
+@media only screen and (min-width: 1206px) {
+  .trainer-name-overlay {
+    bottom: 2.3rem;
+    right: 5.5rem;
+  }
+}
+@media only screen and (min-width: 1241px) {
+  .trainer-name-overlay {
+    bottom: 2.4rem;
+    right: 5.6rem;
+  }
+}
+@media only screen and (min-width: 1264px) {
+  .trainer-name-overlay {
+    bottom: 2.4rem;
+    right: 5.9rem;
   }
 }
 
 .trainer-signature-overlay {
   position: absolute;
-  bottom: 3.5rem;
+  bottom: 3.8rem;
   right: 3rem;
-  height: 5.5rem;
+  height: 4.5rem;
+  width: 8rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media only screen and (min-width: 960px) {
+  .trainer-signature-overlay {
+    bottom: 4.5rem;
+    right: 3.8rem;
+  }
 }
 
 .trainer-title-overlay {
-  position: absolute;
-  bottom: 1.8rem;
-  font-size: 0.7rem;
-  right: 3.9rem;
+  font-size: 0.75rem;
+  margin-top: -0.155rem;
 }
 
 .verification_id_overlay {
