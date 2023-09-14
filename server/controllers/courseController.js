@@ -63,7 +63,7 @@ class courseController {
     try {
       const { courseName } = req.body;
       console.log("courseName", courseName);
-      const result = await Course.findOne({ courseName: courseName });
+      const result = await Course.findOne({ courseName: courseName.toUpperCase() });
       console.log("result", result);
       res.status(200).json({
         status: true,
