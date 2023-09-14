@@ -75,9 +75,15 @@ class enquiryController {
 
       const enquiryId = req.params.id;
 
-      const enquiry = await Enquiry.findByIdAndUpdate(enquiryId, status, {
-        new: true,
-      });
+      const enquiry = await Enquiry.findByIdAndUpdate(
+        enquiryId,
+        {
+          status: status,
+        },
+        {
+          new: true,
+        }
+      );
       if (status == "approved") {
         console.log("hi");
 
