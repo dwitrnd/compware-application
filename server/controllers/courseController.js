@@ -59,6 +59,23 @@ class courseController {
       });
     }
   };
+  static findByName = async (req, res) => {
+    try {
+      const { courseName } = req.body;
+      console.log("courseName", courseName);
+      const result = await Course.findOne({ courseName: courseName });
+      console.log("result", result);
+      res.status(200).json({
+        status: true,
+        msg: result,
+      });
+    } catch (err) {
+      res.status(500).json({
+        status: false,
+        msg: err,
+      });
+    }
+  };
   static get = async (req, res) => {
     try {
       const result = await Course.find({});
