@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { constant } from "constants/contants";
 import Box from "@material-ui/core/Box";
+import axios from "axios";
 
 import Client1 from "../../../../assets/images/compware-clients/citizenbamk.jpg";
 import Client2 from "../../../../assets/images/compware-clients/crimsoncollege.jpg";
@@ -53,6 +55,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Testimonials(props) {
   const classes = useStyles();
+  useEffect(() => {
+    const url = `${constant.base}/api/client`;
+  });
 
   const content = {
     logo1: Client1,
