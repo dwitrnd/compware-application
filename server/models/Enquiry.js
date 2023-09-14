@@ -24,8 +24,8 @@ const enquirySchema = mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["done", "not done"],
-    default: "not done",
+    enum: ["approved", "not approved"],
+    default: "not approved",
   },
 });
 

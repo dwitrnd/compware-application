@@ -112,7 +112,7 @@ const Dashboard = ({ children }) => {
           <ul class='sidebar-list'>
             <li class='sidebar-list-item'>
               <Link to='/dashboard/list-enroll-students'>
-                <span>Enrolled Students</span>
+                <span>Course Enquiry</span>
               </Link>
             </li>
             <li class='sidebar-list-item'>
