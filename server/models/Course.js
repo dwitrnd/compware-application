@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const courseSchema = mongoose.Schema({
   courseName: {
     type: String,
-    unique: true,
   },
   slugTitle: {
     type: String,

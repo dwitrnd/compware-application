@@ -39,19 +39,6 @@ const UpdateCourse = () => {
   const updateCourse = async (e) => {
     e.preventDefault();
 
-    console.log("courseName =", courseName);
-    console.log("courseDuration =", courseDuration);
-    console.log("slugTitle =", slugTitle);
-    console.log("courseCategory =", courseCategory);
-    console.log("courseIntro =", courseIntro);
-    console.log("aboutCourse =", aboutCourse);
-    console.log("courseLogo =", courseLogo);
-    console.log("imageName =", imageName);
-    console.log("imageAltText =", imageAltText);
-    console.log("coursePdf =", coursePdf);
-
-    // do a post request to apiUrl
-
     const formData = new FormData();
     formData.append("courseName", courseName);
     formData.append("slugTitle", slugTitle);
@@ -64,8 +51,6 @@ const UpdateCourse = () => {
     formData.append("imageAltText", imageAltText);
     formData.append("coursePdf", coursePdf);
 
-    console.log(formData);
-
     try {
       const response = await axios.patch(apiUrl, formData, {
         headers: {
@@ -75,7 +60,6 @@ const UpdateCourse = () => {
 
       console.log("response =", response);
       toast.success("Course updated successfully");
-      // navigate("/dashboard");
     } catch (error) {
       console.log("error =", error);
       toast.error("Something went wrong");
@@ -101,8 +85,6 @@ const UpdateCourse = () => {
             onChange={(e) => setCourseName(e.target.value)}
           />
         </div>
-        {/* for duration input field  */}
-
         <div style={{ marginBottom: "20px" }}>
           <label htmlFor='courseDuration'>Course Duration</label>
           <input
@@ -194,7 +176,6 @@ const UpdateCourse = () => {
               borderRadius: "5px",
               border: "1px solid #ccc",
             }}
-            required
             type='file'
             id='courseLogo'
             placeholder='Enter course logo'
@@ -242,7 +223,6 @@ const UpdateCourse = () => {
         <div style={{ marginBottom: "20px" }}>
           <label htmlFor='coursePdf'>Course Pdf</label>
           <input
-            required
             style={{
               width: "100%",
               padding: "10px",

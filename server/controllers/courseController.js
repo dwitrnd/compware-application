@@ -3,18 +3,7 @@ const Course = require("../models/Course");
 class courseController {
   static post = async (req, res) => {
     try {
-      const {
-        courseName,
-        courseDuration,
-        schedule,
-        startDate,
-        slugTitle,
-        courseCategory,
-        courseIntro,
-        aboutCourse,
-        imageName,
-        imageAltText,
-      } = req.body;
+      const { courseName, courseDuration, schedule, startDate, slugTitle, courseCategory, courseIntro, aboutCourse, imageName, imageAltText } = req.body;
 
       console.log("=====debug====");
 
@@ -85,68 +74,142 @@ class courseController {
     }
   };
   static patch = async (req, res) => {
-    const {
-      courseName,
-      courseDuration,
-      schedule,
-      startDate,
-      slugTitle,
-      courseCategory,
-      courseIntro,
-      aboutCourse,
-      imageName,
-      imageAltText,
-    } = req.body;
-    console.log("req.body====");
-    console.log(req.body);
-    console.log("req.files====");
-    console.log(req.files);
+    const { courseName, courseDuration, schedule, startDate, slugTitle, courseCategory, courseIntro, aboutCourse, imageName, imageAltText } = req.body;
     const courseId = req.params.id;
+
+    console.log("course patch has been hit");
     let courseLogoName;
-    const file1 = req.files.courseLogo;
-    const timestamp = Date.now();
-    const fileName1 = file1.md5 + timestamp;
-
-    await file1.mv(`./storage/${fileName1}.jpg`),
-      (error) => {
-        if (error) {
-          return res.status(500).send(error);
-        }
-        console.log("File Updated!");
-      };
-    courseLogoName = fileName1;
     let coursePdfName;
-    const file2 = req.files.coursePdf;
-    const timestamp2 = Date.now();
-    const fileName2 = file2.md5 + timestamp2;
+    console.log("req.files=", req.files);
+    if (req.files) {
+      // for courseLogo file
+      if (req.files.courseLogo) {
+        console.log("--course file upload for courseLogo--");
+        const file1 = req.files.courseLogo;
+        const timestamp = Date.now();
+        const fileName1 = file1.md5 + timestamp;
 
-    await file2.mv(`./storage/${fileName2}.pdf`),
-      (error) => {
-        if (error) {
-          return res.status(500).send(error);
-        }
-        console.log("File Updated!");
-      };
-    coursePdfName = fileName2;
+        await file1.mv(`./storage/${fileName1}.jpg`),
+          (error) => {
+            if (error) {
+              return res.status(500).send(error);
+            }
+            console.log("File Updated!");
+          };
+        courseLogoName = fileName1;
+      }
+
+      if (req.files.coursePdf) {
+        console.log("--course file upload for course pdf--");
+
+        // for coursePdf file
+        const file2 = req.files.coursePdf;
+        const timestamp2 = Date.now();
+        const fileName2 = file2.md5 + timestamp2;
+
+        await file2.mv(`./storage/${fileName2}.pdf`),
+          (error) => {
+            if (error) {
+              return res.status(500).send(error);
+            }
+            console.log("File Updated!");
+          };
+        coursePdfName = fileName2;
+      }
+    }
+
     try {
-      const result = await Course.findByIdAndUpdate(
-        courseId,
-        {
-          courseName,
-          slugTitle,
-          courseCategory,
-          courseIntro,
-          duration: courseDuration,
-          aboutCourse,
-          courseLogo: `${courseLogoName}.jpg`,
-          imageName,
-          imageAltText,
-          coursePdf: `${coursePdfName}.pdf`,
-          schedule,
-          startDate,
-        },
-        { new: true }
-      );
+      console.log("enters into try catch");
+      let result;
+
+      if (req.files === null) {
+        result = await Course.findByIdAndUpdate(
+          courseId,
+          {
+            courseName,
+            slugTitle,
+            courseCategory,
+            courseIntro,
+            duration: courseDuration,
+            aboutCourse,
+            // courseLogo: `${courseLogoName}.jpg`,
+            imageName,
+            imageAltText,
+            // coursePdf: `${coursePdfName}.pdf`,
+            schedule,
+            startDate,
+          },
+          { new: true }
+        );
+      }
+
+      if (req.files) {
+        if (req.files.courseLogo && !req.files.coursePdf) {
+          console.log("-- save in db only course logo --");
+
+          result = await Course.findByIdAndUpdate(
+            courseId,
+            {
+              courseName,
+              slugTitle,
+              courseCategory,
+              courseIntro,
+              duration: courseDuration,
+              aboutCourse,
+              courseLogo: `${courseLogoName}.jpg`,
+              imageName,
+              imageAltText,
+              // coursePdf: `${coursePdfName}.pdf`,
+              schedule,
+              startDate,
+            },
+            { new: true }
+          );
+        } else if (req.files.coursePdf && !req.files.courseLogo) {
+          console.log("-- save in db only course pdf --");
+
+          result = await Course.findByIdAndUpdate(
+            courseId,
+            {
+              courseName,
+              slugTitle,
+              courseCategory,
+              courseIntro,
+              duration: courseDuration,
+              aboutCourse,
+              // courseLogo: `${courseLogoName}.jpg`,
+              imageName,
+              imageAltText,
+              coursePdf: `${coursePdfName}.pdf`,
+              schedule,
+              startDate,
+            },
+            { new: true }
+          );
+        } else if (req.files.courseLogo && req.files.coursePdf) {
+          console.log("-- save in db both --");
+
+          result = await Course.findByIdAndUpdate(
+            courseId,
+            {
+              courseName,
+              slugTitle,
+              courseCategory,
+              courseIntro,
+              duration: courseDuration,
+              aboutCourse,
+              courseLogo: `${courseLogoName}.jpg`,
+              imageName,
+              imageAltText,
+              coursePdf: `${coursePdfName}.pdf`,
+              schedule,
+              startDate,
+            },
+            { new: true }
+          );
+        }
+      }
+
       if (!result) {
         throw new Error("Not Updated");
       }
