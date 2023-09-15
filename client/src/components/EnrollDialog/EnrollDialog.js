@@ -189,7 +189,7 @@ const EnrollDialog = () => {
                   backgroundColor: "white",
                 }}
                 onInputChange={(event, value) => {
-                  console.log(value);
+                  setCourse(value);
                 }}
               />
               <Typography variant='body1' style={{ marginTop: "0.75rem" }}>

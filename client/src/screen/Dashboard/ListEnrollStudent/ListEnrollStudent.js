@@ -40,7 +40,7 @@ const ListEnrollStudent = () => {
 
   const changeStatusHandler = async (data) => {
     setStatusChangeLoadingState(true);
-    let { id, email, status } = data;
+    let { id, email, status, courseName, courseLink, name } = data;
 
     if (status === "not approved") {
       status = "approved";
@@ -48,7 +48,9 @@ const ListEnrollStudent = () => {
       status = "not approved";
     }
 
-    await axios.patch(`${constant.base}/api/enrollmentStatus/status/${id}`, { email: email, status: status }).then((res) => {
+    console.log("Course Link: ", courseLink);
+
+    await axios.patch(`${constant.base}/api/enrollmentStatus/status/${id}`, { email: email, status: status, courseName: courseName, courseLink: courseLink, name: name }).then((res) => {
       console.log(res);
 
       if (res.status === 200) {
@@ -61,11 +63,14 @@ const ListEnrollStudent = () => {
     });
   };
 
-  const findCourseLinkByName = (courseName) => {
+  const findCourseLinkByName = async (courseName) => {
     // axios request where in body i pass courseName
-    axios.post(`${constant.base}/api/course/find-by-name`, { courseName: courseName }).then((res) => {
-      console.log(res);
+    console.log("Course Name finder: ", courseName);
+    const courseURL = await axios.post(`${constant.base}/api/course/find-by-name`, { courseName: courseName }).then((res) => {
+      const { _id } = res.data.msg;
+      return `${constant.client}/course-detail/${_id}`;
     });
+    return courseURL;
   };
 
   return (
@@ -103,13 +108,15 @@ const ListEnrollStudent = () => {
                           } else {
                             return (
                               <StatusTag
-                                onClick={() => {
+                                onClick={async () => {
+                                  const courseLink = await findCourseLinkByName(data.course);
+
                                   changeStatusHandler({
                                     id: data._id,
                                     email: data.email,
                                     status: data.status,
                                     courseName: data.course,
-                                    // courseLink: findCourseLinkByName(data.course),
+                                    courseLink: courseLink,
                                     name: data.name,
                                   });
                                 }}

@@ -29,6 +29,7 @@ import LogiSpark_logoside from "assets/icons/LogiSpark_logoside.png";
 import Expert from "assets/icons/Expert Education and Visa Services Logo.png";
 import Visit from "assets/icons/LOGO.png";
 import lalitpurEngineeringCollege from "assets/images/lalitpur-engineering-college.jpg";
+import pandeyPress from "assets/images/placement partner/pandey press.png";
 
 const style = {
   position: "absolute",
@@ -344,13 +345,14 @@ const EventPage = () => {
             <img className='sponsor-logos' src={LogiSpark_logoside} alt='' />
             <img className='sponsor-logos' src={HamroPatra} alt='' />
             <img className='sponsor-logos large' src={DWIT} alt='' />
-            <img className='sponsor-logos' src={Deerhold} alt='' />
-            <img className='sponsor-logos' src={CND} alt='' />
+            <img className='sponsor-logos ' src={Deerhold} alt='' />
+            <img className='sponsor-logos large' src={CND} alt='' />
             <img className='sponsor-logos large' src={CedarGate} alt='' />
             <img className='sponsor-logos' src={Atkans} alt='' />
             <img className='sponsor-logos' src={Infrasoft} alt='' />
             <img className='sponsor-logos' src={Visit} alt='' />
             <img className='sponsor-logos' src={Expert} alt='' />
+            <img className='sponsor-logos large' src={pandeyPress} alt='' />
           </div>
         </div>
       </div>

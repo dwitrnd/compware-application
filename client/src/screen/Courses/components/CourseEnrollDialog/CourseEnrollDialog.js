@@ -53,18 +53,7 @@ const CourseEnrollDialog = ({ courseName }) => {
       alert("Please complete the reCAPTCHA");
       return;
     }
-    console.log(
-      "name: " +
-        name +
-        " email: " +
-        email +
-        " phone: " +
-        phone +
-        " course: " +
-        course +
-        " schedule: " +
-        schedule
-    );
+    console.log("name: " + name + " email: " + email + " phone: " + phone + " course: " + course + " schedule: " + schedule);
 
     // use fetch
     // use fetch
@@ -74,8 +63,8 @@ const CourseEnrollDialog = ({ courseName }) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: email.toString(),
         name: name.toString(),
+        email: email.toString(),
         phoneNum: phone.toString(),
         course: courseName.toString(),
         enquiryDate: schedule.toString(),
@@ -94,7 +83,7 @@ const CourseEnrollDialog = ({ courseName }) => {
   return (
     <>
       <Button
-        variant="contained"
+        variant='contained'
         onClick={handleClickOpen}
         sx={{
           marginRight: "1rem",
@@ -104,16 +93,12 @@ const CourseEnrollDialog = ({ courseName }) => {
       >
         Enroll
       </Button>
-      <Dialog open={open} onClose={handleClose} maxWidth="md">
+      <Dialog open={open} onClose={handleClose} maxWidth='md'>
         <form>
-          <DialogTitle
-            display="flex"
-            justifyContent="space-between"
-            color="primary"
-          >
-            Register Now{" "}
+          <DialogTitle display='flex' justifyContent='space-between' color='primary'>
+            Register Now
             <IconButton
-              aria-label="close"
+              aria-label='close'
               onClick={handleClose}
               sx={{
                 marginLeft: "auto",
@@ -123,38 +108,38 @@ const CourseEnrollDialog = ({ courseName }) => {
             </IconButton>
           </DialogTitle>
           <DialogContent>
-            <Typography variant="body1">Name</Typography>
+            <Typography variant='body1'>Name</Typography>
             <TextField
               onChange={(e) => {
                 setName(e.target.value);
               }}
-              variant="outlined"
-              id="name"
+              variant='outlined'
+              id='name'
               sx={{ width: "100%" }}
             />
-            <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+            <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
               Email
             </Typography>
             <TextField
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
-              variant="outlined"
-              id="email"
+              variant='outlined'
+              id='email'
               sx={{ width: "100%" }}
             />
-            <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+            <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
               Phone
             </Typography>
             <TextField
               onChange={(e) => {
                 setPhone(e.target.value);
               }}
-              variant="outlined"
-              id="phone"
+              variant='outlined'
+              id='phone'
               sx={{ width: "100%" }}
             />
-            <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+            <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
               Course
             </Typography>
             <TextField
@@ -163,28 +148,28 @@ const CourseEnrollDialog = ({ courseName }) => {
               }}
               disabled
               value={courseName}
-              variant="outlined"
-              defaultValue="Hello World"
-              id="course"
+              variant='outlined'
+              defaultValue='Hello World'
+              id='course'
               sx={{ width: "100%" }}
             />
 
-            <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+            <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
               Time
             </Typography>
             <FormControl fullWidth>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
                 value={time}
                 onChange={(e) => {
                   setTime(e.target.value);
                   setSchedule(e.target.value);
                 }}
               >
-                <MenuItem value="Morning">Morning</MenuItem>
-                <MenuItem value="Afternoon">Afternoon</MenuItem>
-                <MenuItem value="Evening">Evening</MenuItem>
+                <MenuItem value='Morning'>Morning</MenuItem>
+                <MenuItem value='Afternoon'>Afternoon</MenuItem>
+                <MenuItem value='Evening'>Evening</MenuItem>
               </Select>
             </FormControl>
             <FormGroup>
@@ -194,15 +179,7 @@ const CourseEnrollDialog = ({ courseName }) => {
                   FlexDirection: "row",
                 }}
               >
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      style={{ position: "relative", marginRight: "-1rem" }}
-                      checked={isChecked}
-                      onChange={handleCheckboxChange}
-                    />
-                  }
-                />
+                <FormControlLabel control={<Checkbox style={{ position: "relative", marginRight: "-1rem" }} checked={isChecked} onChange={handleCheckboxChange} />} />
                 <div
                   style={{
                     display: "flex",
@@ -212,8 +189,8 @@ const CourseEnrollDialog = ({ courseName }) => {
                   }}
                 >
                   <span style={{ marginRight: "0.25rem" }}>I agree to</span>
-                  <Link to="/terms-and-condition" target="_blank">
-                    <Typography variant="body1" color="primary">
+                  <Link to='/terms-and-condition' target='_blank'>
+                    <Typography variant='body1' color='primary'>
                       Terms and Conditions
                     </Typography>
                   </Link>
@@ -228,9 +205,9 @@ const CourseEnrollDialog = ({ courseName }) => {
                 e.preventDefault();
                 handleSubmit();
               }}
-              variant="contained"
+              variant='contained'
               sx={{ display: "flex", justifyContent: "center" }}
-              type="submit"
+              type='submit'
               disabled={!isChecked}
             >
               Register
