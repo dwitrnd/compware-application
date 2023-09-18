@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Box, TextField, Typography, Button, Container } from "@mui/material";
 import React from "react";
 import Grid from "@mui/material/Unstable_Grid2";
-import CertificateImage from "../../assets/images/certificateimage.jpg";
+import CertificateImage from "../../assets/images/Training_cerfiticate-01.png";
 import Stack from "@mui/material/Stack";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { constant } from "constants/contants";
@@ -368,11 +368,6 @@ const VerifyCertificate = () => {
                     />
 
                     <img
-                      className="training-manager-signature"
-                      src={TrainingManager}
-                      alt=""
-                    />
-                    <img
                       className="trainer-signature-overlay"
                       src={trainerSignature}
                       alt=""
@@ -400,7 +395,7 @@ const VerifyCertificate = () => {
 
                     <div className="course-duration-overlay">
                       <strong>
-                        <h5 className="hour roboto_700">
+                        <h5 className="roboto_700">
                           {courseDuration.split(" ")[0]}
                         </h5>
                       </strong>
@@ -418,7 +413,7 @@ const VerifyCertificate = () => {
                       <strong>
                         <h5
                           style={{
-                            marginTop: "0.75rem",
+                            marginBottom: "1.75rem",
                           }}
                           className="date roboto_700"
                         >
@@ -430,7 +425,7 @@ const VerifyCertificate = () => {
                       <strong>
                         <h5
                           style={{
-                            marginTop: "0.75rem",
+                            marginBottom: "1.75rem",
                           }}
                           className="date roboto_700"
                         >
