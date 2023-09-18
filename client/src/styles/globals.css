@@ -7765,6 +7765,10 @@ td {
   transform: translateX(-50%);
 }
 
+.hour {
+  padding-top: 4px !important;
+}
+
 .course-info-header {
   margin-top: 20rem;
 }
