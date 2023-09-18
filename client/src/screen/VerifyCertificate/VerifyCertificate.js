@@ -392,10 +392,10 @@ const VerifyCertificate = () => {
                     </span>
 
                     <strong className="fullName-overlay">
-                      <h2>{fullName}</h2>
+                      <h2 className="roboto_700">{fullName}</h2>
                     </strong>
                     <strong className="course-overlay">
-                      <h2>{course}</h2>
+                      <h2 className="roboto_700">{course}</h2>
                     </strong>
 
                     <div className="course-duration-overlay">
