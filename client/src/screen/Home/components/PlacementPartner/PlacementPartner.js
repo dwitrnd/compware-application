@@ -174,7 +174,7 @@ function Courses() {
             <Typography
               variant="body1"
               component="p"
-              style={{ color: "black", fontSize: "1rem" }}
+              style={{ color: "black", fontSize: "1rem", lineHeight: "1.5rem" }}
             >
               Several esteemed companies have partnered with us and experienced
               remarkable success with our graduates. They have not only found
