@@ -51,7 +51,7 @@ const TestimonialCard = ({ name, description, photoUrl }) => {
   return (
     <>
       <Card>
-        <div className='quote-container'>
+        <div className="quote-container">
           <span style={{ color: "#0f5288" }}>“</span>
         </div>
 
@@ -61,15 +61,17 @@ const TestimonialCard = ({ name, description, photoUrl }) => {
             wordWrap: "break-word",
             hyphens: "auto",
           }}
-          className='roboto_400'
+          className="roboto_400"
         >
           {description}
         </p>
 
         <hr />
 
-        <img src={photoUrl} alt='' />
-        <h4 className='roboto_400'>{name}</h4>
+        <img src={photoUrl} alt="" />
+        <h4 className="roboto_400" style={{ color: "black" }}>
+          {name}
+        </h4>
       </Card>
     </>
   );
