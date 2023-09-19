@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import Deerhold from "assets/icons/deerhold.png";
+import Deerhold from "assets/icons/deerholdo.png";
 import Fb from "assets/icons/fb.png";
 import Insta from "assets/icons/insta.png";
 import Linkedin from "assets/icons/linkedin.png";
@@ -20,7 +20,7 @@ import Logispark from "assets/icons/Logispark.png";
 import HamroPatra from "assets/icons/hamropatro.png";
 import DWIT from "assets/icons/DWIT.png";
 import CND from "assets/icons/CNA.png";
-import CedarGate from "assets/icons/Cedar Gate.png";
+import CedarGate from "assets/icons/Cedar Gate copy.png";
 import Atkans from "assets/icons/Atkans.png";
 import Infrasoft from "assets/icons/Infrasoft.png";
 import DWITCollege from "assets/images/dwit-college.png";
@@ -30,7 +30,7 @@ import Expert from "assets/icons/Expert Education and Visa Services Logo.png";
 import Visit from "assets/icons/LOGO.png";
 import lalitpurEngineeringCollege from "assets/images/lalitpur-engineering-college.jpg";
 import pandeyPress from "assets/images/placement partner/pandey press.png";
-import ShineEducation from "assets/icons/Shine Education.jpeg";
+import ShineEducation from "assets/icons/Shine Education.png";
 
 const style = {
   position: "absolute",
@@ -388,12 +388,14 @@ const EventPage = () => {
             />
           </div>
           <h4 className="roboto_700">Supported By:</h4>
-          <div className="sponsor-logo-container">
-            <img className="sponsor-logos large" src={SifalSchool} alt="" />
+          <div
+            className="sponsor-logo-container"
+            style={{ marginTop: "-1rem" }}
+          >
+            <img className="sponsor-logos" src={SifalSchool} alt="" />
             <img className="sponsor-logos" src={LogiSpark_logoside} alt="" />
             <img className="sponsor-logos" src={HamroPatra} alt="" />
-            <img className="sponsor-logos large" src={DWIT} alt="" />
-            <img className="sponsor-logos " src={Deerhold} alt="" />
+            <img className="sponsor-logos" src={Deerhold} alt="" />
             <img className="sponsor-logos large" src={CND} alt="" />
             <img className="sponsor-logos large" src={CedarGate} alt="" />
             <img className="sponsor-logos" src={Atkans} alt="" />
@@ -401,7 +403,12 @@ const EventPage = () => {
             <img className="sponsor-logos" src={Visit} alt="" />
             <img className="sponsor-logos" src={Expert} alt="" />
             <img className="sponsor-logos large" src={pandeyPress} alt="" />
-            <img className="sponsor-logos large" src={ShineEducation} alt="" />
+            <img
+              className="sponsor-logos"
+              style={{ height: "4.5rem" }}
+              src={ShineEducation}
+              alt=""
+            />
           </div>
         </div>
       </div>
