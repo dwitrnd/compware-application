@@ -1,5 +1,6 @@
 import React from "react";
 import "./Partner.css";
+import Typography from "@material-ui/core/Typography";
 
 // import ContactFrom from "../UI/ContactForm";
 import CourseCard from "./PartnerCard";
@@ -170,13 +171,17 @@ function Courses() {
             >
               Placement <br /> Partners
             </h2>
-            <p>
+            <Typography
+              variant="body1"
+              component="p"
+              style={{ color: "black", fontSize: "1rem" }}
+            >
               Several esteemed companies have partnered with us and experienced
               remarkable success with our graduates. They have not only found
               exceptional talent through our Placement Partner Program but also
               witnessed increased productivity and innovation within their
               teams.
-            </p>
+            </Typography>
           </div>
         </div>
       </div>
