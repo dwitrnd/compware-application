@@ -73,7 +73,26 @@ function EditStudentCertificate() {
       email: email,
     };
 
-    axios.patch(apiUrl, data).then((res) => {
+    const formDataToSend = new FormData();
+    for (const key in data) {
+      // Use 'data' instead of 'formData' here
+      // If key is start date or end date then convert value into mm/dd/yyyy format
+      if (key === "startDuration" || key === "endDuration") {
+        const date = new Date(data[key]); // Use 'data' here
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const year = date.getFullYear();
+
+        const dateString = month + "/" + day + "/" + year;
+
+        formDataToSend.append(key, dateString);
+      } else {
+        formDataToSend.append(key, data[key]); // Use 'data' here
+      }
+    }
+
+    axios.patch(apiUrl, formDataToSend).then((res) => {
+      // Use 'formDataToSend' here
       console.log(res);
 
       toast.success("Updated successfully !");
@@ -107,8 +126,10 @@ function EditStudentCertificate() {
 
   function generateVerificationId() {
     var today = new Date();
-    var date = today.getFullYear() + "" + (today.getMonth() + 1) + "" + today.getDate();
-    var time = today.getHours() + "" + today.getMinutes() + "" + today.getSeconds();
+    var date =
+      today.getFullYear() + "" + (today.getMonth() + 1) + "" + today.getDate();
+    var time =
+      today.getHours() + "" + today.getMinutes() + "" + today.getSeconds();
     var dateTime = date + "" + time;
     var randomnumber = Math.floor(Math.random() * 1000 + 1);
     var verificationId = "DTC-" + dateTime + "-" + randomnumber;
@@ -121,8 +142,8 @@ function EditStudentCertificate() {
       <form onSubmit={handleSubmit}>
         <label style={labelStyle}>Full name</label>
         <input
-          type='text'
-          name='fullName'
+          type="text"
+          name="fullName"
           value={fullName}
           onChange={(e) => {
             setFullName(e.target.value);
@@ -132,8 +153,8 @@ function EditStudentCertificate() {
 
         <label style={labelStyle}>Start duration</label>
         <input
-          type='date'
-          name='startDuration'
+          type="date"
+          name="startDuration"
           value={startDuration}
           onChange={(e) => {
             setStartDuration(e.target.value);
@@ -143,8 +164,8 @@ function EditStudentCertificate() {
 
         <label style={labelStyle}>End duration</label>
         <input
-          type='date'
-          name='endDuration'
+          type="date"
+          name="endDuration"
           value={endDuration}
           onChange={(e) => {
             setEndDuration(e.target.value);
@@ -154,8 +175,8 @@ function EditStudentCertificate() {
 
         <label style={labelStyle}>Course duration</label>
         <input
-          type='text'
-          name='courseDuration'
+          type="text"
+          name="courseDuration"
           value={courseDuration}
           onChange={(e) => {
             setCourseDuration(e.target.value);
@@ -165,14 +186,14 @@ function EditStudentCertificate() {
 
         <label style={labelStyle}>Course</label>
         <select
-          name='course'
+          name="course"
           value={course}
           onChange={(e) => {
             setCourse(e.target.value);
           }}
           style={inputStyle}
         >
-          <option value=''>Select Course</option>
+          <option value="">Select Course</option>
           {courses.map((course) => (
             <option key={course} value={course}>
               {course}
@@ -182,8 +203,8 @@ function EditStudentCertificate() {
 
         <label style={labelStyle}>Trainer</label>
         <input
-          type='text'
-          name='trainer'
+          type="text"
+          name="trainer"
           value={trainer}
           onChange={(e) => {
             setTrainer(e.target.value);
@@ -193,8 +214,8 @@ function EditStudentCertificate() {
 
         <label style={labelStyle}>Trainer title</label>
         <input
-          type='text'
-          name='trainerTitle'
+          type="text"
+          name="trainerTitle"
           value={trainerTitle}
           onChange={(e) => {
             setTrainerTitle(e.target.value);
@@ -202,10 +223,12 @@ function EditStudentCertificate() {
           style={inputStyle}
         />
 
-        <label style={labelStyle}>Verification Id : {generateVerificationId()}</label>
+        <label style={labelStyle}>
+          Verification Id : {generateVerificationId()}
+        </label>
         <input
-          type='text'
-          name='verificationId'
+          type="text"
+          name="verificationId"
           value={verificationId}
           onChange={(e) => {
             setVerificationId(e.target.value);
@@ -215,8 +238,8 @@ function EditStudentCertificate() {
 
         <label style={labelStyle}>Email</label>
         <input
-          type='text'
-          name='email'
+          type="text"
+          name="email"
           value={email}
           onChange={(e) => {
             setEmail(e.target.value);
@@ -224,7 +247,7 @@ function EditStudentCertificate() {
           style={inputStyle}
         />
 
-        <button type='submit' style={buttonStyle}>
+        <button type="submit" style={buttonStyle}>
           Edit Certificate
         </button>
       </form>
