@@ -47,7 +47,16 @@ const CourseSearch = () => {
       options={allCourseName}
       getOptionLabel={(option) => option}
       renderInput={(params) => (
-        <TextField {...params} label="Search" variant="outlined" />
+        <TextField
+          {...params}
+          sx={{
+            "& .MuiOutlinedInput-root": {
+              borderRadius: "50px",
+            },
+          }}
+          placeholder="Search"
+          variant="outlined"
+        />
       )}
       sx={{
         backgroundColor: "white",

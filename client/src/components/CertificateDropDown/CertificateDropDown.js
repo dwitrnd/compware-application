@@ -80,20 +80,21 @@ export default function CertificateDropDown() {
   return (
     <>
       <Button
-        id='demo-customized-button'
+        id="demo-customized-button"
         aria-controls={open ? "demo-customized-menu" : undefined}
-        aria-haspopup='true'
+        aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
-        variant='text'
+        variant="text"
         disableElevation
         onClick={handleClick}
+        className="roboto_500"
         // endIcon={<KeyboardArrowDownIcon />}
       >
         Certificate
       </Button>
       <ClickDropdown
         style={{ marginLeft: "-0.35rem" }}
-        id='demo-customized-menu'
+        id="demo-customized-menu"
         MenuListProps={{
           "aria-labelledby": "demo-customized-button",
         }}
@@ -102,7 +103,10 @@ export default function CertificateDropDown() {
         onClose={handleClose}
       >
         <MenuList>
-          <ul className='submenu_container roboto_400' style={{ width: "100%" }}>
+          <ul
+            className="submenu_container roboto_400"
+            style={{ width: "100%" }}
+          >
             {dropDownItems.map((item) => {
               if (item.name === "Request") {
                 return (

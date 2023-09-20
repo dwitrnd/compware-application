@@ -4,6 +4,11 @@
 
 }
 
+.enroll-button:hover{
+	background-color: red;
+	color: #fff;
+}
+
 @media screen and (max-width: 900px) {
 	.enroll-image{
 		display: none;
