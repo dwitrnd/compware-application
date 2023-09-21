@@ -10,29 +10,57 @@ import TextField from "@mui/material/TextField";
 import Backdrop from "@mui/material/Backdrop";
 import { useState } from "react";
 import Alert from "@mui/material/Alert";
+import { constant } from "constants/contants";
+import { useNavigate } from "react-router-dom";
+
+import ForgotValidationID from "components/ForgotValidationID/ForgotValidationID";
 
 const MemberDialogBox = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [isFetching, setIsFetching] = useState(false);
-  const [data, setData] = useState(null);
   const [error, setError] = useState({
     errorStatus: false,
     errorMessage: "",
   });
 
-  const compwareId = "deerwalkcompware";
-
   const fetchData = async () => {
     setIsFetching(true);
     try {
-      const response = await fetch("https://example.com/data");
+      // post method
+      const response = await fetch(`${constant.base}/api/student/check-id`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          verificationId: inputValue,
+        }),
+      });
       const data = await response.json();
-      setData(data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setIsFetching(false);
+      console.log(data);
+      const { status } = data;
+      if (status === true && data.msg === "Id exists") {
+        setOpen(false);
+        window.location.href = `${constant.client}/verify-certificate/${inputValue}`;
+
+        isFetching(false);
+      }
+
+      if (status === false) {
+        setError({
+          errorStatus: true,
+          errorMessage: "Invalid Verification Id.",
+        });
+        isFetching(false);
+      }
+    } catch (err) {
+      console.log(err);
+      setError({
+        errorStatus: true,
+        errorMessage: "Error occured while verifying id.",
+      });
     }
   };
 
@@ -62,6 +90,11 @@ const MemberDialogBox = () => {
       fetchData();
     }
   };
+  const stopPropagationForTab = (event) => {
+    if (event.key === "Tab") {
+      event.stopPropagation();
+    }
+  };
 
   return (
     <div style={{ display: "initial" }}>
@@ -71,28 +104,23 @@ const MemberDialogBox = () => {
           padding: "0.35rem 0.35rem 0.35rem 0.8rem",
           width: "100%",
         }}
-        variant="text"
+        variant='text'
         disableElevation
         onClick={handleClickOpen}
       >
         Verify
       </div>
-      <Dialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-        id="request-certificate-dialog"
-      >
+      <Dialog onKeyDown={stopPropagationForTab} onClose={handleClose} aria-labelledby='customized-dialog-title' open={open} id='request-certificate-dialog'>
         <form>
           <DialogTitle
-            id="customized-dialog-title"
+            id='customized-dialog-title'
             onClose={handleClose}
             sx={{
               display: "flex",
               justifyContent: "center",
             }}
           >
-            <Typography variant="h4" color="primary">
+            <Typography variant='h4' color='primary'>
               Certificate Verification
             </Typography>
           </DialogTitle>
@@ -100,27 +128,19 @@ const MemberDialogBox = () => {
             if (error.errorStatus === true) {
               return (
                 <Snackbar open autoHideDuration={4000} style={{ zIndex: 99 }}>
-                  <Alert severity="error">{error.errorMessage}</Alert>
+                  <Alert severity='error'>{error.errorMessage}</Alert>
                 </Snackbar>
               );
             }
           })()}
           <DialogContent sx={{ display: "flex", flexDirection: "column" }}>
-            <Stack spacing={2} marginTop="20px">
-              <Stack
-                direction={{ xs: "column", sm: "row" }}
-                alignItems="center"
-                justifyContent="center"
-                spacing={{ xs: 2, sm: 8 }}
-              >
-                <Typography>Validation ID</Typography>
-                <TextField
-                  required
-                  type="name"
-                  variant="outlined"
-                  onChange={handleChange}
-                  value={inputValue}
-                />
+            <Stack spacing={2} marginTop='20px'>
+              <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' justifyContent='center' spacing={{ xs: 2, sm: 8 }}>
+                <Typography sx={{ marginBottom: "2rem" }}>Validation ID</Typography>
+                <Stack direction='column'>
+                  <TextField required type='name' variant='outlined' onChange={handleChange} value={inputValue} />
+                  <ForgotValidationID />
+                </Stack>
               </Stack>
             </Stack>
           </DialogContent>
@@ -128,9 +148,7 @@ const MemberDialogBox = () => {
             <Button autoFocus onClick={handleClose}>
               Close
             </Button>
-            <Button onClick={handleVerify} disabled={isFetching}>
-              Verify
-            </Button>
+            <Button onClick={handleVerify}>Verify</Button>
           </DialogActions>
         </form>
       </Dialog>

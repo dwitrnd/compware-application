@@ -56,4 +56,30 @@
 @import "6-pages/verify-certificate-page";
 @import "6-pages/course-detail-page";
 @import "6-pages/blog-page";
+@import "6-pages/event-page";
 // ===login page
+
+.clickable {
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+  transform: scale(1);
+}
+
+.clickable:hover {
+  transition: all ease-in-out 100ms;
+  transform: scale(1.05);
+}
+
+.clickable:active {
+  transition: all ease-in-out 0ms;
+  transform: scale(0.95);
+}
+
+.sponsor-logos {
+  height: 5rem;
+  margin: 1rem;
+}
+
+.sponsor-logos--larger {
+  height: 19rem;
+}

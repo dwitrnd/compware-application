@@ -12,6 +12,38 @@ import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 
+const styles = {
+  appContentHeader: {
+    borderRadius: ".45rem",
+    backgroundColor: "#0f5288",
+    padding: "0.45rem",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  appContentHeaderText: {
+    color: "white",
+    fontSize: "1rem",
+    margin: 0,
+  },
+  userName: {
+    color: "white",
+    fontSize: "1rem",
+    margin: "1rem",
+    fontFamily: "Roboto, sans-serif",
+    fontWeight: 400,
+  },
+  logoutButton: {
+    backgroundColor: "white",
+    color: "#0f5288",
+    border: "none",
+    borderRadius: "4px",
+    padding: "10px 20px",
+    fontSize: "1rem",
+    cursor: "pointer",
+  },
+};
+
 const Dashboard = ({ children }) => {
   const dispatch = useDispatch();
   const userInfo = useSelector((state) => state.userInfo);
@@ -80,95 +112,74 @@ const Dashboard = ({ children }) => {
           <ul class='sidebar-list'>
             <li class='sidebar-list-item'>
               <Link to='/dashboard/list-enroll-students'>
-                {/* <svg
-                  fill="#ffffff"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-home"
-                >
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg> */}
-                <span>Enrolled Students</span>
+                <span>Course Enquiry</span>
               </Link>
             </li>
             <li class='sidebar-list-item'>
               <Link to='/dashboard/list-testimonial'>
-                {/* <svg
-                  fill="#ffffff"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-home"
-                >
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg> */}
                 <span>Testimonial</span>
               </Link>
             </li>
 
             <li class='sidebar-list-item'>
               <Link to='/dashboard/list-team'>
-                {/* <svg
-                  fill="#ffffff"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-home"
-                >
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg> */}
                 <span>Team</span>
               </Link>
             </li>
             <li class='sidebar-list-item'>
-              <Link to='/dashboard/list-request-certificate'>
-                {/* <svg
-                  fill="#ffffff"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-home"
-                >
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg> */}
-                <span>Certificate Requests</span>
+              <Link to='/dashboard/list-trainer'>
+                <span>Trainer</span>
+              </Link>
+            </li>
+            <li class='sidebar-list-item'>
+              <Link to='/dashboard/list-course'>
+                <span>Courses</span>
+              </Link>
+            </li>
+            <li class='sidebar-list-item'>
+              <Link to='/dashboard/list-vacancy'>
+                <span> Vacancy </span>
+              </Link>
+            </li>
+            <li class='sidebar-list-item'>
+              <Link to='/dashboard/list-gallery'>
+                <span> Gallery </span>
+              </Link>
+            </li>
+
+            <li class='sidebar-list-item'>
+              <Link to='/dashboard/list-blog'>
+                <span> Blog </span>
+              </Link>
+            </li>
+            <li class='sidebar-list-item'>
+              <Link to='/dashboard/list-sessions'>
+                <span> Sessions </span>
+              </Link>
+            </li>
+            <li class='sidebar-list-item'>
+              <Link to='/dashboard/list-client'>
+                <span> Clients </span>
+              </Link>
+            </li>
+            <li class='sidebar-list-item'>
+              <Link to='/dashboard/list-partner'>
+                <span> Partners</span>
+              </Link>
+            </li>
+            <li class='sidebar-list-item'>
+              <Link to='/dashboard/list-students'>
+                <span> Students </span>
               </Link>
             </li>
           </ul>
         </div>
         <div class='app-content'>
-          <div class='app-content-header'>
-            <h1 class='app-content-headerText'>Products</h1>
+          <div style={styles.appContentHeader}>
+            <h1 style={styles.appContentHeaderText}>Dashboard</h1>
             <div style={{ display: "flex", alignItems: "center" }}>
-              <h6 className='roboto_400' style={{ color: "white", fontSize: "1.6rem", margin: "1rem" }}>
-                {userData ? userData.name : ""}
-              </h6>
-              <button onClick={handleLogout} class='app-content-headerButton'>
+              <h6 style={styles.userName}>{userData ? userData.name : ""}</h6>
+              <button onClick={handleLogout} style={styles.logoutButton}>
                 Logout
               </button>
             </div>
@@ -181,10 +192,5 @@ const Dashboard = ({ children }) => {
     </main>
   );
 };
-
-// <h6>Email: {userData ? userData.email : ""}</h6>
-// <h6>Name: {userData ? userData.name : ""}</h6>
-// <button onClick={handleLogout}> Logout</button>
-// <ChangePassword />
 
 export default Dashboard;

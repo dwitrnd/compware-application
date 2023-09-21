@@ -2,6 +2,9 @@ const courseRouter = require("express").Router();
 const courseController = require("../controllers/courseController");
 
 courseRouter.post("/", courseController.post);
+
+courseRouter.post("/find-by-name", courseController.findByName);
+
 courseRouter.get("/", courseController.get);
 courseRouter.get("/:id", courseController.getOne);
 courseRouter.patch("/:id", courseController.patch);

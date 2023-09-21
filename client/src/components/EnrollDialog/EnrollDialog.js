@@ -1,16 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import {
-  FormControl,
-  FormGroup,
-  IconButton,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { FormControl, FormGroup, IconButton, Stack, Typography } from "@mui/material";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import CloseIcon from "@mui/icons-material/Close";
@@ -21,9 +15,12 @@ import { toast } from "react-toastify";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-
 import axios from "axios";
+import ReCAPTCHA from "react-google-recaptcha";
+import Autocomplete from "@mui/material/Autocomplete";
+import { constant } from "constants/contants";
 
+const SITE_KEY = "6LczgZknAAAAAH1UXsFrSPEzqNW6HOFS1Bkmv-6N";
 const initialCheckboxState = false;
 
 const EnrollDialog = () => {
@@ -32,39 +29,51 @@ const EnrollDialog = () => {
   const [phone, setPhone] = useState("");
   const [course, setCourse] = useState("");
   const [schedule, setSchedule] = useState("");
+  const [recaptchaValue, setRecaptchaValue] = useState("");
+  const [allCourseName, setAllCourseName] = useState([]);
+  const [courseNameAndId, setCourseNameAndId] = useState([
+    {
+      courseName: "",
+      courseId: "",
+    },
+  ]);
+  // axios code to fetch all data get method from "/api/course"
+
+  useEffect(() => {
+    axios.get(`${constant.base}/api/course`).then((res) => {
+      if (res) {
+        console.log("res.data============================================================================");
+        console.log(res.data);
+        const allCourseList = [];
+        res.data.msg.map((course) => {
+          allCourseList.push(course.courseName);
+          setCourseNameAndId((prev) => [
+            ...prev,
+            {
+              courseName: course.courseName,
+              courseId: course._id,
+            },
+          ]);
+
+          setAllCourseName(allCourseList);
+        });
+      }
+    });
+  }, []);
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
 
   const handleSubmit = () => {
-    console.log(
-      "name: " +
-        name +
-        " email: " +
-        email +
-        " phone: " +
-        phone +
-        " course: " +
-        course +
-        " schedule: " +
-        schedule
-    );
-    // axios
-    //   .post("http://localhost:5001/api/enquiry/", {
-    //     email: email.toString(),
-    //     name: name.toString(),
-    //     phoneNum: phone.toString(),
-    //     course: course.toString(),
-    //     enquiryDate: schedule.toString(),
-    //     status: "not done",
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //     toast("Wow so easy!");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    if (!recaptchaValue) {
+      alert("Please complete the reCAPTCHA");
+      return;
+    }
+    console.log("name: " + name + " email: " + email + " phone: " + phone + " course: " + course + " schedule: " + schedule);
 
     // use fetch
-    fetch("http://localhost:5001/api/enquiry/", {
+    fetch(`${constant.base}/api/enquiry/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -75,7 +84,7 @@ const EnrollDialog = () => {
         phoneNum: phone.toString(),
         course: course.toString(),
         enquiryDate: schedule.toString(),
-        status: "reviewed",
+        status: "not approved",
       }),
     })
       .then((res) => {
@@ -108,27 +117,23 @@ const EnrollDialog = () => {
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
   };
+
+  const onChangeCaptcha = (value) => {
+    setRecaptchaValue(value);
+  };
   return (
     <>
-      <Button
-        variant="outlined"
-        onClick={handleClickOpen}
-        sx={{ marginRight: "1rem" }}
-      >
+      <Button variant='outlined' onClick={handleClickOpen} sx={{ marginRight: "1rem" }}>
         Enroll
       </Button>
-      <Dialog open={open} onClose={handleClose} maxWidth="md">
-        <Stack direction="row">
-          <img src={Image} className="enroll-image" />
-          <form>
-            <DialogTitle
-              display="flex"
-              justifyContent="space-between"
-              color="primary"
-            >
+      <Dialog open={open} onClose={handleClose} maxWidth='md'>
+        <Stack direction='row'>
+          <img src={Image} className='enroll-image' />
+          <form onSubmit={handleSubmit}>
+            <DialogTitle display='flex' justifyContent='space-between' color='primary'>
               Register Now{" "}
               <IconButton
-                aria-label="close"
+                aria-label='close'
                 onClick={handleClose}
                 sx={{
                   marginLeft: "auto",
@@ -138,17 +143,17 @@ const EnrollDialog = () => {
               </IconButton>
             </DialogTitle>
             <DialogContent>
-              <Typography variant="body1">Name</Typography>
+              <Typography variant='body1'>Name</Typography>
               <TextField
                 onChange={(e) => {
                   setName(e.target.value);
                 }}
                 required
-                variant="outlined"
-                id="name"
+                variant='outlined'
+                id='name'
                 sx={{ width: "100%" }}
               />
-              <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+              <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
                 Email
               </Typography>
               <TextField
@@ -156,11 +161,11 @@ const EnrollDialog = () => {
                   setEmail(e.target.value);
                 }}
                 required
-                variant="outlined"
-                id="email"
+                variant='outlined'
+                id='email'
                 sx={{ width: "100%" }}
               />
-              <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+              <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
                 Phone
               </Typography>
               <TextField
@@ -168,49 +173,44 @@ const EnrollDialog = () => {
                   setPhone(e.target.value);
                 }}
                 required
-                variant="outlined"
-                id="phone"
+                variant='outlined'
+                id='phone'
                 sx={{ width: "100%" }}
               />
-              <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+              <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
                 Course
               </Typography>
-              <FormControl fullWidth>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={course}
-                  onChange={handleCourseChange}
-                >
-                  <MenuItem value="%coursename1%">Course 1</MenuItem>
-                  <MenuItem value="%coursename2%">Course 2</MenuItem>
-                  <MenuItem value="%coursename3%">Course 3</MenuItem>
-                </Select>
-              </FormControl>
-              <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
-                Time
+              <Autocomplete
+                id='autocomplete-search'
+                options={allCourseName}
+                getOptionLabel={(option) => option}
+                renderInput={(params) => <TextField {...params} variant='outlined' />}
+                sx={{
+                  backgroundColor: "white",
+                }}
+                onInputChange={(event, value) => {
+                  setCourse(value);
+                }}
+              />
+              <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
+                Schedule
               </Typography>
               <FormControl fullWidth>
                 <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
+                  labelId='demo-simple-select-label'
+                  id='demo-simple-select'
                   value={time}
                   onChange={(e) => {
                     setTime(e.target.value);
                     setSchedule(e.target.value);
                   }}
                 >
-                  <MenuItem value="07:00 AM - 09:00AM">
-                    07:00 AM - 09:00AM
-                  </MenuItem>
-                  <MenuItem value="03:00 PM - 05:00 PM">
-                    03:00 PM - 05:00 PM
-                  </MenuItem>
-                  <MenuItem value="06:00 PM - 09:00 PM">
-                    06:00 PM - 09:00 PM
-                  </MenuItem>
+                  <MenuItem value='Morning'>Morning</MenuItem>
+                  <MenuItem value='Afternoon'>Afternoon</MenuItem>
+                  <MenuItem value='Evening'>Evening</MenuItem>
                 </Select>
               </FormControl>
+
               <FormGroup>
                 <div
                   style={{
@@ -219,15 +219,8 @@ const EnrollDialog = () => {
                     alignItems: "center",
                   }}
                 >
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        style={{ position: "relative", marginRight: "-1rem" }}
-                        checked={isChecked}
-                        onChange={handleCheckboxChange}
-                      />
-                    }
-                  />
+                  <FormControlLabel control={<Checkbox style={{ position: "relative", marginRight: "-1rem" }} checked={isChecked} onChange={handleCheckboxChange} />} />
+
                   <div
                     style={{
                       display: "flex",
@@ -237,22 +230,24 @@ const EnrollDialog = () => {
                     }}
                   >
                     <span style={{ marginRight: "0.25rem" }}>I agree to</span>
-                    <Link to="/terms-and-condition" target="_blank">
-                      <Typography variant="body1" color="primary">
+                    <Link to='/terms-and-condition' target='_blank'>
+                      <Typography variant='body1' color='primary'>
                         Terms and Conditions
                       </Typography>
                     </Link>
                   </div>
                 </div>
-
+                <FormGroup sx={{ marginTop: "0.75rem", marginBottom: "0.75rem" }}>
+                  <ReCAPTCHA sitekey={SITE_KEY} onChange={handleRecaptchaChange} />
+                </FormGroup>
                 <Button
-                  onClick={(e) => {
+                  onSubmit={(e) => {
                     e.preventDefault();
                     handleSubmit();
                   }}
-                  variant="contained"
+                  variant='contained'
                   sx={{ display: "flex", justifyContent: "center" }}
-                  type="submit"
+                  type='submit'
                   disabled={!isChecked}
                 >
                   Register

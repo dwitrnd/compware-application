@@ -30,10 +30,37 @@ import CourseDetailPage from "screen/CourseDetailPage/CourseDetailPage";
 import SecondBlogPage from "screen/Blog/SecondBlogPage";
 import DashboardLayout from "../src/components/DashboardLayout/DashboardLayout";
 import ListEnrollStudentBody from "screen/Dashboard/ListEnrollStudent";
+import ListCourseBody from "screen/Dashboard/ListCourseBody";
+// import CreateCourse from "screen/Dashboard/ListCourseBody/CreateCourse";
 import ListTeamBody from "screen/Dashboard/ListTeamBody/ListTeamBody";
+import CreateTeamBody from "screen/Dashboard/CreateTeam/CreateTeam";
 import ListTestimonialBody from "screen/Dashboard/ListTestimonialBody/ListTestimonialBody";
+import EditTestimonial from "screen/Dashboard/ListTestimonialBody/EditTestimonial";
 import ListRequestCertificate from "screen/Dashboard/ListRequestCertificate/ListRequestCertificate";
+import ListVacancy from "screen/Dashboard/ListVacancy";
 import PageTitle from "components/PageTitle/PageTitle";
+import UpdateCourse from "screen/Dashboard/UpdateCourse/UpdateCourse";
+import CreateCourse from "screen/Dashboard/ListCourseBody/CreateCourse";
+import EditTeam from "screen/Dashboard/EditTeam";
+import Event from "screen/Event/EventPage";
+import ListGalleryBody from "screen/Dashboard/ListGalleryBody/ListGalleryBody";
+import CreateGallery from "screen/Dashboard/ListGalleryBody/CreateGallery";
+import ListBlogBody from "screen/Dashboard/ListBlogBody/ListBlogBody";
+import ListSessionBody from "screen/Dashboard/ListSessionBody/ListSessionBody";
+import CreateBlog from "screen/Dashboard/ListBlogBody/CreateBlog";
+import CreateSessions from "screen/Dashboard/ListSessionBody/CreateSessions";
+import EditSessions from "screen/Dashboard/ListSessionBody/EditSessions";
+import ListTrainer from "screen/Dashboard/ListTrainer/ListTrainer";
+import AddTrainer from "screen/Dashboard/AddTrainer/AddTrainer";
+import UpdateBlog from "screen/Dashboard/ListBlogBody/UpdateBlog";
+import ListStudentCertificateBody from "screen/Dashboard/ListStudentCertificateBody/ListStudentCertificateBody";
+import CreateStudentCertificate from "screen/Dashboard/ListStudentCertificateBody/CreateStudentCertificate";
+import CreateTestimonial from "screen/Dashboard/ListTestimonialBody/CreateTestimonial";
+import EditStudentCertificate from "screen/Dashboard/ListStudentCertificateBody/EditStudentCertificate";
+import ListClientBody from "screen/Dashboard/ListClientBody/ListClientBody";
+import CreateClient from "screen/Dashboard/ListClientBody/CreateClient";
+import ListPlacementPartnerBody from "screen/Dashboard/ListPlacementPartnerBody/ListPlacementPartnerBody";
+import CreatePlacementPartner from "screen/Dashboard/ListPlacementPartnerBody/CreatePlacementPartner";
 
 // Simple git
 const theme = createTheme({
@@ -112,6 +139,7 @@ function App() {
                     </Layout>
                   }
                 />
+
                 <Route
                   path='/courses'
                   element={
@@ -132,13 +160,22 @@ function App() {
                   }
                 />
                 <Route
-                  path='blog-page'
+                  path='/dashboard/update-blog/:id'
+                  element={
+                    <DashboardLayout>
+                      <UpdateBlog />
+                    </DashboardLayout>
+                  }
+                />
+                <Route
+                  path='blog-page/:id'
                   element={
                     <Layout>
                       <BlogPage />
                     </Layout>
                   }
                 />
+                <Route path='event' element={<Event />} />
                 <Route
                   path='blog-page-2'
                   element={
@@ -148,7 +185,7 @@ function App() {
                   }
                 />
                 <Route
-                  path='verify-certificate'
+                  path='verify-certificate/:id'
                   element={
                     !token ? (
                       <Layout>
@@ -197,7 +234,7 @@ function App() {
                     )
                   }
                 />
-                <Route
+                {/* <Route
                   path='register'
                   element={
                     !token ? (
@@ -208,7 +245,7 @@ function App() {
                       <Navigate to='/dashboard' />
                     )
                   }
-                />
+                /> */}
                 <Route
                   path='sendpasswordresetemail'
                   element={
@@ -246,10 +283,187 @@ function App() {
                 }
               />
               <Route
+                path='/dashboard/list-sessions'
+                element={
+                  <DashboardLayout>
+                    <ListSessionBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-session'
+                element={
+                  <DashboardLayout>
+                    <CreateSessions />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-client'
+                element={
+                  <DashboardLayout>
+                    <CreateClient />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-partner'
+                element={
+                  <DashboardLayout>
+                    <ListPlacementPartnerBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-placement'
+                element={
+                  <DashboardLayout>
+                    <CreatePlacementPartner />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/edit-session/:id'
+                element={
+                  <DashboardLayout>
+                    <EditSessions />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-blog'
+                element={
+                  <DashboardLayout>
+                    <ListBlogBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-students'
+                element={
+                  <DashboardLayout>
+                    <ListStudentCertificateBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-blog'
+                element={
+                  <DashboardLayout>
+                    <CreateBlog />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-student'
+                element={
+                  <DashboardLayout>
+                    <CreateStudentCertificate />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-course'
+                element={
+                  <DashboardLayout>
+                    <CreateCourse />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-gallery'
+                element={
+                  <DashboardLayout>
+                    <CreateGallery />
+                  </DashboardLayout>
+                }
+              />
+
+              <Route
+                path='/dashboard/list-course'
+                element={
+                  <DashboardLayout>
+                    <ListCourseBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-gallery'
+                element={
+                  <DashboardLayout>
+                    <ListGalleryBody />
+                  </DashboardLayout>
+                }
+              />
+              {/* <Route
+                path='/dashboard/create-course'
+                element={
+                  <DashboardLayout>
+                    <CreateCourse />
+                  </DashboardLayout>
+                }
+              /> */}
+              <Route
+                path='/dashboard/update-course/:id'
+                element={
+                  <DashboardLayout>
+                    <UpdateCourse />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/edit-student-certificate/:id'
+                element={
+                  <DashboardLayout>
+                    <EditStudentCertificate />
+                  </DashboardLayout>
+                }
+              />
+              <Route
                 path='/dashboard/list-team'
                 element={
                   <DashboardLayout>
                     <ListTeamBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-trainer'
+                element={
+                  <DashboardLayout>
+                    <ListTrainer />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/add-trainer'
+                element={
+                  <DashboardLayout>
+                    <AddTrainer />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/create-team'
+                element={
+                  <DashboardLayout>
+                    <CreateTeamBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/edit-team/:id'
+                element={
+                  <DashboardLayout>
+                    <EditTeam />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-client'
+                element={
+                  <DashboardLayout>
+                    <ListClientBody />
                   </DashboardLayout>
                 }
               />
@@ -262,10 +476,34 @@ function App() {
                 }
               />
               <Route
+                path='/dashboard/create-testimonial'
+                element={
+                  <DashboardLayout>
+                    <CreateTestimonial />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/edit-testimonial/:id'
+                element={
+                  <DashboardLayout>
+                    <EditTestimonial />
+                  </DashboardLayout>
+                }
+              />
+              <Route
                 path='/dashboard/list-request-certificate'
                 element={
                   <DashboardLayout>
                     <ListRequestCertificate />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/list-vacancy'
+                element={
+                  <DashboardLayout>
+                    <ListVacancy />
                   </DashboardLayout>
                 }
               />

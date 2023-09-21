@@ -5,6 +5,9 @@ const trainerSchema = mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+
+    // store in lower case
+    lowercase: true,
   },
   signature: {
     type: String,

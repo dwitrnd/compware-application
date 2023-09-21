@@ -4,12 +4,9 @@ const mongoose = require("mongoose");
 const courseSchema = mongoose.Schema({
   courseName: {
     type: String,
-    required: true,
-    unique: true,
   },
   slugTitle: {
     type: String,
-    required: true,
   },
   courseCategory: {
     type: [String],
@@ -17,31 +14,24 @@ const courseSchema = mongoose.Schema({
   },
   courseIntro: {
     type: String,
-    required: true,
   },
   aboutCourse: {
     type: String,
-    required: true,
   },
   courseLogo: {
     type: String,
-    required: true,
   },
   imageName: {
     type: String,
-    required: true,
   },
   imageAltText: {
     type: String,
-    required: true,
   },
   coursePdf: {
     type: String,
-    required: true,
   },
   duration: {
     type: String,
-    required: true,
   },
   schedule: {
     type: String,

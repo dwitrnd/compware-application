@@ -1,35 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { constant } from "constants/contants";
 import Box from "@material-ui/core/Box";
+import axios from "axios";
 
-import Client1 from "../../../../assets/images/compware-clients/c-programming.jpg";
-import Client2 from "../../../../assets/images/compware-clients/it-training-nepal.jpg";
-import Client3 from "../../../../assets/images/compware-clients/java-programming.png";
-import Client4 from "../../../../assets/images/compware-clients/online-programming-courses.png";
-import Client5 from "../../../../assets/images/compware-clients/python-programming.png";
-import Client6 from "../../../../assets/images/compware-clients/python-tutorial.png";
-import Client7 from "../../../../assets/images/compware-clients/Crimsoncollege.png";
-import Client8 from "../../../../assets/images/compware-clients/Gibl_logo-1.png";
-import Client9 from "../../../../assets/images/compware-clients/Kantipur Engineer College_logo.png";
-import Client10 from "../../../../assets/images/compware-clients/Handicap International.png";
-import Client11 from "../../../../assets/images/compware-clients/Khalti.png";
-import Client12 from "../../../../assets/images/compware-clients/NEA.png";
-import Client13 from "../../../../assets/images/compware-clients/NIC_Asia_Bank.png";
-import Client14 from "../../../../assets/images/compware-clients/Nepal Red Cross Society.png";
-import Client15 from "../../../../assets/images/compware-clients/worldlink.png";
-import Client16 from "../../../../assets/images/compware-clients/vianet.png";
-import Client17 from "../../../../assets/images/compware-clients/savethechildren.png";
-import Client18 from "../../../../assets/images/compware-clients/jbbl.png";
-import Client19 from "../../../../assets/images/compware-clients/hamropatro.png";
-import Client20 from "../../../../assets/images/compware-clients/prabhupay_logo.png";
-import Client21 from "../../../../assets/images/compware-clients/RadissonHotelKathmandu.png";
-import Client22 from "../../../../assets/images/compware-clients/everest-bank_logo_main.png";
-import Client23 from "../../../../assets/images/compware-clients/daraz.png";
-import Client24 from "../../../../assets/images/compware-clients/citizenbank.png";
-import Client25 from "../../../../assets/images/compware-clients/Siddharthabank.png";
-import Client26 from "../../../../assets/images/compware-clients/Sanima-Bank-logo.png";
-import Client27 from "../../../../assets/images/placement partner/deerhold.png";
+import Client1 from "../../../../assets/images/compware-clients/citizenbamk.jpg";
+import Client2 from "../../../../assets/images/compware-clients/crimsoncollege.jpg";
+import Client3 from "../../../../assets/images/compware-clients/Deraz.jpg";
+import Client4 from "../../../../assets/images/compware-clients/Everest-Bank.jpg";
+import Client5 from "../../../../assets/images/compware-clients/Global-IME-Bank.jpg";
+import Client6 from "../../../../assets/images/compware-clients/hamro-patro.jpg";
+import Client7 from "../../../../assets/images/compware-clients/handicap-international.jpg";
+import Client8 from "../../../../assets/images/compware-clients/himalaya-college.jpg";
+import Client9 from "../../../../assets/images/compware-clients/jyoti-bikash.jpg";
+import Client10 from "../../../../assets/images/compware-clients/KEC.jpg";
+import Client11 from "../../../../assets/images/compware-clients/khalti.jpg";
+import Client12 from "../../../../assets/images/compware-clients/NEA.jpg";
+import Client13 from "../../../../assets/images/compware-clients/Nepal-bank-Limited.jpg";
+import Client14 from "../../../../assets/images/compware-clients/nic.jpg";
+import Client15 from "../../../../assets/images/compware-clients/nmb-bank.jpg";
+import Client16 from "../../../../assets/images/compware-clients/NTc.jpg";
+import Client17 from "../../../../assets/images/compware-clients/prabhy-pay.jpg";
+import Client18 from "../../../../assets/images/compware-clients/Radisson.jpg";
+import Client19 from "../../../../assets/images/compware-clients/save-the-childern.jpg";
+import Client20 from "../../../../assets/images/compware-clients/shivapuri-school.jpg";
+import Client21 from "../../../../assets/images/compware-clients/siddharthaBank.jpg";
+import Client22 from "../../../../assets/images/compware-clients/vianet.jpg";
+import Client23 from "../../../../assets/images/compware-clients/worldlink.jpg";
+import Client24 from "../../../../assets/images/compware-clients/US Embassy.png";
+import Client25 from "../../../../assets/images/compware-clients/Shangri La development bank.png";
 import styled from "styled-components";
 
 const ClientImage = styled.img`
@@ -55,6 +55,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Testimonials(props) {
   const classes = useStyles();
+  useEffect(() => {
+    const url = `${constant.base}/api/client`;
+  });
 
   const content = {
     logo1: Client1,
@@ -79,10 +82,9 @@ export default function Testimonials(props) {
     logo21: Client21,
     logo22: Client22,
     logo23: Client23,
-    logo24: Client24,
-    logo25: Client25,
-    logo26: Client26,
-    logo27: Client27,
+    logo24: Client6,
+    logo25: Client24,
+    logo26: Client25,
     ...props.content,
   };
 
@@ -112,7 +114,6 @@ export default function Testimonials(props) {
         <ClientImage src={content["logo22"]} alt="" className={classes.logo} />
         <ClientImage src={content["logo23"]} alt="" className={classes.logo} />
         <ClientImage src={content["logo24"]} alt="" className={classes.logo} />
-        <ClientImage src={content["logo27"]} alt="" className={classes.logo} />
         <ClientImage src={content["logo25"]} alt="" className={classes.logo} />
         <ClientImage src={content["logo26"]} alt="" className={classes.logo} />
       </Box>

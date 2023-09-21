@@ -31,7 +31,7 @@ const Header = ({ subTitle, preTitle, postTitle, paragraph }) => {
   return (
     <HeaderContainer>
       <header>
-        <h2 className="font-color-primary">
+        <h2 className="font-color-primary" style={{ fontWeight: "normal" }}>
           {preTitle}
           <div
             style={{ display: "inline", marginLeft: ".5rem" }}

@@ -3,7 +3,7 @@ import SplideCarousel from "components/SplideCarousel/SplideCarousel";
 import Container from "@material-ui/core/Container";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import FeaturesSection from "./components/Features";
 import ClientsSection from "./components/Clients";
@@ -11,19 +11,48 @@ import PlacementSection from "./components/PlacementPartner/PlacementPartner";
 import Header from "components/Header";
 import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqueCarousel";
 import ReviewsMarqueCarouselLower from "components/ReviewsMarqueCarousel/ReviewMarqueeUpper";
+import CourseSearch from "./components/CourseSearch/CoruseSearch";
+import { constant } from "constants/contants";
+import Popup from "./components/PopUp/PopUp";
 
 const Home = () => {
   const [course, setCourse] = useState("");
+  const [isPopupOpen, setIsPopupOpen] = useState(true);
 
+  const popupRef = useRef(null);
   useEffect(() => {
     AOS.init({
       duration: 2000,
     });
   }, []);
 
+  useEffect(() => {
+    // Event listener to close the popup when clicked outside
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        setIsPopupOpen(false);
+      }
+    };
+
+    // Attach the event listener when the popup is open
+    if (isPopupOpen) {
+      window.addEventListener("click", handleClickOutside);
+    }
+
+    // Clean up the event listener when the component unmounts or the popup is closed
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, [isPopupOpen]);
+
+  const handlePopUpClose = () => {
+    setIsPopupOpen(false);
+  };
+
   const handleChange = (event) => {
     setCourse(event.target.value);
   };
+
   // hero section component
 
   const FilterCardContainer = styled.div`
@@ -35,6 +64,16 @@ const Home = () => {
     @media (max-width: 550px) {
       display: none;
     }
+  `;
+
+  const Overlay = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 998;
   `;
 
   const CourseSearchField = styled.input`
@@ -90,7 +129,14 @@ const Home = () => {
   return (
     <>
       {/* //* =========hero section starts here========= */}
-
+      {isPopupOpen && (
+        <>
+          {/* Add an overlay to close the popup when clicked outside */}
+          {/* <Overlay ref={popupRef} onClick={handlePopUpClose} /> */}
+          {/* <Popup /> */}
+          {/* Your PopUp component */}
+        </>
+      )}
       <section id="hero-section">
         <section id="hero-banner">
           <div id="video-box">
@@ -102,7 +148,7 @@ const Home = () => {
               style={{ filter: "brightness(0.5)" }}
             >
               <source
-                src={"http://192.168.0.213/videos/website.mp4"}
+                src={"https://video.deerwalktrainingcenter.com/"}
                 type="video/mp4"
               />
             </video>
@@ -110,28 +156,20 @@ const Home = () => {
 
           <div id="hero-content">
             <HeroTitle style={{ marginTop: "3rem" }} className="hero-text">
-              Explore the world's leading
+              Explore Nepal's Leading
             </HeroTitle>
-            <HeroTitle className="hero-text">training center</HeroTitle>
+            <HeroTitle className="hero-text">Training Center</HeroTitle>
 
-            <HeroSubTitle id="hero-subtitle" style={{ marginTop: "4rem" }}>
-              Millions of students and people around the world showcase their
-              skills and work on compware - the home to the world’s best
-              trainers and professionals.
+            <HeroSubTitle
+              id="hero-subtitle"
+              style={{ marginTop: "4rem", marginBottom: "4rem" }}
+            >
+              Welcome to Deerwalk Training Center, where we are dedicated to
+              providing premiere IT and Technical skills to facilitate your
+              journey towards achieving success.
             </HeroSubTitle>
 
-            <CourseSearchField
-              placeholder="Search courses..."
-              type="text"
-              style={{ marginTop: "2rem" }}
-            />
-
-            <FilterCardContainer>
-              <FilterCards>Programming</FilterCards>
-              <FilterCards>Designing</FilterCards>
-              <FilterCards>Diploma</FilterCards>
-              <FilterCards>Short Term</FilterCards>
-            </FilterCardContainer>
+            <CourseSearch />
           </div>
         </section>
       </section>
@@ -172,6 +210,7 @@ const Home = () => {
               fontSize: "2.5rem",
               color: "#0f5288",
               textAlign: "center",
+              fontWeight: "normal",
             }}
             data-aos="fade-down"
           >
@@ -228,16 +267,12 @@ const Home = () => {
         </section>
         {/* //todo: testimonial section */}
         <div style={{ margin: "5rem 0rem" }}>
-          <Header
-            subTitle="IN THE NEWS"
-            preTitle="Our"
-            postTitle="Testimonials"
-          />
+          <Header subTitle="IN THE NEWS" preTitle="Testimonials" postTitle="" />
           <SplideCarousel />
         </div>
         {/* //todo: partners section */}
         <div style={{ margin: "5rem 0rem" }}>
-          <Header subTitle="" preTitle="Our" postTitle="Clients" />
+          <Header subTitle="" preTitle="Clients" />
           <ClientsSection />
         </div>
       </Container>

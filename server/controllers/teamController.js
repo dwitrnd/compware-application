@@ -4,7 +4,7 @@ const fs = require("fs");
 class teamController {
   static post = async (req, res) => {
     try {
-      const { Name, Email, Post, Description, ImageName, ImageAltText } =
+      const { Name, Email, Post, Role, Description, ImageName, ImageAltText } =
         req.body;
       const file = req.files.Image;
 
@@ -22,6 +22,7 @@ class teamController {
         Name,
         Email,
         Post,
+        Role,
         Description,
         ImageAltText,
         ImageName,
@@ -55,8 +56,17 @@ class teamController {
   };
 
   static patch = async (req, res) => {
-    const { Name, Email, Post, Description, ImageName, Image, ImageAltText } =
-      req.body;
+    const {
+      Name,
+      Email,
+      Post,
+      Description,
+      ImageName,
+      Image,
+      ImageAltText,
+      Role,
+    } = req.body;
+
     const teamId = req.params.id;
     const savedTeam = await team.findById(teamId);
     try {

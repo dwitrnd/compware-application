@@ -163,10 +163,19 @@
 
 @media only screen and (min-width: 500px) {
   .courses {
-    height: 50vh;
+    height: 72vh;
   }
 
   .course-main {
     height: 40vh;
+  }
+}
+
+.placement-right-section {
+  width: 50%;
+}
+@media only screen and (max-width: 800px) {
+  .placement-right-section {
+    width: 100%;
   }
 }

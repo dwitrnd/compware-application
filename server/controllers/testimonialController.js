@@ -6,6 +6,9 @@ class testimonialController {
     try {
       const { name, affiliation, description, imageName, imageAltText } =
         req.body;
+
+      console.log("data captured:", req.body);
+
       const file = req.files.image;
 
       const timestamp = Date.now();

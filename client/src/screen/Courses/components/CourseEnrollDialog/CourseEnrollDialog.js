@@ -13,8 +13,12 @@ import Backdrop from "@mui/material/Backdrop";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { toast } from "react-toastify";
+import ReCAPTCHA from "react-google-recaptcha";
+
+import { constant } from "constants/contants";
 
 const initialCheckboxState = false;
+const SITE_KEY = "6LczgZknAAAAAH1UXsFrSPEzqNW6HOFS1Bkmv-6N";
 
 const CourseEnrollDialog = ({ courseName }) => {
   const [name, setName] = useState("");
@@ -22,10 +26,14 @@ const CourseEnrollDialog = ({ courseName }) => {
   const [phone, setPhone] = useState("");
   const [course, setCourse] = useState(courseName);
   const [schedule, setSchedule] = useState("");
-
+  const [recaptchaValue, setRecaptchaValue] = useState("");
   const [open, setOpen] = useState(false);
   const [isChecked, setIsChecked] = useState(initialCheckboxState);
   const [time, setTime] = useState("");
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
 
   const handleChange = (event) => {
     setTime(event.target.value);
@@ -41,45 +49,22 @@ const CourseEnrollDialog = ({ courseName }) => {
   };
 
   const handleSubmit = () => {
-    console.log(
-      "name: " +
-        name +
-        " email: " +
-        email +
-        " phone: " +
-        phone +
-        " course: " +
-        course +
-        " schedule: " +
-        schedule
-    );
-    // axios
-    //   .post("http://localhost:5001/api/enquiry/", {
-    //     email: email.toString(),
-    //     name: name.toString(),
-    //     phoneNum: phone.toString(),
-    //     course: course.toString(),
-    //     enquiryDate: schedule.toString(),
-    //     status: "not done",
-    //   })
-    //   .then((res) => {
-    //     console.log(res);
-    //     toast("Wow so easy!");
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    if (!recaptchaValue) {
+      alert("Please complete the reCAPTCHA");
+      return;
+    }
+    console.log("name: " + name + " email: " + email + " phone: " + phone + " course: " + course + " schedule: " + schedule);
 
     // use fetch
     // use fetch
-    fetch("http://localhost:5001/api/enquiry/", {
+    fetch(`${constant.base}/api/enquiry/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        email: email.toString(),
         name: name.toString(),
+        email: email.toString(),
         phoneNum: phone.toString(),
         course: courseName.toString(),
         enquiryDate: schedule.toString(),
@@ -98,7 +83,7 @@ const CourseEnrollDialog = ({ courseName }) => {
   return (
     <>
       <Button
-        variant="contained"
+        variant='contained'
         onClick={handleClickOpen}
         sx={{
           marginRight: "1rem",
@@ -108,16 +93,12 @@ const CourseEnrollDialog = ({ courseName }) => {
       >
         Enroll
       </Button>
-      <Dialog open={open} onClose={handleClose} maxWidth="md">
+      <Dialog open={open} onClose={handleClose} maxWidth='md'>
         <form>
-          <DialogTitle
-            display="flex"
-            justifyContent="space-between"
-            color="primary"
-          >
-            Register Now{" "}
+          <DialogTitle display='flex' justifyContent='space-between' color='primary'>
+            Register Now
             <IconButton
-              aria-label="close"
+              aria-label='close'
               onClick={handleClose}
               sx={{
                 marginLeft: "auto",
@@ -126,52 +107,39 @@ const CourseEnrollDialog = ({ courseName }) => {
               <CloseIcon />
             </IconButton>
           </DialogTitle>
-          <DialogContent
-          // sx={{
-          //   "&::after": {
-          //     content: '""',
-          //     position: "fixed",
-          //     top: 0,
-          //     left: 0,
-          //     right: 0,
-          //     bottom: 0,
-          //     backdropFilter: "blur(8px)",
-          //     zIndex: 999,
-          //   },
-          // }}
-          >
-            <Typography variant="body1">Name</Typography>
+          <DialogContent>
+            <Typography variant='body1'>Name</Typography>
             <TextField
               onChange={(e) => {
                 setName(e.target.value);
               }}
-              variant="outlined"
-              id="name"
+              variant='outlined'
+              id='name'
               sx={{ width: "100%" }}
             />
-            <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+            <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
               Email
             </Typography>
             <TextField
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
-              variant="outlined"
-              id="email"
+              variant='outlined'
+              id='email'
               sx={{ width: "100%" }}
             />
-            <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+            <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
               Phone
             </Typography>
             <TextField
               onChange={(e) => {
                 setPhone(e.target.value);
               }}
-              variant="outlined"
-              id="phone"
+              variant='outlined'
+              id='phone'
               sx={{ width: "100%" }}
             />
-            <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+            <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
               Course
             </Typography>
             <TextField
@@ -180,34 +148,28 @@ const CourseEnrollDialog = ({ courseName }) => {
               }}
               disabled
               value={courseName}
-              variant="outlined"
-              defaultValue="Hello World"
-              id="course"
+              variant='outlined'
+              defaultValue='Hello World'
+              id='course'
               sx={{ width: "100%" }}
             />
 
-            <Typography variant="body1" style={{ marginTop: "0.75rem" }}>
+            <Typography variant='body1' style={{ marginTop: "0.75rem" }}>
               Time
             </Typography>
             <FormControl fullWidth>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
                 value={time}
                 onChange={(e) => {
                   setTime(e.target.value);
                   setSchedule(e.target.value);
                 }}
               >
-                <MenuItem value="07:00 AM - 09:00AM">
-                  07:00 AM - 09:00AM
-                </MenuItem>
-                <MenuItem value="03:00 PM - 05:00 PM">
-                  03:00 PM - 05:00 PM
-                </MenuItem>
-                <MenuItem value="06:00 PM - 09:00 PM">
-                  06:00 PM - 09:00 PM
-                </MenuItem>
+                <MenuItem value='Morning'>Morning</MenuItem>
+                <MenuItem value='Afternoon'>Afternoon</MenuItem>
+                <MenuItem value='Evening'>Evening</MenuItem>
               </Select>
             </FormControl>
             <FormGroup>
@@ -217,15 +179,7 @@ const CourseEnrollDialog = ({ courseName }) => {
                   FlexDirection: "row",
                 }}
               >
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      style={{ position: "relative", marginRight: "-1rem" }}
-                      checked={isChecked}
-                      onChange={handleCheckboxChange}
-                    />
-                  }
-                />
+                <FormControlLabel control={<Checkbox style={{ position: "relative", marginRight: "-1rem" }} checked={isChecked} onChange={handleCheckboxChange} />} />
                 <div
                   style={{
                     display: "flex",
@@ -235,22 +189,25 @@ const CourseEnrollDialog = ({ courseName }) => {
                   }}
                 >
                   <span style={{ marginRight: "0.25rem" }}>I agree to</span>
-                  <Link to="/terms-and-condition" target="_blank">
-                    <Typography variant="body1" color="primary">
+                  <Link to='/terms-and-condition' target='_blank'>
+                    <Typography variant='body1' color='primary'>
                       Terms and Conditions
                     </Typography>
                   </Link>
                 </div>
               </div>
             </FormGroup>
+            <FormGroup sx={{ marginTop: "0.75rem", marginBottom: "0.75rem" }}>
+              <ReCAPTCHA sitekey={SITE_KEY} onChange={handleRecaptchaChange} />
+            </FormGroup>
             <Button
               onClick={(e) => {
                 e.preventDefault();
                 handleSubmit();
               }}
-              variant="contained"
+              variant='contained'
               sx={{ display: "flex", justifyContent: "center" }}
-              type="submit"
+              type='submit'
               disabled={!isChecked}
             >
               Register

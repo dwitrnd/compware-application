@@ -1,5 +1,14 @@
+.blog-content {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3; /* Number of lines to display */
+	overflow: hidden;
+  }
+  
+
 @media only screen and (max-width: "960px")  {
 	.blog-image{
 		margin: auto;
 	}
 }
+

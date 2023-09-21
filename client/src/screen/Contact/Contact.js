@@ -21,13 +21,17 @@ import Snackbar from "@mui/material/Snackbar";
 import { useEffect } from "react";
 import axios from "axios";
 import { constant } from "constants/contants";
+import ReCAPTCHA from "react-google-recaptcha";
+import { FormGroup } from "@mui/material";
+
+const SITE_KEY = "6LczgZknAAAAAH1UXsFrSPEzqNW6HOFS1Bkmv-6N";
 
 const Contact = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
-
+  const [recaptchaValue, setRecaptchaValue] = useState("");
   const [open, setOpen] = React.useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -37,6 +41,10 @@ const Contact = () => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -70,11 +78,18 @@ const Contact = () => {
 
   const handleClick = () => {
     // setOpen(true);
+    if (!recaptchaValue) {
+      alert("Please complete the reCAPTCHA");
+      setLoading(false);
+
+      return;
+    }
     const dataToSend = {
       fullName: fullName,
       email: email,
       number: number,
       message: message,
+      recaptchaValue: recaptchaValue,
     };
 
     axios
@@ -83,6 +98,11 @@ const Contact = () => {
         console.log(response);
         if (response.data.msg && response.data.status === true) {
           alert("your response was recorded successfully");
+          setFullName("");
+          setEmail("");
+          setNumber("");
+          setMessage("");
+          setRecaptchaValue("");
         }
       })
       .catch(function (error) {
@@ -215,8 +235,8 @@ const Contact = () => {
                 noValidate
                 style={{
                   display: "grid",
-                  gap: "3rem",
-                  marginTop: "2rem",
+                  gap: "2rem",
+                  marginTop: "0.75rem",
                 }}
               >
                 <Stack direction="row">
@@ -294,20 +314,25 @@ const Contact = () => {
                     id="message"
                     label="Message"
                     multiline
-                    rows={4}
+                    rows={3}
                     variant="outlined"
                     size="small"
                     fullWidth
                     required
                   />
                 </Stack>
-
+                <FormGroup style={{ display: "flex", alignItems: "flex-end" }}>
+                  <ReCAPTCHA
+                    sitekey={SITE_KEY}
+                    onChange={handleRecaptchaChange}
+                  />
+                </FormGroup>
                 <Button
                   variant="contained"
                   onClick={handleClick}
                   sx={{
                     marginLeft: "auto",
-                    marginTop: "1rem",
+
                     display: "flex",
                     alignItems: "flex-end",
                   }}

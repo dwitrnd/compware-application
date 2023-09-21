@@ -10,9 +10,10 @@ class galleryController {
 
       const timestamp = Date.now();
       const filename = `photo_${timestamp}.jpeg`;
-
+      console.log("--------------------------------------");
       file.mv(`./storage/${filename}`, (error) => {
         if (error) {
+          console.log("YOUR ERROR IS :", error);
           return res.status(500).send(error);
         }
         console.log("Upload Successful");

@@ -22,9 +22,6 @@
   cursor: pointer;
 }
 
-* {
-  user-select: none;
-}
 html {
   overflow-x: hidden;
 }
@@ -39,6 +36,9 @@ body {
 * {
   -webkit-tap-highlight-color: transparent !important;
   -webkit-highlight: none;
+}
+input {
+  outline: none;
 }
 button,
 div {
@@ -56,4 +56,5 @@ html {
 
 button {
   outline: none;
+  border-radius: 0.25rem;
 }

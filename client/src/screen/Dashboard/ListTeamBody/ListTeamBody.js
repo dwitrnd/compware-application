@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { constant } from "constants/contants";
 
+import { Link } from "react-router-dom";
+
 const ListTeamBody = () => {
   // use useeffect
 
@@ -29,11 +31,27 @@ const ListTeamBody = () => {
 
   return (
     <div>
+      <Link to='/dashboard/create-team'>
+        <button
+          style={{
+            padding: "0.35rem 0.95rem",
+            margin: "0.25rem",
+            color: "white",
+            background: "#007bff",
+            border: "none",
+            outline: "none",
+          }}
+        >
+          create
+        </button>
+      </Link>
+
       <table>
         <thead>
           <tr>
             <th>Name</th>
             <th>Email</th>
+            <th>Role</th>
             <th>Post</th>
             <th className='action-column'>Actions</th>
           </tr>
@@ -64,10 +82,14 @@ const ListTeamBody = () => {
                         ></img>
                       </td>
                       <td>{data.Name}</td>
+                      <td>{data.Role ? data.Role : "Staff"}</td>
                       <td>{data.Email}</td>
-                      <td>{data.Post[0]}</td>
+                      <td>{data.Post}</td>
                       <td>
-                        <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                        <Link to={`/dashboard/edit-team/${data._id}`}>
+                          <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                        </Link>
+
                         <button
                           onClick={() => {
                             deleteRequest(data._id);

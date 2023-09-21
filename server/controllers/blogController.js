@@ -54,7 +54,9 @@ class blogController {
   };
 
   static patch = async (req, res) => {
-    const { title, date, author, logo, article } = req.body;
+    const { title, date, author, article } = req.body;
+
+    console.log("blog patch req");
     const blogId = req.params.id;
     const savedBlog = await blog.findById(blogId);
     try {

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Typography } from "@material-ui/core";
 import { Box, Button, Container, Stack } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
-import ExpressJs from "../../assets/images/courses/expressjs.png";
 import CourseEnrollDialog from "screen/Courses/components/CourseEnrollDialog/CourseEnrollDialog";
 import CourseRecommendation from "./components/CourseRecommendation/CourseRecommendation";
 import { constant } from "constants/contants";
@@ -12,8 +11,6 @@ import RenderHtmlString from "components/RenderHtmlString/RenderHtmlString";
 
 const CourseDetailPage = () => {
   const { id } = useParams();
-
-  console.log(id);
 
   const [courseDetail, setCourseDetail] = useState({
     aboutCourse: "",
@@ -30,6 +27,12 @@ const CourseDetailPage = () => {
   });
 
   const url = `${constant.base}/api/course/${id}`;
+  const recommendationUrl = `${constant.base}/api/course`;
+  const pageNumber = 1;
+  const itemsPerPage = 6;
+  const [tableData, setTableData] = useState([]);
+  const [allTableData, setAllTableData] = useState([]);
+  const [recommendationTableData, setRecommendationTableData] = useState([]);
 
   useEffect(() => {
     axios.get(url).then((res) => {
@@ -38,13 +41,41 @@ const CourseDetailPage = () => {
     });
   }, []);
 
+  useEffect(() => {
+    axios.get(recommendationUrl).then((res) => {
+      console.log(res.data.msg);
+      setRecommendationTableData(res.data.msg);
+    });
+  }, []);
+
+  const shuffleArray = (array) => {
+    const shuffledArray = array.slice();
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [
+        shuffledArray[j],
+        shuffledArray[i],
+      ];
+    }
+    return shuffledArray;
+  };
+
+  const getRandomRecommendations = () => {
+    // Shuffle the recommendationTableData array
+    const shuffledRecommendations = shuffleArray(recommendationTableData);
+    // Slice the first 6 elements (random recommendations)
+    return shuffledRecommendations.slice(0, 6);
+  };
+
+  const randomRecommendations = getRandomRecommendations();
+
   return (
     <>
       <Container style={{ marginTop: "3rem", marginBottom: "3rem" }}>
         <section>
           <Typography
-            variant='h3'
-            color='primary'
+            variant="h3"
+            color="primary"
             style={{
               display: "flex",
               alignItems: "center",
@@ -58,7 +89,6 @@ const CourseDetailPage = () => {
           <Grid md={8}>
             <Box
               sx={{
-                display: "inline-block",
                 width: "85%",
                 borderRadius: "0.75rem",
                 margin: "1.25rem",
@@ -66,18 +96,14 @@ const CourseDetailPage = () => {
                 boxShadow: "6px 6px 12px 3px rgba(99, 99, 99, 0.20)",
               }}
             >
-              <Stack spacing={2} direction='row'>
-                <div
-                  style={{
-                    width: "15rem",
-                    backgroundImage: `url(${constant.base}/storage/${courseDetail.courseLogo})`,
-                    backgroundSize: "contain",
-                    backgroundRepeat: "no-repeat",
-                  }}
-                ></div>
+              <Stack spacing={2} direction={{ sm: "column", md: "row" }}>
+                <img
+                  src={`${constant.base}/storage/${courseDetail.courseLogo}`}
+                  className="course-image"
+                />
 
-                <Stack spacing={2} direction='column'>
-                  <Typography variant='h5' color='primary'>
+                <Stack spacing={2} direction="column">
+                  <Typography variant="h5" color="primary">
                     {courseDetail.courseName}
                   </Typography>
                   {(() => {
@@ -85,18 +111,38 @@ const CourseDetailPage = () => {
                       return (
                         <>
                           <>
-                            <Typography variant='body1'>Duration:{courseDetail.duration && courseDetail.duration} </Typography>
-                            <Typography variant='body1'>Schedule: {courseDetail.schedule && courseDetail.schedule}</Typography>)
+                            <Typography variant="body1">
+                              Duration:
+                              {courseDetail.duration &&
+                                courseDetail.duration}{" "}
+                            </Typography>
+                            <Typography variant="body1">
+                              Schedule:{" "}
+                              {courseDetail.schedule && courseDetail.schedule}
+                            </Typography>
+                            )
                           </>
                         </>
                       );
                     }
                   })()}
-                  <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly" }}>
-                    <CourseEnrollDialog courseName={courseDetail.courseName} schedule={courseDetail.schedule && courseDetail.schedule} />
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "space-evenly",
+                    }}
+                  >
+                    <CourseEnrollDialog
+                      courseName={courseDetail.courseName}
+                      schedule={courseDetail.schedule && courseDetail.schedule}
+                    />
 
-                    <a href={`http://localhost:5001/storage/${courseDetail.coursePdf}`} download>
-                      <Button variant='contained' color='primary'>
+                    <a
+                      href={`${constant.base}/storage/${courseDetail.coursePdf}`}
+                      download
+                    >
+                      <Button variant="contained" color="primary">
                         View Details
                       </Button>
                     </a>
@@ -104,30 +150,42 @@ const CourseDetailPage = () => {
                 </Stack>
               </Stack>
             </Box>
-            <Typography variant='h6' className='course-info-header'></Typography>
+            <Typography
+              variant="h6"
+              className="course-info-header"
+            ></Typography>
 
             <RenderHtmlString htmlString={courseDetail.aboutCourse} />
           </Grid>
-          <Grid md={4} className='grid-recommendation-item'>
+          <Grid md={4} className="grid-recommendation-item">
             <Box
               sx={{
                 display: "inline-block",
                 height: "100%",
-                width: "85%",
+                width: "100%",
                 borderRadius: "0.75rem",
                 margin: "1.25rem",
-                padding: "1.75rem",
+
                 boxShadow: "6px 6px 12px 3px rgba(99, 99, 99, 0.20)",
               }}
             >
-              <Stack spacing={8} alignItems='center' justifyContent='space-around'>
-                <Typography variant='h6' color='primary'>
-                  Recommended for you
+              <Stack
+                spacing={8}
+                alignItems="center"
+                justifyContent="space-around"
+                marginTop="2rem"
+              >
+                <Typography variant="h6" color="primary">
+                  Courses You Might Like
                 </Typography>
-                <CourseRecommendation name={"DIPLOMA IN JAVA"} hour={"120"} image={"http://localhost:5001/storage/53aae0e9e7d50bd3c401e6496ed4831e1691145701032.jpg"} />
-                <CourseRecommendation name={"REACT NATIVE"} hour={"120"} image={"http://localhost:5001/storage/dcdf252fd3c76114ce6f245f858ed1301691053527521.jpg"} />
-                <CourseRecommendation name={"VUE JS"} hour={"120"} image={"http://localhost:5001/storage/c88568e705b0420ed927e3ad251c52c51691144738372.jpg"} />
-                <CourseRecommendation name={"DOT NET"} hour={"120"} image={"http://localhost:5001/storage/10695f41221fd7dfb4cbae37c8917e181691130646629.jpg"} />
+                {randomRecommendations.map((recommendation) => (
+                  <CourseRecommendation
+                    key={recommendation._id}
+                    id={recommendation._id}
+                    name={recommendation.courseName}
+                    image={`${constant.base}/storage/${recommendation.courseLogo}`}
+                  />
+                ))}
               </Stack>
             </Box>
           </Grid>

@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { constant } from "constants/contants";
 
 export const userAuthApi = createApi({
   //unique string
   reducerPath: "userAuthApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5001/api/users/",
+    baseUrl: `${constant.base}/api/users/`,
   }),
 
   // function that has different fetch method

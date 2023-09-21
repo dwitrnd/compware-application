@@ -1,23 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { constant } from "constants/contants";
-import styled from "styled-components";
+
+import { Link } from "react-router-dom";
 
 const ListTestimonialBody = () => {
-  // use useeffect
-
   const [tableData, setTableData] = useState(null);
 
   const url = `${constant.base}/api/testimonial`;
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
-      /* The line `// setTableData(res.data.msg);` is commented out, which means it is not currently
-      being executed. However, if it were to be uncommented, it would set the value of the
-      `tableData` state variable to `res.data.msg`. This means that the data received from the API
-      response would be stored in the `tableData` state variable, which can then be used to render
-      the table rows in the component. */
       setTableData(res.data.msg);
     });
   }, []);
@@ -30,6 +23,20 @@ const ListTestimonialBody = () => {
 
   return (
     <div>
+      <Link to='/dashboard/create-testimonial'>
+        <button
+          style={{
+            padding: "0.35rem 0.95rem",
+            margin: "0.25rem",
+            color: "white",
+            background: "#007bff",
+            border: "none",
+            outline: "none",
+          }}
+        >
+          Add Testimonial
+        </button>
+      </Link>
       <table>
         <thead>
           <tr>
@@ -67,7 +74,9 @@ const ListTestimonialBody = () => {
                       <td>{data.name}</td>
                       <td>{data.description}</td>
                       <td>
-                        <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                        <a href={`/dashboard/edit-testimonial/${data._id}`}>
+                          <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                        </a>
                         <button
                           onClick={() => {
                             deleteRequest(data._id);

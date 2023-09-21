@@ -4,22 +4,24 @@ const fs = require("fs");
 class clientController {
   static post = async (req, res) => {
     try {
-      const { Name } = req.body;
-      const file = req.files.Photo;
+      const { ImageName, ImageAltText } = req.body;
+      const file = req.files.Image;
 
       const timestamp = Date.now();
       const filename = `photo_${timestamp}.jpeg`;
-
+      console.log("--------------------------------------");
       file.mv(`./storage/${filename}`, (error) => {
         if (error) {
+          console.log("YOUR ERROR IS :", error);
           return res.status(500).send(error);
         }
         console.log("Upload Successful");
       });
 
       const Client = await new client({
-        Name,
-        Photo: filename,
+        Image: filename,
+        ImageName,
+        ImageAltText,
       });
       const result = await Client.save();
       res.status(200).json({
@@ -33,6 +35,7 @@ class clientController {
       });
     }
   };
+
   static get = async (req, res) => {
     try {
       const result = await client.find({});
@@ -47,7 +50,6 @@ class clientController {
       });
     }
   };
-
   static patch = async (req, res) => {
     const { Name, Photo } = req.body;
     const clientId = req.params.id;

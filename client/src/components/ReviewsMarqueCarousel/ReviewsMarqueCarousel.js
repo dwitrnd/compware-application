@@ -7,21 +7,7 @@ import { nanoid } from "nanoid";
 import { constant } from "constants/contants";
 import axios from "axios";
 
-import Devops from "assets/images/courses/DevOps.jpg";
-import DotNet from "assets/images/courses/Dot-Net.jpg";
-import DataMining from "assets/images/courses/Data-Mining-and-Machine-Learning-Using-R-Programming.jpg";
-import Flutter from "assets/images/courses/Flutter-App-Development.jpg";
-import MERN from "assets/images/courses/Full-Stack-Web-Development---MERN-Stack.jpg";
-import Laravel from "assets/images/courses/laravel.jpg";
-import Excel from "assets/images/courses/Microsoft-Excel.jpg";
-import Spss from "assets/images/courses/Statistical-Package-for-the-Social-Sciences-(SPSS).jpg";
-import RProgramming from "assets/images/courses/Statistical-Analysis-using-R.jpg";
-import QualityAssurance from "assets/images/courses/Software-Quality-Assurance.jpg";
-import Python from "assets/images/courses/Programming-in-Python.jpg";
-import Java from "assets/images/courses/Programming-In-Java.jpg";
-import SpringBoot from "assets/images/courses/Programming-Full-Stack-Development-in-JAVA-with-Spring-Boot-and-React.jpg";
-import PowerBI from "assets/images/courses/Power-BI.jpg";
-
+import ClipLoader from "react-spinners/ClipLoader";
 import { Link } from "react-router-dom";
 
 const Photo = styled.img`
@@ -32,17 +18,22 @@ const Photo = styled.img`
   object-fit: cover;
   object-position: top;
 
-  margin-left: ${(props) => (props.offset === "true" ? props.scale * 7 : props.scale * 87)}px;
-  margin-right: ${(props) => (props.offset === "true" ? props.scale * 80 : 0)}px;
+  margin-left: ${(props) =>
+    props.offset === "true" ? props.scale * 7 : props.scale * 87}px;
+  margin-right: ${(props) =>
+    props.offset === "true" ? props.scale * 80 : 0}px;
 `;
 
-const photos1 = [Devops, DotNet, DataMining, Flutter, MERN, Laravel, Excel];
-const photos2 = [Spss, SpringBoot, Java, Python, PowerBI, QualityAssurance, RProgramming];
-
 const People = ({ size }) => {
-  const [marqueeRunningState, setMarqueeRunningState] = useState(25);
-
+  const [marqueeRunningState, setMarqueeRunningState] = useState(15);
+  const [isLoading, setIsLoading] = useState(true);
   const [key, setKey] = useState(nanoid());
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "#0f5288",
+  };
 
   const [tableData, setTableData] = useState([
     {
@@ -54,9 +45,11 @@ const People = ({ size }) => {
   const url = `${constant.base}/api/course`;
 
   useEffect(() => {
+    setIsLoading(true);
     axios.get(url).then((res) => {
       console.log(res.data.msg);
       setTableData(res.data.msg);
+      setIsLoading(false);
     });
   }, []);
 
@@ -82,9 +75,28 @@ const People = ({ size }) => {
     setMarqueeRunningState(0);
   }
   function handleMouseLeave() {
-    setMarqueeRunningState(25);
+    setMarqueeRunningState(15);
   }
-
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          paddingTop: "10rem",
+          marginLeft: "50%",
+          transform: "translateX(-50%)",
+        }}
+      >
+        <ClipLoader
+          cssOverride={override}
+          color={"red"}
+          loading={true}
+          size={90}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
+  }
   return (
     <div>
       <div>
@@ -106,16 +118,23 @@ const People = ({ size }) => {
                     margin: "0rem !important",
                     width: "19rem",
                   }}
-                  className='home_course_card'
+                  className="home_course_card"
                 >
-                  <Link to={`/course-detail/${item._id}`} target='_parent'>
-                    <Photo src={`${constant.base}/storage/${item.courseLogo}`} alt='' key={`marquee-example-people-${index}`} />
-                    <div className='course_card_content'>
+                  <Link to={`/course-detail/${item._id}`} target="_parent">
+                    <Photo
+                      src={`${constant.base}/storage/${item.courseLogo}`}
+                      alt=""
+                      key={`marquee-example-people-${index}`}
+                    />
+                    <div className="course_card_content">
                       <h6
                         style={{
                           color: "#0f5288",
                           fontSize: "1.45rem",
                           textAlign: "center",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                          fontWeight: "normal",
                         }}
                       >
                         {item.courseName && item.courseName}
@@ -126,9 +145,7 @@ const People = ({ size }) => {
                           fontSize: "0.85rem",
                           padding: "0.75rem",
                         }}
-                      >
-                        Category: {item.courseCategory && item.courseCategory}
-                      </p>
+                      ></p>
                     </div>
                   </Link>
                 </div>

@@ -1,11 +1,9 @@
 import React from "react";
 import "./Partner.css";
+import Typography from "@material-ui/core/Typography";
 
 // import ContactFrom from "../UI/ContactForm";
 import CourseCard from "./PartnerCard";
-
-import Header from "components/Header";
-
 import Agile from "assets/images/placement partner/agile-It-solution.png";
 import Alternative from "assets/images/placement partner/Alternative-technology.png";
 import Arhant from "assets/images/placement partner/arhant-solution.png";
@@ -162,18 +160,28 @@ function Courses() {
             })}
           </div>
         </div>
-        <div style={{ width: "50%" }}>
+        <div className="placement-right-section">
           <div className="all-text" data-aos="zoom-in-left">
-            <h2 style={{ fontSize: "2.5rem", color: "#0f5288" }}>
+            <h2
+              style={{
+                fontSize: "2.5rem",
+                color: "#0f5288",
+                fontWeight: "normal",
+              }}
+            >
               Placement <br /> Partners
             </h2>
-            <p>
+            <Typography
+              variant="body1"
+              component="p"
+              style={{ color: "black", fontSize: "1rem", lineHeight: "1.5rem" }}
+            >
               Several esteemed companies have partnered with us and experienced
               remarkable success with our graduates. They have not only found
               exceptional talent through our Placement Partner Program but also
               witnessed increased productivity and innovation within their
               teams.
-            </p>
+            </Typography>
           </div>
         </div>
       </div>

@@ -21,13 +21,13 @@ class studentController {
         traineeID,
       } = req.body;
 
-      const file = req.files.photo;
+      // const file = req.files.photo;
 
-      console.log(file);
+      // console.log(file);
 
-      const timestamp = Date.now();
+      // const timestamp = Date.now();
 
-      const fileName = `photo_${timestamp}.jpeg`;
+      // const fileName = `photo_${timestamp}.jpeg`;
 
       file.mv(`./storage/${fileName}`, (error) => {
         if (error) {
@@ -95,11 +95,31 @@ class studentController {
     } catch (err) {
       res.status(500).json({
         status: false,
+        msg: err,
+      });
+    }
+  };
+  static checkId = async (req, res) => {
+    try {
+      const result = await student.find({
+        verificationId: req.body.verificationId,
+      });
+
+      if (result.length === 0) {
+        throw Error;
+      }
+      res.status(200).json({
+        status: true,
+        msg: "Id exists",
+        data: result,
+      });
+    } catch (err) {
+      res.status(500).json({
+        status: false,
         msg: "Invalid Token!",
       });
     }
   };
-
   static get = async (req, res) => {
     try {
       const result = await student.find({});

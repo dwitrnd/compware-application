@@ -1,16 +1,21 @@
 const mongoose = require("mongoose");
 
 const clientSchema = mongoose.Schema({
-  Name: {
+  Image: {
     type: String,
     required: true,
   },
-  Photo: {
+  ImageName: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  ImageAltText: {
     type: String,
     required: true,
   },
 });
 
-const Client = mongoose.model("client", clientSchema);
+const client = mongoose.model("client", clientSchema);
 
-module.exports = Client;
+module.exports = client;
