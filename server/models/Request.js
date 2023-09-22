@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const requestSchema = mongoose.Schema({
-  firstName: {
+  fullName: {
     type: String,
     required: true,
   },
-  lastName: {
+  courseTrainer: {
     type: String,
     required: true,
   },
@@ -18,26 +18,22 @@ const requestSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  classSize: {
-    type: Number,
-    required: true,
-  },
-  level: {
-    type: String,
-    required: true,
-  },
   startDate: {
     type: Number,
     required: true,
   },
-  requestedDate: {
-    type: String,
+  endDate: {
+    type: Number,
     required: true,
   },
   phone: {
     type: Number,
     required: true,
     unique: true,
+  },
+  status: {
+    type: String,
+    enum: ["created", "not created"],
   },
 });
 

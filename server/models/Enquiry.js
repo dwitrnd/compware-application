@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const enquirySchema = mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: false,
   },
   email: {
     type: String,
@@ -11,16 +11,16 @@ const enquirySchema = mongoose.Schema({
   },
   phoneNum: {
     type: Number,
-    required: true,
-    unique: true,
+    required: false,
+    //unique: true,
   },
   course: {
     type: String,
-    required: true,
+    required: false,
   },
   enquiryDate: {
     type: String,
-    required: true,
+    required: false,
   },
   status: {
     type: String,
