@@ -4,11 +4,29 @@
 	-webkit-line-clamp: 3; /* Number of lines to display */
 	overflow: hidden;
   }
-  
+ 
+.blog-image{
+	width: 60%;
+}
+.blog-information{
+	width: 40%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
 
-@media only screen and (max-width: "960px")  {
+@media only screen and (max-width: "959px")  {
 	.blog-image{
+		width: 100%;
 		margin: auto;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	// .blog-content{
+	// 	width: 100%;
+	// }
+	.blog-information{
+		width: 100%;
 	}
 }
 

@@ -86,6 +86,7 @@ export default function AboutUsDropDown() {
         variant="text"
         disableElevation
         onClick={handleClick}
+        className="roboto_500"
         // endIcon={<KeyboardArrowDownIcon />}
       >
         About

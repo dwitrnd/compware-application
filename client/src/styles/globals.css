@@ -6480,6 +6480,11 @@ fieldset {
   width: 700px;
 }
 
+.enroll-button:hover {
+  background-color: red;
+  color: #fff;
+}
+
 @media screen and (max-width: 900px) {
   .enroll-image {
     display: none;
@@ -7790,9 +7795,26 @@ td {
   overflow: hidden;
 }
 
-@media only screen and (max-width: 960px) {
+.blog-image {
+  width: 60%;
+}
+
+.blog-information {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 959px) {
   .blog-image {
+    width: 100%;
     margin: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .blog-information {
+    width: 100%;
   }
 }
 .hero-section,
