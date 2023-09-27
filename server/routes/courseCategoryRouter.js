@@ -3,6 +3,7 @@ const courseCategoryController = require("../controllers/coursreCategoryControll
 
 courseCategoryRouter.post("/", courseCategoryController.post);
 courseCategoryRouter.get("/", courseCategoryController.get);
+courseCategoryRouter.get("/:id", courseCategoryController.getOne);
 courseCategoryRouter.patch("/:id", courseCategoryController.patch);
 courseCategoryRouter.delete("/:id", courseCategoryController.delete);
 

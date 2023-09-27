@@ -34,6 +34,23 @@ class courseCategoryController {
       });
     }
   };
+
+  static getOne = async (req, res) => {
+    const Id = req.params.id;
+    try {
+      const result = await Category.findOne({ _id: Id });
+      res.status(200).json({
+        status: true,
+        msg: result,
+      });
+    } catch (err) {
+      res.status(404).json({
+        status: false,
+        msg: "no such ID",
+      });
+    }
+  };
+
   static patch = async (req, res) => {
     try {
       const Id = req.params.id;
