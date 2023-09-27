@@ -31,6 +31,7 @@ import Visit from "assets/icons/LOGO.png";
 import lalitpurEngineeringCollege from "assets/images/lalitpur-engineering-college.jpg";
 import pandeyPress from "assets/images/placement partner/pandey press.png";
 import ShineEducation from "assets/icons/Shine Education.png";
+import Softech from "assets/icons/Softech.png";
 
 const style = {
   position: "absolute",
@@ -409,6 +410,7 @@ const EventPage = () => {
               src={ShineEducation}
               alt=""
             />
+            <img className="sponsor-logos" src={Softech} alt="" />
           </div>
         </div>
       </div>
