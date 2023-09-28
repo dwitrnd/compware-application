@@ -37,17 +37,6 @@ const CreateCourse = () => {
   const createCourse = async (e) => {
     e.preventDefault();
 
-    console.log("courseName =", courseName);
-    console.log("courseDuration =", courseDuration);
-    console.log("slugTitle =", slugTitle);
-    console.log("courseCategory =", selectedCategories);
-    console.log("courseIntro =", courseIntro);
-    console.log("aboutCourse =", aboutCourse);
-    console.log("courseLogo =", courseLogo);
-    console.log("imageName =", imageName);
-    console.log("imageAltText =", imageAltText);
-    console.log("coursePdf =", coursePdf);
-
     // do a post request to apiUrl
 
     const formData = new FormData();

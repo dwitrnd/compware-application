@@ -8,7 +8,7 @@ const ListTestimonialBody = () => {
   // use useeffect
 
   const [tableData, setTableData] = useState(null);
-
+  const [isLoading, setIsLoading] = useState(true);
   const url = `${constant.base}/api/course`;
 
   useEffect(() => {
@@ -22,9 +22,11 @@ const ListTestimonialBody = () => {
       response would be stored in the `tableData` state variable, which can then be used to render
       the table rows in the component. */
         setTableData(res.data.msg);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log("Error fetching data:", error);
+        setIsLoading(false);
       });
   }, []);
 
@@ -53,7 +55,9 @@ const ListTestimonialBody = () => {
           create course
         </button>
       </Link>
-      <Suspense fallback={<Loading />}>
+      {isLoading ? (
+        <h2>Loading.....</h2>
+      ) : (
         <table>
           <thead>
             <tr>
@@ -140,7 +144,7 @@ const ListTestimonialBody = () => {
             })()}
           </tbody>
         </table>
-      </Suspense>
+      )}
     </div>
   );
 };
