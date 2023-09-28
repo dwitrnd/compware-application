@@ -24,7 +24,7 @@ import CedarGate from "assets/icons/Cedar Gate copy.png";
 import Atkans from "assets/icons/Atkans.png";
 import Infrasoft from "assets/icons/Infrasoft.png";
 import DWITCollege from "assets/images/dwit-college.png";
-import cotivity from "assets/images/cotivity.png";
+import cotivity from "assets/images/cotivity.jpg";
 import LogiSpark_logoside from "assets/icons/LogiSpark_logoside.png";
 import Expert from "assets/icons/Expert Education and Visa Services Logo.png";
 import Visit from "assets/icons/LOGO.png";
@@ -372,6 +372,11 @@ const EventPage = () => {
           }}
           className="sponsor-container"
         >
+          <h4 className="roboto_700">Title Sponsor:</h4>
+          <div className="sponsor-logo-container">
+            <img className="sponsor-logos large" src={cotivity} alt="" />
+          </div>
+
           <h4 className="roboto_700">Powered By:</h4>
           <div className="sponsor-logo-container">
             <img className="sponsor-logos" src={DWITCollege} alt="" />
