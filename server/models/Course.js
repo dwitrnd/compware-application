@@ -11,7 +11,7 @@ const courseSchema = mongoose.Schema({
   },
   courseCategory: [
     {
-      type: mongoose.SchemaTypes.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: courseCategory,
       required: true,
     },

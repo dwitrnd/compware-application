@@ -221,6 +221,25 @@ class courseController {
       });
     }
   };
+  static filterByCategory = async (req, res) => {
+    try {
+      const selectedCategories = req.query.courseCategory;
+
+      const filteredCourses = await Course.find({
+        courseCategory: { $in: selectedCategories },
+      });
+
+      res.status(200).json({
+        status: true,
+        msg: filteredCourses,
+      });
+    } catch (err) {
+      res.status(500).json({
+        status: false,
+        msg: err,
+      });
+    }
+  };
 }
 
 module.exports = courseController;

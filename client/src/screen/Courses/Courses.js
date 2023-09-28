@@ -1,16 +1,20 @@
-import React from "react";
-import { Button, IconButton, Stack, TextField, Typography } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import {
+  Button,
+  IconButton,
+  Stack,
+  TextField,
+  Typography,
+  Container,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-import { Container } from "@material-ui/core";
-import CoursesItem from "screen/Courses/components/CoursesItems/CoursesItem";
+import CoursesItem from "./components/CoursesItems/CoursesItem";
 import Pagination from "@mui/material/Pagination";
-import { constant } from "constants/contants";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import styled from "styled-components";
 import ClipLoader from "react-spinners/ClipLoader";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
+import { constant } from "constants/contants";
 
 const animatedComponents = makeAnimated();
 
@@ -75,7 +79,8 @@ const Courses = () => {
   const itemsPerPage = 5;
   const [pageNumber, setPageNumber] = useState(1);
   const [tableData, setTableData] = useState([]);
-  const [courseCategory, setCourseCategory] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [searchText, setSearchText] = useState("");
   const [allTableData, setAllTableData] = useState([]);
   const url = `${constant.base}/api/course`;
 
@@ -87,33 +92,7 @@ const Courses = () => {
       setTableData(res.data.msg);
       setIsLoading(false);
     });
-  }, []);
-
-  const FilterCardContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    @media (max-width: 550px) {
-      display: none;
-    }
-  `;
-
-  const FilterCards = styled.div`
-    font-size: 1.1rem;
-    background: #0f5288 !important;
-    color: white;
-    margin: 0 5px;
-    padding: 15px 25px;
-    font-size: 16px;
-    font-weight: bold;
-
-    border-radius: 30px;
-
-    &:hover {
-      background: #e2e2e2 !important;
-      color: #0f5288;
-    }
-  `;
+  }, [url]);
 
   const handlePageChange = (event, page) => {
     // `page` contains the current page number
@@ -121,69 +100,60 @@ const Courses = () => {
     setPageNumber(page);
   };
 
-  // filter tableData with only datas that has  "Programming" in tableData[i].courseCategory="Programming"
+  const filterCourses = () => {
+    if (!allTableData) {
+      return;
+    }
+    let filteredData = allTableData;
 
-  const filterCourse = (courseCategory) => {
-    const filteredData = allTableData.filter((item) => {
-      return item.courseCategory === courseCategory;
-    });
-    setTableData(filteredData);
-  };
+    if (selectedCategories.length > 0) {
+      filteredData = filteredData.filter((item) =>
+        selectedCategories.some(
+          (category) =>
+            item.courseCategory && item.courseCategory.includes(category.value)
+        )
+      );
+    }
 
-  const filterByTextSearch = (searchText = "") => {
-    const filteredData = allTableData.filter((item) => item.courseName.toLowerCase().includes(searchText.toLowerCase()));
+    if (searchText.trim() !== "") {
+      filteredData = filteredData.filter(
+        (item) =>
+          item.courseName &&
+          item.courseName.toLowerCase().includes(searchText.toLowerCase())
+      );
+    }
+
     setTableData(filteredData);
   };
 
   useEffect(() => {
-    const url = window.location.href;
-    //make function that returns text after  "search=" from url if it exists else return null
+    filterCourses();
+  }, [selectedCategories, searchText]);
 
-    const searchTextFunction = (url) => {
-      const index = url.indexOf("search=");
-      if (index !== -1) {
-        const searchText = url.substring(index + 7);
-        return searchText;
-      } else {
-        return null;
-      }
-    };
-    const searchByCategoryFunction = (url) => {
-      const index = url.indexOf("category=");
-      if (index !== -1) {
-        const searchText = url.substring(index + 9);
-        return searchText;
-      } else {
-        return null;
-      }
-    };
+  const filterCoursesByCategory = async () => {
+    try {
+      const selectedCategoryValues = selectedCategories.map(
+        (category) => category.value
+      );
 
-    if (searchTextFunction(url)) {
-      console.log(searchTextFunction(url));
-      if (allTableData.length > 0) {
-        const filteredData = allTableData.filter((item) => item.courseName.toLowerCase().includes(searchTextFunction(url).toLowerCase()));
-        setTableData(filteredData);
-      }
+      const response = await axios.get(
+        "http://localhost:5001/api/course/filter",
+        {
+          params: {
+            courseCategory: selectedCategoryValues,
+          },
+        }
+      );
+
+      setTableData(response.data.msg);
+    } catch (error) {
+      console.error(error);
     }
-    if (searchByCategoryFunction(url)) {
-      console.log(searchByCategoryFunction(url));
-      if (allTableData.length > 0) {
-        const filteredData = allTableData.filter((item) => item.courseCategory.toLowerCase().includes(searchByCategoryFunction(url).toLowerCase()));
-        setTableData(filteredData);
-      }
-    }
-  }, [allTableData]);
-
-  const handleChangeSelect = (selectedOptions) => {
-    // use loop and print the .value for every i
-
-    selectedOptions.map((item) => {
-      console.log(item.value);
-      filterCourse(item.value);
-      filterCourse(item.value);
-      // filter courses category  based  on item.value
-    });
   };
+
+  useEffect(() => {
+    filterCoursesByCategory();
+  }, [selectedCategories]);
 
   if (isLoading) {
     return (
@@ -194,12 +164,20 @@ const Courses = () => {
           transform: "translateX(-50%)",
         }}
       >
-        <ClipLoader cssOverride={override} color={"red"} loading={true} size={90} aria-label='Loading Spinner' data-testid='loader' />
+        <ClipLoader
+          cssOverride={override}
+          color={"red"}
+          loading={true}
+          size={90}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
       </div>
     );
   }
+
   return (
-    <main id='courses-page'>
+    <main id="courses-page">
       <Container
         style={{
           display: "flex",
@@ -217,25 +195,29 @@ const Courses = () => {
             alignItems: "center",
           }}
         >
-          <Typography variant='h3' color='primary'>
+          <Typography variant="h3" color="primary">
             Our Courses
           </Typography>
         </header>
         <Container style={{ width: "100vw" }}>
-          <Stack direction='row' justifyContent='center'>
+          <Stack direction="row" justifyContent="center">
             <div style={{ width: "60vw" }}>
               <TextField
                 onChange={(e) => {
-                  filterByTextSearch(e.target.value);
+                  setSearchText(e.target.value);
                 }}
-                label='Search Course'
-                id='searchCourse'
-                variant='outlined'
+                label="Search Course"
+                id="searchCourse"
+                variant="outlined"
                 fullWidth
                 style={{ width: "100%" }}
-              ></TextField>
+              />
             </div>
-            <Button variant='contained' sx={{ borderRadius: "0rem 1.875rem 1.875rem 0rem" }}>
+            <Button
+              variant="contained"
+              sx={{ borderRadius: "0rem 1.875rem 1.875rem 0rem" }}
+              onClick={filterCourses}
+            >
               <IconButton>
                 <SearchIcon sx={{ color: "white" }} />
               </IconButton>
@@ -243,21 +225,41 @@ const Courses = () => {
             </Button>
           </Stack>
         </Container>
-        <div className='course-category'>
-          <Select onChange={handleChangeSelect} closeMenuOnSelect={false} components={animatedComponents} isMulti options={courseCategoryList} placeholder='Select Category' />
+        <div className="course-category">
+          <Select
+            onChange={setSelectedCategories}
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
+            options={courseCategoryList}
+            placeholder="Select Category"
+            value={selectedCategories}
+          />
         </div>
         {tableData &&
           tableData
             .slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage) // Slice the data for the current page
             .map((item) => {
               return (
-                <>
-                  <CoursesItem id={item._id} name={item.courseName} schedule={"11am - 12pm"} teachinghour={"120 hour"} image={`${constant.base}/storage/${item.courseLogo}`} abstract={item.courseIntro} />
-                </>
+                <CoursesItem
+                  key={item._id}
+                  id={item._id}
+                  name={item.courseName}
+                  schedule={"11am - 12pm"}
+                  teachinghour={"120 hour"}
+                  image={`${constant.base}/storage/${item.courseLogo}`}
+                  abstract={item.courseIntro}
+                />
               );
             })}
 
-        <Pagination onChange={handlePageChange} count={Math.ceil(tableData.length / itemsPerPage)} color='primary' shape='rounded' style={{ marginTop: "3rem" }} />
+        <Pagination
+          onChange={handlePageChange}
+          count={Math.ceil(tableData.length / itemsPerPage)}
+          color="primary"
+          shape="rounded"
+          style={{ marginTop: "3rem" }}
+        />
       </Container>
     </main>
   );
