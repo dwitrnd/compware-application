@@ -18,7 +18,7 @@ import Modal from "@mui/material/Modal";
 import SifalSchool from "assets/icons/Sifal School.png";
 import Logispark from "assets/icons/Logispark.png";
 import HamroPatra from "assets/icons/hamropatro.png";
-import DWIT from "assets/icons/DWIT.png";
+import SMTM from "assets/icons/SMTM capital.jpg";
 import CND from "assets/icons/CNA.png";
 import CedarGate from "assets/icons/Cedar Gate copy.png";
 import Atkans from "assets/icons/Atkans.png";
@@ -136,7 +136,7 @@ const EventPage = () => {
 
       <section id="panel-list-section">
         <div className="container">
-          <h2 className="heading roboto_700">Panelist:</h2>
+          <h2 className="heading roboto_700">Panelist</h2>
           <div className="panel-discussion-container">
             <div
               className="panel-list-card clickable"
@@ -289,7 +289,7 @@ const EventPage = () => {
           marginBottom: "0",
         }}
       >
-        <h3 className="faq-header roboto_700">Frequently Asked Questions:</h3>
+        <h3 className="faq-header roboto_700">Frequently Asked Questions</h3>
         <div className="accordion-wrapper roboto_500">
           <div className="accordion-division">
             <div className="accordion-container">
@@ -372,17 +372,17 @@ const EventPage = () => {
           }}
           className="sponsor-container"
         >
-          <h4 className="roboto_700">Title Sponsor:</h4>
+          <h4 className="roboto_700">Title Sponsor</h4>
           <div className="sponsor-logo-container">
             <img className="sponsor-logos large" src={cotivity} alt="" />
           </div>
 
-          <h4 className="roboto_700">Powered By:</h4>
+          <h4 className="roboto_700">Powered By</h4>
           <div className="sponsor-logo-container">
             <img className="sponsor-logos" src={DWITCollege} alt="" />
           </div>
 
-          <h4 className="roboto_700">Sponsored By:</h4>
+          <h4 className="roboto_700">Sponsored By</h4>
           <div className="sponsor-logo-container">
             <img
               style={{
@@ -393,7 +393,7 @@ const EventPage = () => {
               alt=""
             />
           </div>
-          <h4 className="roboto_700">Supported By:</h4>
+          <h4 className="roboto_700">Supported By</h4>
           <div
             className="sponsor-logo-container"
             style={{ marginTop: "-1rem" }}
@@ -416,6 +416,7 @@ const EventPage = () => {
               alt=""
             />
             <img className="sponsor-logos" src={Softech} alt="" />
+            <img className="sponsor-logos large" src={SMTM} alt="" />
           </div>
         </div>
       </div>
