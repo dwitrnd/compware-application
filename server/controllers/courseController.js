@@ -3,7 +3,18 @@ const Course = require("../models/Course");
 class courseController {
   static post = async (req, res) => {
     try {
-      const { courseName, courseDuration, schedule, startDate, slugTitle, courseCategory, courseIntro, aboutCourse, imageName, imageAltText } = req.body;
+      const {
+        courseName,
+        courseDuration,
+        schedule,
+        startDate,
+        slugTitle,
+        courseCategory,
+        courseIntro,
+        aboutCourse,
+        imageName,
+        imageAltText,
+      } = req.body;
 
       console.log("=====debug====");
 
@@ -63,7 +74,9 @@ class courseController {
     try {
       const { courseName } = req.body;
       console.log("courseName", courseName);
-      const result = await Course.findOne({ courseName: courseName.toUpperCase() });
+      const result = await Course.findOne({
+        courseName: courseName.toUpperCase(),
+      });
       console.log("result", result);
       res.status(200).json({
         status: true,
@@ -91,7 +104,18 @@ class courseController {
     }
   };
   static patch = async (req, res) => {
-    const { courseName, courseDuration, schedule, startDate, slugTitle, courseCategory, courseIntro, aboutCourse, imageName, imageAltText } = req.body;
+    const {
+      courseName,
+      courseDuration,
+      schedule,
+      startDate,
+      slugTitle,
+      courseCategory,
+      courseIntro,
+      aboutCourse,
+      imageName,
+      imageAltText,
+    } = req.body;
     const courseId = req.params.id;
 
     console.log("course patch has been hit");
@@ -244,7 +268,7 @@ class courseController {
   static getOne = async (req, res) => {
     const Id = req.params.id;
     try {
-      const result = await Course.findOne({ _id: Id });
+      const result = await Course.findOne({ slugTitle: Id });
       res.status(200).json({
         status: true,
         msg: result,
