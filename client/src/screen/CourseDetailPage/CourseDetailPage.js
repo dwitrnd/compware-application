@@ -26,7 +26,7 @@ const CourseDetailPage = () => {
     schedule: "",
   });
 
-  const url = `http://localhost:5001/api/course/${id}`;
+  const url = `${constant.base}/api/course/${id}`;
   const recommendationUrl = `${constant.base}/api/course`;
   const pageNumber = 1;
   const itemsPerPage = 6;
