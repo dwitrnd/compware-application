@@ -11,6 +11,7 @@ const CourseSearch = () => {
     {
       courseName: "",
       courseId: "",
+      slugTitle: "",
     },
   ]);
   // axios code to fetch all data get method from "/api/course"
@@ -32,6 +33,7 @@ const CourseSearch = () => {
             {
               courseName: course.courseName,
               courseId: course._id,
+              slugTitle: course.slugTitle,
             },
           ]);
 
@@ -74,7 +76,7 @@ const CourseSearch = () => {
         courseNameAndId.map((course) => {
           if (course.courseName === value) {
             console.log(course.courseId);
-            navigate(`/course-detail/${course.courseId}`);
+            navigate(`/course-detail/${course.slugTitle}`);
           }
         });
       }}

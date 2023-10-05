@@ -31,7 +31,7 @@ const ListTestimonialBody = () => {
 
   return (
     <div>
-      <Link to='/dashboard/create-course'>
+      <Link to="/dashboard/create-course">
         <button
           style={{
             padding: "0.35rem 0.95rem",
@@ -53,7 +53,7 @@ const ListTestimonialBody = () => {
             <th>Name</th>
             <th>Category</th>
             <th>PDF</th>
-            <th className='action-column'>Actions</th>
+            <th className="action-column">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -94,14 +94,32 @@ const ListTestimonialBody = () => {
                       </td>
                       <td>
                         <a href={`/dashboard/update-course/${data._id}`}>
-                          <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                          <button
+                            style={{
+                              padding: "0.35rem 0.95rem",
+                              margin: "0.25rem",
+                              color: "white",
+                              background: "#007bff",
+                              border: "none",
+                              outline: "none",
+                            }}
+                          >
+                            Edit
+                          </button>
                         </a>
 
                         <button
                           onClick={() => {
                             deleteRequest(data._id);
                           }}
-                          style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#dc3545", border: "none", outline: "none" }}
+                          style={{
+                            padding: "0.35rem 0.95rem",
+                            margin: "0.25rem",
+                            color: "white",
+                            background: "#dc3545",
+                            border: "none",
+                            outline: "none",
+                          }}
                         >
                           Delete
                         </button>
