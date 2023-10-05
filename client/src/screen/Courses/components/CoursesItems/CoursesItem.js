@@ -9,7 +9,15 @@ import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const CoursesItem = ({ id, name, schedule, teachinghour, image, abstract }) => {
+const CoursesItem = ({
+  id,
+  name,
+  schedule,
+  slugTitle,
+  teachinghour,
+  image,
+  abstract,
+}) => {
   const [open, setOpen] = useState(false);
   const courseName = "Javascript";
   return (
@@ -64,7 +72,7 @@ const CoursesItem = ({ id, name, schedule, teachinghour, image, abstract }) => {
               spacing={4}
               marginTop="3rem"
             >
-              <Link to={`/course-detail/${id}`}>
+              <Link to={`/course-detail/${slugTitle}`}>
                 <Button variant="outlined">Read More</Button>
               </Link>
 

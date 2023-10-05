@@ -1,5 +1,11 @@
 import React from "react";
-import { Button, IconButton, Stack, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  IconButton,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Container } from "@material-ui/core";
 import CoursesItem from "screen/Courses/components/CoursesItems/CoursesItem";
@@ -131,7 +137,9 @@ const Courses = () => {
   };
 
   const filterByTextSearch = (searchText = "") => {
-    const filteredData = allTableData.filter((item) => item.courseName.toLowerCase().includes(searchText.toLowerCase()));
+    const filteredData = allTableData.filter((item) =>
+      item.courseName.toLowerCase().includes(searchText.toLowerCase())
+    );
     setTableData(filteredData);
   };
 
@@ -161,14 +169,22 @@ const Courses = () => {
     if (searchTextFunction(url)) {
       console.log(searchTextFunction(url));
       if (allTableData.length > 0) {
-        const filteredData = allTableData.filter((item) => item.courseName.toLowerCase().includes(searchTextFunction(url).toLowerCase()));
+        const filteredData = allTableData.filter((item) =>
+          item.courseName
+            .toLowerCase()
+            .includes(searchTextFunction(url).toLowerCase())
+        );
         setTableData(filteredData);
       }
     }
     if (searchByCategoryFunction(url)) {
       console.log(searchByCategoryFunction(url));
       if (allTableData.length > 0) {
-        const filteredData = allTableData.filter((item) => item.courseCategory.toLowerCase().includes(searchByCategoryFunction(url).toLowerCase()));
+        const filteredData = allTableData.filter((item) =>
+          item.courseCategory
+            .toLowerCase()
+            .includes(searchByCategoryFunction(url).toLowerCase())
+        );
         setTableData(filteredData);
       }
     }
@@ -194,12 +210,19 @@ const Courses = () => {
           transform: "translateX(-50%)",
         }}
       >
-        <ClipLoader cssOverride={override} color={"red"} loading={true} size={90} aria-label='Loading Spinner' data-testid='loader' />
+        <ClipLoader
+          cssOverride={override}
+          color={"red"}
+          loading={true}
+          size={90}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
       </div>
     );
   }
   return (
-    <main id='courses-page'>
+    <main id="courses-page">
       <Container
         style={{
           display: "flex",
@@ -217,25 +240,28 @@ const Courses = () => {
             alignItems: "center",
           }}
         >
-          <Typography variant='h3' color='primary'>
+          <Typography variant="h3" color="primary">
             Our Courses
           </Typography>
         </header>
         <Container style={{ width: "100vw" }}>
-          <Stack direction='row' justifyContent='center'>
+          <Stack direction="row" justifyContent="center">
             <div style={{ width: "60vw" }}>
               <TextField
                 onChange={(e) => {
                   filterByTextSearch(e.target.value);
                 }}
-                label='Search Course'
-                id='searchCourse'
-                variant='outlined'
+                label="Search Course"
+                id="searchCourse"
+                variant="outlined"
                 fullWidth
                 style={{ width: "100%" }}
               ></TextField>
             </div>
-            <Button variant='contained' sx={{ borderRadius: "0rem 1.875rem 1.875rem 0rem" }}>
+            <Button
+              variant="contained"
+              sx={{ borderRadius: "0rem 1.875rem 1.875rem 0rem" }}
+            >
               <IconButton>
                 <SearchIcon sx={{ color: "white" }} />
               </IconButton>
@@ -243,8 +269,15 @@ const Courses = () => {
             </Button>
           </Stack>
         </Container>
-        <div className='course-category'>
-          <Select onChange={handleChangeSelect} closeMenuOnSelect={false} components={animatedComponents} isMulti options={courseCategoryList} placeholder='Select Category' />
+        <div className="course-category">
+          <Select
+            onChange={handleChangeSelect}
+            closeMenuOnSelect={false}
+            components={animatedComponents}
+            isMulti
+            options={courseCategoryList}
+            placeholder="Select Category"
+          />
         </div>
         {tableData &&
           tableData
@@ -252,12 +285,26 @@ const Courses = () => {
             .map((item) => {
               return (
                 <>
-                  <CoursesItem id={item._id} name={item.courseName} schedule={"11am - 12pm"} teachinghour={"120 hour"} image={`${constant.base}/storage/${item.courseLogo}`} abstract={item.courseIntro} />
+                  <CoursesItem
+                    id={item._id}
+                    name={item.courseName}
+                    slugTitle={item.slugTitle}
+                    schedule={"11am - 12pm"}
+                    teachinghour={"120 hour"}
+                    image={`${constant.base}/storage/${item.courseLogo}`}
+                    abstract={item.courseIntro}
+                  />
                 </>
               );
             })}
 
-        <Pagination onChange={handlePageChange} count={Math.ceil(tableData.length / itemsPerPage)} color='primary' shape='rounded' style={{ marginTop: "3rem" }} />
+        <Pagination
+          onChange={handlePageChange}
+          count={Math.ceil(tableData.length / itemsPerPage)}
+          color="primary"
+          shape="rounded"
+          style={{ marginTop: "3rem" }}
+        />
       </Container>
     </main>
   );

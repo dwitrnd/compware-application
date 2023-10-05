@@ -3,9 +3,20 @@ const Course = require("../models/Course");
 class courseController {
   static post = async (req, res) => {
     try {
-      const { courseName, courseDuration, schedule, startDate, slugTitle, courseCategory, courseIntro, aboutCourse, imageName, imageAltText } = req.body;
+      const {
+        courseName,
+        courseDuration,
+        schedule,
+        startDate,
+        courseCategory,
+        courseIntro,
+        aboutCourse,
+        imageName,
+        imageAltText,
+      } = req.body;
 
       console.log("=====debug====");
+      let slugTitle = courseName.toLowerCase().replace(/\s+/g, "-");
 
       console.log(req.body);
 
@@ -48,11 +59,13 @@ class courseController {
         startDate,
       });
       const result = await course.save();
+
       res.status(200).json({
         status: true,
         msg: result,
       });
     } catch (error) {
+      console.log(error);
       res.status(500).json({
         status: false,
         msg: error,
@@ -63,7 +76,9 @@ class courseController {
     try {
       const { courseName } = req.body;
       console.log("courseName", courseName);
-      const result = await Course.findOne({ courseName: courseName.toUpperCase() });
+      const result = await Course.findOne({
+        courseName: courseName.toUpperCase(),
+      });
       console.log("result", result);
       res.status(200).json({
         status: true,
@@ -91,12 +106,29 @@ class courseController {
     }
   };
   static patch = async (req, res) => {
-    const { courseName, courseDuration, schedule, startDate, slugTitle, courseCategory, courseIntro, aboutCourse, imageName, imageAltText } = req.body;
+    const {
+      courseName,
+      courseDuration,
+      schedule,
+      startDate,
+      slugTitle,
+      courseCategory,
+      courseIntro,
+      aboutCourse,
+      imageName,
+      imageAltText,
+    } = req.body;
     const courseId = req.params.id;
 
     console.log("course patch has been hit");
     let courseLogoName;
     let coursePdfName;
+    let updatedSlugTitle;
+    let course = await Course.findById(courseId);
+    console.log(course.courseName, courseName);
+    if (course.courseName != courseName) {
+      updatedSlugTitle = courseName.toLowerCase().replace(/\s+/g, "-");
+    }
     console.log("req.files=", req.files);
     if (req.files) {
       // for courseLogo file
@@ -144,7 +176,7 @@ class courseController {
           courseId,
           {
             courseName,
-            slugTitle,
+            slugTitle: updatedSlugTitle ?? slugTitle,
             courseCategory,
             courseIntro,
             duration: courseDuration,
@@ -168,7 +200,7 @@ class courseController {
             courseId,
             {
               courseName,
-              slugTitle,
+              slugTitle: updatedSlugTitle ?? slugTitle,
               courseCategory,
               courseIntro,
               duration: courseDuration,
@@ -189,7 +221,7 @@ class courseController {
             courseId,
             {
               courseName,
-              slugTitle,
+              slugTitle: updatedSlugTitle ?? slugTitle,
               courseCategory,
               courseIntro,
               duration: courseDuration,
@@ -210,7 +242,7 @@ class courseController {
             courseId,
             {
               courseName,
-              slugTitle,
+              slugTitle: updatedSlugTitle ?? slugTitle,
               courseCategory,
               courseIntro,
               duration: courseDuration,
@@ -244,7 +276,10 @@ class courseController {
   static getOne = async (req, res) => {
     const Id = req.params.id;
     try {
-      const result = await Course.findOne({ _id: Id });
+      let result = await Course.findOne({ slugTitle: Id });
+      if (!result) {
+        result = await Course.findOne({ _id: Id });
+      }
       res.status(200).json({
         status: true,
         msg: result,

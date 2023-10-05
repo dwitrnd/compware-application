@@ -182,6 +182,7 @@ const CourseDetailPage = () => {
                   <CourseRecommendation
                     key={recommendation._id}
                     id={recommendation._id}
+                    slugTitle={recommendation.slugTitle}
                     name={recommendation.courseName}
                     image={`${constant.base}/storage/${recommendation.courseLogo}`}
                   />
