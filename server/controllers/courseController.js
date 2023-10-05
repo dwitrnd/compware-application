@@ -8,7 +8,6 @@ class courseController {
         courseDuration,
         schedule,
         startDate,
-        slugTitle,
         courseCategory,
         courseIntro,
         aboutCourse,
@@ -17,6 +16,7 @@ class courseController {
       } = req.body;
 
       console.log("=====debug====");
+      let slugTitle = courseName.toLowerCase().replace(/\s+/g, "-");
 
       console.log(req.body);
 
@@ -59,11 +59,13 @@ class courseController {
         startDate,
       });
       const result = await course.save();
+
       res.status(200).json({
         status: true,
         msg: result,
       });
     } catch (error) {
+      console.log(error);
       res.status(500).json({
         status: false,
         msg: error,
@@ -121,6 +123,12 @@ class courseController {
     console.log("course patch has been hit");
     let courseLogoName;
     let coursePdfName;
+    let updatedSlugTitle;
+    let course = await Course.findById(courseId);
+    console.log(course.courseName, courseName);
+    if (course.courseName != courseName) {
+      updatedSlugTitle = courseName.toLowerCase().replace(/\s+/g, "-");
+    }
     console.log("req.files=", req.files);
     if (req.files) {
       // for courseLogo file
@@ -168,7 +176,7 @@ class courseController {
           courseId,
           {
             courseName,
-            slugTitle,
+            slugTitle: updatedSlugTitle ?? slugTitle,
             courseCategory,
             courseIntro,
             duration: courseDuration,
@@ -192,7 +200,7 @@ class courseController {
             courseId,
             {
               courseName,
-              slugTitle,
+              slugTitle: updatedSlugTitle ?? slugTitle,
               courseCategory,
               courseIntro,
               duration: courseDuration,
@@ -213,7 +221,7 @@ class courseController {
             courseId,
             {
               courseName,
-              slugTitle,
+              slugTitle: updatedSlugTitle ?? slugTitle,
               courseCategory,
               courseIntro,
               duration: courseDuration,
@@ -234,7 +242,7 @@ class courseController {
             courseId,
             {
               courseName,
-              slugTitle,
+              slugTitle: updatedSlugTitle ?? slugTitle,
               courseCategory,
               courseIntro,
               duration: courseDuration,
@@ -268,7 +276,10 @@ class courseController {
   static getOne = async (req, res) => {
     const Id = req.params.id;
     try {
-      const result = await Course.findOne({ slugTitle: Id });
+      let result = await Course.findOne({ slugTitle: Id });
+      if (!result) {
+        result = await Course.findOne({ _id: Id });
+      }
       res.status(200).json({
         status: true,
         msg: result,
