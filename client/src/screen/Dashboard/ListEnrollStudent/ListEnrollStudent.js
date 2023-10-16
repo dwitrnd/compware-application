@@ -6,7 +6,8 @@ import styled from "styled-components";
 const ListEnrollStudent = () => {
   const [tableData, setTableData] = useState(null);
 
-  const [statusChangeLoadingState, setStatusChangeLoadingState] = useState(false);
+  const [statusChangeLoadingState, setStatusChangeLoadingState] =
+    useState(false);
 
   const StatusTag = styled.span`
     padding: 0.25rem 0.5rem;
@@ -50,26 +51,38 @@ const ListEnrollStudent = () => {
 
     console.log("Course Link: ", courseLink);
 
-    await axios.patch(`${constant.base}/api/enrollmentStatus/status/${id}`, { email: email, status: status, courseName: courseName, courseLink: courseLink, name: name }).then((res) => {
-      console.log(res);
+    await axios
+      .patch(`${constant.base}/api/enrollmentStatus/status/${id}`, {
+        email: email,
+        status: status,
+        courseName: courseName,
+        courseLink: courseLink,
+        name: name,
+      })
+      .then((res) => {
+        console.log(res);
 
-      if (res.status === 200) {
-        setStatusChangeLoadingState(false);
-        window.location.reload();
-      } else {
-        setStatusChangeLoadingState(false);
-        alert("Something went wrong");
-      }
-    });
+        if (res.status === 200) {
+          setStatusChangeLoadingState(false);
+          window.location.reload();
+        } else {
+          setStatusChangeLoadingState(false);
+          alert("Something went wrong");
+        }
+      });
   };
 
   const findCourseLinkByName = async (courseName) => {
     // axios request where in body i pass courseName
     console.log("Course Name finder: ", courseName);
-    const courseURL = await axios.post(`${constant.base}/api/course/find-by-name`, { courseName: courseName }).then((res) => {
-      const { _id } = res.data.msg;
-      return `${constant.client}/course-detail/${_id}`;
-    });
+    const courseURL = await axios
+      .post(`${constant.base}/api/course/find-by-name`, {
+        courseName: courseName,
+      })
+      .then((res) => {
+        const { _id } = res.data.msg;
+        return `${constant.client}/course-detail/${_id}`;
+      });
     return courseURL;
   };
 
@@ -81,9 +94,10 @@ const ListEnrollStudent = () => {
             <th>Name</th>
             <th>Course</th>
             <th>Phone Number</th>
+            <th>Email</th>
             <th>Schedule Time</th>
             <th>Status</th>
-            <th className='action-column'>Actions</th>
+            <th className="action-column">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -100,6 +114,7 @@ const ListEnrollStudent = () => {
                       <td>{data.name}</td>
                       <td>{data.course}</td>
                       <td>{data.phoneNum}</td>
+                      <td>{data.email}</td>
                       <td>{data.enquiryDate}</td>
                       <td>
                         {(() => {
@@ -109,7 +124,9 @@ const ListEnrollStudent = () => {
                             return (
                               <StatusTag
                                 onClick={async () => {
-                                  const courseLink = await findCourseLinkByName(data.course);
+                                  const courseLink = await findCourseLinkByName(
+                                    data.course
+                                  );
 
                                   changeStatusHandler({
                                     id: data._id,
@@ -135,7 +152,14 @@ const ListEnrollStudent = () => {
                           onClick={() => {
                             deleteRequest(data._id);
                           }}
-                          style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#dc3545", border: "none", outline: "none" }}
+                          style={{
+                            padding: "0.35rem 0.95rem",
+                            margin: "0.25rem",
+                            color: "white",
+                            background: "#dc3545",
+                            border: "none",
+                            outline: "none",
+                          }}
                         >
                           Delete
                         </button>
