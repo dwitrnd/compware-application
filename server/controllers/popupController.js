@@ -1,6 +1,5 @@
 const { validationResult } = require("express-validator");
 const popup = require("../models/Popup");
-const fs = require("fs");
 
 class popupController {
   static post = async (req, res) => {
