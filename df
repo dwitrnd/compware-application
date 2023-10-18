@@ -1,0 +1,1548 @@
+commit 851191eb1ffc8c01b17213cb9045018749a3cbb2
+Merge: 815573a ccac989
+Author: root <root@localhost.localdomain>
+Date:   Wed Oct 18 00:58:25 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+    
+    Update
+
+commit ccac989eb3c5f523a89d83c36918124ac24dbbe3
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Oct 18 10:39:26 2023 +0545
+
+    Fix(context value): Changed the value of base
+
+commit 17e6e86682f9b7c636c1a29cf6dd76fad058c41c
+Merge: d7035ea 547cb4f
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Oct 18 10:33:10 2023 +0545
+
+    Fix(git-conflit): Merged main with Tejesh branch. Fixed courseController issue
+
+commit 547cb4fc6e741dcfe7875e9ce13e4b788b4c68f1
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Oct 18 10:02:38 2023 +0545
+
+    Feat(PopUp) BREAKING CODE: Added popup to home and cand admin panel
+
+commit 3f623423f0ae61aca8cf5ef8cf0f583dfd7bd0b4
+Author: Tejesh Shrestha <tejesh.shrestha@deerwalk.edu.np>
+Date:   Tue Oct 17 12:14:26 2023 +0545
+
+    feat(server.js,added popup routes)
+
+commit 85a3d3bd688ad073c135f30581550aa34e5455ff
+Author: Tejesh Shrestha <tejesh.shrestha@deerwalk.edu.np>
+Date:   Tue Oct 17 12:08:00 2023 +0545
+
+    feat(popup,added model,controller and router)
+
+commit d7035ea9a664f93e0ad07f4da04a1f5615affcd1
+Merge: d370154 f8f27fc
+Author: Tusharluitel <71857726+Tusharluitel@users.noreply.github.com>
+Date:   Mon Oct 16 14:32:00 2023 +0545
+
+    Merge pull request #37 from dwitrnd/email-address-admin-panel
+    
+    Feat(Course Enquiry): Added email column
+
+commit 815573aee5c0d7090ed5f674a67484c43ede3675
+Merge: 175f30e d7035ea
+Author: root <root@localhost.localdomain>
+Date:   Mon Oct 16 04:46:47 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit f8f27fc63f85297eeb670381282624d87625d94d
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Oct 16 14:30:55 2023 +0545
+
+    Feat(Course Enquiry): Added email column
+
+commit 175f30eacb1dab47f903fdddf466b617fff52249
+Merge: 7dcf362 d370154
+Author: root <root@localhost.localdomain>
+Date:   Thu Oct 5 09:55:02 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit d3701544457adf340f53fedb283c2f57ae578be8
+Merge: 7f44a71 97260a3
+Author: Tusharluitel <71857726+Tusharluitel@users.noreply.github.com>
+Date:   Thu Oct 5 19:36:25 2023 +0545
+
+    Merge pull request #36 from dwitrnd/slug-url
+    
+    Slug url
+
+commit 97260a3b14a5501d86db84eeece51eec82e0e50e
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Oct 5 19:31:22 2023 +0545
+
+    Feat(slug-url) BREAKING CODE: slutTitle can be change if courseName is changed
+
+commit 2e8a0377009ab3a7b59e18a8f18db275837eac40
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Oct 5 19:30:39 2023 +0545
+
+    Feat(slug-url) BREAKING CODE: slutTitle can be change if courseName is changed
+
+commit dc1a33dac16c06e672610c2f3e1f7b98bdc8507a
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Oct 5 11:03:27 2023 +0545
+
+    Feat(slug-url): Changed the url title from id to slug
+
+commit 7dcf3621158b3522529663c8383079ada586b86e
+Merge: 78fe575 7f44a71
+Author: root <root@localhost.localdomain>
+Date:   Mon Oct 2 00:11:42 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit 7f44a71140931c678ae1781754906628cb087968
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Oct 2 09:48:28 2023 +0545
+
+    Chore: added image to event page
+
+commit 78fe575a2a3c5dfa9b8b9cd08a3a598f840b0cb9
+Merge: db152bb ae32684
+Author: root <root@localhost.localdomain>
+Date:   Thu Sep 28 01:55:37 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit ae32684649bed38488708d769e1c8bd51037cd6f
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Sep 28 10:48:36 2023 +0545
+
+    Chore(Title Sponsor):Added title sponser image in event page
+
+commit db152bb28d5f46b455fd39555cb5ec2e93fc483f
+Merge: dd76943 15f0a89
+Author: root <root@localhost.localdomain>
+Date:   Wed Sep 27 05:24:12 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit 15f0a898ba27f9a925bf28b2aef01de68de29d23
+Merge: 67789eb bc07764
+Author: Tusharluitel <71857726+Tusharluitel@users.noreply.github.com>
+Date:   Wed Sep 27 15:08:47 2023 +0545
+
+    Merge pull request #35 from dwitrnd/eventpage-image
+    
+    Chore(event-page-image): Added a image for supported by
+
+commit bc0776411fa8b9fa2a5f3714a12151491e594549
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Sep 27 14:25:19 2023 +0545
+
+    Chore(event-page-image): Added a image for supported by
+
+commit dd76943d9a27eef0072a183edd3670c9ed087212
+Author: root <root@localhost.localdomain>
+Date:   Tue Sep 26 23:05:49 2023 -0400
+
+    backup 27-sept
+
+commit ffaf0a4367a960dd7ba3fd2c8a23be8acd015bea
+Author: Tejesh Shrestha <tejesh.shrestha@deerwalk.edu.np>
+Date:   Fri Sep 22 09:43:26 2023 +0545
+
+    solved stash pop issues
+
+commit 30a6188e69af1c883c5b059ff40bad849da74b08
+Merge: 4931766 a280ce2
+Author: Tejesh Shrestha <tejesh.shrestha@deerwalk.edu.np>
+Date:   Thu Sep 21 18:50:35 2023 +0545
+
+    final changes
+
+commit 67789ebe0b80e01c2b9727552c68234f7f4547a2
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Sep 20 19:50:48 2023 +0545
+
+    Chore: Changes in client side of home and blog page
+
+commit a280ce2d06badf36638431e5fb646af5dfb764a9
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Sep 19 17:49:07 2023 +0545
+
+    Style: Changes in logo of event page sponsor
+
+commit 5ba3481417e1be4447abf573fdcadb075886e288
+Merge: a2a7884 a280ce2
+Author: root <root@localhost.localdomain>
+Date:   Tue Sep 19 08:03:51 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit a2a78845c46238fe4b2f70cd7c723275a12171c5
+Merge: e2228be 6819d19
+Author: root <root@localhost.localdomain>
+Date:   Tue Sep 19 06:36:07 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit 6819d199a007bc5435e2fdac6305480ee1ee0ad2
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Sep 19 16:13:56 2023 +0545
+
+    Fix: Edit stuudent certificate date issue
+
+commit e2228be300071b4638c3772580fa6650e0a5183a
+Author: root <root@localhost.localdomain>
+Date:   Tue Sep 19 00:12:58 2023 -0400
+
+    backup 19-sept
+
+commit 829749d54f117be69bfe9c4d29dd2df874fa6d0f
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Sep 19 09:55:56 2023 +0545
+
+    Style: Changes in fontsize of home page
+
+commit a3dc80f201a6738f3d4c4eb26204e20397f1c552
+Merge: 1c4ae51 829749d
+Author: root <root@localhost.localdomain>
+Date:   Tue Sep 19 00:10:48 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit 1c4ae5158445d1026078524a63862b8cb65bd2df
+Merge: 249b5d8 0eaac79
+Author: root <root@localhost.localdomain>
+Date:   Mon Sep 18 07:17:55 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+    Uodated
+
+commit 0eaac79734790e9ccce14e8aca358e6b641f70d8
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Sep 18 17:00:28 2023 +0545
+
+    Style: Changed the certificate image as well as font stylin
+
+commit 249b5d8118cf909a0bcbfc824316a120ddd030b6
+Merge: ea84ae9 bc66822
+Author: root <root@localhost.localdomain>
+Date:   Mon Sep 18 04:45:29 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit bc6682279f7dc745711827ae32e053c646005f73
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Sep 18 13:12:50 2023 +0545
+
+    Style: Changed padding of hour in certificate
+
+commit ea84ae924be5f3a0cccd004603bad5a94a494939
+Merge: 730bbf1 195ad3c
+Author: root <root@localhost.localdomain>
+Date:   Mon Sep 18 01:57:55 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit 195ad3c937b1d2e8a9b85bae57994a352c09c562
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Sep 18 11:42:31 2023 +0545
+
+    Style: Changed font-weight in name and course in certificate
+
+commit 730bbf1d7d5bcce0d6973861516198f65696a044
+Merge: f14ef47 7eaa025
+Author: root <root@localhost.localdomain>
+Date:   Sun Sep 17 23:49:17 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit 7eaa025c8d45fc847c4fa64df82a35c4e7fe59e0
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Sep 18 09:33:33 2023 +0545
+
+    Feat: Added images for event page
+
+commit f14ef47a5c8792cec54ea1027e92c55e6177d045
+Merge: 4782199 27bc417
+Author: root <root@localhost.localdomain>
+Date:   Fri Sep 15 01:25:36 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit 27bc41735093e34f9c5b0c99904689814624b4c3
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 15 11:07:45 2023 +0545
+
+    Fix(api): solve enroll dialog box issue
+
+commit 4eb2e80be568a6497bc6cfcabcaccbc44efe1f09
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Thu Sep 14 19:00:54 2023 +0545
+
+    Feat(enquiry): add automation email
+
+commit 4782199979f5764ac17b3885d8953b68bbf010e5
+Merge: 02da83a 6c0d2fb
+Author: root <root@localhost.localdomain>
+Date:   Thu Sep 14 08:53:10 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit 6c0d2fbaaf39dade74618394672e4aafc0f765ea
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Thu Sep 14 18:11:53 2023 +0545
+
+    Chore(ui): remove cotivity logo
+
+commit 02da83a85c9bab98a5c7e43b95260e78d21d3600
+Merge: 5a67bf2 a52cd40
+Author: root <root@localhost.localdomain>
+Date:   Thu Sep 14 05:18:21 2023 -0400
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application into main
+
+commit a52cd407acd1363740952f3e446e24e9a1e83dad
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Thu Sep 14 15:02:54 2023 +0545
+
+    Fix(enroll): solve post not working on enroll
+
+commit 5a67bf2e94b4819b634fb9a08fed14c4699f4bb4
+Author: root <root@localhost.localdomain>
+Date:   Thu Sep 14 05:16:40 2023 -0400
+
+    backup
+
+commit a49671cdd0f3fa004e462e30be842cf35c47468a
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Thu Sep 14 13:45:14 2023 +0545
+
+    Fix(patch): solve multi file update single file update feature in course
+
+commit efd8d1ea5df555f2baa3952f4ab393cfb4565101
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Sep 14 12:54:04 2023 +0545
+
+    Chore: Modification in event and client page
+
+commit 03d919f96e6b772552949bdb6b6ad2efd7746ccd
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Sep 14 09:48:41 2023 +0545
+
+    Chore: Changed DPI of certificate
+
+commit 3f41f04f134b3d3cb9bbbf7eb94e3d073f6cb50c
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 13 17:55:53 2023 +0545
+
+    Fix(position): solve position issue of course name
+
+commit 0999a968fda361c4ba6b2c1217aa1b801c086eb2
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 13 17:44:15 2023 +0545
+
+    Fix(position): fix position of start end date
+
+commit 14b825ca7f1d91977d80804a2c477595b8606f99
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 13 17:38:41 2023 +0545
+
+    Fix(cerificate): solve positioning of trainer name,title
+
+commit 24f493ca826e90a1eb024e7da28c4a3460905ec8
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 13 16:54:50 2023 +0545
+
+    Feat(api): integrate placement,client api in admin
+
+commit bd3102a03bbdf877a347338d47654ee027e716d8
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 13 15:30:44 2023 +0545
+
+    Fix(certificate): solve position
+
+commit ab51cf8ed01617ed33b808745dbd5c4c285f8bb7
+Merge: a58d187 ca2cbbb
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 13 15:14:55 2023 +0545
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application
+
+commit a58d187e63bc3665f8534e2c9ede41899c48dbe1
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 13 15:14:42 2023 +0545
+
+    Fix(integration): solve edit testimonial page issue
+
+commit ca2cbbb7260b738952cbe7163aa6b65fdb50025f
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Sep 13 13:58:30 2023 +0545
+
+    Chore: Changed width, height layout to download certificate
+
+commit ac5680fa0ab3ebfbcd3551bcd9f79af1b36a9b99
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Sep 13 13:21:44 2023 +0545
+
+    Fix: variable fix
+
+commit cfd56fe580de9196314d3edb09fc2ad8aed6a62b
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Sep 12 18:23:27 2023 +0545
+
+    Feat: Added share button to social media
+
+commit 7023df389c94a0e398f6136965eae99530971dcc
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Sep 12 16:56:11 2023 +0545
+
+    Fix(ui): solve verify certificate issue
+
+commit 613f5b5633d462e59e847f4f5524b596740afa32
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Mon Sep 11 17:39:27 2023 +0545
+
+    Chore(ui): add sponsor, title sponsor, powered by section
+
+commit df579060f6aee4ddc3422ff1bb9f12ac6ff16695
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Mon Sep 11 16:12:46 2023 +0545
+
+    Fix(update): fix student certificate update form
+
+commit 435e4525898650bbf36aba43c8b6256c029f834a
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Sep 11 14:21:45 2023 +0545
+
+    Chore: Changed Trainer title and added content to event
+
+commit 9ff72a7f160a5e266190049401eafb15d1f31c52
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 8 17:47:35 2023 +0545
+
+    Fix(typo): make name to titlecase
+
+commit d6e6ae918881cb0db9f93206810b1bcb01939b20
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 8 17:42:04 2023 +0545
+
+    Fix(typo): update typography of certificate
+
+commit fc2a7f69a0bfb320be48681ee80e7be8b8fba79e
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 8 17:29:36 2023 +0545
+
+    Fix(signature-trainer): fix position of signature trainer
+
+commit d7ae42c041a9a30417d3e4ae2bf95a60c90d9ff6
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 8 16:32:28 2023 +0545
+
+    Fix(certificate): alignment
+
+commit 1dd65f70a9c9c376d61f455a1132dce8b5c1ebdb
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 8 16:25:22 2023 +0545
+
+    Fix(certificate): fix signature of certificate
+
+commit 31890f369fca30a03ad7f02c42918987eeb54e1e
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 8 15:04:18 2023 +0545
+
+    Fix(updateteam): fix update role in edit team
+
+commit 5995f7408c721c00dafedb09bf59a0ee95dd998f
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 8 11:43:27 2023 +0545
+
+    Chore(color): change color of sponsor section
+
+commit cac521ec6791e9a05c84e23857688d04a8f15934
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Thu Sep 7 18:55:02 2023 +0545
+
+    Chore(ui): update logos in sponsor of compware app
+
+commit dcd91eaab4c409752958eb81e9c2bdf9bd3210ae
+Merge: c0d82fe ad68400
+Author: Tusharluitel <71857726+Tusharluitel@users.noreply.github.com>
+Date:   Thu Sep 7 18:31:32 2023 +0545
+
+    Merge pull request #34 from domster4444/final-tushar-2
+    
+    Final tushar 2
+
+commit ad6840006f0235bd11d1491175e7e591311cfbdf
+Merge: 4c69ba0 c0d82fe
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Sep 7 18:29:28 2023 +0545
+
+    Chore: Merged main branch
+
+commit c0d82fe1316d240e7ae619973b8909b5c0151b7a
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Thu Sep 7 18:25:24 2023 +0545
+
+    Fix(certificate-trainer-signature): make signature render
+
+commit 4c69ba02c32481601b1d9e3ed512ee2c3f140973
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Sep 7 18:13:43 2023 +0545
+
+    Chore: Added edit student certificate
+
+commit 27dcffaba7683e9ec6988ee7f8911072e23b127a
+Merge: c5cc1b4 b600d6f
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Thu Sep 7 17:12:14 2023 +0545
+
+    Chore(conflict): solve
+
+commit c5cc1b4f4041db92517a9428559a93833321879e
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Thu Sep 7 17:08:29 2023 +0545
+
+    Chore(image) Add infrasoft as sponsor
+
+commit 46481643eef991bb4b4efe8874d19584d7ab45bb
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 6 19:55:45 2023 +0545
+
+    Fix(signature): fix no signature property issue
+
+commit 8eaec8a4a377d31b7237c0a3221920eee65f5017
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 6 16:24:50 2023 +0545
+
+    Chore(verification id): add verification id
+
+commit b600d6f3d705a607f2ca38507cdad0b530290494
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Sep 6 16:01:49 2023 +0545
+
+    Style: Changed the orientation of the certificate
+
+commit 8885ea4b3c411ad3a4e9e8b294d15007f7bc9fd6
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 6 15:28:47 2023 +0545
+
+    Chore(host): test
+
+commit 235ca79424920981e4fc7e0496c4514a1a5aca85
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 6 15:17:05 2023 +0545
+
+    Fix(signature): make signature of trainer dynamic
+
+commit 0ebc4863bdea02130d50075b21ec3d1a90f08bf4
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 6 15:04:09 2023 +0545
+
+    Fix(redirect): url issue
+
+commit fff07e4107a0e5fd7c8154137608c305c2a8b5da
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 6 14:21:48 2023 +0545
+
+    Chore(merge): solve conflict
+
+commit 78fb8224d6c49694d5bd4ebfa61058ca264f31c7
+Merge: 7f80621 0382d0b
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 6 14:19:55 2023 +0545
+
+    Chore(merge): solve merge conflict
+
+commit 7f80621e6b6ade297948044e0a5d68600a44cddb
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Sep 6 14:17:59 2023 +0545
+
+    Feat(certificate-overlay): add signatures
+
+commit 0382d0b43bfde78cf21514388d24fa02b30e54a9
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Sep 5 21:25:11 2023 +0545
+
+    Chore: Remove profile image in verify certificate
+
+commit 0567813e8150948647bdf4a85a1e0c48ff5555a5
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Sep 5 18:45:37 2023 +0545
+
+    Chore: Changed value at constants.js
+
+commit d7cc8fa51e307e0193afe25fe67b39243c173acb
+Merge: ed02056 7abcc98
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Sep 5 16:42:57 2023 +0545
+
+    Chore: Merged branch from final-tushar-2
+
+commit ed020563bfa743be8b996aaeb6334167f2a64575
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Sep 5 15:52:58 2023 +0545
+
+    Chore: Added add trainer to dashboard
+
+commit b9ad39d9ce75f9419f99a152acc9d9af77f0ba7e
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Sep 5 15:28:24 2023 +0545
+
+    Chore: Added trainer list and layout of add trainer
+
+commit 7abcc98711fb843a761b9c6b538e76fc037671c5
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Sep 5 13:36:40 2023 +0545
+
+    Chore(certificate): add signature
+
+commit b2a12bbe57a738452b7028303f9ad5259123a604
+Merge: e08000f 27eb04c
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Sep 5 12:57:57 2023 +0545
+
+    Chore(reponsive): certificate
+
+commit e08000f65b06a222d234d9eb34e8de4f5d2cbbf2
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Sep 5 12:46:36 2023 +0545
+
+    Feat(responsive): make certificate responsive
+
+commit 27eb04c532f1790a96a6ac514c0f89d03a1e7198
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Sep 5 06:43:15 2023 +0545
+
+    Style: Changed font weight in home screen
+
+commit ec4cad865034143e5098441a5103b4925b9424bc
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Sep 4 18:50:37 2023 +0545
+
+    Style: Styling in course recommendation and home page
+
+commit 8bdd25cb6d6b73c5d8b4f9d5984492f3cca04ffe
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Sep 4 14:56:21 2023 +0545
+
+    Chore: Download certifivate can be downloaded
+
+commit c6dfed4c1d18d58f7327c323a1449bab825afda9
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Sep 4 14:35:12 2023 +0545
+
+    Chore: Changed width of forgot validation id
+
+commit adfa7261a1f256a97fc164b970430edbac0dca95
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Sun Sep 3 14:31:27 2023 +0545
+
+    Chore: Changes in the blogData image size
+
+commit 3d962ab7f42fcebe271f6683c174e25b89f2e18b
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Sep 1 20:33:03 2023 +0545
+
+    Docs: Minor changes
+
+commit 98cabf85c1b63d6a2e55109d49d1c7bc016199a6
+Merge: b8b6f8c b6d9c63
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Sep 1 18:50:42 2023 +0545
+
+    Fix: Fixed git merge
+
+commit b8b6f8cc17b8598e5e2e7a81a76b2cfff627db11
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Sep 1 18:22:36 2023 +0545
+
+    Chore: Course recommendation
+
+commit ea055f3a29db4df0a75553410fa1c9d611100a4d
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Sep 1 17:50:43 2023 +0545
+
+    Chore: Added courses in recommendation
+
+commit b6d9c6303dde677af13ec362e414264caf8a4c11
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 1 15:57:09 2023 +0545
+
+    Fix(api): fix create team integration issue
+
+commit 4fe2356a13de1f1b0f863ccba534c87b01930867
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 1 15:25:27 2023 +0545
+
+    Feat(api): integrate
+
+commit 246cfa2d71a1727f6b146c03f9457c8195e8bc30
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 1 14:36:08 2023 +0545
+
+    Feat(env): update variable
+
+commit 27057836fb2a131bc9c080cbf0cd73876844d3c7
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 1 14:34:24 2023 +0545
+
+    Feat(page): add logos in sponsor page
+
+commit 4bc19eb64eb9c7edf73c3fe0de15244b6629bc0a
+Merge: a48366a 47afa3e
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Sep 1 14:25:23 2023 +0545
+
+    Changed certificate image
+
+commit a48366a7c510be5728456341cb212028400a847b
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Sep 1 14:23:25 2023 +0545
+
+    Chore: git push origin final-tushar-2
+
+commit 7678a569c462ec2a7b71a8771bed7d8dda71089c
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 1 14:09:40 2023 +0545
+
+    Chore(variable): update variable and remove hardcoded localhost url
+
+commit 09cb1b1d6922fc7662101ac037c8c616c20b8867
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Sep 1 14:03:07 2023 +0545
+
+    Chore: Added PopUp to home page. Commented for now
+
+commit 48bbd725636066d6d2f5ab791d98473a1e00bcc4
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 1 13:42:17 2023 +0545
+
+    Fix(variable): upate variable
+
+commit 262dd31c3ae22107c3545d2fd0b2bbeaf6d51d8f
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 1 12:46:09 2023 +0545
+
+    Chore(env): update variable for hosting
+
+commit 2a4f3750f694086466f319fd5af429cce48d962d
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 1 12:44:57 2023 +0545
+
+    Feat(api): integrate blog patch api
+
+commit baf40bf0adbde86ee3c81c6a3b1b01b331912403
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Sep 1 12:36:06 2023 +0545
+
+    Chore: Navbar for mobile completed
+
+commit 676b34645b1864d683cfc318f3cc0f3c260f8341
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Sep 1 11:46:42 2023 +0545
+
+    CI: Changes in the coursecontroller
+
+commit 90ce4f99cb646a2387668096209b68545887dceb
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Sep 1 11:45:03 2023 +0545
+
+    Chore: Working on navbar in small screen
+
+commit 47afa3e8db55e083188f596d1eaeeced3f1d84ea
+Merge: 264e557 09d8eb0
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 1 11:13:23 2023 +0545
+
+    Merge branch 'main' of https://github.com/domster4444/compware-application
+
+commit 264e5575ba9eb794a9a47acaf0739239fc97aa4a
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Sep 1 11:13:05 2023 +0545
+
+    Feat(api): integrate blog
+
+commit 09d8eb098be9323dace3f66675e521ffe3f4f92d
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 30 17:29:40 2023 +0545
+
+    Chore: Back to previous code
+
+commit 13a4c7aa0d17d0fc5e647089df9ee3e68f22a8db
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 30 17:26:52 2023 +0545
+
+    Fix: Server side error
+
+commit da7bd527840ca8b115c3bb8ebc8c3cffd911c9ef
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 30 11:38:48 2023 +0545
+
+    Fix(team issue): add original detail in panel discussion
+
+commit 2140d0c336a39cfb108bd924355cdf218dc46856
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Aug 29 17:34:50 2023 +0545
+
+    Chore(env): change variable
+
+commit d0de2448e162022b45a52694c424b6861916abcf
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Aug 29 17:31:27 2023 +0545
+
+    Fix(typo): modify session typo
+
+commit 8e99ca121fbe1e3981135908776d4881e0c9f67d
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Aug 29 17:25:00 2023 +0545
+
+    Chore(typo): add blog
+    :
+
+commit f3225684e7f2b9f3ed6685b71a511446f5710590
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Aug 29 16:59:22 2023 +0545
+
+    Chore(typo): update
+
+commit deb0b4ef337f1616b082124e921d26d74fe02b95
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Aug 29 16:58:53 2023 +0545
+
+    chore: update typo
+
+commit 95ea40e71969128c2858e2c62e0a86a6a2a16926
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Aug 29 16:52:14 2023 +0545
+
+    Chore(cors): allow all origin
+
+commit 6215ce6e9812c863e762705570f702857f9cdbd8
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Aug 29 16:40:15 2023 +0545
+
+    Chore(ignore): update typo
+
+commit 3c2b86d8c8ed111c173365150d8e764c0247e0f6
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Aug 29 16:20:28 2023 +0545
+
+    Chore(api): update constant env variable
+
+commit b2f29fa109f47b61c5e1f739e07d52af0d5fb460
+Merge: 8d1f1ca 9ee3b2b
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Aug 29 16:09:20 2023 +0545
+
+    Chore(merge): fix merge conflict
+
+commit 9ee3b2b5ad8e80482965c78d87a33036f57aa75f
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Aug 29 16:04:31 2023 +0545
+
+    Feat(api): integrate gallery api
+
+commit 2fb02b4d0a4084dd1689fd9bc21d9cf28330826f
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Tue Aug 29 15:04:27 2023 +0545
+
+    feat(integrate): add course
+
+commit 8d1f1cae3b0dfb07725a1614694fab865c870763
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Aug 29 14:31:07 2023 +0545
+
+    Chore: Updated blogs integration
+
+commit 4931766a2a77d89082fce457b081df2c2aba812f
+Author: Tejesh Shrestha <tejesh.shrestha@deerwalk.edu.np>
+Date:   Fri Aug 25 16:28:31 2023 +0545
+
+    sessions
+
+commit 4252fe250b1c06fcf3ad14a679b004d0aab91274
+Author: Tejesh Shrestha <tejesh.shrestha@deerwalk.edu.np>
+Date:   Fri Aug 25 08:21:32 2023 +0545
+
+    Updated all patch APIs and setting popup
+
+commit b6ca32fa4344918f80f840de8278cbf3a263c66d
+Merge: ec14fc5 bb1f1f3
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 23 14:20:10 2023 +0545
+
+    Chore: Merged branch from final-tushar-2
+
+commit bb1f1f3a3ae04a9a853fffa9f7dc42710cb321d5
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Aug 22 13:21:57 2023 +0545
+
+    Chore: Fixed "Tab" keyboard issue in dialogbox. Blog integration
+
+commit ec14fc5ad1e9efcb539e9b4f47f16d300016acca
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Aug 22 08:43:37 2023 +0545
+
+    Chore: Working on issue of development phase error
+
+commit 9b91071025ee04d1133afae87c26a07d1d06f980
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 21 18:02:59 2023 +0545
+
+    Chore: Changed client images
+
+commit 5c4519392b5dac365515ffeb2266e8d3e9d4ac25
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 21 16:14:18 2023 +0545
+
+    Chore: Added corsOption
+
+commit a365fe600430b85863e78dd0b06496503fa18a8f
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 21 14:51:30 2023 +0545
+
+    Refactor: Changed the text of home screen
+
+commit a3c8deb1a7234a2c645c60fb7cde0d77cbe7cd7f
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 21 14:46:15 2023 +0545
+
+    Chore: Changed value of host to 192.168.0.211
+
+commit c0d4595471e4e3b8f3b48cbbbc7198c5b5b8abb9
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 21 14:28:05 2023 +0545
+
+    Chore: Changed port id
+
+commit 748322c036bc59ea15f964ac5ababf1f8bc3bb81
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 21 13:30:14 2023 +0545
+
+    Chore: Cahnged client const value
+
+commit 7fc48c6f6fbbd5cc726cf9f769814f922fe5bd86
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Aug 18 18:34:01 2023 +0545
+
+    Chore(initial): initial commit
+
+commit f81b6264f2d665f056c80a8c1866b56b52e75532
+Merge: 509e2b3 613022b
+Author: Tusharluitel <71857726+Tusharluitel@users.noreply.github.com>
+Date:   Fri Aug 18 14:56:38 2023 +0545
+
+    Merge pull request #31 from domster4444/teamx
+    
+    Feat(update): admin panel
+
+commit 613022b09f21e14a620b8f6defa280ff6be6812d
+Merge: b041b43 509e2b3
+Author: Tusharluitel <71857726+Tusharluitel@users.noreply.github.com>
+Date:   Fri Aug 18 14:56:25 2023 +0545
+
+    Merge branch 'final-tushar-2' into teamx
+
+commit b041b433d9df4512aef791a17bde6c8d1df966ca
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Aug 18 14:51:37 2023 +0545
+
+    Feat(update): admin panel
+
+commit 509e2b3f0d68b65fca09a4d2c5b6b70c3a4bf57a
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Aug 17 17:56:58 2023 +0545
+
+    Style: Styling of footer
+
+commit a87346045d4ae2d6cfce6cd4e7ed890faaa339da
+Merge: d848ae4 b9faa36
+Author: Tusharluitel <71857726+Tusharluitel@users.noreply.github.com>
+Date:   Wed Aug 16 16:54:52 2023 +0545
+
+    Merge pull request #30 from domster4444/teamx
+    
+    Teamx
+
+commit d848ae458328614b1e6f5c71b5f0386b9c61a722
+Merge: 87a9678 6997a3f
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 16 16:41:06 2023 +0545
+
+    Chore: Minor Changes
+
+commit b9faa36da328b9c60dee95a99548f61a86b3ec0a
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 16 16:24:17 2023 +0545
+
+    final 369
+
+commit c748477c87fa04334abe6c4855431ac71739a862
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 16 16:03:37 2023 +0545
+
+    before switch to teamx
+
+commit 6997a3f22e1a6e943ee96781f2af8cd9f5640d33
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 16 15:48:05 2023 +0545
+
+    checkpoint 101
+
+commit 87a9678bfe5606fd69eb12f2bd7ec7f99fca2a2f
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 16 15:46:44 2023 +0545
+
+    Fix: Fixed styling
+
+commit c876527339a15fdff3de5cd6b1555438338dc5a6
+Merge: 57c0d79 d906cce
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 16 15:36:51 2023 +0545
+
+    Fix: Fixed git merge
+
+commit b8f141a1b8e39b4781eb282af0ea3c8f41a05e7e
+Merge: 4790834 57c0d79
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 16 15:22:26 2023 +0545
+
+    Merge branch 'final-tushar-2' of https://github.com/domster4444/compware-application into final-tushar-2
+
+commit 47908347a353ca99dfe1cbc2bb841043de36e4b6
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 16 15:21:52 2023 +0545
+
+    checkpoint 100
+
+commit 57c0d79a534d14de20ab2d668a435102c13914be
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 16 15:15:52 2023 +0545
+
+    Chore: Update on global.scss
+
+commit c8d0f8cddf788efc5285927c566ff9f2baf1ca03
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 16 15:10:10 2023 +0545
+
+    Fix: Fixed alignment of our team
+
+commit 83801e888c67801a004fd97f4f4b453de4254d8b
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 16 13:37:40 2023 +0545
+
+    Chore(text): add file
+
+commit d906cce685a842d47ba453e86a90e5a99fa8c5f4
+Merge: 7adb192 cc75bb6
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 16 13:23:32 2023 +0545
+
+    Chore: Merged 369 branch
+
+commit cc75bb66611271f0c88265c676c907a6220ce8cd
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 16 13:21:25 2023 +0545
+
+    lastes
+
+commit 7adb19297fa4ec01ffc1d8016a4073c6207a4d40
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 16 13:21:10 2023 +0545
+
+    Fix: Fixed edit of courses
+
+commit 0e9773c9e6f489a41801f5d6bbb4f4843884df97
+Author: Tejesh Shrestha <tejesh.shrestha@deerwalk.edu.np>
+Date:   Wed Aug 16 12:36:45 2023 +0545
+
+    updated course and QR impl
+
+commit b016a3a4d8a2dd3d99527ce7b30f61fd06f1bfe9
+Merge: 273ef9b 1671645
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 16 12:31:43 2023 +0545
+
+    Fix: Git issue
+
+commit 16716450d911531767688a10071f8a90cdbcbca1
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 16 12:22:33 2023 +0545
+
+    test
+
+commit ffc7550019da7510639def416d4cded61815f743
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 16 12:21:46 2023 +0545
+
+    Chore(admin): integrate create team
+
+commit 273ef9b38044467eb6934bb8070758f1b46cbe4b
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Aug 15 18:40:41 2023 +0545
+
+    Style: Alignment content. Added detail in footer
+
+commit e599f4dce84d5d7c5ac2dc95a7efb20c578fe062
+Merge: c090b2f 8d1ec4e
+Author: Tusharluitel <71857726+Tusharluitel@users.noreply.github.com>
+Date:   Mon Aug 14 16:56:58 2023 +0545
+
+    Merge branch 'final-tushar-2' into 369
+
+commit c090b2f3325d331448a2bd30b9dc267514ba13f0
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Mon Aug 14 16:25:07 2023 +0545
+
+    Feat(update): integrate update course in admin panel
+
+commit 8d1ec4e930fd622b78acfde408a4df40c4e32947
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 14 16:10:02 2023 +0545
+
+    Style: Alignment of home page course and team
+
+commit db09990261a21108760a9364c8aa4d11955d32ab
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Aug 11 19:01:34 2023 +0545
+
+    Chore: Added Recaptcha on contact us page
+
+commit 3a7a9b9c19ec14c413102a132d0388a0a66a78ef
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Aug 11 18:12:44 2023 +0545
+
+    Feat: Added recaptcha to enroll and course enroll
+
+commit c5d871d31c631eb46d793f411d95191d2fcfd75c
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Aug 11 10:38:37 2023 +0545
+
+    Feat: Forgot Verification ID added
+
+commit c2f03ee3e4a636689da37c20dc98b7b266e16c1b
+Merge: 8585e13 8798347
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Aug 10 12:30:09 2023 +0545
+
+    Fix: course image issue
+
+commit 8585e13b184af0cb8acb952f33711786c26bdee8
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Aug 10 12:26:20 2023 +0545
+
+    Chore: Working on forgot validation id
+
+commit 8798347eb4c10ce1748cb481adc77109c86e14a9
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 9 17:33:18 2023 +0545
+
+    Chore(images): add course logos
+
+commit f2e88f17294b95fbbafc3eec05832ef0cdbb1d8a
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 9 14:09:16 2023 +0545
+
+    Feat(search-tags): integrate search feature in search-tags
+
+commit 1db6b1db78ef8ae5220bb8540b16360488a0de3f
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 9 12:46:31 2023 +0545
+
+    Feat(autosuggest): add redirect to course detail page on click of course search
+
+commit 47c306335d2c66987e138fc752826bdb8ead46c6
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 9 06:02:02 2023 +0545
+
+    Chore(ui): modified layout
+
+commit 5475698209f86c5822ab86cd5a91476c7f294fdf
+Merge: 41f08f6 9767532
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Aug 8 18:34:23 2023 +0545
+
+    Completed hero search issue along with typing
+
+commit 41f08f6bccf908993692105de7e1f593b3a7f1c2
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Aug 8 18:31:03 2023 +0545
+
+    Chore: Fixed hero section search
+
+commit 97675326e8e7ced32da46715009b8adc9a7be10b
+Merge: 129959d 188e465
+Author: Tejesh Shrestha <tejesh.shrestha@deerwalk.edu.np>
+Date:   Tue Aug 8 18:27:52 2023 +0545
+
+    Merge branch 'final-tushar-2' of https://github.com/domster4444/compware-application into final-tushar-2
+
+commit 129959d137ecb0df5be7da14ece89ed99bb3d1a9
+Author: Tejesh Shrestha <tejesh.shrestha@deerwalk.edu.np>
+Date:   Tue Aug 8 18:26:36 2023 +0545
+
+    added two APIs
+
+commit 188e465aa1d97f27313fc47d9903b7f35676c260
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Aug 8 18:01:27 2023 +0545
+
+    Chore: Changed flitercards color and added search course in hero section
+
+commit d9c8276805034ecc96dea0bbc465239088fa6e18
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Aug 8 17:24:18 2023 +0545
+
+    Chore: Changing filtercards color
+
+commit 5d9248b34a3620a0bc3772c6fd94018486092dc4
+Merge: 26cd31c ca8620b
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Tue Aug 8 16:13:52 2023 +0545
+
+    Chore: Integrated compware video to server
+
+commit ca8620b8bd56a5d37e2b7811d53a664fbe013003
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Mon Aug 7 16:43:06 2023 +0545
+
+    Chore(hardcode): add recommended section
+
+commit 26cd31c13c0c4f683075760444dd71c01b77ec70
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 7 16:37:17 2023 +0545
+
+    Chore: Added menuitem in courses
+
+commit 0bba02a53ca0a14c50e4b8eaa4adbaf39740d898
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 7 16:11:30 2023 +0545
+
+    Chore: Added more clients
+
+commit 454a2620309b4f29a62c51bbd65612a080a12b97
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 7 15:40:04 2023 +0545
+
+    Chore: Changed color of filtercards
+
+commit 69c2daa165382ab8c544376f6b34f61e82bb5914
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 7 15:06:32 2023 +0545
+
+    Chore: Graphic Desigin into Designing
+
+commit 1b6472c8f921a074b7ba775b51e43caa33a95070
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 7 14:43:50 2023 +0545
+
+    Chore: Added search hero page using material ui
+
+commit 82ba18fc21f6fb7cb254a0f2bc40d4758ae700e4
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 7 13:24:11 2023 +0545
+
+    Chore: Added select option to enroll dialog
+
+commit 9e5f0649ca3357e41ba1e63193337466de73267e
+Merge: ff6a775 55f0414
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Mon Aug 7 12:12:43 2023 +0545
+
+    Fix(merge): merge both branches
+
+commit ff6a775939468ab312f56e154c838c989caf4330
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Mon Aug 7 11:49:38 2023 +0545
+
+    Chore(todo): test
+
+commit d0959e3943dc976fe271ac20957480ab8ff4633e
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Mon Aug 7 11:38:34 2023 +0545
+
+    Feat(integration): ui
+
+commit 188a9af5ab7696ea5b10fbdd382945ab82ed2975
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Mon Aug 7 11:26:57 2023 +0545
+
+    Chore(integrate): home page course
+
+commit 55f041484a98bd404bab0d9ac2b5771e7834c851
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 7 10:40:29 2023 +0545
+
+    Chore: Added time in courseitem
+
+commit 46c2269d2f1b4aa9cdaf35db6a21eccb7d469178
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 7 10:25:14 2023 +0545
+
+    Chore: Modification of blog page and course enroll dialog
+
+commit f48953b489a00dc93b37ded813bcab612120ce28
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Mon Aug 7 08:21:08 2023 +0545
+
+    Chore: Tried working on suspense
+
+commit bb717862b2b997d78a0dd1384924d03273fdba36
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Sat Aug 5 21:05:22 2023 +0545
+
+    Chore: Modification in studentcertificate model
+
+commit d1940f3918273b385f4607cff27f08d92b307823
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Sat Aug 5 18:45:32 2023 +0545
+
+    Chore: Modification of hero course search
+
+commit fdc2565bf93650a90fc26d25c0c32b873312ede8
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Sat Aug 5 17:38:00 2023 +0545
+
+    Chore: Added startDate to course model,controller
+
+commit 9be73f9b360214cdeebe085328757feb44b46618
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Sat Aug 5 17:20:58 2023 +0545
+
+    Chore(update): todo.txt
+
+commit 2994523297f336a4983f792a8006363ea9114055
+Merge: 7ead1ab ea4c544
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Sat Aug 5 17:19:09 2023 +0545
+
+    Merge branch 'final-tushar-2' of https://github.com/domster4444/compware-application into final-tushar-2
+
+commit 7ead1ab251157deffc25898e5803cdd8e61f2d40
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Sat Aug 5 17:18:32 2023 +0545
+
+    Chore(log): update todo.txt
+
+commit ea4c5447e8e17664714d171f033550b8a010ab4b
+Merge: c9f2194 c26baf4
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Sat Aug 5 17:16:42 2023 +0545
+
+    Chore: Added social media icons
+
+commit c9f2194733ba8832d089f77592572231a67f5ac0
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Sat Aug 5 17:12:41 2023 +0545
+
+    Chore: Added social media icons
+
+commit c26baf4e1b6368ab79e3e07a61b197457d6d2c42
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Sat Aug 5 17:11:28 2023 +0545
+
+    Feat(pagination,search): add filter
+
+commit 7ed85ad730f37648878d15ade882692e7610f5e1
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Aug 4 19:45:50 2023 +0545
+
+    Fix(photoName): add .png extension in photo name
+
+commit 86f775fd0bbdc0c753642779868d9bc59662cd93
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Aug 4 19:40:39 2023 +0545
+
+    Fix(merge): solved merge conflict
+
+commit 5444a4d0f3d03759445eadbe9c64fd9851c73fc5
+Merge: 1ee23ac bb054ab
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Aug 4 19:33:08 2023 +0545
+
+    checkpoint
+
+commit bb054ab3c9bfd636ef2e03ea174adb8c54243a94
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Aug 4 19:05:08 2023 +0545
+
+    Docs: added comment
+
+commit 1ee23acec8621b0f3f16a699c9841cfae582d2e8
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Aug 4 18:53:57 2023 +0545
+
+    Chore(tejesh): added content in todo.txt
+
+commit ba3e68fd09ffb87df727afe5e9c172f1026352d8
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Aug 4 15:56:39 2023 +0545
+
+    Chore: Hero video changed
+
+commit 7b3630370bc184b66d130fcfffffbcf21cf0fbcc
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Aug 4 15:23:08 2023 +0545
+
+    Chore: Added more social media icons
+
+commit 9a79fc46909b1390c88abc8f38ced1d97d7d396f
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Aug 4 14:53:46 2023 +0545
+
+    Chore: Changed footer layout
+
+commit 0a6fde9409d5b9077fed7d1bc55cc450ddc83510
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Aug 4 14:50:52 2023 +0545
+
+    Chore(ui): apply greyscale filter to team photos
+
+commit 67d95c988b05cf7d9e9773914781c20180134f98
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Fri Aug 4 14:36:19 2023 +0545
+
+    Chore: Changed favicon, enroll button
+
+commit e08621ae3fbf617c0797fb461045ee8b2cb0f5b7
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Fri Aug 4 14:36:15 2023 +0545
+
+    Feat(blog): integrate team model with api
+
+commit d23b92d1fb7bdc70ad095373c84352602fed85f3
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Aug 3 20:24:49 2023 +0545
+
+    Chore: Modified home page
+
+commit bc969ca0295e560cc96eecf8ba18d5e9afd09200
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Thu Aug 3 18:18:19 2023 +0545
+
+    Chore(photos): add photos and integrate testimonial card
+
+commit 8d5b3416979bb5e639b87b39e81bc469411d49ed
+Merge: e3bc170 18df3b6
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Aug 3 18:05:43 2023 +0545
+
+    Chore: Styling fixed
+
+commit e3bc1704c31c6f069770d53165514da5969ad4e0
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Aug 3 14:42:00 2023 +0545
+
+    Chore: Changed animation on testimonial, styling of request certificate
+
+commit 18df3b64c9987509f94ded808690eb22591dfbf7
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Thu Aug 3 14:39:46 2023 +0545
+
+    Chore(table): add integrated table
+
+commit 6bb2f0da26b858cd4dc1c4b49022b684d9c7b6c9
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Thu Aug 3 13:48:29 2023 +0545
+
+    Feat(Table): add tables
+
+commit 5a936839a70c0f256139a2ff7daebc55d6166c91
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Thu Aug 3 13:47:24 2023 +0545
+
+    Chore: Completed verify certificate page
+
+commit 9a3229031e601b084926370d2a73b4502d86e81b
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 2 17:57:50 2023 +0545
+
+    Chore: Added servers
+
+commit ca45f121cbba95d0b109b87c09aa41ea9b3c34c6
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 2 16:58:12 2023 +0545
+
+    Chore(server): add folder
+
+commit 3704255dedf7d874772661917f59177dcdd244a2
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 2 16:55:24 2023 +0545
+
+    Chore: Working on contact up data integration
+
+commit 0e313ed73e3b833f80ee551952b3c0f3cd027583
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 2 13:23:58 2023 +0545
+
+    Chore(folder): add server folder
+
+commit 403af9abd17243731673f9752602fa109f896f1d
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 2 13:11:22 2023 +0545
+
+    Chore(ui): add crud table for enrolled students
+
+commit cb59fe043b5934b83652b9638918cd5e04130abf
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 2 12:59:25 2023 +0545
+
+    Chore: Modification of terms and conditions page
+
+commit 32de6af75f9e2aa6ec7d7ad149894d4142f9689e
+Merge: b822936 9d0e7fd
+Author: Kshitiz <33199104+domster4444@users.noreply.github.com>
+Date:   Wed Aug 2 12:26:39 2023 +0545
+
+    Merge pull request #20 from domster4444/final-kshitiz
+    
+    Final kshitiz
+
+commit 9d0e7fdbc5157a46b19fcb8c58fbf94ef77e7a3b
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 2 12:25:02 2023 +0545
+
+    Chore(server): add folder
+
+commit c5980250de5ba5f0384dbcffed2c1e32674b50d1
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 2 12:23:12 2023 +0545
+
+    Chore(folder): remove server folder
+
+commit f4ac81db9b6958f61f357cbe14e2f34f5a85c810
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 2 12:21:28 2023 +0545
+
+    Feat(server): add new server
+
+commit b8229361095654a6bf196234b533fe4832981282
+Author: domster4444 <kshitiz.shah@deerwalk.edu.np>
+Date:   Wed Aug 2 12:19:12 2023 +0545
+
+    Chore(packagejson): update
+
+commit 9466d15ddf67e87c2512ceab37c00cbe1c0fd923
+Merge: e335bc8 0e5bd62
+Author: Kshitiz <33199104+domster4444@users.noreply.github.com>
+Date:   Wed Aug 2 12:03:04 2023 +0545
+
+    Merge pull request #19 from domster4444/new
+    
+    Chore: Working on verify certificate page
+
+commit 0e5bd62aeadc1673e4714baad1587f2b9c725c4b
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 2 09:35:18 2023 +0545
+
+    Chore: Working on verify certificate page
+
+commit e335bc85bbfc3e1d50900028234bb435a09051bc
+Author: Tushar Luitel <tusharluitel88@gmail.com>
+Date:   Wed Aug 2 08:41:36 2023 +0545
+
+    Initial Commit
