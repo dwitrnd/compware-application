@@ -22,6 +22,10 @@ const sessionSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+    enum: ["true", "false"],
+  },
 });
 
 const session = mongoose.model("session", sessionSchema);

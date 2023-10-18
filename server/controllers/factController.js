@@ -57,6 +57,7 @@ class factController {
       });
     }
   };
+
   static getOne = async (req, res) => {
     try {
       const Id = req.params.id;

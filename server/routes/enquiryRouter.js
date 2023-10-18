@@ -8,4 +8,6 @@ enquiryRouter.patch("/status/:id", enquiryController.patchState);
 enquiryRouter.delete("/:id", enquiryController.delete);
 enquiryRouter.get("/:id", enquiryController.getOne);
 
+enquiryRouter.patch("/status/:id", enquiryController.patchState);
+
 module.exports = enquiryRouter;

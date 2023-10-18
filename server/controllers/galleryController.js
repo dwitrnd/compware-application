@@ -1,10 +1,11 @@
 const { validationResult } = require("express-validator");
 const gallery = require("../models/Gallery");
+const fs = require("fs");
 
 class galleryController {
   static post = async (req, res) => {
     try {
-      const { ImageName, ImageAltText } = req.body;
+      const { ImageName, ImageAltText, Image } = req.body;
       const file = req.files.Image;
 
       const timestamp = Date.now();
@@ -52,40 +53,72 @@ class galleryController {
   };
   static patch = async (req, res) => {
     const { ImageName, ImageAltText, Image } = req.body;
-    const notificationId = req.params.id;
-    if (Image) {
-      const file = req.files.Image;
-      const timestamp = Date.now();
-      const fileName = `photo_${timestamp}.jpeg`;
-
-      file.mv(`./storage/${fileName}`, (error) => {
-        if (error) {
-          return res.status(500).send(error);
-        }
-        console.log("Upload Successful!");
-      });
-      Image = fileName;
-    }
+    const galleryId = req.params.id;
+    const savedGallery = await gallery.findById(galleryId);
     try {
-      const result = await gallery.findByIdAndUpdate(
-        notificationId,
-        {
-          ImageName,
-          ImageAltText,
-        },
-        { new: true }
-      );
-      if (!result) {
-        throw Error;
+      if (req.files) {
+        const file = req.files.Image;
+        const timestamp = Date.now();
+        const fileName = `photo_${timestamp}.jpeg`;
+
+        file.mv(`./storage/${fileName}`, (error) => {
+          if (error) {
+            return res.status(500).send(error);
+          }
+          console.log("Upload Successful!");
+        });
+
+        const oldFilePath = `./storage/${savedGallery.Image}`;
+        fs.unlink(oldFilePath, (err) => {
+          if (err) {
+            return res.status(500).send(err);
+          }
+          console.log("Previous Image Deleted!");
+        });
+        const result = await gallery.findByIdAndUpdate(
+          galleryId,
+          {
+            Image: fileName,
+            ImageName,
+            ImageAltText,
+          },
+          { new: true }
+        );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
+      } else {
+        const result = await gallery.findByIdAndUpdate(
+          galleryId,
+          {
+            ImageName,
+            ImageAltText,
+          },
+          { new: true }
+        );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
       }
-      res.status(200).json({
-        status: true,
-        msg: result,
-      });
     } catch (err) {
-      res.status(404).json({
+      console.log(err);
+      res.status(500).json({
         status: false,
-        msg: "Check Id again",
+        msg: err,
       });
     }
   };

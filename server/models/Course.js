@@ -1,5 +1,6 @@
 //const express = require("express");
 const mongoose = require("mongoose");
+const courseCategory = require("../models/CourseCategory");
 
 const courseSchema = mongoose.Schema({
   courseName: {
@@ -8,9 +9,13 @@ const courseSchema = mongoose.Schema({
   slugTitle: {
     type: String,
   },
-  courseCategory: {
-    type: String,
-  },
+  courseCategory: [
+    {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: courseCategory,
+      required: true,
+    },
+  ],
   courseIntro: {
     type: String,
   },
@@ -34,9 +39,15 @@ const courseSchema = mongoose.Schema({
   },
   schedule: {
     type: String,
+    required: true,
   },
   startDate: {
     type: String,
+    required: true,
+  },
+  fee: {
+    type: String,
+    required: true,
   },
 });
 
