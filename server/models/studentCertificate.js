@@ -3,39 +3,55 @@ const mongoose = require("mongoose");
 const studentSchema = mongoose.Schema({
   fullName: {
     type: String,
+    required: false,
   },
-  startDuration: {
+  lastName: {
     type: String,
+    required: false,
   },
-  endDuration: {
+  email: {
     type: String,
+    required: false,
+  },
+  course: {
+    type: [String],
+    required: false,
+  },
+  trainer: {
+    type: [String],
+    required: false,
+  },
+  gender: {
+    type: String,
+    required: false,
   },
   courseDuration: {
     type: String,
-  },
-  course: {
-    type: String,
-  },
-  trainer: {
-    type: String,
+    required: false,
   },
   trainerTitle: {
     type: String,
+    required: false,
   },
-  verificationId: {
-    type: String,
-  },
-
-  email: {
-    type: String,
-  },
-
-  gender: {
-    type: String,
-  },
-
   photo: {
     type: String,
+    required: false,
+  },
+  startDate: {
+    type: String,
+    required: false,
+  },
+  endDate: {
+    type: String,
+    required: false,
+  },
+  traineeID: {
+    type: String,
+    required: false,
+  },
+  qrURL: {
+    type: String,
+    required: false,
   },
 });
 

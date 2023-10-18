@@ -1,6 +1,6 @@
 const { validationResult } = require("express-validator");
 const client = require("../models/Client");
-
+const fs = require("fs");
 class clientController {
   static post = async (req, res) => {
     try {
@@ -51,41 +51,71 @@ class clientController {
     }
   };
   static patch = async (req, res) => {
-    const { ImageName, ImageAltText, Image } = req.body;
-    const notificationId = req.params.id;
-    if (Image) {
-      const file = req.files.Image;
-      const timestamp = Date.now();
-      const fileName = `photo_${timestamp}.jpeg`;
-
-      file.mv(`./storage/${fileName}`, (error) => {
-        if (error) {
-          return res.status(500).send(error);
-        }
-        console.log("Upload Successful!");
-      });
-      Image = fileName;
-    }
+    const { Name, Photo } = req.body;
+    const clientId = req.params.id;
+    const savedClient = await client.findById(clientId);
     try {
-      const result = await client.findByIdAndUpdate(
-        notificationId,
-        {
-          ImageName,
-          ImageAltText,
-        },
-        { new: true }
-      );
-      if (!result) {
-        throw Error;
+      if (req.files) {
+        const file = req.files.Photo;
+        const timestamp = Date.now();
+        const fileName = `photo_${timestamp}.jpeg`;
+
+        file.mv(`./storage/${fileName}`, (error) => {
+          if (error) {
+            return res.status(500).send(error);
+          }
+          console.log("Upload Successful!");
+        });
+
+        const oldFilePath = `./storage/${savedClient.Photo}`;
+        fs.unlink(oldFilePath, (err) => {
+          if (err) {
+            return res.status(500).send(err);
+          }
+          console.log("Previous Image Deleted!");
+        });
+        const result = await client.findByIdAndUpdate(
+          clientId,
+          {
+            Name,
+            Photo: fileName,
+          },
+          { new: true }
+        );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
+      } else {
+        const result = await client.findByIdAndUpdate(
+          galleryId,
+          {
+            Name,
+          },
+          { new: true }
+        );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
       }
-      res.status(200).json({
-        status: true,
-        msg: result,
-      });
     } catch (err) {
-      res.status(404).json({
+      console.log(err);
+      res.status(500).json({
         status: false,
-        msg: "Check Id again",
+        msg: err,
       });
     }
   };

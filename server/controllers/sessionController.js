@@ -4,13 +4,15 @@ const session = require("../models/Session");
 class sessionController {
   static post = async (req, res) => {
     try {
-      const { course, startDate, courseDuration, start, end } = req.body;
+      const { course, startDate, courseDuration, start, end, status } =
+        req.body;
       const Session = new session({
         course,
         startDate,
         courseDuration,
         start,
         end,
+        status,
       });
       const result = await Session.save();
       res.status(200).json({
@@ -41,17 +43,12 @@ class sessionController {
   };
 
   static patch = async (req, res) => {
-    const { course, startDate, courseDuration, start, end } = req.body;
     const sessionId = req.params.id;
     try {
       const result = await session.findByIdAndUpdate(
         sessionId,
         {
-          course,
-          startDate,
-          courseDuration,
-          start,
-          end,
+          ...req.body,
         },
         { new: true }
       );

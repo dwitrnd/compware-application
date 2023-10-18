@@ -1,10 +1,11 @@
 const { validationResult } = require("express-validator");
-const testimonial = require("../models/testimonial");
-
+const testimonial = require("../models/Testimonial");
+const fs = require("fs");
 class testimonialController {
   static post = async (req, res) => {
     try {
-      const { name, affiliation, description, imageName, imageAltText } = req.body;
+      const { name, affiliation, description, imageName, imageAltText } =
+        req.body;
 
       console.log("data captured:", req.body);
 
@@ -57,17 +58,13 @@ class testimonialController {
   };
 
   static patch = async (req, res) => {
-    const { name, affiliation, description, imageName, imageAltText } = req.body;
-    console.log("data captured:", req.body);
+    const { name, affiliation, description, imageName, imageAltText, image } =
+      req.body;
     const testimonialId = req.params.id;
-
-    //  if there is files.image then only
-
+    const savedTestimonial = await testimonial.findById(testimonialId);
     try {
-      let result;
       if (req.files) {
         const file = req.files.image;
-
         const timestamp = Date.now();
         const fileName = `photo_${timestamp}.jpeg`;
 
@@ -75,29 +72,40 @@ class testimonialController {
           if (error) {
             return res.status(500).send(error);
           }
-          console.log("File Uploaded");
+          console.log("Upload Successful!");
         });
 
-        result = await testimonial.findByIdAndUpdate(
+        const oldFilePath = `./storage/${savedTestimonial.image}`;
+        fs.unlink(oldFilePath, (err) => {
+          if (err) {
+            return res.status(500).send(err);
+          }
+          console.log("Previous Image Deleted!");
+        });
+        const result = await testimonial.findByIdAndUpdate(
           testimonialId,
           {
             name,
             affiliation,
             description,
+            imageName,
+            imageAltText,
             image: fileName,
-            imageName,
-            imageAltText,
           },
           { new: true }
         );
-
-        console.log(" result ===");
-        console.log(result);
-
-        console.log("--- updated successfully with image");
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
       } else {
-        console.log("--- without image is updated");
-        result = await testimonial.findByIdAndUpdate(
+        const result = await testimonial.findByIdAndUpdate(
           testimonialId,
           {
             name,
@@ -108,19 +116,22 @@ class testimonialController {
           },
           { new: true }
         );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
       }
-
-      if (!result) {
-        throw Error;
-      }
-      res.status(200).json({
-        status: true,
-        msg: result,
-      });
     } catch (err) {
-      res.status(404).json({
+      console.log(err);
+      res.status(500).json({
         status: false,
-        msg: "error while updating testimonial",
+        msg: err,
       });
     }
   };

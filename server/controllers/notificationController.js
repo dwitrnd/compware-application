@@ -1,5 +1,6 @@
 const { validationResult } = require("express-validator");
 const notifications = require("../models/Notifications");
+const fs = require("fs");
 
 class notificationController {
   static post = async (req, res) => {
@@ -53,40 +54,71 @@ class notificationController {
   static patch = async (req, res) => {
     const { image, footer, link } = req.body;
     const notificationId = req.params.id;
-    if (image) {
-      const file = req.files.image;
-      const timestamp = Date.now();
-      const fileName = `photo_${timestamp}.jpeg`;
-
-      file.mv(`./storage/${fileName}`, (error) => {
-        if (error) {
-          return res.status(500).send(error);
-        }
-        console.log("Upload Successful!");
-      });
-      image = fileName;
-    }
+    const savedNoti = await notifications.findById(notificationId);
     try {
-      const result = await notifications.findByIdAndUpdate(
-        notificationId,
-        {
-          image,
-          footer,
-          link,
-        },
-        { new: true }
-      );
-      if (!result) {
-        throw Error;
+      if (req.files) {
+        const file = req.files.Image;
+        const timestamp = Date.now();
+        const fileName = `photo_${timestamp}.jpeg`;
+
+        file.mv(`./storage/${fileName}`, (error) => {
+          if (error) {
+            return res.status(500).send(error);
+          }
+          console.log("Upload Successful!");
+        });
+
+        const oldFilePath = `./storage/${savedNoti.image}`;
+        fs.unlink(oldFilePath, (err) => {
+          if (err) {
+            return res.status(500).send(err);
+          }
+          console.log("Previous Image Deleted!");
+        });
+        const result = await notifications.findByIdAndUpdate(
+          notificationId,
+          {
+            image: fileName,
+            footer,
+            link,
+          },
+          { new: true }
+        );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
+      } else {
+        const result = await notifications.findByIdAndUpdate(
+          notificationId,
+          {
+            footer,
+            link,
+          },
+          { new: true }
+        );
+        if (!result) {
+          return res.status(404).json({
+            status: false,
+            msg: "Check Id again",
+          });
+        }
+        res.status(200).json({
+          status: true,
+          msg: result,
+        });
       }
-      res.status(200).json({
-        status: true,
-        msg: result,
-      });
     } catch (err) {
-      res.status(404).json({
+      console.log(err);
+      res.status(500).json({
         status: false,
-        msg: "Check Id again",
+        msg: err,
       });
     }
   };

@@ -33,7 +33,9 @@ const blogRoutes = require("./routes/blogRouter");
 const notificationRoutes = require("./routes/notificationRouter");
 const sessionRoutes = require("./routes/sessionRouter");
 const galleryRoutes = require("./routes/galleryRouter");
+
 const emailRoutes = require("./routes/emailRouter");
+
 const teamRoutes = require("./routes/teamRouter");
 const enquiryRoutes = require("./routes/enquiryRouter");
 const requestRoutes = require("./routes/requestRouter");
@@ -43,6 +45,9 @@ const trainerRoutes = require("./routes/trainerRouter");
 const contactRoutes = require("./routes/contactRouter");
 const clientRoutes = require("./routes/clientRouter");
 const placementRoutes = require("./routes/placementRouter");
+
+const courseCategoryRoutes = require("./routes/courseCategoryRouter");
+const popupRoutes = require("./routes/popupRouter");
 
 app.use(fileUpload());
 app.use("/api/users", userRoutes);
@@ -54,7 +59,9 @@ app.use("/api/blog", blogRoutes);
 app.use("/api/notifications", notificationRoutes);
 app.use("/api/session", sessionRoutes);
 app.use("/api/gallery", galleryRoutes);
+
 app.use("/api/sendEmail", emailRoutes);
+
 app.use("/api/team", teamRoutes);
 app.use("/api/enquiry", enquiryRoutes);
 app.use("/api/request", requestRoutes);
@@ -64,7 +71,11 @@ app.use("/api/trainer", trainerRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/client", clientRoutes);
 app.use("/api/placement", placementRoutes);
+app.use("/api/verify-certificate", studentRoutes);
 app.use("/api/enrollmentStatus", enquiryRoutes);
+
+app.use("/api/courseCategory", courseCategoryRoutes);
+app.use("/api/popup", popupRoutes);
 
 app.use("/storage", express.static(path.join(appRoot, "storage")));
 
