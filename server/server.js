@@ -44,6 +44,8 @@ const contactRoutes = require("./routes/contactRouter");
 const clientRoutes = require("./routes/clientRouter");
 const placementRoutes = require("./routes/placementRouter");
 
+const popupRoutes = require("./routes/popupRouter");
+
 app.use(fileUpload());
 app.use("/api/users", userRoutes);
 app.use("/api/facts", factRoutes);
@@ -66,6 +68,7 @@ app.use("/api/client", clientRoutes);
 app.use("/api/placement", placementRoutes);
 app.use("/api/enrollmentStatus", enquiryRoutes);
 
+app.use("/api/popup", popupRoutes);
 app.use("/storage", express.static(path.join(appRoot, "storage")));
 
 app.get("/", (req, res) => {
