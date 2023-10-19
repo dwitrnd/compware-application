@@ -1,2 +1,1 @@
-switch to teamx
-Trying out challenges
+This is development branch. All the code needs to be initialy merged in this before merging to main

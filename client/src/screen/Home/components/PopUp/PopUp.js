@@ -9,11 +9,11 @@ const PopupStyle = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Adjust the alpha value here */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
+  backdrop-filter: blur(5px);
 `;
 
 const PopUp = () => {
@@ -41,7 +41,7 @@ const PopUp = () => {
             <img
               src={`${constant.base}/storage/${popupData[0].Image}`}
               alt={popupData[0].ImageAltText}
-              style={{ maxWidth: "50vw", maxHeight: "50vh" }}
+              style={{ maxWidth: "60vw", maxHeight: "60vh" }}
             />
           </div>
         </PopupStyle>
