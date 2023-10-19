@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState, useRef } from "react";
-
+import axios from "axios";
 import FeaturesSection from "./components/Features";
 import ClientsSection from "./components/Clients";
 import PlacementSection from "./components/PlacementPartner/PlacementPartner";
@@ -17,13 +17,28 @@ import Popup from "./components/PopUp/PopUp";
 
 const Home = () => {
   const [course, setCourse] = useState("");
-  const [isPopupOpen, setIsPopupOpen] = useState(true);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const popupRef = useRef(null);
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${constant.base}/api/popup`);
+        const popupData = response.data.msg;
+
+        // Check if there is popup data
+        if (popupData && popupData.length > 0) {
+          setIsPopupOpen(true);
+        }
+      } catch (error) {
+        console.error("Error fetching popup data:", error);
+      }
+    };
+
     AOS.init({
       duration: 2000,
     });
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -131,10 +146,8 @@ const Home = () => {
       {/* //* =========hero section starts here========= */}
       {isPopupOpen && (
         <>
-          {/* Add an overlay to close the popup when clicked outside */}
-          {/* <Overlay ref={popupRef} onClick={handlePopUpClose} /> */}
-          {/* <Popup /> */}
-          {/* Your PopUp component */}
+          <Overlay ref={popupRef} onClick={handlePopUpClose} />
+          <Popup />
         </>
       )}
       <section id="hero-section">
