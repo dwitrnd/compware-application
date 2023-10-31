@@ -31,7 +31,7 @@ const ListTeamBody = () => {
 
   return (
     <div>
-      <Link to='/dashboard/create-team'>
+      <Link to="/dashboard/create-team">
         <button
           style={{
             padding: "0.35rem 0.95rem",
@@ -49,11 +49,12 @@ const ListTeamBody = () => {
       <table>
         <thead>
           <tr>
+            <th>Image</th>
             <th>Name</th>
-            <th>Email</th>
             <th>Role</th>
+            <th>Email</th>
             <th>Post</th>
-            <th className='action-column'>Actions</th>
+            <th className="action-column">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -87,14 +88,32 @@ const ListTeamBody = () => {
                       <td>{data.Post}</td>
                       <td>
                         <Link to={`/dashboard/edit-team/${data._id}`}>
-                          <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                          <button
+                            style={{
+                              padding: "0.35rem 0.95rem",
+                              margin: "0.25rem",
+                              color: "white",
+                              background: "#007bff",
+                              border: "none",
+                              outline: "none",
+                            }}
+                          >
+                            Edit
+                          </button>
                         </Link>
 
                         <button
                           onClick={() => {
                             deleteRequest(data._id);
                           }}
-                          style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#dc3545", border: "none", outline: "none" }}
+                          style={{
+                            padding: "0.35rem 0.95rem",
+                            margin: "0.25rem",
+                            color: "white",
+                            background: "#dc3545",
+                            border: "none",
+                            outline: "none",
+                          }}
                         >
                           Delete
                         </button>
