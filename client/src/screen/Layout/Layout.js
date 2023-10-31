@@ -34,6 +34,7 @@ import ThreadsLogo from "../../assets/svg/threads.png";
 import TwitterLogo from "../../assets/svg/Twitter.png";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import EventDropDown from "components/EventDropDown/EventDropDown";
 const drawerWidth = 240;
 
 const navItems = [
@@ -54,7 +55,6 @@ const navItems = [
   },
   {
     name: "Event",
-    path: "event",
   },
 
   {
@@ -113,6 +113,8 @@ function DrawerAppBar(props) {
             return <CertificateDropDown />;
           } else if (item.name === "Enroll") {
             return <EnrollDialog />;
+          } else if (item.name === "Event") {
+            return <EventDropDown />;
           } else {
             return (
               <Link to={`/${item.path.toLowerCase()}`} key={item.path}>
@@ -196,6 +198,8 @@ function DrawerAppBar(props) {
                       return <CertificateDropDown />;
                     } else if (item.name === "Enroll") {
                       return <EnrollDialog />;
+                    } else if (item.name === "Event") {
+                      return <EventDropDown />;
                     } else {
                       return (
                         <a href={`/${item.path.toLowerCase()}`} key={item.path}>
