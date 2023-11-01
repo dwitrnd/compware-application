@@ -127,10 +127,8 @@ const EventPage = () => {
         </h1>
         <br />
         <h4 className="roboto_300 event-timeline">
-          8th October, 2023 <br />
-          2:00 P.M to 4:00 P.M
-          <br />
-          Hotel Himalaya
+          After the successful completion of Panel Discussion Ep.1, we're
+          gearing up for Panel Discussion Ep.2. Stay tuned!
         </h4>
       </div>
 
