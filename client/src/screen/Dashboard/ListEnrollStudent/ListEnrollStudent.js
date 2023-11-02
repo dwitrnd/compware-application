@@ -96,6 +96,7 @@ const ListEnrollStudent = () => {
             <th>Phone Number</th>
             <th>Email</th>
             <th>Schedule Time</th>
+            <th>Form Submitted</th>
             <th>Status</th>
             <th className="action-column">Actions</th>
           </tr>
@@ -109,6 +110,13 @@ const ListEnrollStudent = () => {
               console.log(tableData);
               if (tableData.length > 0) {
                 return tableData.map((data, index) => {
+                  const formattedDate = new Date(
+                    data.formSubmited
+                  ).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  });
                   return (
                     <tr key={index}>
                       <td>{data.name}</td>
@@ -116,6 +124,7 @@ const ListEnrollStudent = () => {
                       <td>{data.phoneNum}</td>
                       <td>{data.email}</td>
                       <td>{data.enquiryDate}</td>
+                      <td>{formattedDate}</td>
                       <td>
                         {(() => {
                           if (statusChangeLoadingState) {
