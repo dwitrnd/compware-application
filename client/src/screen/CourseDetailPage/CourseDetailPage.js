@@ -82,7 +82,7 @@ const CourseDetailPage = () => {
               justifyContent: "center",
             }}
           >
-            Course Detail
+            Course Details
           </Typography>
         </section>
         <Grid container spacing={2}>

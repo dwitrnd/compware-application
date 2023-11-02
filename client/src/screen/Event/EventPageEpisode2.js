@@ -89,7 +89,7 @@ const EventPageEpisode2 = () => {
         <h1 className="roboto_500">
           Deerwalk Tech Dialogue Series | Episode II
         </h1>
-        <h1 className="roboto_500">Round Table Talk</h1>
+        <h1 className="roboto_500">Roundtable Talk</h1>
         <h1 className="roboto_500">
           <span>
             "Deconstructing the IT Curriculum-Industry Skills Mismatch
