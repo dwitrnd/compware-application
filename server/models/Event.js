@@ -21,7 +21,6 @@ const eventSchema = mongoose.Schema({
     {
       panelistName: String,
       panelistImageName: String,
-      panelistImgAltText: String,
       panelistInfo: String,
     },
   ],
@@ -31,14 +30,12 @@ const eventSchema = mongoose.Schema({
       role: String,
       facilitatorImage: String,
       facilitatorInfo: String,
-      facilitatorImgAltText: String,
     },
   ],
   contributors: [
     {
       contributorTitle: String,
       contributorImages: [String],
-      contributorImgAltText: String,
     },
   ],
   faq: [

@@ -8,7 +8,6 @@ class enquiryController {
   static post = async (req, res) => {
     try {
       const { name, email, phoneNum, course, enquiryDate } = req.body;
-      console.log(name, email, phoneNum, course, enquiryDate);
 
       const enquiry = new Enquiry({
         name,
@@ -57,7 +56,11 @@ class enquiryController {
     try {
       const { name, phoneNum, course, enquiryDate, status } = req.body;
       const enquiryId = req.params.id;
-      const result = await Enquiry.findByIdAndUpdate(enquiryId, { name, phoneNum, course, enquiryDate, status }, { new: true });
+      const result = await Enquiry.findByIdAndUpdate(
+        enquiryId,
+        { name, phoneNum, course, enquiryDate, status },
+        { new: true }
+      );
       res.status(200).json({
         status: true,
         msg: result,
