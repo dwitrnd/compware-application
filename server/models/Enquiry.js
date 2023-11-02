@@ -22,6 +22,10 @@ const enquirySchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  formSubmited: {
+    type: Date,
+    default: Date.now,
+  },
   status: {
     type: String,
     enum: ["approved", "not approved"],
