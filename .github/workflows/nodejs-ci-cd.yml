@@ -1,0 +1,23 @@
+name: Auto Pull Changes
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  pull-changes:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Pull changes
+      run: git pull origin main
+
+    # Additional steps for deployment, if needed
+    # - name: Your Deployment Step
+    #   run: |
+    #     # Your deployment commands here
+
