@@ -146,7 +146,7 @@ const ListEnrollStudent = () => {
           />
         </Box>
       </div>
-      {tableData && tableData.length > 0 && (
+      {filterTableData && filterTableData.length > 0 && (
         <button style={{ margin: "1rem 0" }}>
           <CSVLink
             data={filterTableData}
@@ -172,9 +172,6 @@ const ListEnrollStudent = () => {
         </thead>
         <tbody>
           {(() => {
-            {
-              /* tableData is a state with value []  */
-            }
             let datas = filterTableData;
             if (datas ? filterTableData : (datas = tableData)) {
               console.log(datas);
