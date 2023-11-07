@@ -149,7 +149,7 @@ const ListEnrollStudent = () => {
       {filterTableData && filterTableData.length > 0 && (
         <button style={{ margin: "1rem 0" }}>
           <CSVLink
-            data={filterTableData}
+            data={filterTableData ?? ""}
             headers={headers}
             filename={"enroll_data.csv"}
           >
