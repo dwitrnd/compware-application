@@ -146,7 +146,7 @@ const ListEnrollStudent = () => {
           />
         </Box>
       </div>
-      {filterTableData && filterTableData.length > 0 && (
+      {/* {filterTableData && filterTableData.length > 0 && (
         <button style={{ margin: "1rem 0" }}>
           <CSVLink
             data={filterTableData ?? ""}
@@ -156,7 +156,7 @@ const ListEnrollStudent = () => {
             Download CSV
           </CSVLink>
         </button>
-      )}
+      )} */}
       <table>
         <thead>
           <tr>
