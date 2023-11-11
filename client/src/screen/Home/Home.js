@@ -13,45 +13,27 @@ import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqu
 import ReviewsMarqueCarouselLower from "components/ReviewsMarqueCarousel/ReviewMarqueeUpper";
 import CourseSearch from "./components/CourseSearch/CoruseSearch";
 import { constant } from "constants/contants";
-import Popup from "./components/PopUp/PopUp";
+import TiharImage from "../../assets/images/tihar.jpg";
 
 const Home = () => {
   const [course, setCourse] = useState("");
-  const [isPopupOpen, setIsPopupOpen] = useState(true);
 
-  const popupRef = useRef(null);
+  const [isPopupVisible, setPopupVisibility] = useState(true);
+
+  const handleClosePopup = () => {
+    setPopupVisibility(false);
+  };
+  const handleOverlayClick = (event) => {
+    if (event.target.id === "overlay") {
+      setPopupVisibility(false);
+    }
+  };
   useEffect(() => {
     AOS.init({
       duration: 2000,
     });
+    setPopupVisibility(true);
   }, []);
-
-  useEffect(() => {
-    // Event listener to close the popup when clicked outside
-    const handleClickOutside = (event) => {
-      if (popupRef.current && !popupRef.current.contains(event.target)) {
-        setIsPopupOpen(false);
-      }
-    };
-
-    // Attach the event listener when the popup is open
-    if (isPopupOpen) {
-      window.addEventListener("click", handleClickOutside);
-    }
-
-    // Clean up the event listener when the component unmounts or the popup is closed
-    return () => {
-      window.removeEventListener("click", handleClickOutside);
-    };
-  }, [isPopupOpen]);
-
-  const handlePopUpClose = () => {
-    setIsPopupOpen(false);
-  };
-
-  const handleChange = (event) => {
-    setCourse(event.target.value);
-  };
 
   // hero section component
 
@@ -126,157 +108,209 @@ const Home = () => {
     margin: 2rem auto;
   `;
 
+  const popupStyle = {
+    position: "fixed",
+    top: "55%",
+    left: "55%",
+    transform: "translate(-50%, -50%)",
+    zIndex: 1001,
+  };
+
+  const closeButtonStyle = {
+    position: "absolute",
+    top: "10px",
+    right: "10px",
+    cursor: "pointer",
+    backgroundColor: "transparent",
+    border: "none",
+    fontSize: "1.5rem",
+    color: "white",
+  };
+
+  const imageStyle = {
+    maxWidth: "80%",
+    borderRadius: "8px",
+  };
+
+  const overlayStyle = {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    zIndex: 1000,
+    backdropFilter: "blur(10px)",
+  };
+
+  const Popup = ({ handleClose }) => (
+    <div style={popupStyle}>
+      <button style={closeButtonStyle} onClick={handleClose}>
+        X
+      </button>
+      <img src={TiharImage} style={imageStyle} alt="Tihar Festival" />
+    </div>
+  );
+
   return (
     <>
-      {/* //* =========hero section starts here========= */}
-      {isPopupOpen && (
-        <>
-          {/* Add an overlay to close the popup when clicked outside */}
-          {/* <Overlay ref={popupRef} onClick={handlePopUpClose} /> */}
-          {/* <Popup /> */}
-          {/* Your PopUp component */}
-        </>
-      )}
-      <section id="hero-section">
-        <section id="hero-banner">
-          <div id="video-box">
-            <video
-              autoPlay
-              muted
-              loop
-              controlsList="nodownload"
-              style={{ filter: "brightness(0.5)" }}
-            >
-              <source
-                src={"https://video.deerwalktrainingcenter.com/"}
-                type="video/mp4"
-              />
-            </video>
-          </div>
+      <div style={{ position: "relative" }}>
+        {isPopupVisible && <Popup handleClose={handleClosePopup} />}
+        {isPopupVisible && (
+          <div
+            id="overlay"
+            style={overlayStyle}
+            onClick={handleOverlayClick}
+          ></div>
+        )}
+        {/* //* =========hero section starts here========= */}
 
-          <div id="hero-content">
-            <HeroTitle style={{ marginTop: "3rem" }} className="hero-text">
-              Explore Nepal's Leading
-            </HeroTitle>
-            <HeroTitle className="hero-text">Training Center</HeroTitle>
+        <section id="hero-section">
+          <section id="hero-banner">
+            <div id="video-box">
+              <video
+                autoPlay
+                muted
+                loop
+                controlsList="nodownload"
+                style={{ filter: "brightness(0.5)" }}
+              >
+                <source
+                  src={"https://video.deerwalktrainingcenter.com/"}
+                  type="video/mp4"
+                />
+              </video>
+            </div>
 
-            <HeroSubTitle
-              id="hero-subtitle"
-              style={{ marginTop: "4rem", marginBottom: "4rem" }}
-            >
-              Welcome to Deerwalk Training Center, where we are dedicated to
-              providing premiere IT and Technical skills to facilitate your
-              journey towards achieving success.
-            </HeroSubTitle>
+            <div id="hero-content">
+              <HeroTitle style={{ marginTop: "3rem" }} className="hero-text">
+                Explore Nepal's Leading
+              </HeroTitle>
+              <HeroTitle className="hero-text">Training Center</HeroTitle>
 
-            <CourseSearch />
-          </div>
+              <HeroSubTitle
+                id="hero-subtitle"
+                style={{ marginTop: "4rem", marginBottom: "4rem" }}
+              >
+                Welcome to Deerwalk Training Center, where we are dedicated to
+                providing premiere IT and Technical skills to facilitate your
+                journey towards achieving success.
+              </HeroSubTitle>
+
+              <CourseSearch />
+            </div>
+          </section>
         </section>
-      </section>
 
-      {/* //* =========hero section ends here========= */}
+        {/* //* =========hero section ends here========= */}
 
-      {/* // !  ========= body section starts from here ========= */}
+        {/* // !  ========= body section starts from here ========= */}
 
-      <section style={{ marginTop: "5rem", marginBottom: "5rem" }}>
-        <Header preTitle="Quality Courses For Our" postTitle="Students" />
-        <ReviewsMarqueCarousel />
-        <ReviewsMarqueCarouselLower />
-      </section>
+        <section style={{ marginTop: "5rem", marginBottom: "5rem" }}>
+          <Header preTitle="Quality Courses For Our" postTitle="Students" />
+          <ReviewsMarqueCarousel />
+          <ReviewsMarqueCarouselLower />
+        </section>
 
-      <Container maxWidth="lg">
-        {/* //todo: features section */}
-        <div
-          style={{ margin: "5rem 0rem" }}
-          data-aos="fade-down"
-          data-aos-duration="2000"
-        >
-          <Header
-            subTitle=""
-            preTitle="Why Deerwalk Training Center? "
-            paragraph="
+        <Container maxWidth="lg">
+          {/* //todo: features section */}
+          <div
+            style={{ margin: "5rem 0rem" }}
+            data-aos="fade-down"
+            data-aos-duration="2000"
+          >
+            <Header
+              subTitle=""
+              preTitle="Why Deerwalk Training Center? "
+              paragraph="
             Deerwalk Training Center cultivates expertise in IT and Management through specialized training programs.
               
           "
-          />
-          <FeaturesSection />
-        </div>
-        {/* //todo: Placement section */}
-        <PlacementSection />
-        {/* //todo: how it works section */}
-        <section className="find-your-path">
-          <h2
-            style={{
-              fontSize: "2.5rem",
-              color: "#0f5288",
-              textAlign: "center",
-              fontWeight: "normal",
-            }}
-            data-aos="fade-down"
-          >
-            Find Your Path
-          </h2>
-          <Container style={{ display: "flex", justifyContent: "center" }}>
-            <div className="path-section-container">
-              <div className="left-section">
+            />
+            <FeaturesSection />
+          </div>
+          {/* //todo: Placement section */}
+          <PlacementSection />
+          {/* //todo: how it works section */}
+          <section className="find-your-path">
+            <h2
+              style={{
+                fontSize: "2.5rem",
+                color: "#0f5288",
+                textAlign: "center",
+                fontWeight: "normal",
+              }}
+              data-aos="fade-down"
+            >
+              Find Your Path
+            </h2>
+            <Container style={{ display: "flex", justifyContent: "center" }}>
+              <div className="path-section-container">
+                <div className="left-section">
+                  <div
+                    className="step"
+                    data-aos="fade-down-right"
+                    data-aos-duration="2000"
+                  >
+                    <h4 className="roboto_400">Enroll</h4>
+                    <p className="text-justify">
+                      Kickstart your journey by enrolling in our learning
+                      center, where you'll gain access to cutting-edge courses
+                      and expert instructors, setting the foundation for your
+                      future success.
+                    </p>
+                  </div>
+                  <div className="step" data-aos="fade-up-right">
+                    <h4 className="roboto_400">Graduate</h4>
+                    <p className="text-justify">
+                      As a graduate, you'll emerge with confidence and a
+                      certified skill set, fully prepared to tackle real-world
+                      challenges and make a meaningful impact in the workforce.
+                    </p>
+                  </div>
+                </div>
                 <div
-                  className="step"
-                  data-aos="fade-down-right"
-                  data-aos-duration="2000"
-                >
-                  <h4 className="roboto_400">Enroll</h4>
-                  <p className="text-justify">
-                    Kickstart your journey by enrolling in our learning center,
-                    where you'll gain access to cutting-edge courses and expert
-                    instructors, setting the foundation for your future success.
-                  </p>
-                </div>
-                <div className="step" data-aos="fade-up-right">
-                  <h4 className="roboto_400">Graduate</h4>
-                  <p className="text-justify">
-                    As a graduate, you'll emerge with confidence and a certified
-                    skill set, fully prepared to tackle real-world challenges
-                    and make a meaningful impact in the workforce.
-                  </p>
-                </div>
-              </div>
-              <div
-                id="middle-path-illustrator"
-                className="middle-section"
-              ></div>
-              <div className="right-section">
-                <div className="step" data-aos="fade-up-left">
-                  <h4 className="roboto_400">Learn</h4>
-                  <p className="text-justify">
-                    Immerse yourself in hands-on, industry-relevant learning
-                    experiences, acquiring practical skills and knowledge to
-                    thrive in your chosen field.
-                  </p>
-                </div>
-                <div className="step" data-aos="fade-down-left">
-                  <h4 className="roboto_400">Placement</h4>
-                  <p className="text-justify">
-                    Our Placement Partner Program ensures you're well-connected
-                    to top employers, providing exciting career opportunities
-                    and paving the way for a rewarding professional journey.
-                  </p>
+                  id="middle-path-illustrator"
+                  className="middle-section"
+                ></div>
+                <div className="right-section">
+                  <div className="step" data-aos="fade-up-left">
+                    <h4 className="roboto_400">Learn</h4>
+                    <p className="text-justify">
+                      Immerse yourself in hands-on, industry-relevant learning
+                      experiences, acquiring practical skills and knowledge to
+                      thrive in your chosen field.
+                    </p>
+                  </div>
+                  <div className="step" data-aos="fade-down-left">
+                    <h4 className="roboto_400">Placement</h4>
+                    <p className="text-justify">
+                      Our Placement Partner Program ensures you're
+                      well-connected to top employers, providing exciting career
+                      opportunities and paving the way for a rewarding
+                      professional journey.
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Container>
-        </section>
-        {/* //todo: testimonial section */}
-        <div style={{ margin: "5rem 0rem" }}>
-          <Header subTitle="IN THE NEWS" preTitle="Testimonials" postTitle="" />
-          <SplideCarousel />
-        </div>
-        {/* //todo: partners section */}
-        <div style={{ margin: "5rem 0rem" }}>
-          <Header subTitle="" preTitle="Clients" />
-          <ClientsSection />
-        </div>
-      </Container>
-      {/* // !  ========= body section ends from here ========= */}
+            </Container>
+          </section>
+          {/* //todo: testimonial section */}
+          <div style={{ margin: "5rem 0rem" }}>
+            <Header
+              subTitle="IN THE NEWS"
+              preTitle="Testimonials"
+              postTitle=""
+            />
+            <SplideCarousel />
+          </div>
+          {/* //todo: partners section */}
+          <div style={{ margin: "5rem 0rem" }}>
+            <Header subTitle="" preTitle="Clients" />
+            <ClientsSection />
+          </div>
+        </Container>
+        {/* // !  ========= body section ends from here ========= */}
+      </div>
     </>
   );
 };
