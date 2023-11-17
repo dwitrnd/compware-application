@@ -13,7 +13,6 @@ import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqu
 import ReviewsMarqueCarouselLower from "components/ReviewsMarqueCarousel/ReviewMarqueeUpper";
 import CourseSearch from "./components/CourseSearch/CoruseSearch";
 import { constant } from "constants/contants";
-import TiharImage from "../../assets/images/tihar.jpg";
 
 const Home = () => {
   const [course, setCourse] = useState("");
@@ -142,26 +141,18 @@ const Home = () => {
     backdropFilter: "blur(10px)",
   };
 
-  const Popup = ({ handleClose }) => (
-    <div style={popupStyle}>
-      <button style={closeButtonStyle} onClick={handleClose}>
-        X
-      </button>
-      <img src={TiharImage} style={imageStyle} alt="Tihar Festival" />
-    </div>
-  );
+  // const Popup = ({ handleClose }) => (
+  //   <div style={popupStyle}>
+  //     <button style={closeButtonStyle} onClick={handleClose}>
+  //       X
+  //     </button>
+  //     <img src={TiharImage} style={imageStyle} alt="Tihar Festival" />
+  //   </div>
+  // );
 
   return (
     <>
       <div style={{ position: "relative" }}>
-        {isPopupVisible && <Popup handleClose={handleClosePopup} />}
-        {isPopupVisible && (
-          <div
-            id="overlay"
-            style={overlayStyle}
-            onClick={handleOverlayClick}
-          ></div>
-        )}
         {/* //* =========hero section starts here========= */}
 
         <section id="hero-section">
