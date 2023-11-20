@@ -17,7 +17,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { toast } from "react-toastify";
-
+import { constant } from "constants/contants";
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -48,7 +48,7 @@ const MemberDialogBox = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
-
+  const url = `${constant.base}/api/request`;
   const currentDate = new Date();
   const nextThreeMonths = new Date(
     currentDate.getFullYear(),
@@ -137,7 +137,7 @@ const MemberDialogBox = () => {
     };
     console.log(data);
 
-    fetch("http://api.deerwalktrainingcenter.com/api/request-certificate/", {
+    fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -184,7 +184,7 @@ const MemberDialogBox = () => {
         open={open}
         id="request-certificate-dialog"
       >
-        <form onSubmit={handleSubmit}>
+        <form>
           <DialogTitle
             id="customized-dialog-title"
             onClose={handleClose}
@@ -322,13 +322,7 @@ const MemberDialogBox = () => {
             <Button ref={closeButtonRef} autoFocus onClick={handleClose}>
               Close
             </Button>
-            <Button
-              onClick={() => {
-                handleSubmit();
-              }}
-            >
-              Request
-            </Button>
+            <Button onClick={handleSubmit}>Request</Button>
             <Snackbar
               open={snackbarOpen}
               autoHideDuration={5000}
