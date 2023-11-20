@@ -4,37 +4,48 @@ class requestController {
   static post = async (req, res) => {
     try {
       const {
-        firstName,
-        lastName,
+        fullName,
         email,
+        contactNumber,
         course,
-        classSize,
-        startDate,
-        requestedDate,
-        level,
-        phone,
+        courseTrainer,
+        endTime,
+        startTime,
       } = req.body;
-      const request = await new Request({
-        firstName,
-        lastName,
+
+      const request = new Request({
+        fullName,
         email,
+        contactNumber,
         course,
-        classSize,
-        startDate,
-        requestedDate,
-        level,
-        phone,
+        courseTrainer,
+        endTime,
+        startTime,
       });
+
       const result = await request.save();
       res.status(200).json({
         status: true,
         msg: result,
       });
     } catch (err) {
-      res.status(500).json({
-        status: false,
-        msg: err,
-      });
+      if (
+        err.code === 11000 &&
+        err.keyPattern &&
+        err.keyPattern.contactNumber === 1
+      ) {
+        // Duplicate key error for the contactNumber field
+        res.status(400).json({
+          status: false,
+          msg: "Duplicate contact number. Please provide a unique contact number.",
+        });
+      } else {
+        // Other errors
+        res.status(500).json({
+          status: false,
+          msg: err.message,
+        });
+      }
     }
   };
 
@@ -56,29 +67,25 @@ class requestController {
   static patch = async (req, res) => {
     try {
       const {
-        firstName,
-        lastName,
+        fullName,
         email,
+        contactNumber,
         course,
-        classSize,
-        startDate,
-        requestedDate,
-        level,
-        phone,
+        courseTrainer,
+        endTime,
+        startTime,
       } = req.body;
       const requestId = req.params.id;
       const result = await Request.findByIdAndUpdate(
         requestId,
         {
-          firstName,
-          lastName,
+          fullName,
           email,
+          contactNumber,
           course,
-          classSize,
-          startDate,
-          requestedDate,
-          level,
-          phone,
+          courseTrainer,
+          endTime,
+          startTime,
         },
         { new: true }
       );

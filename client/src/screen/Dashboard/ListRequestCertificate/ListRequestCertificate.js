@@ -7,7 +7,7 @@ const ListRequestCertificate = () => {
 
   const [tableData, setTableData] = useState(null);
 
-  const url = `${constant.base}/api/request-certificate`;
+  const url = `${constant.base}/api/request`;
 
   useEffect(() => {
     axios.get(url).then((res) => {
@@ -34,7 +34,7 @@ const ListRequestCertificate = () => {
             <th>Course trainer</th>
             <th>Start time</th>
             <th>End time</th>
-            <th className='action-column'>Actions</th>
+            <th className="action-column">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -56,12 +56,18 @@ const ListRequestCertificate = () => {
                       <td>{data.startTime}</td>
                       <td>{data.endTime}</td>
                       <td>
-                        <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
                         <button
                           onClick={() => {
                             deleteRequest(data._id);
                           }}
-                          style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#dc3545", border: "none", outline: "none" }}
+                          style={{
+                            padding: "0.35rem 0.95rem",
+                            margin: "0.25rem",
+                            color: "white",
+                            background: "#dc3545",
+                            border: "none",
+                            outline: "none",
+                          }}
                         >
                           Delete
                         </button>
