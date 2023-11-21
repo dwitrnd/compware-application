@@ -97,11 +97,13 @@ const CourseDetailPage = () => {
               }}
             >
               <Stack spacing={2} direction={{ sm: "column", md: "row" }}>
-                <img
-                  src={`${constant.base}/storage/${courseDetail.courseLogo}`}
-                  className="course-image"
-                />
-
+                <div>
+                  <img
+                    src={`${constant.base}/storage/${courseDetail.courseLogo}`}
+                    className="course-image"
+                    style={{ width: "20rem" }}
+                  />
+                </div>
                 <Stack spacing={2} direction="column">
                   <Typography variant="h5" color="primary">
                     {courseDetail.courseName}
