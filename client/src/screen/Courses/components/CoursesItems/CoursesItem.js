@@ -38,7 +38,9 @@ const CoursesItem = ({
         >
           <div>
             <Stack direction={{ xs: "row", sm: "column" }} spacing={2}>
-              <img src={image} />
+              <div>
+                <img src={image} style={{ width: "15rem" }} />
+              </div>
               <div
                 style={{
                   display: "flex",
