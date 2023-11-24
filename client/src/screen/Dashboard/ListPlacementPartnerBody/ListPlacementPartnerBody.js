@@ -21,7 +21,7 @@ const ListPlacementPartnerBody = () => {
 
   return (
     <div>
-      <Link to='/dashboard/create-placement'>
+      <Link to="/dashboard/create-placement">
         <button
           style={{
             padding: "0.35rem 0.95rem",
@@ -43,14 +43,12 @@ const ListPlacementPartnerBody = () => {
             <th>ImageName</th>
             <th>ImageAltText</th>
 
-            <th className='action-column'>Actions</th>
+            <th className="action-column">Actions</th>
           </tr>
         </thead>
         <tbody>
           {(() => {
             if (tableData) {
-              console.log(tableData);
-
               if (tableData.length > 0) {
                 return tableData.map((data, index) => {
                   return (
@@ -70,7 +68,14 @@ const ListPlacementPartnerBody = () => {
                           onClick={() => {
                             deleteRequest(data._id);
                           }}
-                          style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#dc3545", border: "none", outline: "none" }}
+                          style={{
+                            padding: "0.35rem 0.95rem",
+                            margin: "0.25rem",
+                            color: "white",
+                            background: "#dc3545",
+                            border: "none",
+                            outline: "none",
+                          }}
                         >
                           Delete
                         </button>

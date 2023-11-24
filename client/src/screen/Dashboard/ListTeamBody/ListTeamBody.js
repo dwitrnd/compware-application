@@ -13,7 +13,6 @@ const ListTeamBody = () => {
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       /* The line `// setTableData(res.data.msg);` is commented out, which means it is not currently
       being executed. However, if it were to be uncommented, it would set the value of the
       `tableData` state variable to `res.data.msg`. This means that the data received from the API
@@ -63,8 +62,6 @@ const ListTeamBody = () => {
               /* tableData is a state with value []  */
             }
             if (tableData) {
-              console.log(tableData);
-
               if (tableData.length > 0) {
                 return tableData.map((data, index) => {
                   {

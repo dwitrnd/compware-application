@@ -16,7 +16,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import SifalSchool from "assets/icons/Sifal School.png";
-import Logispark from "assets/icons/Logispark.png";
 import HamroPatra from "assets/icons/hamropatro.png";
 import SMTM from "assets/icons/SMTM capital.jpg";
 import CND from "assets/icons/CNA.png";

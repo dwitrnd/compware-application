@@ -8,7 +8,6 @@ import DatePicker from "react-datepicker";
 import { Box, Typography } from "@mui/material";
 const ListEnrollStudent = () => {
   const [tableData, setTableData] = useState(null);
-  const [date, setDate] = useState(new Date());
   const [startDate, setStartDate] = useState();
   const [filterTableData, setFilterTableData] = useState();
   const [endDate, setEndDate] = useState();
@@ -44,15 +43,15 @@ const ListEnrollStudent = () => {
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       setTableData(res.data.msg);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     if (startDate && endDate) {
       // Filter tableData based on selected date range
-      console.log(startDate);
+
       const filteredData = tableData.filter((data) => {
         const formattedDate = new Date(data.formSubmited).toLocaleDateString(
           "en-US",
@@ -67,13 +66,8 @@ const ListEnrollStudent = () => {
       });
       setFilterTableData(filteredData);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startDate, endDate]);
-
-  const handleDateChange = (range) => {
-    const [startDate, endDate] = range;
-    setStartDate(startDate);
-    setEndDate(endDate);
-  };
 
   const deleteRequest = (id) => {
     axios.delete(`${url}/${id}`).then((res) => {
@@ -91,8 +85,6 @@ const ListEnrollStudent = () => {
       status = "not approved";
     }
 
-    console.log("Course Link: ", courseLink);
-
     await axios
       .patch(`${constant.base}/api/enrollmentStatus/status/${id}`, {
         email: email,
@@ -102,8 +94,6 @@ const ListEnrollStudent = () => {
         name: name,
       })
       .then((res) => {
-        console.log(res);
-
         if (res.status === 200) {
           setStatusChangeLoadingState(false);
           window.location.reload();
@@ -116,7 +106,7 @@ const ListEnrollStudent = () => {
 
   const findCourseLinkByName = async (courseName) => {
     // axios request where in body i pass courseName
-    console.log("Course Name finder: ", courseName);
+
     const courseURL = await axios
       .post(`${constant.base}/api/course/find-by-name`, {
         courseName: courseName,
@@ -174,7 +164,6 @@ const ListEnrollStudent = () => {
           {(() => {
             let datas = filterTableData;
             if (datas ? filterTableData : (datas = tableData)) {
-              console.log(datas);
               if (datas.length > 0) {
                 return datas.map((data, index) => {
                   const formattedDate = new Date(

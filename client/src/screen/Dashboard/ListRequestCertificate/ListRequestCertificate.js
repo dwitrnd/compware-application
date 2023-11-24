@@ -11,7 +11,6 @@ const ListRequestCertificate = () => {
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       setTableData(res.data.msg);
     });
   }, []);
@@ -43,7 +42,6 @@ const ListRequestCertificate = () => {
               /* tableData is a state with value []  */
             }
             if (tableData) {
-              console.log(tableData);
               if (tableData.length > 0) {
                 return tableData.map((data, index) => {
                   return (

@@ -51,10 +51,7 @@ function CreateTeam() {
         body: formDataToSend,
       });
 
-      console.log(response);
       if (response.ok) {
-        console.log("Testimonial created successfully!");
-
         setFormData({
           name: "",
           affiliation: "",
@@ -99,20 +96,52 @@ function CreateTeam() {
       <h1>Create Testimonial</h1>
       <form onSubmit={handleSubmit}>
         <label style={labelStyle}>Name</label>
-        <input required type='text' name='name' value={formData.name} onChange={handleInputChange} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
         <label style={labelStyle}>Affiliation</label>
-        <input required type='text' name='affiliation' value={formData.affiliation} onChange={handleInputChange} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="affiliation"
+          value={formData.affiliation}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>Description</label>
-        <ReactQuill value={formData.description} onChange={handleEditorChange} required />
+        <ReactQuill
+          value={formData.description}
+          onChange={handleEditorChange}
+          required
+        />
 
         <label style={labelStyle}>Image</label>
-        <input required type='file' accept='image/*' name='image' onChange={handleImageChange} style={inputStyle} />
+        <input
+          required
+          type="file"
+          accept="image/*"
+          name="image"
+          onChange={handleImageChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>Image Alt Text</label>
-        <input required type='text' name='imageAltText' value={formData.imageAltText} onChange={handleInputChange} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="imageAltText"
+          value={formData.imageAltText}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
-        <button type='submit' style={buttonStyle}>
+        <button type="submit" style={buttonStyle}>
           Create Testimonial
         </button>
       </form>

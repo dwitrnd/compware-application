@@ -20,9 +20,8 @@ const AdminForgotPassword = () => {
       email: data.get("email"),
     };
     if (actualData.email) {
-      console.log(actualData);
       const res = await sendPasswordResetEmail(actualData);
-      console.log(res);
+
       if (res.data.status === "success") {
         document.getElementById("password-reset-email-form").reset();
         setError({

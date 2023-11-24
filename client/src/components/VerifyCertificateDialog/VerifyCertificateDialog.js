@@ -39,7 +39,6 @@ const MemberDialogBox = () => {
         }),
       });
       const data = await response.json();
-      console.log(data);
       const { status } = data;
       if (status === true && data.msg === "Id exists") {
         setOpen(false);
@@ -56,7 +55,6 @@ const MemberDialogBox = () => {
         isFetching(false);
       }
     } catch (err) {
-      console.log(err);
       setError({
         errorStatus: true,
         errorMessage: "Error occured while verifying id.",
@@ -79,7 +77,6 @@ const MemberDialogBox = () => {
   };
 
   const handleVerify = () => {
-    console.log(inputValue);
     if (inputValue === "") {
       setError({
         errorStatus: true,
@@ -104,23 +101,29 @@ const MemberDialogBox = () => {
           padding: "0.35rem 0.35rem 0.35rem 0.8rem",
           width: "100%",
         }}
-        variant='text'
+        variant="text"
         disableElevation
         onClick={handleClickOpen}
       >
         Verify
       </div>
-      <Dialog onKeyDown={stopPropagationForTab} onClose={handleClose} aria-labelledby='customized-dialog-title' open={open} id='request-certificate-dialog'>
+      <Dialog
+        onKeyDown={stopPropagationForTab}
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+        id="request-certificate-dialog"
+      >
         <form>
           <DialogTitle
-            id='customized-dialog-title'
+            id="customized-dialog-title"
             onClose={handleClose}
             sx={{
               display: "flex",
               justifyContent: "center",
             }}
           >
-            <Typography variant='h4' color='primary'>
+            <Typography variant="h4" color="primary">
               Certificate Verification
             </Typography>
           </DialogTitle>
@@ -128,17 +131,30 @@ const MemberDialogBox = () => {
             if (error.errorStatus === true) {
               return (
                 <Snackbar open autoHideDuration={4000} style={{ zIndex: 99 }}>
-                  <Alert severity='error'>{error.errorMessage}</Alert>
+                  <Alert severity="error">{error.errorMessage}</Alert>
                 </Snackbar>
               );
             }
           })()}
           <DialogContent sx={{ display: "flex", flexDirection: "column" }}>
-            <Stack spacing={2} marginTop='20px'>
-              <Stack direction={{ xs: "column", sm: "row" }} alignItems='center' justifyContent='center' spacing={{ xs: 2, sm: 8 }}>
-                <Typography sx={{ marginBottom: "2rem" }}>Validation ID</Typography>
-                <Stack direction='column'>
-                  <TextField required type='name' variant='outlined' onChange={handleChange} value={inputValue} />
+            <Stack spacing={2} marginTop="20px">
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                alignItems="center"
+                justifyContent="center"
+                spacing={{ xs: 2, sm: 8 }}
+              >
+                <Typography sx={{ marginBottom: "2rem" }}>
+                  Validation ID
+                </Typography>
+                <Stack direction="column">
+                  <TextField
+                    required
+                    type="name"
+                    variant="outlined"
+                    onChange={handleChange}
+                    value={inputValue}
+                  />
                   <ForgotValidationID />
                 </Stack>
               </Stack>

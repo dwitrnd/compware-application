@@ -86,7 +86,6 @@ const MemberDialogBox = () => {
             year: "numeric",
           })
         : null;
-    console.log(selectedDate);
     setStartTime(selectedDate);
   };
   const handleEndDatePickerChange = (value) => {
@@ -99,7 +98,6 @@ const MemberDialogBox = () => {
             year: "numeric",
           })
         : null;
-    console.log(selectedDate);
     setEndTime(selectedDate);
   };
 
@@ -135,7 +133,6 @@ const MemberDialogBox = () => {
       startTime,
       endTime,
     };
-    console.log(data);
 
     fetch(url, {
       method: "POST",
@@ -153,7 +150,6 @@ const MemberDialogBox = () => {
       }),
     })
       .then((res) => {
-        console.log(res);
         toast("Submitted successfully!");
       })
       .catch((err) => {

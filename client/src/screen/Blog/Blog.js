@@ -22,7 +22,6 @@ const Blog = () => {
   useEffect(() => {
     setIsLoading(true);
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       setAllTableData(res.data.msg);
       setTableData(res.data.msg);
       setIsLoading(false);

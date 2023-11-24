@@ -1,13 +1,12 @@
 import React from "react";
 import { Box } from "@material-ui/core";
-import Grid from "@mui/material/Unstable_Grid2/Grid2";
+
 import { Button, Typography } from "@mui/material";
-import ExpressJs from "../../../../assets/images/courses/expressjs.png";
+
 import { useState } from "react";
 import CourseEnrollDialog from "screen/Courses/components/CourseEnrollDialog/CourseEnrollDialog";
 import Stack from "@mui/material/Stack";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 const CoursesItem = ({
   id,
@@ -18,8 +17,6 @@ const CoursesItem = ({
   image,
   abstract,
 }) => {
-  const [open, setOpen] = useState(false);
-  const courseName = "Javascript";
   return (
     <>
       <Box

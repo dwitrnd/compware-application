@@ -47,7 +47,6 @@ const People = ({ size }) => {
   useEffect(() => {
     setIsLoading(true);
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       setTableData(res.data.msg);
       setIsLoading(false);
     });
@@ -102,8 +101,6 @@ const People = ({ size }) => {
       <div>
         <Marquee key={key} velocity={marqueeRunningState}>
           {tableData.map((item, index) => {
-            console.log(index);
-
             {
               /*  return below for half length of tableData  */
             }

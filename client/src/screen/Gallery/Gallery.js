@@ -55,8 +55,6 @@ export default function App() {
     const url = `${constant.base}/api/gallery`;
 
     axios.get(url).then((res) => {
-      console.log(res.data);
-
       const images = res.data.msg.map((image) => {
         return {
           src: `${constant.base}/storage/${image.Image}`,
@@ -66,7 +64,6 @@ export default function App() {
 
       setImages(images);
       setFilteredImages(images);
-      console.log(images);
     });
   }, []);
 
@@ -74,8 +71,8 @@ export default function App() {
     <>
       <Container>
         <Typography
-          variant='h3'
-          color='primary'
+          variant="h3"
+          color="primary"
           style={{
             display: "flex",
             justifyContent: "center",
@@ -88,7 +85,11 @@ export default function App() {
 
         {/* <TextField id='standard-search' label='Search field' type='search' variant='standard' onChange={(e) => filterImages(e.target.value)} sx={{ width: "10.5rem", marginBottom: "2rem" }} /> */}
 
-        <Gallery images={filteredImages} onClick={handleClick} enableImageSelection={false} />
+        <Gallery
+          images={filteredImages}
+          onClick={handleClick}
+          enableImageSelection={false}
+        />
 
         {!!currentImage && (
           /* @ts-ignore */

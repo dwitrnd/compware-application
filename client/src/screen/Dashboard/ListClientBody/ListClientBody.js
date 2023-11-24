@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { constant } from "constants/contants";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const ListClientBody = () => {
@@ -13,7 +12,6 @@ const ListClientBody = () => {
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       /* The line `// setTableData(res.data.msg);` is commented out, which means it is not currently
       being executed. However, if it were to be uncommented, it would set the value of the
       `tableData` state variable to `res.data.msg`. This means that the data received from the API
@@ -21,6 +19,7 @@ const ListClientBody = () => {
       the table rows in the component. */
       setTableData(res.data.msg);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const deleteRequest = (id) => {
@@ -31,7 +30,7 @@ const ListClientBody = () => {
 
   return (
     <div>
-      <Link to='/dashboard/create-client'>
+      <Link to="/dashboard/create-client">
         <button
           style={{
             padding: "0.35rem 0.95rem",
@@ -53,25 +52,14 @@ const ListClientBody = () => {
             <th>ImageName</th>
             <th>ImageAltText</th>
 
-            <th className='action-column'>Actions</th>
+            <th className="action-column">Actions</th>
           </tr>
         </thead>
         <tbody>
           {(() => {
-            {
-              /* tableData is a state with value []  */
-            }
             if (tableData) {
-              console.log(tableData);
-
               if (tableData.length > 0) {
                 return tableData.map((data, index) => {
-                  {
-                    /* if(data.Post){
-
-                  }
-                   */
-                  }
                   return (
                     <tr key={index}>
                       <td>
@@ -89,7 +77,14 @@ const ListClientBody = () => {
                           onClick={() => {
                             deleteRequest(data._id);
                           }}
-                          style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#dc3545", border: "none", outline: "none" }}
+                          style={{
+                            padding: "0.35rem 0.95rem",
+                            margin: "0.25rem",
+                            color: "white",
+                            background: "#dc3545",
+                            border: "none",
+                            outline: "none",
+                          }}
                         >
                           Delete
                         </button>

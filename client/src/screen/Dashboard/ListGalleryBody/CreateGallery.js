@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -19,8 +19,6 @@ const CreateGallery = () => {
     formData.append("ImageName", ImageName);
     formData.append("ImageAltText", ImageAltText);
 
-    console.log(formData);
-
     try {
       const response = await axios.post(apiUrl, formData, {
         headers: {
@@ -28,11 +26,9 @@ const CreateGallery = () => {
         },
       });
 
-      console.log("response =", response);
       toast.success("Gallery created successfully");
       // navigate("/dashboard");
     } catch (error) {
-      console.log("error =", error);
       toast.error("Something went wrong");
     }
   };
@@ -42,7 +38,7 @@ const CreateGallery = () => {
       <form onSubmit={createCourse}>
         {/* //! IMAGE "File" */}
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor='gallery-img'>Image File Upload</label>
+          <label htmlFor="gallery-img">Image File Upload</label>
           <input
             style={{
               width: "100%",
@@ -50,18 +46,17 @@ const CreateGallery = () => {
               borderRadius: "5px",
               border: "1px solid #ccc",
             }}
-            type='file'
-            id='gallery-img'
-            placeholder='Enter course logo'
+            type="file"
+            id="gallery-img"
+            placeholder="Enter course logo"
             onChange={(e) => {
-              console.log(e.target.files[0]);
               setImage(e.target.files[0]);
             }}
           />
         </div>
         {/* //! IMAGE Name */}
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor='imageName'>Image Name</label>
+          <label htmlFor="imageName">Image Name</label>
           <input
             style={{
               width: "100%",
@@ -69,9 +64,9 @@ const CreateGallery = () => {
               borderRadius: "5px",
               border: "1px solid #ccc",
             }}
-            type='text'
-            id='imageName'
-            placeholder='Enter image name'
+            type="text"
+            id="imageName"
+            placeholder="Enter image name"
             value={ImageName}
             onChange={(e) => setImageName(e.target.value)}
           />
@@ -80,7 +75,7 @@ const CreateGallery = () => {
         {/* //! IMAGE ALT TEXT */}
 
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor='imageAltText'>Image Alt Text</label>
+          <label htmlFor="imageAltText">Image Alt Text</label>
           <input
             style={{
               width: "100%",
@@ -88,9 +83,9 @@ const CreateGallery = () => {
               borderRadius: "5px",
               border: "1px solid #ccc",
             }}
-            type='text'
-            id='imageAltText'
-            placeholder='Enter image alt text'
+            type="text"
+            id="imageAltText"
+            placeholder="Enter image alt text"
             value={ImageAltText}
             onChange={(e) => setImageAltText(e.target.value)}
           />
@@ -101,7 +96,6 @@ const CreateGallery = () => {
             padding: "15px",
             color: "white",
             background: "#0f5288",
-            color: "white",
             border: "none",
             borderRadius: "5px",
             cursor: "pointer",
@@ -109,7 +103,7 @@ const CreateGallery = () => {
             fontSize: "16px",
             marginTop: "20px",
           }}
-          type='submit'
+          type="submit"
         >
           Post Gallery
         </button>

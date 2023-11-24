@@ -82,10 +82,9 @@ const Dashboard = ({ children }) => {
       });
     }
   }, [userInfo]);
-  console.log(data);
+
   const navigate = useNavigate();
   const handleLogout = () => {
-    console.log("Logout Clicked");
     dispatch(
       unsetUserToken({
         token: null,
