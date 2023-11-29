@@ -539,22 +539,7 @@ function App() {
                   </DashboardLayout>
                 }
               />
-              <Route
-                path="/dashboard/list-popup"
-                element={
-                  <DashboardLayout>
-                    <ListPopUp />
-                  </DashboardLayout>
-                }
-              />
-              <Route
-                path="/dashboard/create-popup"
-                element={
-                  <DashboardLayout>
-                    <CreatePopUp />
-                  </DashboardLayout>
-                }
-              />
+              
 
               {/* //! Dasboard private routes ends here */}
 

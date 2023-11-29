@@ -28,19 +28,6 @@ const Home = () => {
     }
   };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${constant.base}/api/popup`);
-        const popupData = response.data.msg;
-
-        // Check if there is popup data
-        if (popupData && popupData.length > 0) {
-          setIsPopupOpen(true);
-        }
-      } catch (error) {
-        console.error("Error fetching popup data:", error);
-      }
-    };
 
     AOS.init({
       duration: 2000,
