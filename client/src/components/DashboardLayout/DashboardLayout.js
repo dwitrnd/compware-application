@@ -170,7 +170,7 @@ const Dashboard = ({ children }) => {
               <Link to="/dashboard/list-students">
                 <span> Students </span>
               </Link>
-
+              </li>
             <li class="sidebar-list-item">
               <Link to="/dashboard/list-request-certificate">
                 <span>Requested Certificates</span>
