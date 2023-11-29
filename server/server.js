@@ -5,11 +5,13 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 const connectDB = require("./config/connectdb");
 const app = express();
+const bodyparser=require("body-parser");
 // config dotenv
 dotenv.config();
 // config body-parser
-app.use(express.json({ limit: "50mb" })); //? allow body parsing
-app.use(express.urlencoded({ extended: true, limit: "50mb" }));
+app.use(bodyparser.urlencoded({extended: false}))
+// app.use(express.json({ limit: "50mb" })); //? allow body parsing
+// app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 // config cors
 app.use(
   cors({
@@ -45,7 +47,7 @@ const trainerRoutes = require("./routes/trainerRouter");
 const contactRoutes = require("./routes/contactRouter");
 const clientRoutes = require("./routes/clientRouter");
 const placementRoutes = require("./routes/placementRouter");
-
+const courseCategoryRoutes=require("./routes/courseCategoryRouter");
 const popupRoutes = require("./routes/popupRouter");
 
 app.use(fileUpload());
@@ -58,7 +60,7 @@ app.use("/api/blog", blogRoutes);
 app.use("/api/notifications", notificationRoutes);
 app.use("/api/session", sessionRoutes);
 app.use("/api/gallery", galleryRoutes);
-
+app.use("/api/coursecategory",courseCategoryRoutes);
 app.use("/api/sendEmail", emailRoutes);
 
 app.use("/api/team", teamRoutes);
@@ -72,7 +74,6 @@ app.use("/api/client", clientRoutes);
 app.use("/api/placement", placementRoutes);
 app.use("/api/verify-certificate", studentRoutes);
 app.use("/api/enrollmentStatus", enquiryRoutes);
-
 app.use("/api/popup", popupRoutes);
 app.use("/storage", express.static(path.join(appRoot, "storage")));
 

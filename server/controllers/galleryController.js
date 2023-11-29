@@ -1,15 +1,15 @@
 const { validationResult } = require("express-validator");
-const gallery = require("../models/Gallery");
+const gallery = require("../models/GalleryCategory");
 const fs = require("fs");
 
 class galleryController {
   static post = async (req, res) => {
     try {
       const { ImageName, ImageAltText, Image } = req.body;
-      const file = req.files.Image;
+      const file = req.files.images;
 
       const timestamp = Date.now();
-      const filename = `photo_${timestamp}.jpeg`;
+      const filename = `photo_${timestamp}${File.name}.jpeg`;
       console.log("--------------------------------------");
       file.mv(`./storage/${filename}`, (error) => {
         if (error) {

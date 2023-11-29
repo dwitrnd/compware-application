@@ -16,7 +16,6 @@ import ResetPassword from "./screen/auth/ResetPassword";
 import SendPasswordResetEmail from "./screen/auth/SendPasswordResetEmail";
 import Dashboard from "./screen/Dashboard";
 import OurTeam from "./screen/OurTeam";
-import Gallery from "./screen/Gallery";
 import AdminLogin from "./screen/AdminAuth/AdminLogin";
 import AdminRegister from "./screen/AdminAuth/AdminRegister";
 import AdminForgotPassword from "./screen/AdminAuth/AdminForgotPassword";
@@ -63,6 +62,8 @@ import ListPlacementPartnerBody from "screen/Dashboard/ListPlacementPartnerBody/
 import CreatePlacementPartner from "screen/Dashboard/ListPlacementPartnerBody/CreatePlacementPartner";
 import ListPopUp from "screen/Dashboard/ListPopUp/ListPopUp";
 import CreatePopUp from "screen/Dashboard/ListPopUp/CreatePopUp";
+import Gallery from "screen/Gallery/Gallery";
+import GalleryCategoryDetails from "screen/GalleryCategoryDetails";
 
 // Simple git
 const theme = createTheme({
@@ -132,6 +133,7 @@ function App() {
                     </Layout>
                   }
                 />
+                
                 <Route
                   path="contact-us"
                   element={
@@ -217,6 +219,19 @@ function App() {
                     !token ? (
                       <Layout>
                         <CourseDetailPage />
+                      </Layout>
+                    ) : (
+                      <Navigate to="/dashboard" />
+                    )
+                  }
+                />
+
+                <Route
+                  path="gallery/:id"
+                  element={
+                    !token ? (
+                      <Layout>
+                        <GalleryCategoryDetails />
                       </Layout>
                     ) : (
                       <Navigate to="/dashboard" />

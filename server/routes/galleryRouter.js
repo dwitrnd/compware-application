@@ -1,10 +1,11 @@
-const galleryController = require("../controllers/galleryController");
+const galleryControllers=require("../controllers/galleryControllers");
 const galleryRouter = require("express").Router();
 
-galleryRouter.get("/", galleryController.get);
-galleryRouter.post("/", galleryController.post);
-galleryRouter.patch("/:id", galleryController.patch);
-galleryRouter.delete("/:id", galleryController.delete);
-galleryRouter.get("/:id", galleryController.getOne);
+galleryRouter.post("/",galleryControllers.post);
+galleryRouter.get("/",galleryControllers.get);
+galleryRouter.get("/:id",galleryControllers.getOne);
+galleryRouter.patch("/:id",galleryControllers.patch);
+galleryRouter.delete("/",galleryControllers.deleteAll);
+galleryRouter.delete("/:id",galleryControllers.delete);
 
 module.exports = galleryRouter;
