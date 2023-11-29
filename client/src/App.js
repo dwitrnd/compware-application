@@ -64,6 +64,8 @@ import ListPopUp from "screen/Dashboard/ListPopUp/ListPopUp";
 import CreatePopUp from "screen/Dashboard/ListPopUp/CreatePopUp";
 import Gallery from "screen/Gallery/Gallery";
 import GalleryCategoryDetails from "screen/GalleryCategoryDetails";
+import ListGalleryEdit from "screen/Dashboard/ListGalleryBody/ListGalleryEdit";
+import EditGallery from "screen/Dashboard/ListGalleryBody/EditGallery";
 
 // Simple git
 const theme = createTheme({
@@ -412,14 +414,22 @@ function App() {
                   </DashboardLayout>
                 }
               />
-              {/* <Route
-                path='/dashboard/create-course'
+              <Route
+                path="/dashboard/list-gallery/:id"
                 element={
                   <DashboardLayout>
-                    <CreateCourse />
+                    <ListGalleryEdit />
                   </DashboardLayout>
                 }
-              /> */}
+              />
+              <Route
+                path='/dashboard/editGallery/:id'
+                element={
+                  <DashboardLayout>
+                    <EditGallery />
+                  </DashboardLayout>
+                }
+              />
               <Route
                 path="/dashboard/update-course/:id"
                 element={

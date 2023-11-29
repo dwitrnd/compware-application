@@ -8,15 +8,14 @@ const ListGalleryBody = () => {
 
   const [tableData, setTableData] = useState(null);
   const[image, setImage]=useState([]);
-  const [visible, setVisible] = useState(4);
 
   const url = `${constant.base}/api/gallery`;
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
+      console.log(res);
       setTableData(res.data.msg);
-      setImage(res.data.msg);
+      setImage(res.data.msg[0]);
       console.log(image);
     });
   }, []);
@@ -25,14 +24,6 @@ const ListGalleryBody = () => {
     axios.delete(`${url}/${id}`).then((res) => {
       window.location.reload();
     });
-  };
-  const showMoreItems = () => {
-    setVisible((preValue) => preValue + 8);
-    console.log()
-  };
-
-  const showLessItems=()=>{
-    setVisible(4);
   };
 
   return (
@@ -55,7 +46,7 @@ const ListGalleryBody = () => {
       <table>
         <thead>
           <tr>
-            <th>Image</th>
+           
             <th>Image Category</th>
 
             <th className='action-column'>Actions</th>
@@ -77,7 +68,7 @@ const ListGalleryBody = () => {
                   }
                   return (
                     <tr key={index}>
-                      <td>
+                      
                       {/* { 
             image.slice(0, visible).map((image) => (
               <img
@@ -96,10 +87,12 @@ const ListGalleryBody = () => {
           </button>
           }
                          */}
-                      </td>
-                      <td>{data.galleryCategoryName}</td>
+                      <td><Link to={`/dashboard/list-gallery/${data._id}`}>{data.galleryCategoryName}</Link></td>
 
                       <td>
+                      <a href={`/dashboard/editGallery/${data._id}`}>
+                          <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                        </a>
                         <button
                           onClick={() => {
                             deleteRequest(data._id);

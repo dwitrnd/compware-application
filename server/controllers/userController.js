@@ -165,6 +165,7 @@ class UserController {
   static userLogin = async (req, res) => {
     try {
       const { email, password } = req.body;
+      console.log(req)
       //check if email and password field are not empty
       if (email && password) {
         //check if user exist

@@ -9,9 +9,8 @@ const bodyparser=require("body-parser");
 // config dotenv
 dotenv.config();
 // config body-parser
-app.use(bodyparser.urlencoded({extended: false}))
-// app.use(express.json({ limit: "50mb" })); //? allow body parsing
-// app.use(express.urlencoded({ extended: true, limit: "50mb" }));
+app.use(express.json({ limit: "50mb" })); //? allow body parsing
+app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 // config cors
 app.use(
   cors({
@@ -84,5 +83,5 @@ app.get("/", (req, res) => {
 });
 const port = process.env.PORT;
 app.listen(port, () => {
-  console.log(`server is runninng in port ${port}`);
+  console.log(`server is running in port ${port}`);
 });

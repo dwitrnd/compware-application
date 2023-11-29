@@ -13,7 +13,7 @@ class galleryControllers {
                 return res.status(400).json({ errors: errors.array() });
             }
             const {galleryCategoryName} = req.body;
-            const existingCategory = await gallery.findOne({ galleryCategoryName });
+            const existingCategory = await gallery.findOne({ galleryCategoryName:{ $regex: new RegExp('^' + galleryCategoryName + '$', 'i') } });
 
             if (existingCategory) {
             return res.status(400).json({ message: "Category already exists" });
@@ -27,7 +27,9 @@ class galleryControllers {
               for (const file of Object.values(req.files.images)) {
             //   Object.values(req.files.images).forEach((file) => {
                 const timestamp = Date.now();
-                const imageName = `images_${timestamp}${file.name.slice(0,1)}.jpg`;
+                const randomString = Math.random().toString(36).substring(2, 8); // Random string of length 6
+                const fileExtension = file.name.split('.').pop();
+                const imageName = `images_${timestamp}_${randomString}.${fileExtension}`;
           
                 // Move the file to the 'uploads/' directory
                 file.mv(`./storage/${imageName}`);
@@ -89,66 +91,80 @@ class galleryControllers {
     };
 
     static patch = async (req, res) => {
-      console.log(req.body);
       try {
-          const { galleryCategoryName, action, imageNameToDelete } = req.body;
-  
-          // Check for validation errors
-          const errors = validationResult(req);
-          if (!errors.isEmpty()) {
-              return res.status(400).json({ errors: errors.array() });
-          }
-  
-          // Check if the gallery category exists
-          const existingCategory = await gallery.findOne({ galleryCategoryName });
-          if (!existingCategory) {
-              return res.status(404).json({ message: "Category not found" });
-          }
-  
-          if (action === "addImage") {
-              // Add new image
-              if (!req.files || Object.keys(req.files).length === 0) {
-                  return res.status(400).json({ message: "No files were uploaded" });
-              }
-  
-              const file = req.files.newImage;
-              const timestamp = Date.now();
-              const newImageName = `images_${timestamp}${file.name.slice(0, 1)}.jpg`;
-  
-              file.mv(`./storage/${newImageName}`);
-  
-              existingCategory.images.push(newImageName);
-          } else if (action === "deleteImage") {
-              // Delete specific image
-              const indexToDelete = existingCategory.images.indexOf(imageNameToDelete);
-  
-              if (indexToDelete === -1) {
-                  return res.status(404).json({ message: "Image not found in the category" });
-              }
-  
-              // Remove the image from the array
-              existingCategory.images.splice(indexToDelete, 1);
-          } else {
-              return res.status(400).json({ message: "Invalid action" });
-          }
-  
-          // Save the updated category
-          const result = await existingCategory.save();
-  
-          res.status(200).json({
-              status: true,
-              msg: result,
-          });
-      } catch (error) {
-          res.status(500).json({
-              status: false,
-              msg: "Internal Server Error",
-          });
-          console.log(error);
-      }
-  };  
+        const { galleryCategoryName } = req.body;
     
-      
+        // Check for validation errors
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+          return res.status(400).json({ errors: errors.array() });
+        }
+    
+        const categoryId = req.params.id;
+    
+        // Find the existing category by ID
+        const existingCategory = await gallery.findById(categoryId);
+    
+        if (!existingCategory) {
+          return res.status(404).json({ message: "Category not found" });
+        }
+    
+        // Update category name if provided
+        if (galleryCategoryName) {
+          existingCategory.galleryCategoryName = galleryCategoryName;
+        }
+    
+        // Check if new images are uploaded
+        if (req.files && Object.keys(req.files).length > 0) {
+          const newImages = [];
+    
+          if (Array.isArray(req.files.images)) {
+            // Handle the case when multiple images are uploaded
+            for (const file of Object.values(req.files.images)) {
+              const timestamp = Date.now();
+              const randomString = Math.random().toString(36).substring(2, 8); // Random string of length 6
+              const fileExtension = file.name.split('.').pop();
+              const imageName = `images_${timestamp}_${randomString}.${fileExtension}`;
+    
+              // Move the file to the 'storage/' directory
+              file.mv(`./storage/${imageName}`);
+    
+              newImages.push(imageName);
+            }
+          } else {
+            // Handle the case when a single image is uploaded
+            const file = req.files.images;
+            const timestamp = Date.now();
+            const randomString = Math.random().toString(36).substring(2, 8); // Random string of length 6
+            const fileExtension = file.name.split('.').pop();
+            const imageName = `images_${timestamp}_${randomString}.${fileExtension}`;
+    
+            // Move the file to the 'storage/' directory
+            file.mv(`./storage/${imageName}`);
+    
+            newImages.push(imageName);
+          }
+    
+          // Add new images to the existing category
+          existingCategory.images = existingCategory.images.concat(newImages);
+        }
+    
+        // Save the updated category
+        const updatedCategory = await existingCategory.save();
+    
+        res.status(200).json({
+          status: true,
+          msg: updatedCategory,
+        });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({
+          status: false,
+          msg: "Internal Server Error",
+        });
+      }
+    };
+    
       static deleteAll = async (req, res) => {
         try {
           const result = await gallery.deleteMany({});
@@ -180,5 +196,52 @@ class galleryControllers {
           });
         }
       };
+
+      static deleteImage = async (req, res) => {
+        try {
+          const { id, imageName } = req.params;
+    
+          // Validate ObjectId
+          const isValidObjectId = mongoose.isValidObjectId(id);
+          if (!isValidObjectId) {
+            return res.status(400).json({ status: false, msg: "Invalid object id" });
+          }
+    
+          // Find the gallery by ID
+          const existingCategory = await gallery.findById(id);
+          if (!existingCategory) {
+            return res.status(404).json({ status: false, msg: "Gallery not found" });
+          }
+    
+          // Check if the image exists in the images array
+          const imageIndex = existingCategory.images.indexOf(imageName);
+          if (imageIndex === -1) {
+            return res.status(404).json({ status: false, msg: "Image not found" });
+          }
+    
+          // Remove the image from the images array
+          existingCategory.images.splice(imageIndex, 1);
+    
+          // Save the updated gallery
+          const updatedGallery = await existingCategory.save();
+    
+          // Delete the image file from storage
+          const imagePath = `./storage/${imageName}`;
+          if (fs.existsSync(imagePath)) {
+            fs.unlinkSync(imagePath);
+          }
+    
+          res.status(200).json({
+            status: true,
+            msg: "Image deleted successfully",
+            data: updatedGallery,
+          });
+        } catch (error) {
+          console.error("Error deleting image:", error);
+          res.status(500).json({ status: false, msg: "Internal Server Error" });
+        }
+      };
+
 }
+
 module.exports = galleryControllers
