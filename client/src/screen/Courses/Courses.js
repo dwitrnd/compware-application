@@ -88,7 +88,6 @@ const Courses = () => {
   useEffect(() => {
     setIsLoading(true);
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       setAllTableData(res.data.msg);
       setTableData(res.data.msg);
       setIsLoading(false);
@@ -123,7 +122,6 @@ const Courses = () => {
 
   const handlePageChange = (event, page) => {
     // `page` contains the current page number
-    console.log("Current page:", page);
     setPageNumber(page);
   };
 
@@ -167,7 +165,6 @@ const Courses = () => {
     };
 
     if (searchTextFunction(url)) {
-      console.log(searchTextFunction(url));
       if (allTableData.length > 0) {
         const filteredData = allTableData.filter((item) =>
           item.courseName
@@ -178,7 +175,6 @@ const Courses = () => {
       }
     }
     if (searchByCategoryFunction(url)) {
-      console.log(searchByCategoryFunction(url));
       if (allTableData.length > 0) {
         const filteredData = allTableData.filter((item) =>
           item.courseCategory
@@ -194,7 +190,6 @@ const Courses = () => {
     // use loop and print the .value for every i
 
     selectedOptions.map((item) => {
-      console.log(item.value);
       filterCourse(item.value);
       filterCourse(item.value);
       // filter courses category  based  on item.value

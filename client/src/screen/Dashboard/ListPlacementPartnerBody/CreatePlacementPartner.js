@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -19,8 +19,6 @@ const CreatePlacementPartner = () => {
     formData.append("ImageName", ImageName);
     formData.append("ImageAltText", ImageAltText);
 
-    console.log(formData);
-
     try {
       const response = await axios.post(apiUrl, formData, {
         headers: {
@@ -28,11 +26,9 @@ const CreatePlacementPartner = () => {
         },
       });
 
-      console.log("response =", response);
       toast.success("Placement created successfully");
       // navigate("/dashboard");
     } catch (error) {
-      console.log("error =", error);
       toast.error("Something went wrong");
     }
   };
@@ -41,7 +37,7 @@ const CreatePlacementPartner = () => {
     <div style={{ maxWidth: "500px", margin: "auto", padding: "20px" }}>
       <form onSubmit={createClient}>
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor='placement-img'>Image File Upload</label>
+          <label htmlFor="placement-img">Image File Upload</label>
           <input
             style={{
               width: "100%",
@@ -49,17 +45,16 @@ const CreatePlacementPartner = () => {
               borderRadius: "5px",
               border: "1px solid #ccc",
             }}
-            type='file'
-            id='client-img'
-            placeholder='Enter course logo'
+            type="file"
+            id="client-img"
+            placeholder="Enter course logo"
             onChange={(e) => {
-              console.log(e.target.files[0]);
               setImage(e.target.files[0]);
             }}
           />
         </div>
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor='imageName'>Image Name</label>
+          <label htmlFor="imageName">Image Name</label>
           <input
             style={{
               width: "100%",
@@ -67,15 +62,15 @@ const CreatePlacementPartner = () => {
               borderRadius: "5px",
               border: "1px solid #ccc",
             }}
-            type='text'
-            id='imageName'
-            placeholder='Enter image name'
+            type="text"
+            id="imageName"
+            placeholder="Enter image name"
             value={ImageName}
             onChange={(e) => setImageName(e.target.value)}
           />
         </div>
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor='imageAltText'>Image Alt Text</label>
+          <label htmlFor="imageAltText">Image Alt Text</label>
           <input
             style={{
               width: "100%",
@@ -83,9 +78,9 @@ const CreatePlacementPartner = () => {
               borderRadius: "5px",
               border: "1px solid #ccc",
             }}
-            type='text'
-            id='imageAltText'
-            placeholder='Enter image alt text'
+            type="text"
+            id="imageAltText"
+            placeholder="Enter image alt text"
             value={ImageAltText}
             onChange={(e) => setImageAltText(e.target.value)}
           />
@@ -95,7 +90,7 @@ const CreatePlacementPartner = () => {
             padding: "15px",
             color: "white",
             background: "#0f5288",
-            color: "white",
+
             border: "none",
             borderRadius: "5px",
             cursor: "pointer",
@@ -103,7 +98,7 @@ const CreatePlacementPartner = () => {
             fontSize: "16px",
             marginTop: "20px",
           }}
-          type='submit'
+          type="submit"
         >
           Create Placement
         </button>

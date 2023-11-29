@@ -28,22 +28,16 @@ const CourseDetailPage = () => {
 
   const url = `${constant.base}/api/course/${id}`;
   const recommendationUrl = `${constant.base}/api/course`;
-  const pageNumber = 1;
-  const itemsPerPage = 6;
-  const [tableData, setTableData] = useState([]);
-  const [allTableData, setAllTableData] = useState([]);
   const [recommendationTableData, setRecommendationTableData] = useState([]);
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       setCourseDetail(res.data.msg);
     });
   }, []);
 
   useEffect(() => {
     axios.get(recommendationUrl).then((res) => {
-      console.log(res.data.msg);
       setRecommendationTableData(res.data.msg);
     });
   }, []);
@@ -82,7 +76,7 @@ const CourseDetailPage = () => {
               justifyContent: "center",
             }}
           >
-            Course Detail
+            Course Details
           </Typography>
         </section>
         <Grid container spacing={2}>
@@ -97,11 +91,13 @@ const CourseDetailPage = () => {
               }}
             >
               <Stack spacing={2} direction={{ sm: "column", md: "row" }}>
-                <img
-                  src={`${constant.base}/storage/${courseDetail.courseLogo}`}
-                  className="course-image"
-                />
-
+                <div>
+                  <img
+                    src={`${constant.base}/storage/${courseDetail.courseLogo}`}
+                    className="course-image"
+                    style={{ width: "20rem" }}
+                  />
+                </div>
                 <Stack spacing={2} direction="column">
                   <Typography variant="h5" color="primary">
                     {courseDetail.courseName}
@@ -185,6 +181,7 @@ const CourseDetailPage = () => {
                     slugTitle={recommendation.slugTitle}
                     name={recommendation.courseName}
                     image={`${constant.base}/storage/${recommendation.courseLogo}`}
+                    alt={recommendation.imageName}
                   />
                 ))}
               </Stack>

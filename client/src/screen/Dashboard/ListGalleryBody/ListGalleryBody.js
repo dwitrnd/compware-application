@@ -14,7 +14,6 @@ const ListGalleryBody = () => {
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       setTableData(res.data.msg);
       setImage(res.data.msg);
       console.log(image);
@@ -37,7 +36,7 @@ const ListGalleryBody = () => {
 
   return (
     <div>
-      <Link to='/dashboard/create-gallery'>
+      <Link to="/dashboard/create-gallery">
         <button
           style={{
             padding: "0.35rem 0.95rem",
@@ -58,7 +57,7 @@ const ListGalleryBody = () => {
             <th>Image</th>
             <th>Image Category</th>
 
-            <th className='action-column'>Actions</th>
+            <th className="action-column">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -104,7 +103,14 @@ const ListGalleryBody = () => {
                           onClick={() => {
                             deleteRequest(data._id);
                           }}
-                          style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#dc3545", border: "none", outline: "none" }}
+                          style={{
+                            padding: "0.35rem 0.95rem",
+                            margin: "0.25rem",
+                            color: "white",
+                            background: "#dc3545",
+                            border: "none",
+                            outline: "none",
+                          }}
                         >
                           Delete
                         </button>

@@ -5,31 +5,27 @@ const requestSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  courseTrainer: {
-    type: String,
-    required: true,
-  },
   email: {
     type: String,
     required: true,
-    unique: true,
   },
   course: {
     type: String,
     required: true,
   },
-  startDate: {
-    type: Number,
+  contactNumber: {
+    type: String,
     required: true,
   },
-  endDate: {
-    type: Number,
-    required: true,
+  startTime: {
+    type: String,
   },
-  phone: {
-    type: Number,
+  endTime: {
+    type: String,
+  },
+  courseTrainer: {
+    type: String,
     required: true,
-    unique: true,
   },
   status: {
     type: String,

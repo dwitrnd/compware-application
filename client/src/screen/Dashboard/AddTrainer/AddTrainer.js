@@ -48,7 +48,7 @@ const AddTrainer = () => {
 
       if (response.ok) {
         // Handle success (e.g., show a success message)
-        console.log("Trainer added successfully!");
+
         toast.success("Trainer added successfully");
         window.location.href = "/dashboard/list-trainer";
       } else {
@@ -65,12 +65,29 @@ const AddTrainer = () => {
       <h1>Add Trainer</h1>
       <form onSubmit={handleSubmit}>
         <label style={labelStyle}>Name</label>
-        <input type='text' style={inputStyle} value={trainerName} onChange={(e) => setTrainerName(e.target.value)} />
+        <input
+          type="text"
+          style={inputStyle}
+          value={trainerName}
+          onChange={(e) => setTrainerName(e.target.value)}
+        />
         <label style={labelStyle}>Signature</label>
-        <input type='file' name='image' id='image' accept='image/*' style={inputStyle} onChange={(e) => setSignature(e.target.files[0])} />
+        <input
+          type="file"
+          name="image"
+          id="image"
+          accept="image/*"
+          style={inputStyle}
+          onChange={(e) => setSignature(e.target.files[0])}
+        />
         <label style={labelStyle}>Title</label>
-        <input type='text' style={inputStyle} value={trainerTitle} onChange={(e) => setTrainerTitle(e.target.value)} />
-        <button style={buttonStyle} type='submit'>
+        <input
+          type="text"
+          style={inputStyle}
+          value={trainerTitle}
+          onChange={(e) => setTrainerTitle(e.target.value)}
+        />
+        <button style={buttonStyle} type="submit">
           Add Trainer
         </button>
       </form>

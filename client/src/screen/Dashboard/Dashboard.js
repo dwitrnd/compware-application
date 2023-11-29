@@ -15,7 +15,7 @@ const Dashboard = () => {
   const userInfo = useSelector((state) => state.userInfo);
 
   const token = getTokenByValue();
-  const { isLoading, isError, isSuccess, data } = useGetLoggedUserQuery({
+  const { isSuccess, data } = useGetLoggedUserQuery({
     token,
   });
 
@@ -37,6 +37,7 @@ const Dashboard = () => {
         })
       );
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, isSuccess]);
 
   //? use effect for when global data is loaded
@@ -48,10 +49,9 @@ const Dashboard = () => {
       });
     }
   }, [userInfo]);
-  console.log(data);
+
   const navigate = useNavigate();
   const handleLogout = () => {
-    console.log("Logout Clicked");
     dispatch(
       unsetUserToken({
         token: null,

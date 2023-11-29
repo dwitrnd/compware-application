@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -18,7 +18,6 @@ const CreateGallery = () => {
 
   const handleUpload = () => {
     const formData = new FormData();
-
   }
 
   const createGallery = async (e) => {
@@ -30,6 +29,8 @@ const CreateGallery = () => {
       formData.append('images', images[i]);
     }
 
+
+
     try {
       const response = await axios.post(apiUrl, formData, {
         headers: {
@@ -37,9 +38,9 @@ const CreateGallery = () => {
         },
       });
 
-      console.log("response =", response);
       toast.success("Gallery created successfully");
     } catch (error) {
+
       console.log("error =", error);
       console.log(images);
       toast.error("Something went wrong");
@@ -92,7 +93,6 @@ const CreateGallery = () => {
             padding: "15px",
             color: "white",
             background: "#0f5288",
-            color: "white",
             border: "none",
             borderRadius: "5px",
             cursor: "pointer",

@@ -93,7 +93,6 @@ function EditStudentCertificate() {
 
     axios.patch(apiUrl, formDataToSend).then((res) => {
       // Use 'formDataToSend' here
-      console.log(res);
 
       toast.success("Updated successfully !");
 

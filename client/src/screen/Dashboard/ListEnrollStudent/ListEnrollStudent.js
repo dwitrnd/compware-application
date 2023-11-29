@@ -1,10 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { constant } from "constants/contants";
+import { CSVLink } from "react-csv";
 import styled from "styled-components";
-
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
+import { Box, Typography } from "@mui/material";
 const ListEnrollStudent = () => {
   const [tableData, setTableData] = useState(null);
+  const [startDate, setStartDate] = useState();
+  const [filterTableData, setFilterTableData] = useState();
+  const [endDate, setEndDate] = useState();
 
   const [statusChangeLoadingState, setStatusChangeLoadingState] =
     useState(false);
@@ -23,15 +29,45 @@ const ListEnrollStudent = () => {
       }
     }};
   `;
+  const headers = [
+    { label: "Name", key: "name" },
+    { label: "Course", key: "course" },
+    { label: "Phone Number", key: "phoneNum" },
+    { label: "Email", key: "email" },
+    { label: "Enquiry Date", key: "enquiryDate" },
+    { label: "Form Submitted", key: "formSubmited" },
+    { label: "Status", key: "status" },
+  ];
 
   const url = `${constant.base}/api/enquiry`;
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       setTableData(res.data.msg);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (startDate && endDate) {
+      // Filter tableData based on selected date range
+
+      const filteredData = tableData.filter((data) => {
+        const formattedDate = new Date(data.formSubmited).toLocaleDateString(
+          "en-US",
+          {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }
+        );
+        const currentDate = new Date(formattedDate);
+        return currentDate >= startDate && currentDate <= endDate;
+      });
+      setFilterTableData(filteredData);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [startDate, endDate]);
 
   const deleteRequest = (id) => {
     axios.delete(`${url}/${id}`).then((res) => {
@@ -49,8 +85,6 @@ const ListEnrollStudent = () => {
       status = "not approved";
     }
 
-    console.log("Course Link: ", courseLink);
-
     await axios
       .patch(`${constant.base}/api/enrollmentStatus/status/${id}`, {
         email: email,
@@ -60,8 +94,6 @@ const ListEnrollStudent = () => {
         name: name,
       })
       .then((res) => {
-        console.log(res);
-
         if (res.status === 200) {
           setStatusChangeLoadingState(false);
           window.location.reload();
@@ -74,7 +106,7 @@ const ListEnrollStudent = () => {
 
   const findCourseLinkByName = async (courseName) => {
     // axios request where in body i pass courseName
-    console.log("Course Name finder: ", courseName);
+
     const courseURL = await axios
       .post(`${constant.base}/api/course/find-by-name`, {
         courseName: courseName,
@@ -88,6 +120,33 @@ const ListEnrollStudent = () => {
 
   return (
     <div>
+      <div style={{ display: "flex" }}>
+        <Box>
+          <Typography variant="button">Select Start Date: </Typography>
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+          />
+        </Box>
+        <Box>
+          <Typography variant="button">Select End Date: </Typography>
+          <DatePicker
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+          />
+        </Box>
+      </div>
+      {filterTableData && filterTableData.length > 0 && (
+        <button style={{ margin: "1rem 0" }}>
+          <CSVLink
+            data={filterTableData ?? ""}
+            headers={headers}
+            filename={"enroll_data.csv"}
+          >
+            Download CSV
+          </CSVLink>
+        </button>
+      )}
       <table>
         <thead>
           <tr>
@@ -96,19 +155,24 @@ const ListEnrollStudent = () => {
             <th>Phone Number</th>
             <th>Email</th>
             <th>Schedule Time</th>
+            <th>Form Submitted</th>
             <th>Status</th>
             <th className="action-column">Actions</th>
           </tr>
         </thead>
         <tbody>
           {(() => {
-            {
-              /* tableData is a state with value []  */
-            }
-            if (tableData) {
-              console.log(tableData);
-              if (tableData.length > 0) {
-                return tableData.map((data, index) => {
+            let datas = filterTableData;
+            if (datas ? filterTableData : (datas = tableData)) {
+              if (datas.length > 0) {
+                return datas.map((data, index) => {
+                  const formattedDate = new Date(
+                    data.formSubmited
+                  ).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  });
                   return (
                     <tr key={index}>
                       <td>{data.name}</td>
@@ -116,6 +180,7 @@ const ListEnrollStudent = () => {
                       <td>{data.phoneNum}</td>
                       <td>{data.email}</td>
                       <td>{data.enquiryDate}</td>
+                      <td>{formattedDate}</td>
                       <td>
                         {(() => {
                           if (statusChangeLoadingState) {

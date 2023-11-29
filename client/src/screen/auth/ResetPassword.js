@@ -5,7 +5,8 @@ import { useResetPasswordMutation } from "../../redux/api/auth/userAuthApi";
 const ResetPassword = () => {
   const { id, token } = useParams();
   console.log(id, token);
-  const [resetPassword, { isError, isSuccess, isLoading }] = useResetPasswordMutation();
+  const [resetPassword, { isError, isSuccess, isLoading }] =
+    useResetPasswordMutation();
 
   const navigate = useNavigate();
   const [error, setError] = useState({
@@ -22,11 +23,8 @@ const ResetPassword = () => {
     };
     if (actualData.password && actualData.password_confirmation) {
       if (actualData.password === actualData.password_confirmation) {
-        console.log(actualData);
-        console.log(id, token);
-
         const res = await resetPassword({ actualData, id, token });
-        console.log(res);
+
         if (res.data) {
           if (res.data.status === "success") {
             document.getElementById("password-reset-form").reset();
@@ -61,10 +59,24 @@ const ResetPassword = () => {
   return (
     <>
       <h1>Reset Password</h1>
-      <form id='password-reset-form' onSubmit={handleSubmit}>
-        <input required id='password' name='password' placeholder='new password' label='New Password' type='password' />
-        <input required id='password_confirmation' placeholder='confirm new password' name='password_confirmation' label='Confirm New Password' type='password' />
-        <button type='submit'>Save</button>
+      <form id="password-reset-form" onSubmit={handleSubmit}>
+        <input
+          required
+          id="password"
+          name="password"
+          placeholder="new password"
+          label="New Password"
+          type="password"
+        />
+        <input
+          required
+          id="password_confirmation"
+          placeholder="confirm new password"
+          name="password_confirmation"
+          label="Confirm New Password"
+          type="password"
+        />
+        <button type="submit">Save</button>
         {error.status ? <div severity={error.type}>{error.msg}</div> : ""}
       </form>
     </>

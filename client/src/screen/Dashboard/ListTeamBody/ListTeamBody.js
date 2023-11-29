@@ -13,7 +13,6 @@ const ListTeamBody = () => {
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       /* The line `// setTableData(res.data.msg);` is commented out, which means it is not currently
       being executed. However, if it were to be uncommented, it would set the value of the
       `tableData` state variable to `res.data.msg`. This means that the data received from the API
@@ -31,7 +30,7 @@ const ListTeamBody = () => {
 
   return (
     <div>
-      <Link to='/dashboard/create-team'>
+      <Link to="/dashboard/create-team">
         <button
           style={{
             padding: "0.35rem 0.95rem",
@@ -49,11 +48,12 @@ const ListTeamBody = () => {
       <table>
         <thead>
           <tr>
+            <th>Image</th>
             <th>Name</th>
-            <th>Email</th>
             <th>Role</th>
+            <th>Email</th>
             <th>Post</th>
-            <th className='action-column'>Actions</th>
+            <th className="action-column">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -62,8 +62,6 @@ const ListTeamBody = () => {
               /* tableData is a state with value []  */
             }
             if (tableData) {
-              console.log(tableData);
-
               if (tableData.length > 0) {
                 return tableData.map((data, index) => {
                   {
@@ -87,14 +85,32 @@ const ListTeamBody = () => {
                       <td>{data.Post}</td>
                       <td>
                         <Link to={`/dashboard/edit-team/${data._id}`}>
-                          <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                          <button
+                            style={{
+                              padding: "0.35rem 0.95rem",
+                              margin: "0.25rem",
+                              color: "white",
+                              background: "#007bff",
+                              border: "none",
+                              outline: "none",
+                            }}
+                          >
+                            Edit
+                          </button>
                         </Link>
 
                         <button
                           onClick={() => {
                             deleteRequest(data._id);
                           }}
-                          style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#dc3545", border: "none", outline: "none" }}
+                          style={{
+                            padding: "0.35rem 0.95rem",
+                            margin: "0.25rem",
+                            color: "white",
+                            background: "#dc3545",
+                            border: "none",
+                            outline: "none",
+                          }}
                         >
                           Delete
                         </button>

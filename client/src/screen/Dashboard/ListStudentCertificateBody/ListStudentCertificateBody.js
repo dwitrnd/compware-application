@@ -11,7 +11,6 @@ const ListStudentCertificateBody = () => {
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       setTableData(res.data.msg);
     });
   }, []);
@@ -24,7 +23,7 @@ const ListStudentCertificateBody = () => {
 
   return (
     <div>
-      <Link to='/dashboard/create-student'>
+      <Link to="/dashboard/create-student">
         <button
           style={{
             padding: "0.35rem 0.95rem",
@@ -52,7 +51,7 @@ const ListStudentCertificateBody = () => {
             <th>Trainer Title</th>
             <th>Verification Id</th>
             {/* <th>email</th> */}
-            <th className='action-column'>Actions</th>
+            <th className="action-column">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -61,8 +60,6 @@ const ListStudentCertificateBody = () => {
               /* tableData is a state with value []  */
             }
             if (tableData) {
-              console.log(tableData);
-
               if (tableData.length > 0) {
                 return tableData.map((data, index) => {
                   {
@@ -76,9 +73,23 @@ const ListStudentCertificateBody = () => {
                       <td>
                         {(() => {
                           if (!data.photo) {
-                            return <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsvKYGexBwzDSVXsx2PtJV8s_p7rWwNwJONTNQIf7q&s"} alt='student' style={{ width: "50px", height: "50px" }} />;
+                            return (
+                              <img
+                                src={
+                                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsvKYGexBwzDSVXsx2PtJV8s_p7rWwNwJONTNQIf7q&s"
+                                }
+                                alt="student"
+                                style={{ width: "50px", height: "50px" }}
+                              />
+                            );
                           } else {
-                            return <img src={data.photo} alt='student' style={{ width: "50px", height: "50px" }} />;
+                            return (
+                              <img
+                                src={data.photo}
+                                alt="student"
+                                style={{ width: "50px", height: "50px" }}
+                              />
+                            );
                           }
                         })()}
                       </td>
@@ -92,15 +103,35 @@ const ListStudentCertificateBody = () => {
                       <td>{data.verificationId}</td>
                       {/* <td>{data.email === "" ? null : data.email}</td> */}
                       <td>
-                        <Link to={`/dashboard/edit-student-certificate/${data._id}`}>
-                          <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                        <Link
+                          to={`/dashboard/edit-student-certificate/${data._id}`}
+                        >
+                          <button
+                            style={{
+                              padding: "0.35rem 0.95rem",
+                              margin: "0.25rem",
+                              color: "white",
+                              background: "#007bff",
+                              border: "none",
+                              outline: "none",
+                            }}
+                          >
+                            Edit
+                          </button>
                         </Link>
 
                         <button
                           onClick={() => {
                             deleteRequest(data._id);
                           }}
-                          style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#dc3545", border: "none", outline: "none" }}
+                          style={{
+                            padding: "0.35rem 0.95rem",
+                            margin: "0.25rem",
+                            color: "white",
+                            background: "#dc3545",
+                            border: "none",
+                            outline: "none",
+                          }}
                         >
                           Delete
                         </button>

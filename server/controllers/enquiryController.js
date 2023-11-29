@@ -9,7 +9,6 @@ class enquiryController {
     try {
       const { name, email, phoneNum, course, enquiryDate } = req.body;
       console.log(name, email, phoneNum, course, enquiryDate);
-
       const enquiry = new Enquiry({
         name,
         email,

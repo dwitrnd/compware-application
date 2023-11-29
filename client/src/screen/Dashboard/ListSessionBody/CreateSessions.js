@@ -34,7 +34,6 @@ function CreateSession() {
       });
 
       if (response.ok) {
-        console.log("Session created successfully");
         // Reset the form fields
         setFormData({
           course: "",
@@ -80,20 +79,50 @@ function CreateSession() {
       <h1>Create Session</h1>
       <form onSubmit={handleSubmit}>
         <label style={labelStyle}>course</label>
-        <input type='text' name='course' value={formData.course} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="course"
+          value={formData.course}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>startDate</label>
-        <input type='text' name='startDate' value={formData.startDate} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="startDate"
+          value={formData.startDate}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>courseDuration</label>
-        <input type='text' name='courseDuration' value={formData.courseDuration} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="courseDuration"
+          value={formData.courseDuration}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>start</label>
-        <input type='text' name='start' value={formData.start} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="start"
+          value={formData.start}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
         <label style={labelStyle}>end</label>
-        <input type='text' name='end' value={formData.end} onChange={handleInputChange} style={inputStyle} />
+        <input
+          type="text"
+          name="end"
+          value={formData.end}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
-        <button type='submit' style={buttonStyle}>
+        <button type="submit" style={buttonStyle}>
           Create Session
         </button>
       </form>

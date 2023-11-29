@@ -31,7 +31,7 @@ const AdminLogin = () => {
         email,
         password,
       });
-      console.log(res);
+
       if (res.data) {
         if (res.data.status === "success") {
           storeTokenByValue(res.data.token);
@@ -48,7 +48,7 @@ const AdminLogin = () => {
   return (
     <>
       <Box
-        component='form'
+        component="form"
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -64,19 +64,19 @@ const AdminLogin = () => {
           "& .MuiTextField-root": { width: "20rem" },
         }}
       >
-        <Typography variant='h4' gutterBottom color='primary'>
+        <Typography variant="h4" gutterBottom color="primary">
           Login
         </Typography>
 
         <div>
           <TextField
             required
-            id='standard-basic'
-            name='email'
-            label='Email'
-            variant='outlined'
+            id="standard-basic"
+            name="email"
+            label="Email"
+            variant="outlined"
             onChange={(e) => setEmail(e.target.value)}
-            type='email'
+            type="email"
             InputProps={{
               endAdornment: (
                 <IconButton>
@@ -89,16 +89,16 @@ const AdminLogin = () => {
         <div>
           <TextField
             required
-            id='standard-basic margin-dense'
-            name='password'
-            label='Password'
-            variant='outlined'
+            id="standard-basic margin-dense"
+            name="password"
+            label="Password"
+            variant="outlined"
             onChange={(e) => setPassword(e.target.value)}
             type={showPassword ? "text" : "password"}
             InputProps={{
               endAdornment: (
-                <InputAdornment position='start'>
-                  <IconButton onClick={handleTogglePassword} edge='end'>
+                <InputAdornment position="start">
+                  <IconButton onClick={handleTogglePassword} edge="end">
                     {showPassword ? <VisibilityOff /> : <Visibility />}
                   </IconButton>
                 </InputAdornment>
@@ -107,7 +107,7 @@ const AdminLogin = () => {
           />
         </div>
         <Button
-          variant='contained'
+          variant="contained"
           sx={{ width: "20rem", marginTop: "1rem" }}
           onClick={(e) => {
             handleSubmit(e);
@@ -123,12 +123,10 @@ const AdminLogin = () => {
           }}
         >
           <div>
-            <Link to='/resetpassword' color='primary'>
+            <Link to="/resetpassword" color="primary">
               Forgot Password?
             </Link>
           </div>
-          
-          
         </Box>
       </Box>
     </>

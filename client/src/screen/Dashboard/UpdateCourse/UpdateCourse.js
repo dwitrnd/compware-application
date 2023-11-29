@@ -24,7 +24,6 @@ const UpdateCourse = () => {
 
   useEffect(() => {
     axios.get(apiUrl).then((res) => {
-      console.log(res);
       const {
         courseName,
         courseIntro,
@@ -68,10 +67,8 @@ const UpdateCourse = () => {
         },
       });
 
-      console.log("response =", response);
       toast.success("Course updated successfully");
     } catch (error) {
-      console.log("error =", error);
       toast.error("Something went wrong");
     }
   };
@@ -198,7 +195,6 @@ const UpdateCourse = () => {
             id="courseLogo"
             placeholder="Enter course logo"
             onChange={(e) => {
-              console.log(e.target.files[0]);
               setCourseLogo(e.target.files[0]);
             }}
           />
@@ -251,7 +247,6 @@ const UpdateCourse = () => {
             id="coursePdf"
             placeholder="Enter course pdf"
             onChange={(e) => {
-              console.log(e.target.files[0]);
               setCoursePdf(e.target.files[0]);
             }}
           />

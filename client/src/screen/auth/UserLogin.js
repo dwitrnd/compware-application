@@ -25,10 +25,9 @@ const UserLogin = () => {
       password: data.get("password"),
     };
     if (actualData.email && actualData.password) {
-      console.log(actualData);
       //  ==============================================================================
       const res = await loginUser(actualData);
-      console.log(res);
+
       if (res.data) {
         if (res.data.status === "success") {
           //! TODO: TOKEN STORE garnu xa
@@ -56,11 +55,17 @@ const UserLogin = () => {
   };
   return (
     <>
-      <form id='login-form' onSubmit={handleSubmit}>
-        <input required id='email' name='email' label='Email Address' />
-        <input required id='password' name='password' label='Password' type='password' />
-        <button type='submit'>Login</button>
-        <Link to='/sendpasswordresetemail'>Forgot Password ?</Link>
+      <form id="login-form" onSubmit={handleSubmit}>
+        <input required id="email" name="email" label="Email Address" />
+        <input
+          required
+          id="password"
+          name="password"
+          label="Password"
+          type="password"
+        />
+        <button type="submit">Login</button>
+        <Link to="/sendpasswordresetemail">Forgot Password ?</Link>
         {error.status ? <div>{error.msg}</div> : ""}
       </form>
     </>
