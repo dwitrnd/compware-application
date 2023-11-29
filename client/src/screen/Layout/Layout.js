@@ -20,7 +20,6 @@ import compwareLogo from "../../assets/images/compware-logo.png";
 import whiteLogo from "../../assets/images/Deerwalk-Logos_white.png";
 import RequestCertificateDialog from "../../components/RequestCerificateDialog/RequestCertificateDialog";
 import { Link } from "react-router-dom";
-import ClickDropdown from "components/CoursesClickDropdown";
 import AboutUsDropDown from "components/AboutUsDropDown/AboutUsDropDown";
 import CertificateDropDown from "components/CertificateDropDown/CertificateDropDown";
 import EnrollDialog from "components/EnrollDialog/EnrollDialog";
@@ -34,6 +33,7 @@ import ThreadsLogo from "../../assets/svg/threads.png";
 import TwitterLogo from "../../assets/svg/Twitter.png";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
+import EventDropDown from "components/EventDropDown/EventDropDown";
 const drawerWidth = 240;
 
 const navItems = [
@@ -54,7 +54,6 @@ const navItems = [
   },
   {
     name: "Event",
-    path: "event",
   },
 
   {
@@ -103,8 +102,6 @@ function DrawerAppBar(props) {
         }}
       >
         {navItems.map((item) => {
-          console.log(item);
-
           if (item.name === "Request Certificate") {
             return <RequestCertificateDialog />;
           } else if (item.name === "About") {
@@ -113,6 +110,8 @@ function DrawerAppBar(props) {
             return <CertificateDropDown />;
           } else if (item.name === "Enroll") {
             return <EnrollDialog />;
+          } else if (item.name === "Event") {
+            return <EventDropDown />;
           } else {
             return (
               <Link to={`/${item.path.toLowerCase()}`} key={item.path}>
@@ -186,8 +185,6 @@ function DrawerAppBar(props) {
                 </a>
                 <Box sx={{ display: { xs: "none", sm: "block" } }}>
                   {navItems.map((item) => {
-                    console.log(item);
-
                     if (item.name === "Request Certificate") {
                       return <RequestCertificateDialog />;
                     } else if (item.name === "About") {
@@ -196,6 +193,8 @@ function DrawerAppBar(props) {
                       return <CertificateDropDown />;
                     } else if (item.name === "Enroll") {
                       return <EnrollDialog />;
+                    } else if (item.name === "Event") {
+                      return <EventDropDown />;
                     } else {
                       return (
                         <a href={`/${item.path.toLowerCase()}`} key={item.path}>

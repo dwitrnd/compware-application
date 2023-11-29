@@ -1,8 +1,7 @@
-import { Grid, TextField, Button, Box, Alert } from "@mui/material";
 import { useState } from "react";
 import { useSendPasswordResetEmailMutation } from "../../redux/api/auth/userAuthApi";
 const SendPasswordResetEmail = () => {
-  const [sendPasswordResetEmail, { isLoading, isError, isSuccess }] = useSendPasswordResetEmailMutation();
+  const [sendPasswordResetEmail] = useSendPasswordResetEmailMutation();
   const [error, setError] = useState({
     status: false,
     msg: "",
@@ -15,9 +14,7 @@ const SendPasswordResetEmail = () => {
       email: data.get("email"),
     };
     if (actualData.email) {
-      console.log(actualData);
       const res = await sendPasswordResetEmail(actualData);
-      console.log(res);
       if (res.data.status === "success") {
         document.getElementById("password-reset-email-form").reset();
         setError({
@@ -44,9 +41,9 @@ const SendPasswordResetEmail = () => {
   return (
     <>
       <h1>Reset Password</h1>
-      <form id='password-reset-email-form' onSubmit={handleSubmit}>
-        <input required id='email' name='email' label='Email Address' />
-        <button type='submit'>Send</button>
+      <form id="password-reset-email-form" onSubmit={handleSubmit}>
+        <input required id="email" name="email" label="Email Address" />
+        <button type="submit">Send</button>
         {error.status ? <div>{error.msg}</div> : ""}
       </form>
     </>

@@ -139,9 +139,6 @@ const VerifyCertificate = () => {
     ).then((res) => res.json());
 
     if (getTrainerResponse.msg.length !== 0) {
-      console.log(
-        `https://api.deerwalktrainingcenter.com/storage/${getTrainerResponse.msg[0].signature}`
-      );
       setTrainerSignature(
         `https://api.deerwalktrainingcenter.com/storage/${getTrainerResponse.msg[0].signature}`
       );

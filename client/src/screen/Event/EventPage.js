@@ -16,7 +16,6 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import SifalSchool from "assets/icons/Sifal School.png";
-import Logispark from "assets/icons/Logispark.png";
 import HamroPatra from "assets/icons/hamropatro.png";
 import SMTM from "assets/icons/SMTM capital.jpg";
 import CND from "assets/icons/CNA.png";
@@ -127,8 +126,8 @@ const EventPage = () => {
         </h1>
         <br />
         <h4 className="roboto_300 event-timeline">
-          After the successful completion of Deerwalk Tech Dialogue Series |
-          Episode I, we're gearing up for Episode II. Stay tuned!
+          After the successful completion of Panel Discussion Ep.1, we're
+          gearing up for Panel Discussion Ep.2. Stay tuned!
         </h4>
       </div>
 

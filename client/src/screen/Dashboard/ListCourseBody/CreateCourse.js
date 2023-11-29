@@ -36,8 +36,6 @@ const CreateCourse = () => {
     formData.append("imageAltText", imageAltText);
     formData.append("coursePdf", coursePdf);
 
-    console.log(formData);
-
     try {
       const response = await axios.post(apiUrl, formData, {
         headers: {
@@ -45,11 +43,9 @@ const CreateCourse = () => {
         },
       });
 
-      console.log("response =", response);
       toast.success("Course created successfully");
       // navigate("/dashboard");
     } catch (error) {
-      console.log("error =", error);
       toast.error("Something went wrong");
     }
   };
@@ -161,7 +157,6 @@ const CreateCourse = () => {
             id="courseLogo"
             placeholder="Enter course logo"
             onChange={(e) => {
-              console.log(e.target.files[0]);
               setCourseLogo(e.target.files[0]);
             }}
           />
@@ -214,7 +209,6 @@ const CreateCourse = () => {
             id="coursePdf"
             placeholder="Enter course pdf"
             onChange={(e) => {
-              console.log(e.target.files[0]);
               setCoursePdf(e.target.files[0]);
             }}
           />

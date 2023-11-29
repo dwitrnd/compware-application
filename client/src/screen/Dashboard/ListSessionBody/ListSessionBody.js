@@ -13,7 +13,6 @@ const ListSessionBody = () => {
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       /* The line `// setTableData(res.data.msg);` is commented out, which means it is not currently
       being executed. However, if it were to be uncommented, it would set the value of the
       `tableData` state variable to `res.data.msg`. This means that the data received from the API
@@ -31,7 +30,7 @@ const ListSessionBody = () => {
 
   return (
     <div>
-      <Link to='/dashboard/create-session'>
+      <Link to="/dashboard/create-session">
         <button
           style={{
             padding: "0.35rem 0.95rem",
@@ -54,14 +53,12 @@ const ListSessionBody = () => {
             <th>courseDuration</th>
             <th>start</th>
             <th>end</th>
-            <th className='action-column'>Actions</th>
+            <th className="action-column">Actions</th>
           </tr>
         </thead>
         <tbody>
           {(() => {
             if (tableData) {
-              console.log(tableData);
-
               if (tableData.length > 0) {
                 return tableData.map((data, index) => {
                   return (
@@ -74,14 +71,32 @@ const ListSessionBody = () => {
                       <td>{data.end}</td>
                       <td>
                         <Link to={`/dashboard/edit-session/${data._id}`}>
-                          <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                          <button
+                            style={{
+                              padding: "0.35rem 0.95rem",
+                              margin: "0.25rem",
+                              color: "white",
+                              background: "#007bff",
+                              border: "none",
+                              outline: "none",
+                            }}
+                          >
+                            Edit
+                          </button>
                         </Link>
 
                         <button
                           onClick={() => {
                             deleteRequest(data._id);
                           }}
-                          style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#dc3545", border: "none", outline: "none" }}
+                          style={{
+                            padding: "0.35rem 0.95rem",
+                            margin: "0.25rem",
+                            color: "white",
+                            background: "#dc3545",
+                            border: "none",
+                            outline: "none",
+                          }}
                         >
                           Delete
                         </button>

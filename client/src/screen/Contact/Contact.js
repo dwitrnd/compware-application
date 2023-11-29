@@ -59,7 +59,6 @@ const Contact = () => {
     setLoading(true);
     try {
       const response = await axios.post("", formData);
-      console.log(response.data);
       // Handle the response here if needed
 
       setLoading(false);
@@ -95,7 +94,6 @@ const Contact = () => {
     axios
       .post(`${constant.base}/api/contact`, dataToSend)
       .then(function (response) {
-        console.log(response);
         if (response.data.msg && response.data.status === true) {
           alert("your response was recorded successfully");
           setFullName("");

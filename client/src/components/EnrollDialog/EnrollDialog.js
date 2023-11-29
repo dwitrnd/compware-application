@@ -48,10 +48,6 @@ const EnrollDialog = () => {
   useEffect(() => {
     axios.get(`${constant.base}/api/course`).then((res) => {
       if (res) {
-        console.log(
-          "res.data============================================================================"
-        );
-        console.log(res.data);
         const allCourseList = [];
         res.data.msg.map((course) => {
           allCourseList.push(course.courseName);
@@ -78,18 +74,6 @@ const EnrollDialog = () => {
       alert("Please complete the reCAPTCHA");
       return;
     }
-    console.log(
-      "name: " +
-        name +
-        " email: " +
-        email +
-        " phone: " +
-        phone +
-        " course: " +
-        course +
-        " schedule: " +
-        schedule
-    );
 
     // use fetch
     fetch(`${constant.base}/api/enquiry/`, {

@@ -21,10 +21,6 @@ const CourseSearch = () => {
   useEffect(() => {
     axios.get(`${constant.base}/api/course`).then((res) => {
       if (res) {
-        console.log(
-          "res.data============================================================================"
-        );
-        console.log(res.data);
         const allCourseList = [];
         res.data.msg.map((course) => {
           allCourseList.push(course.courseName);
@@ -70,12 +66,9 @@ const CourseSearch = () => {
         border: "none !important",
       }}
       onInputChange={(event, value) => {
-        console.log(value);
-
         // check what id is for the course name
         courseNameAndId.map((course) => {
           if (course.courseName === value) {
-            console.log(course.courseId);
             navigate(`/course-detail/${course.slugTitle}`);
           }
         });

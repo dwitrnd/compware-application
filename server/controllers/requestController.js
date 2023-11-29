@@ -6,34 +6,47 @@ class requestController {
     try {
       const {
         fullName,
-        courseTrainer,
         email,
+        contactNumber,
         course,
-        startDate,
-        endDate,
-        phone,
-        status,
+        courseTrainer,
+        endTime,
+        startTime,
       } = req.body;
-      const request = await new Request({
+
+      const request = new Request({
         fullName,
-        courseTrainer,
         email,
+        contactNumber,
         course,
-        startDate,
-        endDate,
-        phone,
-        status,
+        courseTrainer,
+        endTime,
+        startTime,
       });
+
       const result = await request.save();
       res.status(200).json({
         status: true,
         msg: result,
       });
     } catch (err) {
-      res.status(500).json({
-        status: false,
-        msg: err,
-      });
+      if (
+        err.code === 11000 &&
+        err.keyPattern &&
+        err.keyPattern.contactNumber === 1
+      ) {
+        // Duplicate key error for the contactNumber field
+        res.status(400).json({
+          status: false,
+          msg: "Duplicate contact number. Please provide a unique contact number.",
+        });
+      } else {
+        // Other errors
+        res.status(500).json({
+          status: false,
+          msg: err.message,
+        });
+      }
     }
   };
 
@@ -56,26 +69,24 @@ class requestController {
     try {
       const {
         fullName,
-        courseTrainer,
         email,
+        contactNumber,
         course,
-        startDate,
-        endDate,
-        phone,
-        status,
+        courseTrainer,
+        endTime,
+        startTime,
       } = req.body;
       const requestId = req.params.id;
       const result = await Request.findByIdAndUpdate(
         requestId,
         {
           fullName,
-          courseTrainer,
           email,
+          contactNumber,
           course,
-          startDate,
-          endDate,
-          phone,
-          status,
+          courseTrainer,
+          endTime,
+          startTime,
         },
         { new: true }
       );

@@ -23,7 +23,7 @@ const ListTestimonialBody = () => {
 
   return (
     <div>
-      <Link to='/dashboard/create-testimonial'>
+      <Link to="/dashboard/create-testimonial">
         <button
           style={{
             padding: "0.35rem 0.95rem",
@@ -43,7 +43,7 @@ const ListTestimonialBody = () => {
             <th>Name</th>
             <th>Email</th>
             <th>Post</th>
-            <th className='action-column'>Actions</th>
+            <th className="action-column">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -52,8 +52,6 @@ const ListTestimonialBody = () => {
               /* tableData is a state with value []  */
             }
             if (tableData) {
-              console.log(tableData);
-
               if (tableData.length > 0) {
                 return tableData.map((data, index) => {
                   {
@@ -75,13 +73,31 @@ const ListTestimonialBody = () => {
                       <td>{data.description}</td>
                       <td>
                         <a href={`/dashboard/edit-testimonial/${data._id}`}>
-                          <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                          <button
+                            style={{
+                              padding: "0.35rem 0.95rem",
+                              margin: "0.25rem",
+                              color: "white",
+                              background: "#007bff",
+                              border: "none",
+                              outline: "none",
+                            }}
+                          >
+                            Edit
+                          </button>
                         </a>
                         <button
                           onClick={() => {
                             deleteRequest(data._id);
                           }}
-                          style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#dc3545", border: "none", outline: "none" }}
+                          style={{
+                            padding: "0.35rem 0.95rem",
+                            margin: "0.25rem",
+                            color: "white",
+                            background: "#dc3545",
+                            border: "none",
+                            outline: "none",
+                          }}
                         >
                           Delete
                         </button>

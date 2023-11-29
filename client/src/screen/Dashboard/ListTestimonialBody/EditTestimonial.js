@@ -22,9 +22,14 @@ function EditTestimonial() {
         if (response.ok) {
           const testimonialData = await response.json();
 
-          console.log(testimonialData);
-
-          const { affiliation, description, image, imageAltText, imageName, name } = testimonialData.msg;
+          const {
+            affiliation,
+            description,
+            image,
+            imageAltText,
+            imageName,
+            name,
+          } = testimonialData.msg;
 
           setName(name);
           setAffiliation(affiliation);
@@ -73,7 +78,6 @@ function EditTestimonial() {
           },
         }
       );
-      console.log(response);
 
       if (response.ok) {
         setName("");
@@ -119,25 +123,53 @@ function EditTestimonial() {
       <h1>Update Testimonial</h1>
       <form onSubmit={handleSubmit}>
         <label style={labelStyle}>name</label>
-        <input required type='text' name='name' value={name} onChange={(e) => setName(e.target.value)} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>affiliation</label>
-        <input required type='text' name='affiliation' value={affiliation} onChange={(e) => setAffiliation(e.target.value)} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="affiliation"
+          value={affiliation}
+          onChange={(e) => setAffiliation(e.target.value)}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>imageName</label>
-        <input required type='text' name='imageName' value={imageName} onChange={(e) => setImageName(e.target.value)} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="imageName"
+          value={imageName}
+          onChange={(e) => setImageName(e.target.value)}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>imageAltText</label>
-        <input required type='text' name='imageAltText' value={imageAltText} onChange={(e) => setImageAltText(e.target.value)} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="imageAltText"
+          value={imageAltText}
+          onChange={(e) => setImageAltText(e.target.value)}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>description</label>
         <ReactQuill value={description} onChange={handleEditorChange} />
 
         <label style={labelStyle}>blog image</label>
         <input
-          type='file'
-          accept='image/*'
-          name='logo'
+          type="file"
+          accept="image/*"
+          name="logo"
           onChange={(e) => {
             const imageFile = e.target.files[0];
             setImage(imageFile);
@@ -145,7 +177,7 @@ function EditTestimonial() {
           style={inputStyle}
         />
 
-        <button type='submit' style={buttonStyle}>
+        <button type="submit" style={buttonStyle}>
           Update Testimonial
         </button>
       </form>

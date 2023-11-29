@@ -44,11 +44,6 @@ function UpdateBlog() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleImageChange = (event) => {
-    const imageFile = event.target.files[0];
-    setFormData({ ...formData, logo: imageFile });
-  };
-
   const handleEditorChange = (value) => {
     setFormData({ ...formData, article: value });
   };
@@ -74,10 +69,8 @@ function UpdateBlog() {
         method: "PATCH",
         body: formDataToSend,
       });
-      console.log(formDataToSend);
 
       if (response.ok) {
-        console.log("Blog updated successfully");
         // Reset the form fields
         setFormData({
           title: "",
@@ -120,13 +113,34 @@ function UpdateBlog() {
       <h1>Update Blog</h1>
       <form onSubmit={handleSubmit}>
         <label style={labelStyle}>Title</label>
-        <input required type='text' name='title' value={formData.title} onChange={handleInputChange} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>date</label>
-        <input required type='text' name='date' value={formData.date} onChange={handleInputChange} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="date"
+          value={formData.date}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>author</label>
-        <input required type='text' name='author' value={formData.author} onChange={handleInputChange} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="author"
+          value={formData.author}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>article</label>
         <ReactQuill value={formData.article} onChange={handleEditorChange} />
@@ -134,7 +148,7 @@ function UpdateBlog() {
         {/* <label style={labelStyle}>blog image</label> */}
         {/* <input required type='file' accept='image/*' name='logo' onChange={handleImageChange} style={inputStyle} /> */}
 
-        <button type='submit' style={buttonStyle}>
+        <button type="submit" style={buttonStyle}>
           Update Blog
         </button>
       </form>

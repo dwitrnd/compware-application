@@ -49,7 +49,6 @@ function CreateBlog() {
       });
 
       if (response.ok) {
-        console.log("Blog created successfully");
         // Reset the form fields
         setFormData({
           title: "",
@@ -93,21 +92,49 @@ function CreateBlog() {
       <h1>Create Team</h1>
       <form onSubmit={handleSubmit}>
         <label style={labelStyle}>Title</label>
-        <input required type='text' name='title' value={formData.title} onChange={handleInputChange} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>date</label>
-        <input required type='text' name='date' value={formData.date} onChange={handleInputChange} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="date"
+          value={formData.date}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>author</label>
-        <input required type='text' name='author' value={formData.author} onChange={handleInputChange} style={inputStyle} />
+        <input
+          required
+          type="text"
+          name="author"
+          value={formData.author}
+          onChange={handleInputChange}
+          style={inputStyle}
+        />
 
         <label style={labelStyle}>article</label>
         <ReactQuill value={formData.article} onChange={handleEditorChange} />
 
         <label style={labelStyle}>blog image</label>
-        <input required type='file' accept='image/*' name='logo' onChange={handleImageChange} style={inputStyle} />
+        <input
+          required
+          type="file"
+          accept="image/*"
+          name="logo"
+          onChange={handleImageChange}
+          style={inputStyle}
+        />
 
-        <button type='submit' style={buttonStyle}>
+        <button type="submit" style={buttonStyle}>
           Create Blog
         </button>
       </form>

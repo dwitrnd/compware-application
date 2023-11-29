@@ -60,12 +60,13 @@ import ListClientBody from "screen/Dashboard/ListClientBody/ListClientBody";
 import CreateClient from "screen/Dashboard/ListClientBody/CreateClient";
 import ListPlacementPartnerBody from "screen/Dashboard/ListPlacementPartnerBody/ListPlacementPartnerBody";
 import CreatePlacementPartner from "screen/Dashboard/ListPlacementPartnerBody/CreatePlacementPartner";
-import ListPopUp from "screen/Dashboard/ListPopUp/ListPopUp";
-import CreatePopUp from "screen/Dashboard/ListPopUp/CreatePopUp";
 import Gallery from "screen/Gallery/Gallery";
 import GalleryCategoryDetails from "screen/GalleryCategoryDetails";
 import ListGalleryEdit from "screen/Dashboard/ListGalleryBody/ListGalleryEdit";
 import EditGallery from "screen/Dashboard/ListGalleryBody/EditGallery";
+
+import EventPageEpisode2 from "screen/Event/EventPageEpisode2";
+
 
 // Simple git
 const theme = createTheme({
@@ -181,7 +182,9 @@ function App() {
                     </Layout>
                   }
                 />
-                <Route path="event" element={<Event />} />
+
+                <Route path="episode-I" element={<Event />} />
+                <Route path="episode-II" element={<EventPageEpisode2 />} />
                 <Route
                   path="blog-page-2"
                   element={
@@ -237,6 +240,8 @@ function App() {
                       </Layout>
                     ) : (
                       <Navigate to="/dashboard" />
+
+
                     )
                   }
                 />

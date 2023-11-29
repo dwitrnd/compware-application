@@ -82,10 +82,9 @@ const Dashboard = ({ children }) => {
       });
     }
   }, [userInfo]);
-  console.log(data);
+
   const navigate = useNavigate();
   const handleLogout = () => {
-    console.log("Logout Clicked");
     dispatch(
       unsetUserToken({
         token: null,
@@ -171,10 +170,10 @@ const Dashboard = ({ children }) => {
               <Link to="/dashboard/list-students">
                 <span> Students </span>
               </Link>
-            </li>
-            <li className="sidebar-list-item">
-              <Link to="/dashboard/list-popup">
-                <span>Popup</span>
+
+            <li class="sidebar-list-item">
+              <Link to="/dashboard/list-request-certificate">
+                <span>Requested Certificates</span>
               </Link>
             </li>
           </ul>
