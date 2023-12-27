@@ -103,7 +103,11 @@ const EventPageEpisode2 = () => {
           </span>
         </h1>
         <br />
-        <h4 className="roboto_300 event-timeline">Coming Soon</h4>
+        <h4 className="roboto_300 event-timeline">
+          29th December, 2023 <br />
+          2:00 PM to 4:30 PM
+          <br />
+        </h4>
       </div>
 
       {/* speaker section */}
