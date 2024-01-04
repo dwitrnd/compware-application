@@ -69,13 +69,16 @@ const EnrollDialog = () => {
     setRecaptchaValue(value);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  
+    // Check if the reCAPTCHA value is empty
     if (!recaptchaValue) {
-      alert("Please complete the reCAPTCHA");
+      toast.error("Please complete the reCAPTCHA");
       return;
     }
-
-    // use fetch
+  
+    // Use fetch to submit the form
     fetch(`${constant.base}/api/enquiry/`, {
       method: "POST",
       headers: {
@@ -90,12 +93,17 @@ const EnrollDialog = () => {
         status: "not approved",
       }),
     })
-      .then((res) => {
-        console.log(res);
-        toast("Submitted successfully!");
+      .then((res) => res.json())
+      .then((data) => {
+        setOpen(false);
+        toast.success(
+          `Thank you for registering for a course. One of our representatives will contact you shortly.\nBest Regards,\nDeerwalk Training Center`
+        );
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
+        // Show Toastify error message
+        toast.error("An error occurred while submitting the form");
       });
   };
 
@@ -137,7 +145,7 @@ const EnrollDialog = () => {
       <Dialog open={open} onClose={handleClose} maxWidth="md">
         <Stack direction="row">
           <img src={Image} className="enroll-image" />
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={(e) => handleSubmit(e)}>
             <DialogTitle
               display="flex"
               justifyContent="space-between"
