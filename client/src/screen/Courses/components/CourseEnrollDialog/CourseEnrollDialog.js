@@ -48,7 +48,8 @@ const CourseEnrollDialog = ({ courseName }) => {
     setIsChecked(event.target.checked);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (!recaptchaValue) {
       alert("Please complete the reCAPTCHA");
       return;
@@ -70,12 +71,18 @@ const CourseEnrollDialog = ({ courseName }) => {
         status: "reviewed",
       }),
     })
-      .then((res) => {
-        toast("Submitted successfully!");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    .then((res) => res.json())
+    .then((data) => {
+      setOpen(false);
+      toast.success(
+        `Thank you for registering for a course. One of our representatives will contact you shortly.\nBest Regards,\nDeerwalk Training Center`
+      );
+    })
+    .catch((err) => {
+      console.error(err);
+      // Show Toastify error message
+      toast.error("An error occurred while submitting the form");
+    });
   };
 
   return (
@@ -151,7 +158,7 @@ const CourseEnrollDialog = ({ courseName }) => {
               disabled
               value={courseName}
               variant="outlined"
-              defaultValue="Hello World"
+              
               id="course"
               sx={{ width: "100%" }}
             />
@@ -212,8 +219,7 @@ const CourseEnrollDialog = ({ courseName }) => {
             </FormGroup>
             <Button
               onClick={(e) => {
-                e.preventDefault();
-                handleSubmit();
+                handleSubmit(e);
               }}
               variant="contained"
               sx={{ display: "flex", justifyContent: "center" }}
