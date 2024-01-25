@@ -1,20 +1,12 @@
 const mongoose = require("mongoose");
 
-const gallerySchema = mongoose.Schema({
-  Image: {
-    type: String,
-    required: true,
+const gallerySchema=mongoose.Schema({
+  galleryCategoryName:{
+    type:String,
+    required:true,
   },
-  ImageName: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  ImageAltText: {
-    type: String,
-    required: true,
-  },
-});
+  images: [String],
+})
 
 const gallery = mongoose.model("gallery", gallerySchema);
 

@@ -7,17 +7,29 @@ import { constant } from "constants/contants";
 const CreateGallery = () => {
   const apiUrl = `${constant.base}/api/gallery`; // create URL
 
-  const [Image, setImage] = useState(null);
-  const [ImageName, setImageName] = useState("");
-  const [ImageAltText, setImageAltText] = useState("");
+  const [galleryCategoryName, setGalleryCategoryName] = useState(null);
+  const [images, setImages] = useState([]);
 
-  const createCourse = async (e) => {
+  const handleFileChange = (e) => {
+
+    const files = e.target.files;
+    setImages(Array.from(files));
+  };
+
+  const handleUpload = () => {
+    const formData = new FormData();
+  }
+
+  const createGallery = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("Image", Image);
-    formData.append("ImageName", ImageName);
-    formData.append("ImageAltText", ImageAltText);
+    formData.append("galleryCategoryName", galleryCategoryName); // Rename ImageName to galleryCategoryName
+    for (let i = 0; i < images.length; i++) {
+      formData.append('images', images[i]);
+    }
+
+
 
     try {
       const response = await axios.post(apiUrl, formData, {
@@ -27,18 +39,20 @@ const CreateGallery = () => {
       });
 
       toast.success("Gallery created successfully");
-      // navigate("/dashboard");
     } catch (error) {
+
+      console.log("error =", error);
+      console.log(images);
       toast.error("Something went wrong");
     }
   };
 
   return (
     <div style={{ maxWidth: "500px", margin: "auto", padding: "20px" }}>
-      <form onSubmit={createCourse}>
+      <form onSubmit={createGallery}>
         {/* //! IMAGE "File" */}
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor="gallery-img">Image File Upload</label>
+          <label htmlFor='images'>Image File Upload</label>
           <input
             style={{
               width: "100%",
@@ -46,36 +60,16 @@ const CreateGallery = () => {
               borderRadius: "5px",
               border: "1px solid #ccc",
             }}
-            type="file"
-            id="gallery-img"
-            placeholder="Enter course logo"
-            onChange={(e) => {
-              setImage(e.target.files[0]);
-            }}
-          />
-        </div>
-        {/* //! IMAGE Name */}
-        <div style={{ marginBottom: "20px" }}>
-          <label htmlFor="imageName">Image Name</label>
-          <input
-            style={{
-              width: "100%",
-              padding: "10px",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-            }}
-            type="text"
-            id="imageName"
-            placeholder="Enter image name"
-            value={ImageName}
-            onChange={(e) => setImageName(e.target.value)}
+            type='file'
+            id='images'
+            name='images'
+            placeholder='Enter Image'
+            onChange={handleFileChange} multiple
           />
         </div>
 
-        {/* //! IMAGE ALT TEXT */}
-
         <div style={{ marginBottom: "20px" }}>
-          <label htmlFor="imageAltText">Image Alt Text</label>
+          <label htmlFor='galleryCategoryName'>Gallery Category Name</label>
           <input
             style={{
               width: "100%",
@@ -83,11 +77,11 @@ const CreateGallery = () => {
               borderRadius: "5px",
               border: "1px solid #ccc",
             }}
-            type="text"
-            id="imageAltText"
-            placeholder="Enter image alt text"
-            value={ImageAltText}
-            onChange={(e) => setImageAltText(e.target.value)}
+            type='text'
+            id='galleryCategoryName'
+            placeholder='Enter Category Name'
+            value={galleryCategoryName}
+            onChange={(e) => setGalleryCategoryName(e.target.value)}
           />
         </div>
 
@@ -103,7 +97,8 @@ const CreateGallery = () => {
             fontSize: "16px",
             marginTop: "20px",
           }}
-          type="submit"
+          type='submit'
+          onClick={handleUpload}
         >
           Post Gallery
         </button>
