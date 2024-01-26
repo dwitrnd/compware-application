@@ -1,24 +1,21 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { constant } from "constants/contants";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const ListGalleryBody = () => {
   // use useeffect
 
   const [tableData, setTableData] = useState(null);
+  const[image, setImage]=useState([]);
 
   const url = `${constant.base}/api/gallery`;
 
   useEffect(() => {
     axios.get(url).then((res) => {
-      /* The line `// setTableData(res.data.msg);` is commented out, which means it is not currently
-      being executed. However, if it were to be uncommented, it would set the value of the
-      `tableData` state variable to `res.data.msg`. This means that the data received from the API
-      response would be stored in the `tableData` state variable, which can then be used to render
-      the table rows in the component. */
       setTableData(res.data.msg);
+      setImage(res.data.msg[0]);
+      console.log(image);
     });
   }, []);
 
@@ -48,9 +45,8 @@ const ListGalleryBody = () => {
       <table>
         <thead>
           <tr>
-            <th>Image</th>
-            <th>ImageName</th>
-            <th>ImageAltText</th>
+           
+            <th>Image Category</th>
 
             <th className="action-column">Actions</th>
           </tr>
@@ -71,17 +67,31 @@ const ListGalleryBody = () => {
                   }
                   return (
                     <tr key={index}>
-                      <td>
-                        <img
+                      
+                      {/* { 
+            image.slice(0, visible).map((image) => (
+              <img
                           style={{ width: "4rem" }}
                           src={`
-                        ${constant.base}/storage/${data.Image}`}
+                        ${constant.base}/storage/${data.images}`}
                         ></img>
-                      </td>
-                      <td>{data.ImageName}</td>
-                      <td>{data.ImageAltText}</td>
+            ))}
+          {visible==4?
+          <button className="font-semibold text-blue-400 mt-10 text-center w-screen pb-5 hover:text-blue-500" onClick={showMoreItems}>
+            View more {">"}
+          </button>
+          :
+          <button className="font-semibold text-blue-400 mt-10 text-center w-screen pb-5 hover:text-blue-500" onClick={showLessItems}>
+            View less {">"}
+          </button>
+          }
+                         */}
+                      <td><Link to={`/dashboard/list-gallery/${data._id}`}>{data.galleryCategoryName}</Link></td>
 
                       <td>
+                      <a href={`/dashboard/editGallery/${data._id}`}>
+                          <button style={{ padding: "0.35rem 0.95rem", margin: "0.25rem", color: "white", background: "#007bff", border: "none", outline: "none" }}>Edit</button>
+                        </a>
                         <button
                           onClick={() => {
                             deleteRequest(data._id);

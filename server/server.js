@@ -5,9 +5,11 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 const connectDB = require("./config/connectdb");
 const app = express();
+const bodyparser=require("body-parser");
 // config dotenv
 dotenv.config();
 // config body-parser
+app.use(fileUpload());
 app.use(express.json({ limit: "50mb" })); //? allow body parsing
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 // config cors
@@ -44,7 +46,6 @@ const contactRoutes = require("./routes/contactRouter");
 const clientRoutes = require("./routes/clientRouter");
 const placementRoutes = require("./routes/placementRouter");
 
-app.use(fileUpload());
 app.use("/api/users", userRoutes);
 app.use("/api/facts", factRoutes);
 app.use("/api/course", courseRoutes);
@@ -75,5 +76,5 @@ app.get("/", (req, res) => {
 });
 const port = process.env.PORT;
 app.listen(port, () => {
-  console.log(`server is runninng in port ${port}`);
+  console.log(`server is running in port ${port}`);
 });

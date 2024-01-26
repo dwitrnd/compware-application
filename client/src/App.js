@@ -62,6 +62,9 @@ import CreateClient from "screen/Dashboard/ListClientBody/CreateClient";
 import ListPlacementPartnerBody from "screen/Dashboard/ListPlacementPartnerBody/ListPlacementPartnerBody";
 import CreatePlacementPartner from "screen/Dashboard/ListPlacementPartnerBody/CreatePlacementPartner";
 import EventPageEpisode2 from "screen/Event/EventPageEpisode2";
+import GalleryCategoryDetails from "screen/GalleryCategoryDetails";
+import ListGalleryEdit from "screen/Dashboard/ListGalleryBody/ListGalleryEdit";
+import EditGallery from "screen/Dashboard/ListGalleryBody/EditGallery";
 
 // Simple git
 const theme = createTheme({
@@ -374,6 +377,19 @@ function App() {
                 }
               />
               <Route
+                  path="gallery/:id"
+                  element={
+                    !token ? (
+                      <Layout>
+                        <GalleryCategoryDetails />
+                      </Layout>
+                    ) : (
+                      <Navigate to="/dashboard" />
+                    )
+                  }
+                />
+
+              <Route
                 path="/dashboard/create-gallery"
                 element={
                   <DashboardLayout>
@@ -395,6 +411,22 @@ function App() {
                 element={
                   <DashboardLayout>
                     <ListGalleryBody />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path="/dashboard/list-gallery/:id"
+                element={
+                  <DashboardLayout>
+                    <ListGalleryEdit />
+                  </DashboardLayout>
+                }
+              />
+              <Route
+                path='/dashboard/editGallery/:id'
+                element={
+                  <DashboardLayout>
+                    <EditGallery />
                   </DashboardLayout>
                 }
               />

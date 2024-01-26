@@ -1,112 +1,116 @@
-import { useState } from "react";
-import { Gallery } from "react-grid-gallery";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
-import Container from "@material-ui/core/Container";
-import { Typography } from "@material-ui/core";
-import { useEffect } from "react";
-import { constant } from "constants/contants";
+import { React, useState, useEffect } from "react";
 import axios from "axios";
-
-import CompwareImage1 from "../../assets/images/compware-gallery/compware-gallery-img1.jpg";
-import CompwareImage2 from "../../assets/images/compware-gallery/compware-gallery-img2.jpg";
-import CompwareImage3 from "../../assets/images/compware-gallery/compware-gallery-img3.jpg";
-import CompwareImage4 from "../../assets/images/compware-gallery/compware-gallery-img4.jpg";
-import CompwareImage5 from "../../assets/images/compware-gallery/compware-gallery-img5.jpg";
-import CompwareImage6 from "../../assets/images/compware-gallery/compware-gallery-img6.jpg";
-import CompwareImage7 from "../../assets/images/compware-gallery/compware-gallery-img7.jpg";
-import CompwareImage8 from "../../assets/images/compware-gallery/compware-gallery-img8.jpg";
-import CompwareImage9 from "../../assets/images/compware-gallery/compware-gallery-img9.jpg";
+import {Link} from 'react-router-dom';
+import { constant } from "constants/contants";
+import ClipLoader from "react-spinners/ClipLoader";
+import Pagination from "@mui/material/Pagination";
+import { Container, Typography, Grid, Button } from "@material-ui/core";
 
 export default function App() {
-  const [index, setIndex] = useState(-1);
-
-  const [images, setImages] = useState([]);
-
-  const [filteredImages, setFilteredImages] = useState(images);
-
-  const currentImage = filteredImages[index];
-  const nextIndex = (index + 1) % filteredImages.length;
-  const nextImage = filteredImages[nextIndex] || currentImage;
-  const prevIndex = (index + filteredImages.length - 1) % filteredImages.length;
-  const prevImage = filteredImages[prevIndex] || currentImage;
-
-  const handleClick = (index, item) => setIndex(index);
-  const handleClose = () => setIndex(-1);
-  const handleMovePrev = () => setIndex(prevIndex);
-  const handleMoveNext = () => setIndex(nextIndex);
-
-  // filter function to filter based on tags
-  // const filterImages = (letter) => {
-  //   const filteredImages = images.filter((image) => {
-  //     return image.tags.some((tag) => tag.value.includes(letter));
-  //   });
-
-  //   if (filteredImages.length === 0) {
-  //     setFilteredImages(images);
-  //   } else {
-  //     setFilteredImages(filteredImages);
-  //     console.log(filteredImages);
-  //   }
-  // };
-
-  useEffect(() => {
-    // axios fetch gallery from api
+    const override = {
+        display: "block",
+        margin: "0 auto",
+        borderColor: "#0f5288",
+    };
+    const [isLoading, setIsLoading] = useState(true);
+    const itemsPerPage = 5;
+    const [pageNumber, setPageNumber] = useState(1);
+    const [tableData, setTableData] = useState([]);
+    const [category, setCategory] = useState([]);
+    const [allTableData, setAllTableData] = useState([]);
     const url = `${constant.base}/api/gallery`;
 
-    axios.get(url).then((res) => {
-      const images = res.data.msg.map((image) => {
-        return {
-          src: `${constant.base}/storage/${image.Image}`,
-          original: `${constant.base}/storage/${image.Image}`,
-        };
-      });
+    useEffect(() => {
+        setIsLoading(true);
+        axios.get(url)
+            .then((res) => {
+                console.log(res.data.msg);
+                setAllTableData(res.data.msg);
+                setCategory(res.data.msg);
+                console.log(category)
+                setTableData(res.data.msg);
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }, [])
 
-      setImages(images);
-      setFilteredImages(images);
-    });
-  }, []);
-
-  return (
-    <>
-      <Container>
-        <Typography
-          variant="h3"
-          color="primary"
+    const handlePageChange = (event, page) => {
+        // `page` contains the current page number
+        console.log("Current page:", page);
+        setPageNumber(page);
+    };
+    if (isLoading) {
+        return (
+            <div
+                style={{
+                    paddingTop: "10rem",
+                    marginLeft: "50%",
+                    transform: "translateX(-50%)",
+                }}
+            >
+                <ClipLoader
+                    cssOverride={override}
+                    color={"red"}
+                    loading={true}
+                    size={90}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                />
+            </div>
+        );
+    }
+    return (
+        <main>
+            <Container style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          maxWidth: "md",
+          marginTop: "3rem",
+          marginBottom: "3rem",
+        }}>
+            <header
           style={{
             display: "flex",
-            justifyContent: "center",
-            marginTop: "3rem",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          Gallery
-        </Typography>
-        {/* filter input  */}
-
-        {/* <TextField id='standard-search' label='Search field' type='search' variant='standard' onChange={(e) => filterImages(e.target.value)} sx={{ width: "10.5rem", marginBottom: "2rem" }} /> */}
-
-        <Gallery
-          images={filteredImages}
-          onClick={handleClick}
-          enableImageSelection={false}
-        />
-
-        {!!currentImage && (
-          /* @ts-ignore */
-          <Lightbox
-            mainSrc={currentImage.original}
-            imageTitle={currentImage.caption}
-            mainSrcThumbnail={currentImage.src}
-            nextSrc={nextImage.original}
-            nextSrcThumbnail={nextImage.src}
-            prevSrc={prevImage.original}
-            prevSrcThumbnail={prevImage.src}
-            onCloseRequest={handleClose}
-            onMovePrevRequest={handleMovePrev}
-            onMoveNextRequest={handleMoveNext}
-          />
-        )}
-      </Container>
-    </>
-  );
+          <Typography variant="h3" color="primary">
+            Gallery
+          </Typography>
+        </header>
+        <Grid container spacing={3}>
+          {category.slice(0, itemsPerPage).map((category) => (
+            <Grid item xs={12} md={4} key={category._id}>
+              <Link to={`/gallery/${category._id}`} style={{ textDecoration: 'none', color: 'inherit' }} key={category._id}>
+                <img
+                  src={`${constant.base}/storage/${category.images[0]}`}
+                  alt={category.galleryCategoryName}
+                  width="full"
+                  height="300px"
+                  style={{ height: "300px", width: "100%", objectFit: "cover", marginBottom: "1rem", marginTop:"1rem" }}
+                />
+                <Typography
+                  color="primary"
+                  component="h3"
+                >
+                  {category.galleryCategoryName}
+                </Typography>
+              </Link>
+            </Grid>
+          ))}
+        </Grid>
+                <Pagination
+                    onChange={handlePageChange}
+                    count={Math.ceil(tableData.length / itemsPerPage)}
+                    color="primary"
+                    shape="rounded"
+                    style={{ marginTop: "3rem" }}
+                />
+            </Container>
+        </main>
+    );
 }
