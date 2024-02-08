@@ -86,7 +86,7 @@ const theme = createTheme({
 function App() {
   //? our global state token of redux toolkit used for making protected routes
   const { token } = useSelector((state) => state.authInfo);
-
+  console.log(token);
   return (
     <>
       <MuiThemeProvider theme={theme}>
@@ -94,6 +94,19 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route>
+                <Route path="/" element={<Home />} />
+                <Route
+                  path="/dashboard"
+                  element={
+                    token ? (
+                      <DashboardLayout>
+                        <Dashboard />
+                      </DashboardLayout>
+                    ) : (
+                      <Navigate to="/" />
+                    )
+                  }
+                />
                 <Route
                   index
                   element={
@@ -283,151 +296,220 @@ function App() {
               <Route
                 path="/dashboard/list-enroll-students"
                 element={
-                  <DashboardLayout>
-                    <ListEnrollStudentBody />
-                  </DashboardLayout>
+                  token ? (
+                    <DashboardLayout>
+                      <ListEnrollStudentBody />
+                    </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/list-sessions"
                 element={
-                  <DashboardLayout>
-                    <ListSessionBody />
-                  </DashboardLayout>
+                  token ? (
+                    <DashboardLayout>
+                      <ListSessionBody />
+                    </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
                 }
               />
+
               <Route
                 path="/dashboard/create-session"
                 element={
-                  <DashboardLayout>
-                    <CreateSessions />
-                  </DashboardLayout>
+                  token ? (
+                    <DashboardLayout>
+                      <CreateSessions />
+                    </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/create-client"
                 element={
-                  <DashboardLayout>
-                    <CreateClient />
-                  </DashboardLayout>
+                  token ? (
+                    <DashboardLayout>
+                      <CreateClient />
+                    </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/list-partner"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <ListPlacementPartnerBody />
                   </DashboardLayout>
+                   ) : (
+                    <Navigate to="/" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/create-placement"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <CreatePlacementPartner />
                   </DashboardLayout>
+                   ) : (
+                    <Navigate to="/" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/edit-session/:id"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <EditSessions />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/list-blog"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <ListBlogBody />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/list-students"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <ListStudentCertificateBody />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/create-blog"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <CreateBlog />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/create-student"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <CreateStudentCertificate />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/create-course"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <CreateCourse />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
                 }
               />
               <Route
-                  path="gallery/:id"
-                  element={
-                    !token ? (
-                      <Layout>
-                        <GalleryCategoryDetails />
-                      </Layout>
-                    ) : (
-                      <Navigate to="/dashboard" />
-                    )
-                  }
-                />
+                path="gallery/:id"
+                element={
+                  !token ? (
+                    <Layout>
+                      <GalleryCategoryDetails />
+                    </Layout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
+                }
+              />
 
               <Route
                 path="/dashboard/create-gallery"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <CreateGallery />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
 
               <Route
                 path="/dashboard/list-course"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <ListCourseBody />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/list-gallery"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <ListGalleryBody />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/list-gallery/:id"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <ListGalleryEdit />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
-                path='/dashboard/editGallery/:id'
+                path="/dashboard/editGallery/:id"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <EditGallery />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               {/* <Route
@@ -441,116 +523,171 @@ function App() {
               <Route
                 path="/dashboard/update-course/:id"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <UpdateCourse />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/edit-student-certificate/:id"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <EditStudentCertificate />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/list-team"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <ListTeamBody />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/list-trainer"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <ListTrainer />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/add-trainer"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <AddTrainer />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/create-team"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <CreateTeamBody />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/edit-team/:id"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <EditTeam />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/list-client"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <ListClientBody />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/list-testimonial"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <ListTestimonialBody />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/create-testimonial"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <CreateTestimonial />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/edit-testimonial/:id"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <EditTestimonial />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/list-request-certificate"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <ListRequestCertificate />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route
                 path="/dashboard/list-vacancy"
                 element={
+                  token ? (
                   <DashboardLayout>
                     <ListVacancy />
                   </DashboardLayout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
 
-              {/* //! Dasboard private routes ends here */}
 
               <Route
                 path="resetpassword"
                 element={
+                  token ? (
                   <Layout>
                     <AdminForgotPassword />
                   </Layout>
+                  ) : (
+                    <Navigate to="/dashboard" />
+                  )
                 }
               />
               <Route path="*" element={<PageNotFound />} />
