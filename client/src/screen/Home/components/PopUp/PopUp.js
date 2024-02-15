@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Button } from "@mui/material";
-import Image1 from "../../../../assets/images/welcome.jpeg";
+import Image1 from "../../../../assets/images/popup.png";
 import { useState } from "react";
 const PopupStyle = styled.div`
   position: fixed;

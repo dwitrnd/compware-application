@@ -13,6 +13,7 @@ import ReviewsMarqueCarousel from "components/ReviewsMarqueCarousel/ReviewsMarqu
 import ReviewsMarqueCarouselLower from "components/ReviewsMarqueCarousel/ReviewMarqueeUpper";
 import CourseSearch from "./components/CourseSearch/CoruseSearch";
 import { constant } from "constants/contants";
+import PopUp from "assets/images/popup.png";
 
 const Home = () => {
   const [course, setCourse] = useState("");
@@ -140,18 +141,21 @@ const Home = () => {
     zIndex: 1000,
     backdropFilter: "blur(10px)",
   };
+  
 
-  // const Popup = ({ handleClose }) => (
-  //   <div style={popupStyle}>
-  //     <button style={closeButtonStyle} onClick={handleClose}>
-  //       X
-  //     </button>
-  //     <img src={TiharImage} style={imageStyle} alt="Tihar Festival" />
-  //   </div>
-  // );
+  const Popup = ({ handleClose }) => (
+    <div style={popupStyle}>
+      <button style={closeButtonStyle} onClick={handleClose}>
+        X
+      </button>
+      <img src={PopUp} style={imageStyle} alt="Tihar Festival" />
+    </div>
+  );
 
   return (
     <>
+    {isPopupVisible && <div style={overlayStyle} />}
+    {isPopupVisible && <Popup handleClose={handleClosePopup} />}
       <div style={{ position: "relative" }}>
         {/* //* =========hero section starts here========= */}
 
