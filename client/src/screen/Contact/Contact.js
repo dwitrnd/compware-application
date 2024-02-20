@@ -168,7 +168,7 @@ const Contact = () => {
                     color="white"
                     style={{ color: "#FFF" }}
                   >
-                    01-5913021, 01-4567153
+                    01-5913021, 01-4567153, +9779860422021, +9779765355167
                   </Typography>
                 </Stack>
                 <Stack direction="row">
