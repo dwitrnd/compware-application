@@ -104,9 +104,8 @@ const EventPageEpisode2 = () => {
         </h1>
         <br />
         <h4 className="roboto_300 event-timeline">
-          29th December, 2023 <br />
-          2:00 PM to 4:30 PM
-          <br />
+          After the successful completion of Panel Discussion Ep.2, we're
+          gearing up for Panel Discussion Ep.3. Stay tuned!
         </h4>
       </div>
 
