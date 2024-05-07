@@ -1,11 +1,19 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Fb from "assets/icons/fb.png";
 import Insta from "assets/icons/insta.png";
 import Linkedin from "assets/icons/linkedin.png";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import Akankshya from "assets/images/panel-discussion/Akankshya Upadhyay 1.png";
+import Parag from "assets/images/panel-discussion/Santosh.jpeg";
+import AnilDutta from "assets/images/panel-discussion/Sweta.jpeg";
+import Mona from "assets/images/panel-discussion/Subash.jpeg";
+import Avina from "assets/images/panel-discussion/Shyam.jpeg";
+import Chiranjibi from "assets/images/panel-discussion/Chiranjibi Adhikari.jpg";
+import Shristi from "assets/images/panel-discussion/Shristi.jpeg";
+import Prakash from "assets/images/panel-discussion/Kumar.jpeg";
+import Himalaya from "assets/images/panel-discussion/Himalaya.jpg";
 
 const style = {
   position: "absolute",
@@ -20,11 +28,11 @@ const style = {
 };
 
 const EventPageEpisode2 = () => {
-  const [panelistImage, setPanelistImage] = React.useState("");
-  const [panelistName, setPanelistName] = React.useState("");
-  const [panelistDescription, setPanelistDescription] = React.useState("");
+  const [panelistImage, setPanelistImage] = useState("");
+  const [panelistName, setPanelistName] = useState("");
+  const [panelistDescription, setPanelistDescription] = useState("");
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -49,7 +57,6 @@ const EventPageEpisode2 = () => {
       });
     });
   }, []);
-
   return (
     <main id="event-page">
       <>
@@ -110,7 +117,7 @@ const EventPageEpisode2 = () => {
       </div>
 
       {/* speaker section */}
-      <section
+      {/* <section
         style={{
           display: "flex",
           justifyContent: "center",
@@ -121,9 +128,177 @@ const EventPageEpisode2 = () => {
         <h3>
         The Deerwalk Tech Dialogue Series EP - II, held on December 29, 2023, convened experts to discuss transforming Nepal into an IT hub by 2030. Delving into academia and industry intersections, concerns over the current curriculum's relevance and the urgent need for an overhaul were highlighted. Academic figures included Rohit Raj Pandey, Dr. Bhoj Raj Ghimire, Himalaya Kakshyapati, Shyam Sundar Khatiwada, and Kumar Lamichhane, while industry experts featured Shristi Kayastha, Santosh Koirala, Sweta Karn, Subash Devkota, and Chiranjibi Adhikari. Key discussions focused on bridging academia-industry gaps, addressing challenges like curriculum rigidity, soft skills deficiency, and the need for continuous updates. Emphasizing collaboration and practical skill development, the session aimed at retaining talent in Nepal's evolving IT sector, addressing issues from brain drain to the impact of salary boundaries on students' role preferences.
         </h3>
-      </section>
+      </section> */}
       {/* host section */}
+      <section id="panel-list-section">
+        <div className="container">
+          <h2 className="heading roboto_700">Panelist</h2>
+          <div className="panel-discussion-container">
+            <div
+              className="panel-list-card clickable"
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Shristi);
+                setPanelistName("Dr. Shristi Kayastha");
+                setPanelistDescription(
+                  "Shristi Kayastha, the People and Culture Manager at Aqore Software, brings extensive expertise in HR and organizational development to our panel. With a career spanning national and international roles, including with the United Nations Mission in Kosovo, Shristi excels in addressing complex organizational challenges. She bridges academia and industry, imparting knowledge in organizational leadership and MIS, while actively engaging in professional and community service initiatives."
+                );
+              }}
+            >
+              <img src={Shristi} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">Dr. Shristi Kayastha</h6>
+            </div>
+            <div
+              className="panel-list-card clickable"
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Parag);
+                setPanelistName("Santosh Koirala");
+                setPanelistDescription(
+                  "Santosh Koirala, Vice President at NAS IT, joins us as a distinguished panelist for Episode II of the Deerwalk Tech Dialogue Series. With his extensive experience and leadership in the field, Santosh brings invaluable insights into the realm of technology and business. As Vice President at NAS IT, he plays a pivotal role in shaping the company's strategic direction and driving innovation in the ever-evolving tech landscape. Join us as we delve into discussions led by Santosh, exploring the intersection of technology, leadership, and business growth, and uncovering strategies for navigating the complexities of today's digital world."
+                );
+              }}
+            >
+              <img src={Parag} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">Santosh Koirala</h6>
+              {/* <h6 className='roboto_400 panel-list-designation'> Parag Shrestha </h6> */}
+            </div>
+            <div
+              className="panel-list-card clickable"
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(AnilDutta);
+                setPanelistName("Sweta Karn");
+                setPanelistDescription(
+                  "Sweta Karn, the VP of Data at Cedar Gate Services Pvt Ltd, joins our esteemed panel for Episode II of the Deerwalk Tech Dialogue Series. With her profound expertise and leadership in data management, Sweta offers invaluable insights into leveraging data for strategic decision-making and business growth. In her role, she spearheads initiatives to optimize data-driven processes and drive innovation within the organization. Join us as we engage in discussions led by Sweta, exploring the transformative power of data and its role in shaping the future of businesses in today's dynamic landscape."
+                );
+              }}
+            >
+              <img src={AnilDutta} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">Sweta Karn</h6>
+            </div>
+            <div
+              className="panel-list-card clickable"
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Mona);
+                setPanelistName("Subash Devkota");
+                setPanelistDescription(`
+                Subash Devkota, the Director at Deerhold Nepal Pvt. Ltd, enriches our panel for Episode II of the Deerwalk Tech Dialogue Series. With his extensive experience and strategic vision, Subash brings invaluable insights into business leadership and innovation. As Director at Deerhold Nepal Pvt. Ltd, he plays a pivotal role in steering the company's growth and fostering a culture of excellence. Join us as we delve into discussions led by Subash, exploring the latest trends and challenges in the technology sector, and uncovering strategies for driving sustainable business success in today's competitive landscape.`);
+              }}
+            >
+              <img src={Mona} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">Subash Devkota</h6>
+            </div>
+            <div
+              className="panel-list-card clickable"
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Chiranjibi);
+                setPanelistName("Chiranjibi Adhikari");
+                setPanelistDescription(`
+                Chiranjibi Adhikari, a renowned cybersecurity expert from Nepal, is the CEO of One Cover Pvt. Ltd., a cybersecurity consulting firm. With extensive knowledge in cybersecurity, information security, and digital forensics, he's a prolific writer and researcher, having authored books and research papers in these fields. Chiranjibi is an advocate for cybersecurity awareness and education, delivering lectures and workshops. He also serves as the General Secretary at CAN Federation and holds several other key roles in the tech industry.
+`);
+              }}
+            >
+              <img src={Chiranjibi} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">
+                Chiranjibi Adhikari
+              </h6>
+            </div>
+            <div
+              className="panel-list-card clickable"
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Prakash);
+                setPanelistName("Kumar Lamichhane");
+                setPanelistDescription(`
+Kumar Lamichhane, esteemed Faculty member at DWIT College, lends his expertise to our panel for Episode II of the Deerwalk Tech Dialogue Series. With a wealth of knowledge in academia and technology, Kumar offers invaluable insights into the intersection of education and industry trends. As a Faculty member at DWIT College, he is dedicated to nurturing the next generation of tech professionals and fostering innovation within the classroom. Join us as we engage in discussions led by Kumar, exploring the evolving landscape of technology education and its impact on shaping future leaders in the field.
+`);
+              }}
+            >
+              <img src={Prakash} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">Kumar Lamichhane</h6>
+            </div>
+            <div
+              className="panel-list-card clickable"
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Avina);
+                setPanelistName("Shyam Sundar Khatiwada");
+                setPanelistDescription(`
+                Shyam Sundar Khatiwada, a distinguished Faculty member at DWIT College, enriches our panel for Episode II of the Deerwalk Tech Dialogue Series. With his profound expertise in academia and technology, Shyam offers invaluable insights into the evolving landscape of education and industry convergence. As a dedicated Faculty member at DWIT College, he plays a pivotal role in shaping the curriculum and preparing students for the dynamic challenges of the tech industry. Join us as we delve into discussions led by Shyam, exploring the synergies between academia and industry and uncovering strategies for fostering innovation and excellence in technology education.
+`);
+              }}
+            >
+              <img src={Avina} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">Shyam Sundar Khatiwada</h6>
+            </div>
+            <div
+              className="panel-list-card clickable"
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Himalaya);
+                setPanelistName("	Himalaya Kakshyapati");
+                setPanelistDescription(`
+                Himalaya Kakshyapati, a respected Faculty member at Pulchowk Engineering College, brings his expertise to our panel for Episode II of the Deerwalk Tech Dialogue Series. With a deep understanding of engineering and technology, Himalaya offers valuable insights into the intersection of academia and industry. As a dedicated educator at Pulchowk Engineering College, he plays a pivotal role in shaping the next generation of engineering professionals and driving innovation in the field. Join us as we engage in discussions led by Himalaya, exploring the latest advancements in engineering education and their impact on industry trends and developments.
+`);
+              }}
+            >
+              <img src={Himalaya} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">Himalaya Kakshyapati</h6>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* speaker section */}
 
+      {/* host section */}
+      <section id="panel-list-section">
+        <div className="container">
+          <h2
+            className="heading roboto_700"
+            style={{
+              textAlign: "center",
+            }}
+          >
+            Host & Moderator
+          </h2>
+          <div className="panel-discussion-container">
+            <div
+              className="panel-list-card clickable"
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Avina);
+                setPanelistName("Shyam Sundar Khatiwada");
+                setPanelistDescription(`
+                Avina Nakarmi is an experienced software engineer who is passionate about using technology to advance Nepal's IT sector. She holds a bachelor's degree in computer science and information technology from Deerwalk Institute of Technology. Avina has gained significant expertise working as a software engineer at Deerhold Pvt. Ltd., where she has played a crucial role in developing innovative healthcare solutions. Her dedication goes beyond technology; she actively participates in academic projects and presentations, demonstrating her firm belief in the important role of technology in improving society.
+`);
+              }}
+            >
+              <img src={Avina} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">Shyam Sundar Khatiwada</h6>
+              <h6 className="roboto_400 panel-list-designation"> Host </h6>
+            </div>
+            <div
+              className="panel-list-card clickable"
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Akankshya);
+                setPanelistName("Akankshya Upadhyay");
+                setPanelistDescription(`
+                Akankshya Upadhyay is a dedicated project manager at Deerhold Ltd. She has a strong background in computer science and information technology. With over three years of experience at Deerhold, she has excelled in her role, showcasing her organizational and leadership skills. Beyond her professional work, she is involved in various educational initiatives, including presenting business news on Nepal Television and teaching students critical thinking skills. Her diverse experiences, including work as a news anchor and English instructor, reflect her commitment to both technology and education. Additionally, she holds a diploma in US healthcare data analytics, further enhancing her expertise.
+`);
+              }}
+            >
+              {/* <div className='cover roboto_400'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum incidunt itaque u </div> */}
+              <img src={Akankshya} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">Akankshya Upadhyay</h6>
+              <h6 className="roboto_400 panel-list-designation"> Moderator </h6>
+            </div>
+          </div>
+        </div>
+      </section>
       <footer className="panelist-footer">
         <div className="icon-container">
           <a
@@ -140,7 +315,7 @@ const EventPageEpisode2 = () => {
             <img src={Linkedin} alt="" />
           </a>
         </div>
-        <p className="roboto_400">Copyright &copy; 2023 Deerwalk Compware</p>
+        <p className="roboto_400">Copyright &copy; 2024 Deerwalk Compware</p>
       </footer>
     </main>
   );
