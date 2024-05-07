@@ -155,7 +155,7 @@ const EventPageEpisode2 = () => {
                 setPanelistImage(Parag);
                 setPanelistName("Santosh Koirala");
                 setPanelistDescription(
-                  "Santosh Koirala, Vice President at NAS IT, joins us as a distinguished panelist for Episode II of the Deerwalk Tech Dialogue Series. With his extensive experience and leadership in the field, Santosh brings invaluable insights into the realm of technology and business. As Vice President at NAS IT, he plays a pivotal role in shaping the company's strategic direction and driving innovation in the ever-evolving tech landscape. Join us as we delve into discussions led by Santosh, exploring the intersection of technology, leadership, and business growth, and uncovering strategies for navigating the complexities of today's digital world."
+                  "Santosh Koirala, Vice President at NAS IT, joins us as a distinguished panelist for Episode II of the Deerwalk Tech Dialogue Series. With his extensive experience and leadership in the field, Santosh brings invaluable insights into the realm of technology and business. As Vice President at NAS IT, he plays a pivotal role in shaping the company's strategic direction and driving innovation in the ever-evolving tech landscape."
                 );
               }}
             >
@@ -170,7 +170,7 @@ const EventPageEpisode2 = () => {
                 setPanelistImage(AnilDutta);
                 setPanelistName("Sweta Karn");
                 setPanelistDescription(
-                  "Sweta Karn, the VP of Data at Cedar Gate Services Pvt Ltd, joins our esteemed panel for Episode II of the Deerwalk Tech Dialogue Series. With her profound expertise and leadership in data management, Sweta offers invaluable insights into leveraging data for strategic decision-making and business growth. In her role, she spearheads initiatives to optimize data-driven processes and drive innovation within the organization. Join us as we engage in discussions led by Sweta, exploring the transformative power of data and its role in shaping the future of businesses in today's dynamic landscape."
+                  "Sweta Karn, the VP of Data at Cedar Gate Services Pvt Ltd, joins our esteemed panel for Episode II of the Deerwalk Tech Dialogue Series. With her profound expertise and leadership in data management, Sweta offers invaluable insights into leveraging data for strategic decision-making and business growth. In her role, she spearheads initiatives to optimize data-driven processes and drive innovation within the organization."
                 );
               }}
             >
@@ -184,7 +184,7 @@ const EventPageEpisode2 = () => {
                 setPanelistImage(Mona);
                 setPanelistName("Subash Devkota");
                 setPanelistDescription(`
-                Subash Devkota, the Director at Deerhold Nepal Pvt. Ltd, enriches our panel for Episode II of the Deerwalk Tech Dialogue Series. With his extensive experience and strategic vision, Subash brings invaluable insights into business leadership and innovation. As Director at Deerhold Nepal Pvt. Ltd, he plays a pivotal role in steering the company's growth and fostering a culture of excellence. Join us as we delve into discussions led by Subash, exploring the latest trends and challenges in the technology sector, and uncovering strategies for driving sustainable business success in today's competitive landscape.`);
+                Subash Devkota, the Director at Deerhold Nepal Pvt. Ltd, enriches our panel for Episode II of the Deerwalk Tech Dialogue Series. With his extensive experience and strategic vision, Subash brings invaluable insights into business leadership and innovation. As Director at Deerhold Nepal Pvt. Ltd, he plays a pivotal role in steering the company's growth and fostering a culture of excellence.`);
               }}
             >
               <img src={Mona} alt="" />{" "}
@@ -213,7 +213,7 @@ const EventPageEpisode2 = () => {
                 setPanelistImage(Prakash);
                 setPanelistName("Kumar Lamichhane");
                 setPanelistDescription(`
-Kumar Lamichhane, esteemed Faculty member at DWIT College, lends his expertise to our panel for Episode II of the Deerwalk Tech Dialogue Series. With a wealth of knowledge in academia and technology, Kumar offers invaluable insights into the intersection of education and industry trends. As a Faculty member at DWIT College, he is dedicated to nurturing the next generation of tech professionals and fostering innovation within the classroom. Join us as we engage in discussions led by Kumar, exploring the evolving landscape of technology education and its impact on shaping future leaders in the field.
+Kumar Lamichhane, esteemed Faculty member at DWIT College, lends his expertise to our panel for Episode II of the Deerwalk Tech Dialogue Series. With a wealth of knowledge in academia and technology, Kumar offers invaluable insights into the intersection of education and industry trends. As a Faculty member at DWIT College, he is dedicated to nurturing the next generation of tech professionals and fostering innovation within the classroom.
 `);
               }}
             >
@@ -227,7 +227,7 @@ Kumar Lamichhane, esteemed Faculty member at DWIT College, lends his expertise t
                 setPanelistImage(Avina);
                 setPanelistName("Shyam Sundar Khatiwada");
                 setPanelistDescription(`
-                Shyam Sundar Khatiwada, a distinguished Faculty member at DWIT College, enriches our panel for Episode II of the Deerwalk Tech Dialogue Series. With his profound expertise in academia and technology, Shyam offers invaluable insights into the evolving landscape of education and industry convergence. As a dedicated Faculty member at DWIT College, he plays a pivotal role in shaping the curriculum and preparing students for the dynamic challenges of the tech industry. Join us as we delve into discussions led by Shyam, exploring the synergies between academia and industry and uncovering strategies for fostering innovation and excellence in technology education.
+                Shyam Sundar Khatiwada, a distinguished Faculty member at DWIT College, enriches our panel for Episode II of the Deerwalk Tech Dialogue Series. With his profound expertise in academia and technology, Shyam offers invaluable insights into the evolving landscape of education and industry convergence. As a dedicated Faculty member at DWIT College, he plays a pivotal role in shaping the curriculum and preparing students for the dynamic challenges of the tech industry. 
 `);
               }}
             >
@@ -241,7 +241,7 @@ Kumar Lamichhane, esteemed Faculty member at DWIT College, lends his expertise t
                 setPanelistImage(Himalaya);
                 setPanelistName("	Himalaya Kakshyapati");
                 setPanelistDescription(`
-                Himalaya Kakshyapati, a respected Faculty member at Pulchowk Engineering College, brings his expertise to our panel for Episode II of the Deerwalk Tech Dialogue Series. With a deep understanding of engineering and technology, Himalaya offers valuable insights into the intersection of academia and industry. As a dedicated educator at Pulchowk Engineering College, he plays a pivotal role in shaping the next generation of engineering professionals and driving innovation in the field. Join us as we engage in discussions led by Himalaya, exploring the latest advancements in engineering education and their impact on industry trends and developments.
+                Himalaya Kakshyapati, a respected Faculty member at Pulchowk Engineering College, brings his expertise to our panel for Episode II of the Deerwalk Tech Dialogue Series. With a deep understanding of engineering and technology, Himalaya offers valuable insights into the intersection of academia and industry. As a dedicated educator at Pulchowk Engineering College, he plays a pivotal role in shaping the next generation of engineering professionals and driving innovation in the field. 
 `);
               }}
             >
