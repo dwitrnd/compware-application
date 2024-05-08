@@ -16,7 +16,7 @@ import Prakash from "assets/images/panel-discussion/Kumar.jpeg";
 import Himalaya from "assets/images/panel-discussion/Himalaya.jpg";
 import BhojRaj from "assets/images/panel-discussion/BhojRaj.png";
 import Rohit from "assets/images/panel-discussion/Rohit.png";
-import Kushum from "assets/images/panel-discussion/Kushum.jpg";
+import Kushum from "assets/images/panel-discussion/Kushum.png";
 
 const style = {
   position: "absolute",
