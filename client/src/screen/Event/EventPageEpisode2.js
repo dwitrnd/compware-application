@@ -14,6 +14,9 @@ import Chiranjibi from "assets/images/panel-discussion/Chiranjibi Adhikari.jpg";
 import Shristi from "assets/images/panel-discussion/Shristi.jpeg";
 import Prakash from "assets/images/panel-discussion/Kumar.jpeg";
 import Himalaya from "assets/images/panel-discussion/Himalaya.jpg";
+import BhojRaj from "assets/images/panel-discussion/BhojRaj.png";
+import Rohit from "assets/images/panel-discussion/Rohit.png";
+import Kushum from "assets/images/panel-discussion/Kushum.jpg";
 
 const style = {
   position: "absolute",
@@ -248,6 +251,34 @@ Kumar Lamichhane, esteemed Faculty member at DWIT College, lends his expertise t
               <img src={Himalaya} alt="" />{" "}
               <h6 className="roboto_400 panel-list-name">Himalaya Kakshyapati</h6>
             </div>
+            <div
+              className="panel-list-card clickable"
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(BhojRaj);
+                setPanelistName("Dr. Bhoj Raj Ghimire");
+                setPanelistDescription(`
+                Dr. Bhoj Raj Ghimire, the Head of the School of Technology and Program Coordinator for M.Phil. ICT at Open University, brings his wealth of expertise to our panel as a distinguished Speaker for Episode II of the Deerwalk Tech Dialogue Series. With a profound understanding of technology and education, Dr. Ghimire offers invaluable insights into the intersection of academia and industry. In his roles, he plays a crucial part in shaping the educational landscape and preparing students for the challenges of the tech-driven world.
+`);
+              }}
+            >
+              <img src={BhojRaj} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">Dr. Bhoj Raj Ghimire</h6>
+            </div>
+            <div
+              className="panel-list-card clickable"
+              onClick={() => {
+                handleOpen();
+                setPanelistImage(Rohit);
+                setPanelistName("Rohit Raj Pandey");
+                setPanelistDescription(`
+                Rohit Raj Pandey, the Head of the School of Computing at British College, graces our panel as a distinguished Speaker for Episode II of the Deerwalk Tech Dialogue Series. With a wealth of experience in computing and education, Rohit brings invaluable insights into the convergence of academia and industry. As a leader at British College, he plays a pivotal role in shaping the curriculum and guiding students toward success in the dynamic field of computing. 
+`);
+              }}
+            >
+              <img src={Rohit} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">Rohit Raj Pandey</h6>
+            </div>
           </div>
         </div>
       </section>
@@ -262,23 +293,23 @@ Kumar Lamichhane, esteemed Faculty member at DWIT College, lends his expertise t
               textAlign: "center",
             }}
           >
-            Host & Moderator
+            Guest & Moderator
           </h2>
           <div className="panel-discussion-container">
             <div
               className="panel-list-card clickable"
               onClick={() => {
                 handleOpen();
-                setPanelistImage(Avina);
-                setPanelistName("Shyam Sundar Khatiwada");
+                setPanelistImage(Kushum);
+                setPanelistName("Dr. Kushum Shakya");
                 setPanelistDescription(`
-                Avina Nakarmi is an experienced software engineer who is passionate about using technology to advance Nepal's IT sector. She holds a bachelor's degree in computer science and information technology from Deerwalk Institute of Technology. Avina has gained significant expertise working as a software engineer at Deerhold Pvt. Ltd., where she has played a crucial role in developing innovative healthcare solutions. Her dedication goes beyond technology; she actively participates in academic projects and presentations, demonstrating her firm belief in the important role of technology in improving society.
+                Prof. Dr. Kushum Shakya, the esteemed Dean of BCA at Tribhuvan University, graces our panel as a distinguished Guest for Episode II of the Deerwalk Tech Dialogue Series. With extensive experience and expertise in academia, Dr. Shakya offers invaluable insights into the realm of computer applications and education. As the Dean of BCA, she plays a pivotal role in shaping the academic landscape and guiding students towards excellence in the field. 
 `);
               }}
             >
-              <img src={Avina} alt="" />{" "}
-              <h6 className="roboto_400 panel-list-name">Shyam Sundar Khatiwada</h6>
-              <h6 className="roboto_400 panel-list-designation"> Host </h6>
+              <img src={Kushum} alt="" />{" "}
+              <h6 className="roboto_400 panel-list-name">Dr. Kushum Shakya</h6>
+              <h6 className="roboto_400 panel-list-designation"> Guest </h6>
             </div>
             <div
               className="panel-list-card clickable"
