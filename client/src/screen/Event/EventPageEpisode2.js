@@ -142,14 +142,14 @@ const EventPageEpisode2 = () => {
               onClick={() => {
                 handleOpen();
                 setPanelistImage(Shristi);
-                setPanelistName("Dr. Shristi Kayastha");
+                setPanelistName("Shristi Kayastha");
                 setPanelistDescription(
                   "Shristi Kayastha, the People and Culture Manager at Aqore Software, brings extensive expertise in HR and organizational development to our panel. With a career spanning national and international roles, including with the United Nations Mission in Kosovo, Shristi excels in addressing complex organizational challenges. She bridges academia and industry, imparting knowledge in organizational leadership and MIS, while actively engaging in professional and community service initiatives."
                 );
               }}
             >
               <img src={Shristi} alt="" />{" "}
-              <h6 className="roboto_400 panel-list-name">Dr. Shristi Kayastha</h6>
+              <h6 className="roboto_400 panel-list-name">Shristi Kayastha</h6>
             </div>
             <div
               className="panel-list-card clickable"
