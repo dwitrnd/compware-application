@@ -6,7 +6,6 @@ import { withSize } from "react-sizeme";
 import { nanoid } from "nanoid";
 import { constant } from "constants/contants";
 import axios from "axios";
-
 import ClipLoader from "react-spinners/ClipLoader";
 import { Link } from "react-router-dom";
 
@@ -47,7 +46,6 @@ const People = ({ size }) => {
   useEffect(() => {
     setIsLoading(true);
     axios.get(url).then((res) => {
-      console.log(res.data.msg);
       setTableData(res.data.msg);
       setIsLoading(false);
     });
@@ -102,7 +100,6 @@ const People = ({ size }) => {
       <div>
         <Marquee key={key} velocity={marqueeRunningState}>
           {tableData.map((item, index) => {
-            console.log(index);
 
             {
               /*  return below for half length of tableData  */

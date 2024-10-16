@@ -7,14 +7,7 @@ import { nanoid } from "nanoid";
 import { constant } from "constants/contants";
 import axios from "axios";
 import ClipLoader from "react-spinners/ClipLoader";
-
 import { Link } from "react-router-dom";
-
-const override = {
-  display: "block",
-  margin: "0 auto",
-  borderColor: "#0f5288",
-};
 
 const Photo = styled.img`
   width: ${(props) => props.scale * 368}px;
@@ -34,6 +27,12 @@ const People = ({ size }) => {
   const [marqueeRunningState, setMarqueeRunningState] = useState(15);
   const [isLoading, setIsLoading] = useState(true);
   const [key, setKey] = useState(nanoid());
+
+  const override = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "#0f5288",
+  };
 
   const [tableData, setTableData] = useState([
     {
@@ -141,49 +140,6 @@ const People = ({ size }) => {
                           padding: "0.75rem",
                         }}
                       ></p>
-                    </div>
-                  </Link>
-                </div>
-              );
-            }
-            if (index < 30) {
-              return (
-                <div
-                  onMouseLeave={handleMouseLeave}
-                  onMouseOver={handleMouseOver}
-                  style={{
-                    cursor: "pointer ",
-                    margin: "0rem !important",
-                    width: "19rem",
-                  }}
-                  className="home_course_card"
-                >
-                  <Link to={`/course-detail/${item._id}`} target="_parent">
-                    <Photo
-                      src={`${constant.base}/storage/${item.courseLogo}`}
-                      alt=""
-                      key={`marquee-example-people-${index}`}
-                    />
-                    <div className="course_card_content">
-                      <h6
-                        style={{
-                          color: "#0f5288",
-                          fontSize: "1.45rem",
-                          textAlign: "center",
-                          fontWeight: "normal",
-                        }}
-                      >
-                        {item.courseName && item.courseName}
-                      </h6>
-                      <p
-                        style={{
-                          color: "#000000",
-                          fontSize: "0.85rem",
-                          padding: "0.75rem",
-                        }}
-                      >
-                        {item.courseCategory && item.courseCategory}
-                      </p>
                     </div>
                   </Link>
                 </div>

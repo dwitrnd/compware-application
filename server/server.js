@@ -45,6 +45,8 @@ const trainerRoutes = require("./routes/trainerRouter");
 const contactRoutes = require("./routes/contactRouter");
 const clientRoutes = require("./routes/clientRouter");
 const placementRoutes = require("./routes/placementRouter");
+const hardwareRoutes = require("./routes/hardwareRouter");
+const newsletterRoutes = require("./routes/newsletterRouter");
 
 app.use("/api/users", userRoutes);
 app.use("/api/facts", factRoutes);
@@ -66,6 +68,8 @@ app.use("/api/contact", contactRoutes);
 app.use("/api/client", clientRoutes);
 app.use("/api/placement", placementRoutes);
 app.use("/api/enrollmentStatus", enquiryRoutes);
+app.use("/api/hardware", hardwareRoutes);
+app.use("/api/newsletter", newsletterRoutes);
 
 app.use("/storage", express.static(path.join(appRoot, "storage")));
 

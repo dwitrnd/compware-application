@@ -24,7 +24,7 @@ const CreateGallery = () => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("galleryCategoryName", galleryCategoryName); // Rename ImageName to galleryCategoryName
+    formData.append("galleryCategoryName", galleryCategoryName);
     for (let i = 0; i < images.length; i++) {
       formData.append('images', images[i]);
     }

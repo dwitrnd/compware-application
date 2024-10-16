@@ -17,6 +17,7 @@ import SendPasswordResetEmail from "./screen/auth/SendPasswordResetEmail";
 import Dashboard from "./screen/Dashboard";
 import OurTeam from "./screen/OurTeam";
 import Gallery from "./screen/Gallery";
+import Hardware from "./screen/Hardware";
 import AdminLogin from "./screen/AdminAuth/AdminLogin";
 import AdminRegister from "./screen/AdminAuth/AdminRegister";
 import AdminForgotPassword from "./screen/AdminAuth/AdminForgotPassword";
@@ -58,6 +59,12 @@ import CreateStudentCertificate from "screen/Dashboard/ListStudentCertificateBod
 import CreateTestimonial from "screen/Dashboard/ListTestimonialBody/CreateTestimonial";
 import EditStudentCertificate from "screen/Dashboard/ListStudentCertificateBody/EditStudentCertificate";
 import ListClientBody from "screen/Dashboard/ListClientBody/ListClientBody";
+import ListHardware from "screen/Dashboard/ListHardware/ListHardware";
+import CreateHardware from "screen/Dashboard/ListHardware/CreateHardware";
+import UpdateHardware from "screen/Dashboard/ListHardware/UpdateHardware";
+import ListNewsletter from "screen/Dashboard/ListNewsletter/ListNewsletter";
+import CreateNewsletter from "screen/Dashboard/ListNewsletter/CreateNewsletter";
+import UpdateNewsletter from "screen/Dashboard/ListNewsletter/UpdateNewsletter";
 import CreateClient from "screen/Dashboard/ListClientBody/CreateClient";
 import ListPlacementPartnerBody from "screen/Dashboard/ListPlacementPartnerBody/ListPlacementPartnerBody";
 import CreatePlacementPartner from "screen/Dashboard/ListPlacementPartnerBody/CreatePlacementPartner";
@@ -120,6 +127,7 @@ function App() {
                     )
                   }
                 />
+                
                 <Route
                   path="home"
                   element={
@@ -144,6 +152,15 @@ function App() {
                     <Layout>
                       <Gallery />
                       <PageTitle title="Gallery" />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="hardware"
+                  element={
+                    <Layout>
+                      <Hardware />
+                      <PageTitle title="Hardware" />
                     </Layout>
                   }
                 />
@@ -311,6 +328,82 @@ function App() {
                   token ? (
                     <DashboardLayout>
                       <ListSessionBody />
+                    </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
+                }
+              />
+
+              <Route
+                path="/dashboard/list-hardware"
+                element={
+                  token ? (
+                    <DashboardLayout>
+                      <ListHardware />
+                    </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
+                }
+              />
+
+<Route
+                path="/dashboard/update-hardware/:id"
+                element={
+                  token ? (
+                    <DashboardLayout>
+                      <UpdateHardware />
+                    </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
+                }
+              />
+<Route
+                path="/dashboard/create-hardware"
+                element={
+                  token ? (
+                    <DashboardLayout>
+                      <CreateHardware />
+                    </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
+                }
+              />
+
+<Route
+                path="/dashboard/list-newsletter"
+                element={
+                  token ? (
+                    <DashboardLayout>
+                      <ListNewsletter />
+                    </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
+                }
+              />
+
+<Route
+                path="/dashboard/update-newsletter/:id"
+                element={
+                  token ? (
+                    <DashboardLayout>
+                      <UpdateNewsletter />
+                    </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
+                }
+              />
+<Route
+                path="/dashboard/create-newsletter"
+                element={
+                  token ? (
+                    <DashboardLayout>
+                      <CreateNewsletter />
                     </DashboardLayout>
                   ) : (
                     <Navigate to="/" />
