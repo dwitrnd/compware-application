@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
@@ -48,6 +48,12 @@ const Card = styled.div`
 `;
 
 const TestimonialCard = ({ name, description, photoUrl }) => {
+  const [tring, setTring] = useState(description);
+  useEffect(() => {
+    const regex = /(<([^>]+)>)/gi;
+    const newTring = tring.replace(regex, "");
+    setTring(newTring);
+  }, []);
   return (
     <>
       <Card>
@@ -63,7 +69,7 @@ const TestimonialCard = ({ name, description, photoUrl }) => {
           }}
           className="roboto_400"
         >
-          {description}
+          {tring}
         </p>
 
         <hr />

@@ -176,6 +176,11 @@ const Dashboard = ({ children }) => {
                 <span>Requested Certificates</span>
               </Link>
             </li>
+            <li class="sidebar-list-item">
+              <Link to="/dashboard/list-newsletter">
+                <span> Newsletter </span>
+              </Link>
+            </li>
           </ul>
         </div>
         <div class="app-content">
