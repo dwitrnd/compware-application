@@ -25,10 +25,13 @@ import Courses from "./screen/Courses/Courses";
 import RequestCertificate from "./screen/RequestCertificate/RequestCertificate";
 import VerifyCertificate from "./screen/VerifyCertificate/VerifyCertificate";
 import Blog from "./screen/Blog/Blog";
+import Workshop from "./screen/Workshop/Workshop";
 import TermsAndConditions from "./screen/TermsAndConditions/TermsAndConditions";
 import BlogPage from "screen/Blog/BlogPage";
+import WorkshopPage from "screen/Workshop/WorkshopPage";
 import CourseDetailPage from "screen/CourseDetailPage/CourseDetailPage";
 import SecondBlogPage from "screen/Blog/SecondBlogPage";
+import SecondWorkshopPage from "screen/Workshop/SecondWorkshopPage";
 import DashboardLayout from "../src/components/DashboardLayout/DashboardLayout";
 import ListEnrollStudentBody from "screen/Dashboard/ListEnrollStudent";
 import ListCourseBody from "screen/Dashboard/ListCourseBody";
@@ -46,14 +49,17 @@ import EditTeam from "screen/Dashboard/EditTeam";
 import Event from "screen/Event/EventPage";
 import ListGalleryBody from "screen/Dashboard/ListGalleryBody/ListGalleryBody";
 import CreateGallery from "screen/Dashboard/ListGalleryBody/CreateGallery";
+import ListWorkshopBody from "screen/Dashboard/ListWorkshopBody/ListWorkshopBody";
 import ListBlogBody from "screen/Dashboard/ListBlogBody/ListBlogBody";
 import ListSessionBody from "screen/Dashboard/ListSessionBody/ListSessionBody";
 import CreateBlog from "screen/Dashboard/ListBlogBody/CreateBlog";
+import CreateWorkshop from "screen/Dashboard/ListWorkshopBody/CreateWorkshop";
 import CreateSessions from "screen/Dashboard/ListSessionBody/CreateSessions";
 import EditSessions from "screen/Dashboard/ListSessionBody/EditSessions";
 import ListTrainer from "screen/Dashboard/ListTrainer/ListTrainer";
 import AddTrainer from "screen/Dashboard/AddTrainer/AddTrainer";
 import UpdateBlog from "screen/Dashboard/ListBlogBody/UpdateBlog";
+import UpdateWorkshop from "screen/Dashboard/ListWorkshopBody/UpdateWorkshop";
 import ListStudentCertificateBody from "screen/Dashboard/ListStudentCertificateBody/ListStudentCertificateBody";
 import CreateStudentCertificate from "screen/Dashboard/ListStudentCertificateBody/CreateStudentCertificate";
 import CreateTestimonial from "screen/Dashboard/ListTestimonialBody/CreateTestimonial";
@@ -217,6 +223,40 @@ function App() {
                   element={
                     <Layout>
                       <SecondBlogPage />
+                    </Layout>
+                  }
+                />
+
+<Route
+                  path="workshop"
+                  element={
+                    <Layout>
+                      <Workshop />
+                      <PageTitle title="Workshops" />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="/dashboard/update-workshop/:id"
+                  element={
+                    <DashboardLayout>
+                      <UpdateWorkshop />
+                    </DashboardLayout>
+                  }
+                />
+                <Route
+                  path="workshop-page/:id"
+                  element={
+                    <Layout>
+                      <WorkshopPage />
+                    </Layout>
+                  }
+                />
+                <Route
+                  path="workshop-page-2"
+                  element={
+                    <Layout>
+                      <SecondWorkshopPage />
                     </Layout>
                   }
                 />
@@ -484,6 +524,18 @@ function App() {
                 }
               />
               <Route
+                path="/dashboard/list-workshop"
+                element={
+                  token ? (
+                  <DashboardLayout>
+                    <ListWorkshopBody />
+                  </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
+                }
+              />
+              <Route
                 path="/dashboard/list-students"
                 element={
                   token ? (
@@ -501,6 +553,18 @@ function App() {
                   token ? (
                   <DashboardLayout>
                     <CreateBlog />
+                  </DashboardLayout>
+                  ) : (
+                    <Navigate to="/" />
+                  )
+                }
+              />
+              <Route
+                path="/dashboard/create-workshop"
+                element={
+                  token ? (
+                  <DashboardLayout>
+                    <CreateWorkshop />
                   </DashboardLayout>
                   ) : (
                     <Navigate to="/" />

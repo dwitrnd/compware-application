@@ -146,11 +146,11 @@ const Dashboard = ({ children }) => {
               </Link>
             </li>
 
-            <li class="sidebar-list-item">
+            {/* <li class="sidebar-list-item">
               <Link to="/dashboard/list-blog">
                 <span> Blog </span>
               </Link>
-            </li>
+            </li> */}
             <li class="sidebar-list-item">
               <Link to="/dashboard/list-sessions">
                 <span> Sessions </span>
@@ -179,6 +179,11 @@ const Dashboard = ({ children }) => {
             <li class="sidebar-list-item">
               <Link to="/dashboard/list-newsletter">
                 <span> Newsletter </span>
+              </Link>
+            </li>
+            <li class="sidebar-list-item">
+              <Link to="/dashboard/list-workshop">
+                <span> Workshop </span>
               </Link>
             </li>
           </ul>

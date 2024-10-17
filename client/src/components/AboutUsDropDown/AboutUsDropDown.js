@@ -158,9 +158,9 @@ export default function AboutUsDropDown() {
             <Link to="/our-team" onClick={handleClose}>
               <li style={{ width: "100%" }}>Our Team</li>
             </Link>
-            <Link to="/blog" onClick={handleClose}>
+            {/* <Link to="/blog" onClick={handleClose}>
               <li>Blogs</li>
-            </Link>
+            </Link> */}
             <Link to="/gallery" onClick={handleClose}>
               <li>Gallery</li>
             </Link>
@@ -193,7 +193,8 @@ export default function AboutUsDropDown() {
             </li>
 
             {newsletterOpen && (
-              <ul className="newsletter_dropdown" style={{ listStyle: "none" }}>
+              <ul className="newsletter_dropdown" style={{ listStyle: "none",  color: "#14558A",fontSize:"14px"
+               }}>
                 {tableData && tableData.length > 0 ? (
                   tableData.map((data, index) => (
                     <li key={index}>
