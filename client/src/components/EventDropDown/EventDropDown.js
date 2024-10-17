@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useState} from "react";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -68,6 +68,7 @@ export default function EventDropDown() {
   };
 
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [newsletterOpen, setNewsletterOpen] = useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -75,6 +76,11 @@ export default function EventDropDown() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const toggleNewsletter = () => {
+    setNewsletterOpen((prev) => !prev);
+  };
+
 
   return (
     <>
@@ -87,7 +93,6 @@ export default function EventDropDown() {
         disableElevation
         onClick={handleClick}
         className="roboto_500"
-        // endIcon={<KeyboardArrowDownIcon />}
       >
         Event
       </Button>
@@ -101,31 +106,54 @@ export default function EventDropDown() {
         open={open}
         onClose={handleClose}
       >
-        <MenuList onClick={handleClose}>
+        <MenuList>
           <ul
             className="submenu_container roboto_400"
             style={{ width: "100%" }}
           >
-            <Link to="/episode-I">
+            <li
+              onClick={toggleNewsletter}
+              style={{
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              Tech Dialogue Series
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+                style={{
+                  marginLeft: "0.5rem",
+                  transition: "transform 0.3s",
+                  transform: newsletterOpen ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M1.646 5.646a.5.5 0 0 1 .708 0L8 11.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+                />
+              </svg>
+            </li>
+
+            {newsletterOpen && (
+              <ul className="newsletter_dropdown" style={{ listStyle: "none",  color: "#14558A", fontSize: "14px" }}>
+                <Link to="/episode-I" onClick={handleClose}>
               <li>Episode I</li>
             </Link>
-            <Link to="/episode-II">
+            <Link to="/episode-II" onClick={handleClose}>
               <li>Episode II</li>
+            </Link>
+              </ul>
+            )}
+            <Link to="/workshop" onClick={handleClose}>
+            <li>Workshops</li>
             </Link>
           </ul>
         </MenuList>
-        {/* <MenuList onClick={handleClose}>
-          <Link to="/our-team">Our Team</Link>
-        </MenuList>
-        <MenuList>
-          <Link to="/blog">Blog</Link>
-        </MenuList>
-        <MenuList>
-          <Link to="/event">Event</Link>
-        </MenuList>
-        <MenuList>
-          <Link to="/gallery">Gallery</Link>
-        </MenuList> */}
       </ClickDropdown>
     </>
   );

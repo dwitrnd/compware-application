@@ -47,6 +47,7 @@ const clientRoutes = require("./routes/clientRouter");
 const placementRoutes = require("./routes/placementRouter");
 const hardwareRoutes = require("./routes/hardwareRouter");
 const newsletterRoutes = require("./routes/newsletterRouter");
+const workshopRoutes = require("./routes/workshopRouter");
 
 app.use("/api/users", userRoutes);
 app.use("/api/facts", factRoutes);
@@ -70,6 +71,7 @@ app.use("/api/placement", placementRoutes);
 app.use("/api/enrollmentStatus", enquiryRoutes);
 app.use("/api/hardware", hardwareRoutes);
 app.use("/api/newsletter", newsletterRoutes);
+app.use("/api/workshop", workshopRoutes);
 
 app.use("/storage", express.static(path.join(appRoot, "storage")));
 
