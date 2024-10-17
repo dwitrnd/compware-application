@@ -52,58 +52,84 @@ const Workshop = () => {
       </div>
     );
   }
-  return (
-    <>
-      <Container>
-        <section
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            marginTop: "40px",
-            alignItems: "center",
-          }}
-        >
-          <Typography variant="h3" color="primary">
-            Workshops
-          </Typography>
-        </section>
-        {tableData &&
-          tableData
-            .slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage) // Slice the data for the current page
-            .map((item) => {
-              return (
-                <>
-                  <WorkshopData
-                    id={item._id}
-                    title={item.title}
-                    date={item.date}
-                    
-                    logo={`${constant.base}/storage/${item.logo}`}
-                    article={item.article}
-                  />
-                </>
-              );
-            })}
-        <Stack
-          spacing={2}
-          direction="row"
-          alignItems="flex-end"
-          justifyContent="center"
-          marginTop={3}
-          marginBottom={3}
-        >
-          <Pagination
-            onChange={handlePageChange}
-            count={Math.ceil(tableData.length / itemsPerPage)}
-            color="primary"
-            shape="rounded"
-            style={{ marginTop: "3rem" }}
-          />
-        </Stack>
-      </Container>
-    </>
-  );
+  if(tableData>0){
+    return (
+      <>
+        <Container>
+          <section
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              marginTop: "40px",
+              alignItems: "center",
+            }}
+          >
+            <Typography variant="h3" color="primary">
+              Workshops
+            </Typography>
+          </section>
+          {
+            tableData &&
+            tableData
+              .slice((pageNumber - 1) * itemsPerPage, pageNumber * itemsPerPage) // Slice the data for the current page
+              .map((item) => {
+                return (
+                  <>
+                    <WorkshopData
+                      id={item._id}
+                      title={item.title}
+                      date={item.date}
+                      
+                      logo={`${constant.base}/storage/${item.logo}`}
+                      article={item.article}
+                    />
+                  </>
+                );
+              })}
+          <Stack
+            spacing={2}
+            direction="row"
+            alignItems="flex-end"
+            justifyContent="center"
+            marginTop={3}
+            marginBottom={3}
+          >
+            <Pagination
+              onChange={handlePageChange}
+              count={Math.ceil(tableData.length / itemsPerPage)}
+              color="primary"
+              shape="rounded"
+              style={{ marginTop: "3rem" }}
+            />
+          </Stack>
+        </Container>
+      </>
+    );
+  }
+else{
+return(
+  <>
+        <Container>
+          <section
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              marginTop: "40px",
+              alignItems: "center",
+            }}
+          >
+            <Typography variant="h3" color="primary">
+              Workshops
+            </Typography>
+          </section>
+          <p style={{ textAlign:"center", paddingTop:"25px", fontWeight:"900" }}>No workshops found.</p>
+          
+        </Container>
+      </>
+)
+}
 };
 
 export default Workshop;
