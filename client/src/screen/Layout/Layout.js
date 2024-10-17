@@ -362,9 +362,9 @@ function DrawerAppBar(props) {
                 </div>
                 <div class="footer__upper--right">
                   <ul>
-                    <li>
+                    {/* <li>
                       <a href="/blog">Blog</a>
-                    </li>
+                    </li> */}
                     <li>
                       <a href="/terms-and-condition"> Policy </a>
                     </li>
