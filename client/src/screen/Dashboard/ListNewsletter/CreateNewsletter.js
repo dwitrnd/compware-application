@@ -83,7 +83,7 @@ function CreateNewsletter() {
 
   return (
     <div>
-      <h1>Create Hardware</h1>
+      <h1>Create Newsletter</h1>
       <form onSubmit={handleSubmit}>
 
         <label style={labelStyle}>Name</label>
