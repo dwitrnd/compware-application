@@ -24,6 +24,7 @@ const Workshop = () => {
     axios.get(url).then((res) => {
       setAllTableData(res.data.msg);
       setTableData(res.data.msg);
+      console.log(tableData);
       setIsLoading(false);
     });
   }, []);
@@ -52,7 +53,7 @@ const Workshop = () => {
       </div>
     );
   }
-  if(tableData>0){
+  if(tableData){
     return (
       <>
         <Container>
