@@ -25,7 +25,7 @@ export const WorkshopData = ({ id, title, date, logo, article }) => {
               <img
                 src={logo}
                 style={{
-                  width: "100%",
+                  width: "30rem",
                   height: "50vh",
                   objectFit: "cover",
                 }}
